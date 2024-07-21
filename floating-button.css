@@ -1,0 +1,75 @@
+
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    width: 100px;
+    height: 70px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius:50%;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+.floating-btn:hover {
+    background-color: #0056b3;
+}
+.floating-btn:active {
+    height: 55px;
+    width: 95px;
+}
+
+.hidden {
+    display: none;
+}
+
+#container {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    background-color: rgb(222, 78, 22);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 450px;
+    width: 270px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+#container button {
+    background-color: #ecf1f6;
+    color: rgb(10, 6, 6);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    /* display: block; */
+    margin: 10px 0;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#container button:hover {
+    background-color: #0056b3;
+}
+
+#joinMeetingDiv {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

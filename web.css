@@ -1,0 +1,308 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+
+}
+
+
+:root{
+    --snd-bg-color: #c4c8f9;
+    --text-color:#fff;
+    --main-color:#090908;
+    --bg-color: #a6cde5;
+    --white-4345: #f7f7f7;
+    --bg-shade: #f9eff7;
+    --primary-text-color:#631c0d;
+    --secondary-text-color:#926f57;
+    --accent-color:#2c7e9f;
+    --accent-color-dark:#0b870b;
+    --padding-inline-section:20px
+    
+   
+
+}
+
+body{
+    font-family: "poppins", sans-serif;
+    color: var(--primary-text-color)
+}
+
+h1{
+    font-size: 3rem;
+    margin-top: 12%;
+}
+h2{
+    font-size: 1.4rem;
+   
+}
+h3{
+    font-size: 1.1rem;
+    color: var(--bg-color);
+
+}
+p{
+    font-family: 'roboto',sans-serif;
+    font-size: 1.25rem;
+    color: var(--snd-bg-color);
+    line-height: 1.8rem;
+
+}
+
+button{
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--accent-color);
+    border-radius: 6px;
+    font-weight: 700;
+    color: white;
+    padding: 12px 24px ;
+    box-shadow:0 0 2px var(--secondary-text-color) ;
+    transition: all 0.3s ease;
+    margin-top: 9%;
+   
+}
+body {
+    font-family: Arial, sans-serif;
+   
+ 
+    margin: 0;
+}
+/* .card-container {
+    display: flex;
+    gap: 20px;
+} */
+
+.meeting{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat( 3,1fr);
+    gap:80px;
+}
+.card {
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border-radius: 5px;
+    background: var(--bg-shade);
+    text-align: center;
+    padding:30px 20px;
+    transition: all 0.1s ease;
+    border-radius: 40px;
+ 
+
+
+}
+
+
+.home{
+    font-size: 2.5rem;
+    display: block;
+    position: relative;
+    left: 25px;
+    z-index: 1;
+
+
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card img{
+    margin-top: 5%;
+    text-align: center;
+    height: 5rem;
+}
+
+.card:hover{
+    transform: translateY(10px);
+}
+.card-body{
+    text-align: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+.btn-primary {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+}
+.btn-primary:hover {
+    background-color: #155ab6;
+    border-color: #155ab6;
+    cursor: pointer;
+}
+
+.card-title{
+   margin-top: 5%;
+   font-family: "Cedarville Cursive", cursive;
+   
+}
+
+@media (max-width:1030px){
+    .meeting{
+        padding:20px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: repeat(3,1fr);
+      margin-top: 50%;
+       
+    }
+
+    .card{
+       width: 90%;
+       border-radius: 15px;
+
+    }
+} 
+
+@media (max-width:569px){
+    .meeting{
+        padding:20px;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(6,1fr);
+        /* margin-top: 300%;
+        padding-top: 100%; */
+        min-height: fit-content;
+        position: relative;
+        top: 580px;
+    
+    }
+ 
+
+    
+
+
+
+
+    .card{
+       min-width:fit-content ;
+    }
+} 
+
+
+
+@media (max-width:675px){
+    .home{
+        margin-bottom: 15%;
+    }
+
+}
+
+
+@media (max-width:370px){
+    .home{
+        margin-bottom: 15%;
+    }
+
+    
+
+}
+
+@media (max-width:338px){
+    .meeting{
+        padding:20px;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(6,1fr);
+       position: relative;
+       top: 650px;
+    
+    }
+
+
+
+
+    .card{
+       min-width:fit-content ;
+    }
+} 
+
+
+
+
+
+
+/* *{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+.container{
+    background:linear-gradient(45deg, blueviolet, lightgreen);
+    padding:15px 9%;
+    padding-bottom: 100px;
+}
+
+.container .heading{
+    text-align: center;
+    padding-bottom: 15px;
+    color:#fff;
+    text-shadow: 0 5px 10px rgba(0,0,0,.2);
+    font-size: 50px;
+}
+
+.container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap:15px;
+}
+
+.container .box-container .box{
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+    padding:30px 20px;
+}
+
+.container .box-container .box img{
+    height: 80px;
+}
+
+.container .box-container .box h3{
+    color:#444;
+    font-size: 22px;
+    padding:10px 0;
+}
+
+.container .box-container .box p{
+    color:#777;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.container .box-container .box .btn{
+    margin-top: 10px;
+    display: inline-block;
+    background:#333;
+    color:#fff;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 8px 25px;
+}
+
+.container .box-container .box .btn:hover{
+    letter-spacing: 1px;
+}
+
+.container .box-container .box:hover{
+    box-shadow: 0 10px 15px rgba(0,0,0,.3);
+    transform: scale(1.03);
+}
+
+@media (max-width:768px){
+    .container{
+        padding:20px;
+    }
+} */
