@@ -198,5 +198,32 @@
 <script src="collegemitra.js">
 </script>
 
+<!---  pop up   page -->
+<div class="popup">
+    <div class="popup-content">
+        <h3></h3>
+                    <div class="card">
+                    <img src="images/1.png" class="card-img-top" alt="sec a">
+                    <h5></h5>
+            </div>
+        </div>
+
+   </div>
+</div>
+
+<script>
+    const popup = document.querySelector('.popup');
+    const x = document.querySelector('.popup-content ')
+
+    window.addEventListener('load', () => {
+        popup.classList.add('showPopup');
+        popup.childNodes[1].classList.add('showPopup');
+    })
+    x.addEventListener('click', () => {
+        popup.classList.remove('showPopup');
+        popup.childNodes[1].classList.remove('showPopup');
+    })
+</script>
+
 </body>
 </html>
