@@ -48,7 +48,7 @@ body{
 
 }
 .popup-content {
-    width: clamp(300px, 200vw, 500px);
+    width: clamp(300px, 200vw, 450px);
     background-color:#f9eff7;
     padding: clamp(1rem, 20vw, 2rem);
     box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
