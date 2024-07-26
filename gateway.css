@@ -9,16 +9,15 @@
 :root{
     --snd-bg-color: #c4c8f9;
     --text-color:#fff;
-    --main-color:#090908;
+    --main-color:#491a02;
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
-    --bg-shade: #f9eff7;
-    --primary-text-color:#631c0d;
+    --bg-shade: #f0d8eb;
+    --primary-text-color:#010508;
     --secondary-text-color:#926f57;
-    --accent-color:#2c7e9f;
-    --accent-color-dark:#0b870b;
-    --padding-inline-section:20px
-   
+    --accent-color:#d2bf80f0;
+    --accent-color-dark:#856113;
+    --padding-inline-section:10px;
 
 }
 
@@ -84,22 +83,28 @@ nav{
     
 }
 
-nav ul{
+nav ul{    
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     list-style: none;
     overflow-x: hidden;
+
    
 }
 
 nav ul li a{
     text-decoration: none;
+    background-color: rgb(242, 208, 135);
+    border: 2px solid black;
+    border-radius: 20px;
     color: #1b1b1b;
-    margin: 0px 25px;
+    
+    margin:3px 3px 3px 25px;
     font-size: 18;
-    letter-spacing: 1px;
-    font-weight: 500;
-    padding: 10px 12px ;
+    letter-spacing: 0.5px;
+    font-weight:bold;
+    padding: 8px 10px ;
     transition: all 0.3s ease;
     overflow-x: hidden;
 }
@@ -183,10 +188,19 @@ section{
 }
 .card{
     box-shadow: 0 0 10px 0px ;
+    border-radius: 20px;
+    border: 7px double black;
     transition: transform 1.2s;
     height: auto; 
     overflow: hidden; 
     box-sizing: border-box; 
+}
+
+.card a:hover{
+    background: var(--main-color);
+    color: var(--snd-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+
 }
 
 
@@ -227,16 +241,14 @@ section{
     border-radius: 20px;
     border-bottom-right-radius: 0;
     position: relative;
-    z-index: 1;
     transition: all 0.3s ease;
     border: .2rem solid var(--text-color);
-
-
+    
 }
 
 .name{
     text-align: center;
-   color: #1b1b1b;
+   color: rgb(15, 15, 12);
    font-family: "Playwrite SK", cursive;
 }
 
@@ -272,15 +284,17 @@ section{
 }
 
 .About-card {
-    width: 18rem;
+    width: 15rem;
     height: auto;
     margin: 1rem;
-    background-color: #d9e6f5;
-    /* border-radius: 40px; */
-    /* border-bottom-right-radius: 0; */
+    background-color: #cab5af;
+    border-radius: 40px;
+    border-bottom-right-radius: 0;
+    border: 2px solid white;
     box-shadow: 0 0 1rem var(--main-color);
     text-align: center;
     transition: transform 0.3s ease;
+    
 }
 
 .About-card:hover {
@@ -302,6 +316,8 @@ section{
 }
 #btn{
 margin-bottom: 20px;
+border-radius: 2em;
+border: 2px solid white;
 }
 .Contact-heading {
     margin-bottom: 5%;
