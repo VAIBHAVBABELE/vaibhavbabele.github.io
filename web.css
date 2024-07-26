@@ -13,15 +13,15 @@
 :root{
     --snd-bg-color: #c4c8f9;
     --text-color:#fff;
-    --main-color:#090908;
+    --main-color:#491a02;
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
     --bg-shade: #f9eff7;
-    --primary-text-color:#631c0d;
+    --primary-text-color:#010508;
     --secondary-text-color:#926f57;
-    --accent-color:#2c7e9f;
-    --accent-color-dark:#0b870b;
-    --padding-inline-section:20px
+    --accent-color:#d2bf80f0;
+    --accent-color-dark:#856113;
+    --padding-inline-section:10px;
     
    
 
