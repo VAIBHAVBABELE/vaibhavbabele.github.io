@@ -23,6 +23,163 @@
 
 }
 
+/* emoji   */   
+
+.emoji {
+    width: auto;
+    background-color: #cab5af;
+}
+.emoji label {
+    margin: 0 0.1rem;
+    cursor: pointer;
+}
+.emoji img {
+    width: 40px;
+    height:40px;
+    opacity: .5;
+    transition: 200ms ease-in-out opacity,
+                200ms ease-in-out transform;
+}
+.emoji img:active { transform: scale(1.2); }
+
+#one:checked ~ label[for="one"] img,
+#two:checked ~ label[for="two"] img,
+#three:checked ~ label[for="three"] img,
+#four:checked ~ label[for="four"] img,
+#five:checked ~ label[for="five"] img {
+    opacity: 1;
+    animation: rotate 800ms linear;
+}
+@keyframes rotate {
+    from { transform: rotate(0) scale(1.2); }
+    to { transform: rotate(360deg) scale(1); }
+}
+.emoji input { display: none; }
+
+/*    emoji  end */
+
+
+/*   feedback form   */
+
+.form{
+    width: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form span{
+    font-size: large;
+    font-weight: bold;
+    
+}
+
+
+
+
+.form-heading{
+    color: #010508;
+    font-size: 2.5rem;
+    margin-top: 7%;
+    background: var(--bg-shade);
+    margin-bottom: 7%;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="number"],
+.form input[type="date"]
+.form textarea{
+    width:80%;
+    background-color: #dad6d9;
+    margin: 0.5%;
+    text-align: center;
+    height:7%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid rgb(84, 7, 7);
+    box-shadow: 0 0 2rem var(--main-color);
+}
+::placeholder{
+    color:rgb(1, 1, 12);
+    font-weight: bold;
+}
+
+.form input[type="text"]:hover,
+.form input[type="email"]:hover,
+.form input[type="password"]:hover,
+.form input[type="number"]:hover,
+.form input[type="date"]:hover
+.form textarea:hover{
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #e6eef4;
+    color: black;
+    box-shadow: 0 0 1rem var(--main-color);
+    border: 3px solid rgb(25, 11, 11);
+    
+
+}
+.form textarea{
+    width:80%;
+    background-color: #dad6d9;
+    height:100%;
+    margin: 0.5%;
+    text-align: center;
+    height:7%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 3px solid rgb(107, 7, 7);
+    box-shadow: 0 0 2rem var(--main-color); 
+}
+
+.form textarea:hover{
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #cbe4f3;
+    color:black;
+    box-shadow: 0 0 1rem var(--main-color);
+    border: 3px solid rgb(25, 11, 11);
+
+}
+
+
+.form-card{
+    align-items:center;
+    background: var(--bg-shade);
+    margin-bottom: 10%;
+    width: 25rem;
+    height: auto;
+    margin: 0.2rem;
+    background-color: #cab5af;
+    border-radius: 40px;
+    border-bottom-right-radius: 0;
+    border: 2px solid white;
+    box-shadow: 0 0 1rem var(--main-color);
+    text-align: center;
+    transition: transform 0.3s ease;
+
+}
+
+
+.form-flex{
+    display: grid;
+    row-gap: 10px;
+    column-gap: 50px;
+    grid-template-columns: repeat(3,0fr);  
+    grid-template-rows: repeat(2,0fr);    
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+
+}
+
+/* google form   end*/
+
+
 body{
     font-family: "Poppins", sans-serif;
     color: var(--primary-text-color)
