@@ -100,6 +100,71 @@
             </div>
         </div>
     </section>
+    <!--    google form     start-->
+<section class="form">
+    
+    <div class="form-flex">
+        <div class="form-card">
+            <h2 class="form-heading">Feedback</h2>
+        <form name="submit-to-google-sheet">
+            <input type="text" placeholder="Name" name="name" required><br><br>
+            <input type="email" placeholder="Email Address" name="email" required><br><br>
+            <input type="text" placeholder="College Name " name="college" required><br><br>
+            <textarea name="message" placeholder="Message" required></textarea><br>
+        
+            
+            <section class="emoji">
+                <h6>Rate The Website </h6>
+                <input type="radio" value="5" name="feedback" id="five">
+                <input type="radio" value="4" name="feedback" id="four">
+                <input type="radio" value="3" name="feedback" id="three">
+                <input type="radio" value="2" name="feedback"  id="two">
+                <input type="radio" value="1" name="feedback" id="one">
+                <label for="five">
+                    <img src="images/grinning.png" alt="">
+                </label>
+                <label for="four">
+                    <img src="images/smiling.png" alt="">
+                </label>
+                <label for="three">
+                    <img src="images/diagonal-mouth.png" alt="">
+                </label>
+                <label for="two">
+                    <img src="images/steam.png" alt="">
+                </label>
+                <label for="one">
+                    <img src="images/pouting.png" alt="">
+                </label>
+
+        </section>
+            <input class="primary-button" id="btn" type="submit" name="submit"><br>
+
+            <span id="success"></span>
+        </form>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxjEYs8FlorHOYEXWJi00k8Xf0__aj4x3gOX_BS-CRlDJiU57eWFdLZHazmCxPfkWHPFQ/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const success =document.getElementById('success')
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    success.innerHTML="Successfully Submit"
+                    setTimeout(function(){
+                        success.innerHTML="";
+                    },5000)
+                    form.reset();
+
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+        </div>
+    </div>
+</section>
+
+<!--    google form     end-->
     
 
 
