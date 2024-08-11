@@ -166,8 +166,8 @@
 
 .form-flex{
     display: grid;
-    row-gap: 10px;
-    column-gap: 50px;
+    row-gap: 25px;
+    column-gap: 8px;
     grid-template-columns: repeat(3,0fr);  
     grid-template-rows: repeat(2,0fr);    
     justify-content: center;
