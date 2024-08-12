@@ -21,6 +21,18 @@
    
 
 }
+.para{
+    color: black;
+    font-weight: bold;
+    align-items: center;
+    text-align:justify;
+    padding: 10px;
+    margin: 30px;
+}
+
+.para span{
+    color:#cf8133;
+}
 
 body{
     font-family: "poppins", sans-serif;
