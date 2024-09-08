@@ -23,7 +23,23 @@
 
 }
 
+
+.embed{
+    max-width: 100%;
+}
+
 /* emoji   */   
+.iframe{
+    margin: auto;
+    
+}
+
+iframe{
+    background:var(--bg-shade);
+    font-style: var(--text-color);
+    align-items: center;
+    margin: auto;
+}
 
 .emoji {
     width: auto;
@@ -34,8 +50,8 @@
     cursor: pointer;
 }
 .emoji img {
-    width: 40px;
-    height:40px;
+    width: 50px;
+    height:50px;
     opacity: .5;
     transition: 200ms ease-in-out opacity,
                 200ms ease-in-out transform;
@@ -62,11 +78,13 @@
 /*   feedback form   */
 
 .form{
-    width: auto;
-
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 80px;
 }
 
 .form span{
@@ -80,27 +98,31 @@
 
 .form-heading{
     color: #010508;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-top: 7%;
-    background: var(--bg-shade);
+    
     margin-bottom: 7%;
 }
 
 .form input[type="text"],
+.form select,
 .form input[type="email"],
 .form input[type="password"],
 .form input[type="number"],
 .form input[type="date"]
 .form textarea{
-    width:80%;
+    
+    width:60%;
+    
     background-color: #dad6d9;
-    margin: 0.5%;
+    margin: 0.1%;
     text-align: center;
     height:7%;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 5px;
+    border-radius: 15px;
     border: 3px solid rgb(84, 7, 7);
     box-shadow: 0 0 2rem var(--main-color);
+    
 }
 ::placeholder{
     color:rgb(1, 1, 12);
@@ -123,12 +145,11 @@
 
 }
 .form textarea{
-    width:80%;
+    width:60%;
     background-color: #dad6d9;
-    height:100%;
     margin: 0.5%;
     text-align: center;
-    height:7%;
+    height:50%;
     padding: 10px;
     border-radius: 20px;
     border: 3px solid rgb(107, 7, 7);
@@ -147,12 +168,9 @@
 
 
 .form-card{
-    align-items:center;
-    background: var(--bg-shade);
-    margin-bottom: 10%;
-    width: 25rem;
+    width: 30rem;
     height: auto;
-    margin: 0.2rem;
+    margin: 1rem;
     background-color: #cab5af;
     border-radius: 40px;
     border-bottom-right-radius: 0;
@@ -165,14 +183,12 @@
 
 
 .form-flex{
-    display: grid;
-    row-gap: 25px;
-    column-gap: 8px;
-    grid-template-columns: repeat(3,0fr);  
-    grid-template-rows: repeat(2,0fr);    
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
+    
 
 
 }
@@ -205,7 +221,7 @@ body{
 
 }
 .popup-content {
-    width: clamp(300px, 200vw, 450px);
+    width: clamp(700px, 500vw, 700px);
     background-color:#f9eff7;
     padding: clamp(1rem, 20vw, 2rem);
     box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
@@ -297,21 +313,27 @@ padding-inline: var(--padding-inline-section);
 }
 
 nav{
-    height: 10vh;
+    padding: 10px;
+    background-color: rgb(242, 208, 135);
+    height:15vh;
     display: flex; 
     align-items: center;
     justify-content:space-evenly;
-    padding: 1% 1% 0px 2%;
-    background: var(--bg-shade);
-   
+    
+    
     
 }
 
 
 
 nav ul{
-    margin-top:10px;
+    
+    margin-top:20px;
     display: flex;
+    border-radius: 10px;
+    
+    color: #1b1b1b;
+    
     justify-content: center;
     list-style: none;
     overflow-x: hidden;
@@ -320,30 +342,33 @@ nav ul{
 
 nav ul li a{
     text-decoration: none;
-    background-color: rgb(242, 208, 135);
-    border: 2px solid black;
-    border-radius: 20px;
+    position: relative;
     color: #1b1b1b;
-    margin:3px 3px 3px 25px;
+    margin: 10px;
     font-size: 18;
     letter-spacing: 0.5px;
     font-weight:bold;
-    padding: 8px 10px ;
+    padding: 8px 8px ;
     transition: all 0.3s ease;
     overflow-x: hidden;
 }
-
 nav ul li a:hover {
     background-color: #75b1e9;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    
+    
   
 }
+
+
 
 
 
 .nav-link:hover,
 .nav-link.active {
     background-color: #555;
+    
 }
 
 nav .logo {
@@ -362,6 +387,7 @@ nav .menu-btn i {
     font-size: 22px;
     cursor: pointer;
     display: none;
+    
 }
 
 section{
@@ -418,6 +444,8 @@ section{
     border-radius: 20px;
     border: 7px double black;
     transition: transform 1.2s;
+    grid-template-columns: repeat(5,0fr);  
+    grid-template-rows: repeat(2,0fr);
     height: auto; 
     overflow: hidden; 
     box-sizing: border-box; 
@@ -649,6 +677,7 @@ border: 2px solid white;
 
 }
 @media (max-width:  1000px){
+    
 
     nav ul{
         position: fixed;
@@ -724,6 +753,9 @@ min-width: 100%;
 
 
 @media only screen and (max-width: 772px) {
+    .popup-content {
+        width: clamp(100%, 80%, 100%);
+    }
    .main-page{
     flex-direction: column-reverse;
     gap: 20px;
@@ -761,6 +793,21 @@ p{
     margin-bottom: 20px;
     width: 80%;
 }
+.form-flex {
+    width:100%;
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    width: 100%;
+}
+
+.form-card {
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+}
 .contact-section .contact-item {
     flex: 0 0 100%;
     max-width: 100%;
@@ -790,6 +837,7 @@ p{
 }
 
 @media only screen and (max-width: 450px){
+    
     p{
 width: fit-content;
     }
@@ -805,6 +853,22 @@ width: fit-content;
     .header-right img{
         width: 100%;
         margin-left: 0%;
+    }
+
+    .form-flex {
+        width:100%;
+        align-items: center;
+    justify-content: center;
+    }
+    .form{
+        width: 100%;
+    }
+    
+    .form-card {
+        margin-bottom: 5px;
+        width: 100%;
+        align-items: center;
+    justify-content: center;
     }
 
     .header-left{
@@ -861,6 +925,27 @@ width: fit-content;
     
 }
 @media only screen and (max-width: 275px) {
+    .popup-content {
+        width: clamp(90%, 70%, 90%);
+    }
+    .form-flex {
+        width:100%;
+        
+        align-items: center;
+    justify-content: center;
+    }
+    .form{
+        width: 100%;
+    }
+    
+    .form-card {
+        margin-bottom: 5px;
+        width: 80%;
+        
+    }
+    .name{
+        font-size: 2rem;
+    }
     .Contact-heading {
         font-size: 1.2rem;
         margin-bottom: 3%;
