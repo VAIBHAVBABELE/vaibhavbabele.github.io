@@ -12,7 +12,7 @@
     --main-color:#491a02;
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
-    --bg-shade: #f9eff7;
+    --bg-shade: #f0d8eb;
     --primary-text-color:#010508;
     --secondary-text-color:#926f57;
     --accent-color:#d2bf80f0;
@@ -34,160 +34,6 @@
 .para span{
     color:#cf8133;
 }
-/* emoji   */   
-
-.emoji {
-    width: auto;
-    background-color: #cab5af;
-}
-.emoji label {
-    margin: 0 0.1rem;
-    cursor: pointer;
-}
-.emoji img {
-    width: 40px;
-    height:40px;
-    opacity: .5;
-    transition: 200ms ease-in-out opacity,
-                200ms ease-in-out transform;
-}
-.emoji img:active { transform: scale(1.2); }
-
-#one:checked ~ label[for="one"] img,
-#two:checked ~ label[for="two"] img,
-#three:checked ~ label[for="three"] img,
-#four:checked ~ label[for="four"] img,
-#five:checked ~ label[for="five"] img {
-    opacity: 1;
-    animation: rotate 800ms linear;
-}
-@keyframes rotate {
-    from { transform: rotate(0) scale(1.2); }
-    to { transform: rotate(360deg) scale(1); }
-}
-.emoji input { display: none; }
-
-/*    emoji  end */
-
-
-/*   feedback form   */
-
-.form{
-    width: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form span{
-    font-size: large;
-    font-weight: bold;
-    
-}
-
-
-
-
-.form-heading{
-    color: #010508;
-    font-size: 2.5rem;
-    margin-top: 7%;
-    background: var(--bg-shade);
-    margin-bottom: 7%;
-}
-
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="number"],
-.form input[type="date"]
-.form textarea{
-    width:80%;
-    background-color: #dad6d9;
-    margin: 0.5%;
-    text-align: center;
-    height:7%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 3px solid rgb(84, 7, 7);
-    box-shadow: 0 0 2rem var(--main-color);
-}
-::placeholder{
-    color:rgb(1, 1, 12);
-    font-weight: bold;
-}
-
-.form input[type="text"]:hover,
-.form input[type="email"]:hover,
-.form input[type="password"]:hover,
-.form input[type="number"]:hover,
-.form input[type="date"]:hover
-.form textarea:hover{
-    font-weight: bold;
-    border-radius: 10px;
-    background-color: #e6eef4;
-    color: black;
-    box-shadow: 0 0 1rem var(--main-color);
-    border: 3px solid rgb(25, 11, 11);
-    
-
-}
-.form textarea{
-    width:80%;
-    background-color: #dad6d9;
-    height:100%;
-    margin: 0.5%;
-    text-align: center;
-    height:7%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 3px solid rgb(107, 7, 7);
-    box-shadow: 0 0 2rem var(--main-color); 
-}
-
-.form textarea:hover{
-    font-weight: bold;
-    border-radius: 10px;
-    background-color: #cbe4f3;
-    color:black;
-    box-shadow: 0 0 1rem var(--main-color);
-    border: 3px solid rgb(25, 11, 11);
-
-}
-
-
-.form-card{
-    align-items:center;
-    background: var(--bg-shade);
-    margin-bottom: 10%;
-    width: 25rem;
-    height: auto;
-    margin: 0.2rem;
-    background-color: #cab5af;
-    border-radius: 40px;
-    border-bottom-right-radius: 0;
-    border: 2px solid white;
-    box-shadow: 0 0 1rem var(--main-color);
-    text-align: center;
-    transition: transform 0.3s ease;
-
-}
-
-
-.form-flex{
-    display: grid;
-    row-gap: 25px;
-    column-gap: 8px;
-    grid-template-columns: repeat(3,0fr);  
-    grid-template-rows: repeat(2,0fr);    
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-
-}
-/* goole form end*/
 
 body{
     font-family: "Poppins", sans-serif;
@@ -246,19 +92,27 @@ padding-inline: var(--padding-inline-section);
 }
 
 nav{
+    padding: 10px;
+    background-color: rgb(242, 208, 135);
     height: 10vh;
     display: flex; 
     align-items: center;
-    justify-content: space-between;
-    padding: 1% 2% 0px 5%;
-    background: var(--bg-shade);
-   
+    justify-content:space-evenly;
+    
+    
     
 }
 
+
+
 nav ul{
-    margin-top: 10px;
+    
+    margin-top:20px;
     display: flex;
+    border-radius: 10px;
+    
+    color: #1b1b1b;
+    
     justify-content: center;
     list-style: none;
     overflow-x: hidden;
@@ -267,23 +121,23 @@ nav ul{
 
 nav ul li a{
     text-decoration: none;
-    background-color: rgb(242, 208, 135);
-    border: 2px solid black;
-    border-radius: 20px;
-    color: #1b1b1b;
     
-    margin:3px 3px 3px 25px;
+    color: #1b1b1b;
+    margin: 10px;
     font-size: 18;
     letter-spacing: 0.5px;
     font-weight:bold;
-    padding: 8px 10px ;
+    padding: 8px 8px ;
     transition: all 0.3s ease;
     overflow-x: hidden;
 }
 
 nav ul li a:hover {
     background-color: #75b1e9;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    
+    
   
 }
 .nav-link:hover,
