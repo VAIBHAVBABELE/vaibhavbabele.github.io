@@ -40,12 +40,15 @@
         <label for="click" class="menu-btn">
             <i class="fa-sharp fa-solid fa-bars"></i>
         </label>
-        <ul id="scroll-hide">
+        <ul >
             <li><a href="#home" id="active">Home</a></li>
-            <li><a href="#Services">Services</a></li>
+            <li>
+                <a href="#Services" >Services</a>
+                
+            </li>
             <li><a href="#about">About </a></li>
             <li><a href="#contact">Contact us</a></li>
-            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSea6i2hIF4UEdqurCe72fXw2f5Uq1V6fmst2xHVb3eB6lRX1w/viewform?usp=sf_link">Feedback</a></li>
+            <li><a href="#Feedback">Feedback</a></li>
         </ul>
        
     </nav>
@@ -99,41 +102,115 @@
                 <img src="images/gall.jpg" class="card-img-top" alt="gallery">
                   <div class="card-body">
                   <h5 class="card-title">Gallery</h5>
-                  <p class="card-text"></p>
-                  <a href="" class="primary-button" id="btn">Fresher 2022</a>
-                  <a href="" class="primary-button" id="btn">Fresher 2023</a>
+                  <p class="card-text">View all events memories here.</p>
+                  <a href="gallery.html" class="primary-button" id="btn">Open</a>
+                  
                   
                 </div>
+
             </div>
+            
         </div>
-        <p class="para">Your <span>feedback</span> is crucial for improving the <span>Nitra Mitra</span> website! We aim to create the
-             best platform for the <span>NITRA Technical Campus</span> community, and your insights will help us achieve 
-             this. Please share your experiences regarding navigation, content relevance, design, and 
-             functionality. Your detailed and honest input will guide our enhancements and ensure the site 
-             meets your needs effectively. By providing <span>valuable feedback</span>, you contribute directly to making 
-             <span>Nitra Mitra</span> a more user-friendly and engaging resource. Thank you for helping us improve and 
-             making a difference with your input!</p>
+        
     </section>
+    <section>
+        <h1 class="service-heading">Announcement Section</h1>
+        <p class="para"><span>Announcement Section on Nitra Mitra</span><br>
+
+            The Announcement Section on <span>Nitra Mitra</span> is your go-to place for the latest updates and important 
+            news from <span>Nitra Technical Campus</span>. Whether it’s <span>upcoming events, examination schedules, or important 
+            notices</span>, this section ensures that students, faculty, and staff are always informed. Key announcements 
+            about campus <span>activities, sports competitions, cultural events, and academic deadlines</span> are regularly 
+            posted to keep everyone up to date. 
+            
+            The <span>Nitra Mitra</span> Announcement Section is also a platform to highlight special achievements, 
+            such as student awards, event results, and campus milestones. By checking this section frequently, 
+            you’ll never miss any critical information or exciting news happening around *Nitra Technical Campus.
+             Stay connected, stay informed with <span>Nitra Mitra</span>!</p>
+        <div class="embed">
+            <iframe src="https://script.google.com/macros/s/AKfycbxnFg2ThyWreuY5yTIxKVQ1Nhkk88lWX0fWl9Yo7eiDI42SgnAqzI11K6gKFpK37-jLYw/exec"  
+            height="90%" width="100%" scrolling="auto"  ></iframe>
+
+        </div>
+    </section>
+    
+    <section>
+        <h1 class="service-heading">User Experience</h1>
+        <p class="para"><span>User Testimonials on Nitra Mitra</span><br>
+
+            The user experience on <span>Nitra Mitra</span> has been overwhelmingly positive, with students and 
+            faculty alike praising its ease of use and comprehensive resources. Many students have expressed their
+             appreciation for the seamless access to Nitra Technical Campus <span>materials, including notes,
+              announcements, and event updates</span>. The website's intuitive layout allows users to quickly find important information, from academic resources to campus activities.
+            
+            Users have highlighted how <span>Nitra Mitra</span> serves as a one-stop platform that enhances their college
+             experience by keeping them informed and connected. Its mobile-friendly design ensures students can
+              access resources anytime, anywhere. Overall, <span>Nitra Mitra</span> has become an essential tool for students
+               at <span></span>Nitra Technical Campus, offering a streamlined and user-friendly experience.</p>
+        <div class="embed">
+            <iframe src="https://script.google.com/macros/s/AKfycbzp4Aq2xO8XjUbRPhfeBIupbSO0Hl1oxDezNjPBfL_gNfS3pZScwzvHWPQJflEvdkxD/exec"  
+            height="90%" width="100%" scrolling="auto"  ></iframe>
+        </div>
+       
+    </section>
+    
+
+
     <!--    google form     start-->
-<section class="form">
+<section >
+    <h1 href="" class="service-heading">Feedback Form</h1>
+
+    <p class="para">Your <span>feedback</span> is crucial for improving the <span>Nitra Mitra</span> website! We aim to create the
+        best platform for the <span>NITRA Technical Campus</span> community, and your insights will help us achieve 
+        this. Please share your experiences regarding navigation, content relevance, design, and 
+        functionality. Your detailed and honest input will guide our enhancements and ensure the site 
+        meets your needs effectively. By providing <span>valuable feedback</span>, you contribute directly to making 
+        <span>Nitra Mitra</span> a more user-friendly and engaging resource. Thank you for helping us improve and 
+        making a difference with your input!</p><br><br><br><br>
+<div class="form">
     
     <div class="form-flex">
         <div class="form-card">
-            <h2 class="form-heading">Feedback</h2>
+            <h2 id="Feedback" class="form-heading">Feedback</h2>
         <form name="submit-to-google-sheet">
-            <input type="text" placeholder="Name" name="name" required><br><br>
-            <input type="email" placeholder="Email Address" name="email" required><br><br>
-            <input type="text" placeholder="College Name " name="college" required><br><br>
-            <textarea name="message" placeholder="Message" required></textarea><br>
+            <input type="text" placeholder="Name" name="Name" required><br><br>
+            <input type="email" placeholder="Email Address" name="Email" required><br><br>
+            <input type="text" placeholder="College Name " name="College" required><br><br>
+            <input type="text" placeholder="Branch" name="Branch" required><br><br>
+            <input type="number" placeholder="Passing Year" name="Passing Year" required><br><br>
+            <select name="Year" required>
+                <optgroup label="1st Year">
+                    <option value="1 Year,1 Sem">1 Sem</option>
+                    <option value="1 Year,2 Sem">2 Sem</option>
+                </optgroup>
+                <optgroup label="2nd Year">
+                    <option value="2 Year,3 Sem">3 Sem</option>
+                    <option value="2 Year,4 Sem">4 Sem</option>
+                </optgroup>
+                <optgroup label="3rd Year">
+                    <option value="3 Year,5 Sem" selected>5 Sem</option>
+                    <option value="3 Year,6 Sem">6 Sem</option>
+                </optgroup>
+                <optgroup label="4th Year">
+                    <option value="4 Year,7 Sem">7 Sem</option>
+                    <option value="4 Year,8 Sem">8 Sem</option>
+                </optgroup>
+            </select><br><br>
+            <select name="Approve" required>Your Approval
+                <option value="yes">Allow</option>
+                <option value="no">Not Allow</option>
+            </select><br><br>
+
+           <textarea name="Message" placeholder="Message" ></textarea><br><br>
         
             
-            <section class="emoji">
+            <div class="emoji">
                 <h6>Rate The Website </h6>
-                <input type="radio" value="5" name="feedback" id="five">
-                <input type="radio" value="4" name="feedback" id="four">
-                <input type="radio" value="3" name="feedback" id="three">
-                <input type="radio" value="2" name="feedback"  id="two">
-                <input type="radio" value="1" name="feedback" id="one">
+                <input type="radio" value="5 star" name="Feedback" id="five">
+                <input type="radio" value="4 star" name="Feedback" id="four">
+                <input type="radio" value="3 star" name="Feedback" id="three">
+                <input type="radio" value="2 star" name="Feedback"  id="two">
+                <input type="radio" value="1 star" name="Feedback" id="one">
                 <label for="five">
                     <img src="images/grinning.png" alt="">
                 </label>
@@ -149,14 +226,18 @@
                 <label for="one">
                     <img src="images/pouting.png" alt="">
                 </label>
+                
 
-        </section>
-            <input class="primary-button" id="btn" type="submit" name="submit"><br>
+            </div>
+            <div><br>
+        <h6>Just Click on submit and wait for 5 sec</h6>
+            <input class="primary-button" id="btn" type="submit" value="submit"  name="submit"><br><br>
+            </div>
 
             <span id="success"></span>
         </form>
         <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxjEYs8FlorHOYEXWJi00k8Xf0__aj4x3gOX_BS-CRlDJiU57eWFdLZHazmCxPfkWHPFQ/exec'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx_5lwHO3A6ap4ZoM0coWzboAUm1nqTHzSIaPT_Q6pB62TWYjIrCQVVUXpNqyzRhDGc/exec'
             const form = document.forms['submit-to-google-sheet']
             const success =document.getElementById('success')
           
@@ -167,7 +248,7 @@
                     success.innerHTML="Successfully Submit"
                     setTimeout(function(){
                         success.innerHTML="";
-                    },5000)
+                    },1000)
                     form.reset();
 
                 })
@@ -176,12 +257,16 @@
           </script>
         </div>
     </div>
+    </div>
+    </section>
 </section>
+
 
 <!--    google form     end-->
     
 
-
+<section id="googleform" class="embed"><br><br><br><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf6MKvfcHg9aKJ58AZSflu_0QkguKBx7iFfmHFDqRQotiblHw/viewform?embedded=true" 
+    height="80%" width="100%" scrolling="yes"   frameborder="10" marginheight="0" marginwidth="0">Loading…</iframe></section>
     <!-- ABOUT DESIGNING -->
    
 <section class="about  " id="about">
@@ -280,7 +365,7 @@ better serve the academic community.</p>
 
     var Typed = new Typed (".greeting",{
 
-        strings : ["Welcome!! NTCians"],
+        strings : ["Hello!! NTCians"],
         typeSpeed : 150,
         backspeed : 150,
         loop : false,
@@ -292,7 +377,7 @@ better serve the academic community.</p>
 <script src="collegemitra.js">
 </script>
 
-<!---  pop up   page -->
+  <!---pop up   page --->
 <div class="popup">
     <div class="popup-content">
         <h3></h3>
@@ -318,6 +403,7 @@ better serve the academic community.</p>
         popup.childNodes[1].classList.remove('showPopup');
     })
 </script>
+
 
 </body>
 </html>
