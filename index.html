@@ -130,7 +130,11 @@
         <div class="embed">
             <iframe src="https://script.google.com/macros/s/AKfycbxnFg2ThyWreuY5yTIxKVQ1Nhkk88lWX0fWl9Yo7eiDI42SgnAqzI11K6gKFpK37-jLYw/exec"  
             height="90%" width="100%" scrolling="auto"  ></iframe>
-
+<script>window.addEventListener('scroll', function() {
+  if (window.scrollY > someValue) {
+    document.getElementById('sheet-container').src = 'https://script.google.com/macros/s/AKfycbxnFg2ThyWreuY5yTIxKVQ1Nhkk88lWX0fWl9Yo7eiDI42SgnAqzI11K6gKFpK37-jLYw/exec';
+  }
+});
         </div>
     </section>
     
