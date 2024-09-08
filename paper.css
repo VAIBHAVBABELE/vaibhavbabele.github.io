@@ -12,7 +12,7 @@
     --main-color:#491a02;
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
-    --bg-shade: #f9eff7;
+    --bg-shade:#f0d8eb;
     --primary-text-color:#010508;
     --secondary-text-color:#926f57;
     --accent-color:#d2bf80f0;
@@ -86,22 +86,27 @@ padding-inline: var(--padding-inline-section);
 }
 
 nav{
-    
+    padding: 10px;
+    background-color: rgb(242, 208, 135);
     height: 10vh;
     display: flex; 
     align-items: center;
     justify-content:space-evenly;
-    padding: 1% 1% 0px 2%;
-    background: var(--bg-shade);
-   
+    
+    
     
 }
 
 
 
 nav ul{
-    margin-top: 10px;
+    
+    margin-top:20px;
     display: flex;
+    border-radius: 10px;
+    
+    color: #1b1b1b;
+    
     justify-content: center;
     list-style: none;
     overflow-x: hidden;
@@ -110,23 +115,23 @@ nav ul{
 
 nav ul li a{
     text-decoration: none;
-    background-color: rgb(242, 208, 135);
-    border: 2px solid black;
-    border-radius: 20px;
-    color: #1b1b1b;
     
-    margin:3px 3px 3px 25px;
+    color: #1b1b1b;
+    margin: 10px;
     font-size: 18;
     letter-spacing: 0.5px;
     font-weight:bold;
-    padding: 8px 10px ;
+    padding: 8px 8px ;
     transition: all 0.3s ease;
     overflow-x: hidden;
 }
 
 nav ul li a:hover {
     background-color: #75b1e9;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    
+    
   
 }
 .nav-link:hover,
