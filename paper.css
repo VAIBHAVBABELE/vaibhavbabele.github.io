@@ -12,17 +12,46 @@
     --main-color:#491a02;
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
-    --bg-shade:#f0d8eb;
-    --primary-text-color:#010508;
+    --bg-shade: #f0d8eb;
+    --primary-text-color:#38393a;
     --secondary-text-color:#926f57;
+    --nav-bgcolor:rgb(242, 208, 135);
     --accent-color:#d2bf80f0;
     --accent-color-dark:#856113;
     --padding-inline-section:10px;
+    --footer-bgColor:#ec9999;
+    
    
 
 }
+
+    
+   
+
+
+
+.dark-mode{
+    --nav-bgcolor:rgb(165, 139, 82);
+    --bg-shade:rgb(59, 59, 59);
+    --primary-text-color:rgb(238, 234, 234);
+    --tertiary-color:rgb(174, 174, 241);
+    --footer-bgColor:#dbb0b0;
+    
+
+}
+
+.main{
+    border: var(--primary-text-color) 5px solid;
+}
+
+#mode{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 .para{
-    color: black;
+    color:var(--primary-text-color);
     font-weight: bold;
     align-items: center;
     text-align:justify;
@@ -72,7 +101,7 @@ padding-inline: var(--padding-inline-section);
     background-color: var(--accent-color);
     border-radius: 6px;
     font-weight: 700;
-    color: white;
+    color:var(--primary-text-color) ;
     padding: 12px 24px ;
     box-shadow:0 0 2px var(--secondary-text-color) ;
     transition: all 0.3s ease;
@@ -87,12 +116,12 @@ padding-inline: var(--padding-inline-section);
 
 nav{
     padding: 10px;
-    background-color: rgb(242, 208, 135);
-    height: 10vh;
+    background-color:var(--nav-bgcolor);
+    height: 15vh;
     display: flex; 
     align-items: center;
     justify-content:space-evenly;
-    
+    border:5px solid var(--primary-text-color);
     
     
 }
@@ -105,7 +134,7 @@ nav ul{
     display: flex;
     border-radius: 10px;
     
-    color: #1b1b1b;
+    color: var(--primary-text-color);
     
     justify-content: center;
     list-style: none;
@@ -116,7 +145,7 @@ nav ul{
 nav ul li a{
     text-decoration: none;
     
-    color: #1b1b1b;
+    color: var(--primary-text-color);
     margin: 10px;
     font-size: 18;
     letter-spacing: 0.5px;
@@ -129,7 +158,7 @@ nav ul li a{
 nav ul li a:hover {
     background-color: #75b1e9;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--primary-text-color);
     
     
   
@@ -141,7 +170,7 @@ nav ul li a:hover {
 
 nav .logo {
     font-size: 33px;
-    color: black;
+    color: var(--primary-text-color);
     font-weight: 600;
     font-family: "Playwrite SK", cursive;
 }
@@ -151,7 +180,7 @@ nav #mitra{
     color: var(--primary-text-color);
 }
 nav .menu-btn i {
-    color: #fff;
+    color: var(--text-color);
     font-size: 22px;
     cursor: pointer;
     display: none;
@@ -199,7 +228,7 @@ section{
     margin: 60px;
     justify-content: space-around; 
     align-items: center;
-    background-color: #fff;
+    background-color: var(--text-color);
     background: var(--bg-shade);
     flex-wrap: wrap; 
     padding: 20px; 
@@ -303,7 +332,7 @@ section{
     background-color: #cab5af;
     border-radius: 40px;
     border-bottom-right-radius: 0;
-    border: 2px solid white;
+    border: 2px solid var(--primary-text-color);
     box-shadow: 0 0 1rem var(--main-color);
     text-align: center;
     transition: transform 0.3s ease;
@@ -329,12 +358,12 @@ section{
 #btn{
 margin-bottom: 20px;
 border-radius: 2em;
-border: 2px solid white;
+border: 2px solid var(--primary-text-color);
 }
 .Contact-heading {
     margin-bottom: 5%;
     text-align: center;
-    color: #fff;
+    color: var(--text-color);
     bottom: 30px;
     font-family: "Playwrite SK", cursive;
     font-size: 1.5rem;
@@ -348,10 +377,11 @@ border: 2px solid white;
 
 .contact-section {
     min-height: 50vh;
-    background-color: #f29494;
+    background-color: var(--footer-bgColor);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border:5px solid var(--primary-text-color);
 }
 
 .contact-section .contact-item {
@@ -460,7 +490,7 @@ text-align: start;
         position: fixed;
         top: 80px;
         left: -100%;
-        background: #1b1b1b;
+        background: var(--primary-text-color);
         height: 50vh;
         width: 100%;
         display: block;
@@ -493,7 +523,7 @@ text-align: start;
     left: 0%;
   }
     nav .menu-btn i {
-        color: black;
+        color: var(--primary-text-color);
         font-size: 40px;
         cursor: pointer;
         display: block;
@@ -505,7 +535,7 @@ text-align: start;
     }
     nav ul li a{
         font-size: 20px;
-        color: #fff;
+        color: var(--text-color);
         
         
     }
