@@ -13,15 +13,39 @@
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
     --bg-shade: #f0d8eb;
-    --primary-text-color:#010508;
+    --primary-text-color:#38393a;
     --secondary-text-color:#926f57;
+    --nav-bgcolor:rgb(242, 208, 135);
     --accent-color:#d2bf80f0;
     --accent-color-dark:#856113;
     --padding-inline-section:10px;
+    --footer-bgColor:#ec9999;
     
    
 
 }
+
+.dark-mode{
+    --nav-bgcolor:rgb(165, 139, 82);
+    --bg-shade:rgb(59, 59, 59);
+    --primary-text-color:rgb(238, 234, 234);
+    --tertiary-color:rgb(174, 174, 241);
+    --footer-bgColor:#dbb0b0;
+    
+
+}
+
+.main{
+    border: var(--primary-text-color) 5px solid;
+}
+
+#mode{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 
 
 .embed{
@@ -39,6 +63,7 @@ iframe{
     font-style: var(--text-color);
     align-items: center;
     margin: auto;
+    border: var(--primary-text-color) 10px solid;
 }
 
 .emoji {
@@ -97,7 +122,7 @@ iframe{
 
 
 .form-heading{
-    color: #010508;
+    color: var(--primary-text-color);
     font-size: 1.5rem;
     margin-top: 7%;
     
@@ -125,7 +150,7 @@ iframe{
     
 }
 ::placeholder{
-    color:rgb(1, 1, 12);
+    color:var(--primary-text-color);
     font-weight: bold;
 }
 
@@ -138,7 +163,7 @@ iframe{
     font-weight: bold;
     border-radius: 10px;
     background-color: #e6eef4;
-    color: black;
+    color: var(--primary-text-color);
     box-shadow: 0 0 1rem var(--main-color);
     border: 3px solid rgb(25, 11, 11);
     
@@ -160,7 +185,7 @@ iframe{
     font-weight: bold;
     border-radius: 10px;
     background-color: #cbe4f3;
-    color:black;
+    color:var(--primary-text-color);
     box-shadow: 0 0 1rem var(--main-color);
     border: 3px solid rgb(25, 11, 11);
 
@@ -198,7 +223,7 @@ iframe{
 
 body{
     font-family: "Poppins", sans-serif;
-    color: var(--primary-text-color)
+    color: var(--primary-text-color);
 }
 /* pop up   */ 
 
@@ -293,6 +318,8 @@ a{
 .container{
 margin-inline: auto;
 padding-inline: var(--padding-inline-section);
+
+
 }
 
 .primary-button{
@@ -314,11 +341,12 @@ padding-inline: var(--padding-inline-section);
 
 nav{
     padding: 10px;
-    background-color: rgb(242, 208, 135);
+    background-color:var(--nav-bgcolor);
     height:15vh;
     display: flex; 
     align-items: center;
-    justify-content:space-evenly;
+    justify-content:space-around;
+    border:var(--primary-text-color) 5px solid;
     
     
     
@@ -329,21 +357,22 @@ nav{
 nav ul{
     
     margin-top:20px;
-    display: flex;
     border-radius: 10px;
-    
-    color: #1b1b1b;
-    
-    justify-content: center;
+    color: var(--primary-text-color);
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow-x: hidden;
    
 }
 
+
+
 nav ul li a{
     text-decoration: none;
     position: relative;
-    color: #1b1b1b;
+    color: var(--primary-text-color);
     margin: 10px;
     font-size: 18;
     letter-spacing: 0.5px;
@@ -373,7 +402,7 @@ nav ul li a:hover {
 
 nav .logo {
     font-size: 33px;
-    color: black;
+    color: var(--primary-text-color);
     font-weight: 600;
     font-family: "Playwrite SK", cursive;
 }
@@ -393,6 +422,8 @@ nav .menu-btn i {
 section{
     padding: 50px var(--padding-inline-section);
     background: var(--bg-shade);
+    
+    
 }
 .main-page{
     justify-content: center;
@@ -442,13 +473,14 @@ section{
 .card{
     box-shadow: 0 0 10px 0px ;
     border-radius: 20px;
-    border: 7px double black;
+    border: 5px solid var(--primary-text-color);
     transition: transform 1.2s;
     grid-template-columns: repeat(5,0fr);  
     grid-template-rows: repeat(2,0fr);
     height: auto; 
     overflow: hidden; 
     box-sizing: border-box; 
+    padding: 5px;
 }
 .card a:hover{
     background: var(--main-color);
@@ -472,7 +504,7 @@ section{
 }
 
 .para{
-    color: black;
+    color: var(--primary-text-color);
     font-weight: bold;
     align-items: center;
     text-align:justify;
@@ -513,7 +545,7 @@ section{
 
 .name{
     text-align: center;
-   color: rgb(15, 15, 12);
+   color: var(--primary-text-color);
    font-family: "Playwrite SK", cursive;
 }
 
@@ -588,10 +620,11 @@ border: 2px solid white;
 
 .contact-section {
     min-height: 30vh;
-    background-color: #ec9999;
+    background-color:var(--footer-bgColor) ;
     display: flex;
     flex-wrap: wrap;
     justify-content:space-evenly;
+    border:var(--primary-text-color) 5px solid;
 }
 
 .contact-section .contact-item {
@@ -704,7 +737,7 @@ border: 2px solid white;
     left: 0%;
   }
     nav .menu-btn i {
-        color: black;
+        color: var(--primary-text-color);
         font-size: 40px;
         cursor: pointer;
         display: block;
@@ -728,8 +761,8 @@ border: 2px solid white;
     }
 
 .card{
-margin-bottom: 20px;
-min-width: 100%;
+    margin-bottom: 20px;
+    min-width: 100%;
 
 }
 

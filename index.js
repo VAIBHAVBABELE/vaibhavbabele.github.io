@@ -1,4 +1,5 @@
 const element = document.getElementById('scroll-hide');
+const mode=document.getElementById("mode");
 function checkWindowSize() {
     if (window.innerWidth < 1000) {
             window.addEventListener('scroll', function() {
@@ -23,3 +24,14 @@ document.getElementById('click').addEventListener('click', function() {
     element.style.display = 'block';
     // You can call any function here
 });
+
+
+mode.onclick=function(){
+    document.body.classList.toggle("dark-mode");
+    if(document.body.classList.contains("dark-mode")){
+        mode.src="images/sun.png";
+    }else{
+        mode.src="images/moon.png ";
+    }
+}
+

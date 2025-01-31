@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary-color:white;
+    --secondary-color:black;
+    --tertiary-color:rgb(32, 32, 76);
+    --border-color:blue;
+    --background-hover:coral;
+    --background-color:burlywood;
+}
+
+.dark-mode{
+    --primary-color:black;
+    --secondary-color:white;
+    --tertiary-color:rgb(174, 174, 241);
+    
+    
+
+}
+
+
+#mode{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 25vw;
+}
+
+header{
+    height: 15vh;
+    background-color:var(--tertiary-color) ;
+    color:var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vmin;
+    font-weight: bold;
+    
+}
+
+header ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25vw;
+    
+}
+
+.main{
+    height: 80vh;
+    background-color:var(--primary-color);
+    color:var(--secondary-color);
+    border:var(--secondary-color) 20px solid;
+}
+
+.msg-container{
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    margin:10px;
+}
+
+#msg{
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    font-size: 5vmin;
+    font-weight: bold;
+    display: inline;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    border: 0.8vmin solid var(--secondary-color);
+}
+
+
+
+
+.container{
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+.game{
+    height: 48vmin;
+    width: 48vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+    
+}
+.box{
+    color:var(--primary-color);
+    font-size: 7vmin;
+    height:15vmin;
+    width: 15vmin;
+    border-radius: 1.2rem;
+    border: 0.8vmin solid var(--secondary-color);
+    background-color:var(--background-color);
+    
+}
+
+.box:hover{
+    cursor: pointer;
+    background-color:var(--background-hover);
+    border-radius: 1.2rem;
+    border: 0.8vmin solid var(--border-color);
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset,.chBtn{
+    height: 7vmin;
+    width: auto;
+    font-size: 4vmin;
+    font-weight: bold;
+    background-color:var(--background-color);
+    color:var(--primary-color);
+    border-radius: 2vmin;
+    border: 0.5vmin solid var(--secondary-color);
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+
+.reset:hover,.chBtn:hover{
+    cursor: pointer;
+    background-color: var(--background-hover);
+    border-radius: 2vmin;
+    border: 0.5vmin solid var(--border-color);
+
+}
+
+
