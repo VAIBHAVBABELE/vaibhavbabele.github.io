@@ -35,7 +35,7 @@
 
 }
 
-.main{
+.main:not(.dark-mode){
     border: var(--primary-text-color) 5px solid;
 }
 

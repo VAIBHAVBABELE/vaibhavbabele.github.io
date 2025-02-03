@@ -1,5 +1,6 @@
 const element = document.getElementById('scroll-hide');
 const mode=document.getElementById("mode");
+const load=document.getElementById("onload");
 function checkWindowSize() {
     if (window.innerWidth < 1000) {
             window.addEventListener('scroll', function() {
@@ -27,11 +28,18 @@ document.getElementById('click').addEventListener('click', function() {
 
 
 mode.onclick=function(){
-    document.body.classList.toggle("dark-mode");
+    const wasDarkmode = localStorage.getItem('mode') === 'true';
+    localStorage.setItem('mode', !wasDarkmode);
+    document.body.classList.toggle("dark-mode",!wasDarkmode);
     if(document.body.classList.contains("dark-mode")){
-        mode.src="images/sun.png";
+        mode.src="../images/sun.png";
     }else{
-        mode.src="images/moon.png ";
+        mode.src="../images/moon.png ";
     }
+}
+
+load.onload=function(){
+    document.body.classList.toggle('dark-mode', localStorage.getItem('mode') === 'true');
+
 }
 
