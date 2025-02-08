@@ -13,6 +13,7 @@
     --bg-color: #a6cde5;
     --white-4345: #f7f7f7;
     --bg-shade: #f0d8eb;
+    --img-bg-shade: rgba(242, 227, 241, 0.6);
     --primary-text-color:#38393a;
     --secondary-text-color:#926f57;
     --nav-bgcolor:rgb(242, 208, 135);
@@ -28,6 +29,7 @@
 .dark-mode{
     --nav-bgcolor:rgb(165, 139, 82);
     --bg-shade:rgb(59, 59, 59);
+    --img-bg-shade: rgba(104, 102, 102, 0.6);
     --primary-text-color:rgb(238, 234, 234);
     --tertiary-color:rgb(174, 174, 241);
     --footer-bgColor:#dbb0b0;
@@ -37,6 +39,7 @@
 
 .main:not(.dark-mode){
     border: var(--primary-text-color) 5px solid;
+    margin-top: 15vh;
 }
 
 #mode{
@@ -347,9 +350,11 @@ nav{
     align-items: center;
     justify-content:space-around;
     border:var(--primary-text-color) 5px solid;
-    
-    
-    
+    z-index: 10;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 
@@ -426,6 +431,7 @@ section{
     
 }
 .main-page{
+    margin-top: 15vh;
     justify-content: center;
     gap: 50px;
     padding-bottom: 5%;
@@ -527,6 +533,66 @@ section{
 
 }
 
+.card-img-top:hover{
+    cursor: pointer;
+    
+}
+.card .effect-text{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:var(--img-bg-shade) ;
+    overflow: hidden;
+    transition: all .3s ease-in;
+    opacity: 0;
+    border: 2px solid var(--primary-text-color);
+}
+
+.card .effect-text .inner{
+    position: absolute;
+    padding: 15px;
+    z-index: 1;
+    
+}
+.card .effect-text .inner p{
+    color: var(--primary-text-color);
+    font-weight: bolder;
+}
+
+.card .effect-text:before,
+.card .effect-text:after{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0;
+    content: "";
+}
+
+.card .effect-text:before{
+    border-top: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    left: -100%;
+    top: 0;
+}
+
+.card .effect-text:after{
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    left: 100%;
+    top: 0;
+}
+
+.card:hover .effect-text{
+    opacity: 1;
+    cursor: pointer;
+}
+
 .icon {
     height: 90px;
     width: 90px;
@@ -541,6 +607,14 @@ section{
     transition: all 0.3s ease;
     border: .2rem solid var(--text-color);
 
+}
+
+.icon img{
+    height: 78px;
+    width: 78px;
+    
+    mix-blend-mode:multiply;
+    
 }
 
 .name{
