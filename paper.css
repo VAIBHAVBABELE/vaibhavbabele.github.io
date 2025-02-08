@@ -42,6 +42,7 @@
 
 .main{
     border: var(--primary-text-color) 5px solid;
+    margin-top: 15vh;
 }
 
 #mode{
@@ -117,13 +118,16 @@ padding-inline: var(--padding-inline-section);
 nav{
     padding: 10px;
     background-color:var(--nav-bgcolor);
-    height: 15vh;
+    height:15vh;
     display: flex; 
     align-items: center;
-    justify-content:space-evenly;
-    border:5px solid var(--primary-text-color);
-    
-    
+    justify-content:space-around;
+    border:var(--primary-text-color) 5px solid;
+    z-index: 10;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 
@@ -191,6 +195,7 @@ section{
     background: var(--bg-shade);
 }
 .main-page{
+    margin-top: 15vh;
     justify-content: center;
     gap: 50px;
     padding-bottom: 5%;
@@ -286,6 +291,14 @@ section{
     border: .2rem solid var(--text-color);
 
 
+}
+
+.icon img{
+    height: 78px;
+    width: 78px;
+    
+    mix-blend-mode:multiply;
+    
 }
 
 .name{

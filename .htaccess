@@ -4,11 +4,18 @@ RewriteCond %{HTTPS} off
 
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-RewriteEngine on 
-RewriteCond%{THE_REQUEST}/([^.]+)\.html[NC]
-RewriteRule^/%1[NC,L,R=301]
-RewriteCond%{REQUEST_FILENAME}.html-f 
-RewriteRule^%{REQUEST_URI}.html[NC,L]
+
+RewriteEngine on
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+
+RewriteRule ^ /%1 [NC,L,R=301]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+
+
 
 <filesMatch “.(css|jpg|jpeg|png|gif|js|ico)$”> 
 
