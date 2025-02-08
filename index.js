@@ -42,4 +42,3 @@ load.onload=function(){
     document.body.classList.toggle('dark-mode', localStorage.getItem('mode') === 'true');
 
 }
-

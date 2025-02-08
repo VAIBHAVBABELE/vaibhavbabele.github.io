@@ -1,18 +1,10 @@
-const mode=document.getElementById("mode");
 let boxes = document.querySelectorAll(".box");
 let reset = document.querySelector(".reset");
 let chBtn = document.querySelector(".chBtn");
 let msgCont = document.getElementById("msg")
 
 
-mode.onclick=function(){
-    document.body.classList.toggle("dark-mode");
-    if(document.body.classList.contains("dark-mode")){
-        mode.src="images/sun.png";
-    }else{
-        mode.src="images/moon.png ";
-    }
-}
+
 
 let first="X";
 let turn="X";
