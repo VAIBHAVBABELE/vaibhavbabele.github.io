@@ -1,3 +1,69 @@
+# 🚀 Nitra Mitra
+
+**Nitra Mitra** is an open-source initiative by students of NITRA Technical Campus, Ghaziabad. The project aims to streamline student utilities and tech-based solutions under one platform while offering contributors a chance to learn full-stack web development.
+
+![Banner](https://your-image-url-if-any.com)
+
+---
+
+## 📌 Table of Contents
+
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Labels You'll See](#labels-youll-see)
+- [Post-Contribution Instructions](#post-contribution-instructions)
+- [Code of Conduct](#code-of-conduct)
+- [Contributors](#contributors)
+- [License](#license)
+
+---
+
+## 📖 About the Project
+
+**Nitra Mitra** is a student-centric project built to:
+- Help students with daily academic tasks
+- Offer digital utilities and games
+- Promote collaborative open-source learning
+- Empower beginners in web development
+
+---
+
+## 🌟 Features
+
+- 🎮 Games & Tools for learning
+- 🧾 Notes Upload/Download
+- 🗒 Event & Blog Management
+- 📊 Leaderboards & Admin Dashboard
+- 🖼 Verified Gallery Uploads
+- 🧑‍💻 Google Login & GitHub Auth
+- 📥 PDF/Excel Download for Admins
+
+---
+
+## 🧑‍💻 Tech Stack
+
+| Frontend     | Backend       | Database | AI/ML (Planned) | APIs         |
+|--------------|---------------|----------|------------------|--------------|
+| HTML, CSS, JS| PHP (Laravel) | MySQL    | TensorFlow, Sklearn | Google Maps, Twilio |
+
+---
+
+## 🚀 Getting Started
+
+To run this project locally:
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/nitra-mitra.git
+
+# 2. Navigate to the project directory
+cd nitra-mitra
+
+# 3. Start local server (XAMPP/WAMP for PHP)
+
 ### HOME PAGE
 ![Screenshot 2025-01-05 000528](https://github.com/user-attachments/assets/711b6daf-872e-4c63-a0a5-b356f0daa178)
 
