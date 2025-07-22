@@ -1,4 +1,4 @@
-### what changes I required from contributor check it 
+### What changes I require from contributors check it 
 [list of contribution][CONTRIBUTION.md]
 ### HOME PAGE
 ![Screenshot 2025-01-05 000528](https://github.com/user-attachments/assets/711b6daf-872e-4c63-a0a5-b356f0daa178)
