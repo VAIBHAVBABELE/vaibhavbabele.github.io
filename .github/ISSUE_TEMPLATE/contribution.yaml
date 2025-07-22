@@ -1,0 +1,60 @@
+name: Contribution Request
+description: Submit your contribution idea or bug report here.
+title: "[Contribution]: "
+labels: ["triage"]
+body:
+  - type: dropdown
+    attributes:
+      label: 🧩 Type of Contribution
+      description: What kind of contribution are you making?
+      options:
+        - 💻 Frontend (HTML/CSS/JS)
+        - 🖥️ Backend (PHP/MySQL)
+        - 🐛 Bug Report
+        - 📈 Feature Request
+        - 🎨 UI/UX Design
+        - 📝 Documentation
+        - 🚀 Enhancement
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: 🏷️ Issue Title
+      description: Provide a short title for this issue.
+      placeholder: e.g. "Fix navbar alignment on mobile"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 📌 Description
+      description: Clearly describe the problem or contribution you want to make.
+      placeholder: Explain what you're trying to improve or fix.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: 🔧 Tech Stack Used
+      description: List the technologies involved (HTML, CSS, JS, PHP, MySQL, etc.).
+      placeholder: e.g. HTML, Tailwind CSS, PHP
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: 🖼️ Screenshots (if applicable)
+      description: Drag and drop or paste any screenshots that help explain the issue.
+      placeholder: Upload or paste image URLs/screenshots here.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ✅ After creating this issue:
+        - Wait for a maintainer to assign it.
+        - Comment: “I want to work on this” if you're ready to contribute.
+        - Follow guidelines in `CONTRIBUTING.md`.
+
