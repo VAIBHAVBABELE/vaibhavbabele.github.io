@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ### What changes I required from contributor check it 
+=======
+### What changes I require from contributors check it 
+>>>>>>> a4624833ca6f7a1466d038db69fc2aec489db7d9
 [list of contribution][CONTRIBUTION.md]
 ### HOME PAGE
 ![Screenshot 2025-01-05 000528](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/b267fa66cc4f16c3db76df84b0c26900c9cf56b3/images/home%20page.png)
