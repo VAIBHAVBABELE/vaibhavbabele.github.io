@@ -83,13 +83,20 @@
 To run this project locally:
 
 ```bash
-# 1. Clone the repo
+# 1. Fork this repository to your own GitHub account
+
+# 2. Clone the forked repo (replace 'your-username' with your GitHub username)
 git clone https://github.com/your-username/nitra-mitra.git
 
-# 2. Navigate to the project directory
+# 3. Navigate to the project directory
 cd nitra-mitra
 
-# 3. Start local server (XAMPP/WAMP for PHP)
+# 4. Start a local server using XAMPP or WAMP (since this project uses PHP)
+#    - Copy the project folder to your server directory:
+#      For XAMPP: C:/xampp/htdocs/
+#      For WAMP: C:/wamp/www/
+#    - Then open your browser and navigate to:
+#      http://localhost/nitra-mitra/
 
 
 
