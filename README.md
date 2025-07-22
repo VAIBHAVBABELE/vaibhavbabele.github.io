@@ -81,13 +81,100 @@
 To run this project locally:
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/your-username/nitra-mitra.git
+# Set your Git username
+git config --global user.name "Your Name" 
 
-# 2. Navigate to the project directory
-cd nitra-mitra
+# Set your Git email
+git config --global user.email "your-email@example.com"
+```
+## Fork and Clone the Repository
+```bash
+# 1. Fork this repository on GitHub (top-right corner button)
 
-# 3. Start local server (XAMPP/WAMP for PHP)
+# 2. Clone your forked repository to your local system
+git clone https://github.com/YOUR-USERNAME/vaibhavbabele.github.io.git
+
+# 3. Change directory to the project folder
+cd vaibhavbabele.github.io
+
+# 4. Add the original repository as upstream
+git remote add upstream https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io.git
+
+```
+### 3. Start local server (XAMPP/WAMP for PHP) 
+
+## Create and Work on a New Branch
+```bash
+# Create and switch to a new branch
+git checkout -b your-feature-branch
+```
+## ✅ Make Your Changes
+Edit or add the files as required. in local system (vs code)
+
+```bash
+
+# Stage changes
+git add .
+
+# Commit your changes
+git commit -m "feat: your descriptive commit message"
+
+#push the changes
+git push origin your-feature-branch
+
+```
+## 📤 Create a Pull Request (PR)
+- Go to your forked repo on GitHub.
+- You’ll see a “Compare & pull request” button. Click it.
+- Add a meaningful title and description.
+- Attach screenshots or screen recordings (15 sec max) in the PR description if applicable.
+- Mention:
+- Issue Number Solved
+- Contribution Type (Bugfix, Feature, Docs, UI, Optimization, etc.)
+- Tech Stack Used
+- Whether you updated the documentation (README.md, etc.)
+
+## 🧹 Conflict Resolution (If Needed)
+      If your PR has conflicts:
+  
+```bash
+  
+# Switch to main branch
+git checkout main
+
+# Pull the latest main
+git pull upstream main
+
+# Switch back to your branch
+git checkout your-feature-branch
+
+# Merge main into your branch
+git merge main
+# Resolve any conflicts manually, then:
+git add .
+git commit -m "fix: resolved merge conflicts"
+git push origin your-feature-branch
+
+```
+## 🔄 Sync Your Fork (Optional But Recommended Before Pushing) when other user update the repo
+```bash
+# Pull latest changes from the main project
+git pull upstream main
+
+# Push your changes to your fork
+git push origin main
+
+```
+
+## 📽 Recommended YouTube Resources
+- How to Create Pull Request:  [Watch on YouTube](https://youtu.be/HbSjyU2vf6Y)
+- How to Contribute to Open Source:[ Watch on YouTube](https://youtu.be/yzeVMecydCE)
+- How to Resolve Merge Conflicts: [Watch on YouTube](https://youtu.be/xOZunx4Mmjo)
+
+
+
+
+
 
 
 
