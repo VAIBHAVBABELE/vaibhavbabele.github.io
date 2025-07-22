@@ -21,9 +21,10 @@
     --accent-color-dark:#856113;
     --padding-inline-section:10px;
     --footer-bgColor:#ec9999;
+    --placeholder-color: #6c757d;
+    --input-bg-color: #dad6d9;
     
    
-
 }
 
 .dark-mode{
@@ -33,6 +34,8 @@
     --primary-text-color:rgb(238, 234, 234);
     --tertiary-color:rgb(174, 174, 241);
     --footer-bgColor:#dbb0b0;
+    --placeholder-color: #adb5bd;
+    --input-bg-color: #495057; 
     
 
 }
@@ -125,10 +128,10 @@ iframe{
 
 
 .form-heading{
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) ;
     font-size: 1.5rem;
     margin-top: 7%;
-    
+
     margin-bottom: 7%;
 }
 
@@ -141,8 +144,7 @@ iframe{
 .form textarea{
     
     width:60%;
-    
-    background-color: #dad6d9;
+    background-color: var(--input-bg-color);
     margin: 0.1%;
     text-align: center;
     height:7%;
@@ -150,13 +152,51 @@ iframe{
     border-radius: 15px;
     border: 3px solid rgb(84, 7, 7);
     box-shadow: 0 0 2rem var(--main-color);
+    color: var(--primary-text-color);
     
 }
+/* Override for dark mode */
+.dark-mode .form input[type="text"],
+.dark-mode .form select,
+.dark-mode .form input[type="email"],
+.dark-mode .form input[type="password"],
+.dark-mode .form input[type="number"],
+.dark-mode .form input[type="date"],
+.dark-mode .form textarea {
+    box-shadow: 0 0 2rem #1e1f20; /* Faint grey shadow (dark mode) */
+    color: #212529 !important;
+}
+
+
+/* Placeholder styling */
+.form input::placeholder,
+.form textarea::placeholder {
+    color: var(--placeholder-color);
+    opacity: 1; /* BETTER OPACITY */
+    font-weight: bold;
+}
+
+/* For select dropdown placeholder */
+.form select:invalid {
+    color: var(--placeholder-color);
+}
+/* Dark mode dropdown styling */
+.dark-mode .form select {
+    color: white !important; 
+    background-color: var(--input-bg-color); 
+}
+
+/* Dark mode dropdown options */
+.dark-mode .form select option {
+    color: white; 
+    background-color: #495057; 
+}
+/*
 ::placeholder{
     color:var(--primary-text-color);
     font-weight: bold;
 }
-
+*/
 .form input[type="text"]:hover,
 .form input[type="email"]:hover,
 .form input[type="password"]:hover,
@@ -174,7 +214,7 @@ iframe{
 }
 .form textarea{
     width:60%;
-    background-color: #dad6d9;
+    background-color: var(--input-bg-color);
     margin: 0.5%;
     text-align: center;
     height:50%;
@@ -182,6 +222,7 @@ iframe{
     border-radius: 20px;
     border: 3px solid rgb(107, 7, 7);
     box-shadow: 0 0 2rem var(--main-color); 
+    color: var(--primary-text-color);
 }
 
 .form textarea:hover{
