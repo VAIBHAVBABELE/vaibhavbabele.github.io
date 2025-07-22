@@ -100,9 +100,9 @@ XAMPP: Move the project folder to C:/xampp/htdocs/
 WAMP: Move it to C:/wamp/www/
 
 Then, open your browser and go to:
-``bash
+```bash
 http://localhost/nitra-mitra/
-
+```
 5. Set the original repo as upstream (only once)
 ```bash 
 git remote add upstream https://github.com/<original-owner-username>/nitra-mitra.git
