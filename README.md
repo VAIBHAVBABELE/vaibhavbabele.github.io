@@ -80,16 +80,55 @@
 
 ## 🚀 Getting Started
 
-To run this project locally:
+Follow the steps below to set up the project locally and keep your fork up-to-date.
 
-```bash
-# 1. Clone the repo
+1. Fork the Repository
+Click the Fork button at the top-right of the original repository.
+
+2. Clone your fork
+```bash 
 git clone https://github.com/your-username/nitra-mitra.git
-
-# 2. Navigate to the project directory
+# 🔁 Replace <your-username> with your actual GitHub username
+```
+3. Navigate into the project directory
+```bash 
 cd nitra-mitra
+```
+4. Start local server (for PHP)
+XAMPP: Move the project folder to C:/xampp/htdocs/
 
-# 3. Start local server (XAMPP/WAMP for PHP)
+WAMP: Move it to C:/wamp/www/
 
-
-
+Then, open your browser and go to:
+```bash
+http://localhost/nitra-mitra/
+```
+5. Set the original repo as upstream (only once)
+```bash 
+git remote add upstream https://github.com/<original-owner-username>/nitra-mitra.git
+# 🔁 Replace <original-owner-username> with the GitHub username of the original repository owner
+```
+6. Sync your local repo with the upstream
+```bash 
+git fetch upstream
+git checkout main
+git merge upstream/main
+# or (preferred)
+git rebase upstream/main
+```
+7. Make changes and commit
+```bash 
+git add .
+git commit -m "Your message"
+```
+8. Push changes to your fork
+```bash 
+git push origin main
+```
+9. In case of merge conflicts
+Resolve them manually, then:
+```bash 
+git add <filename>
+git commit -m "Resolved merge conflict"
+git push origin main
+```
