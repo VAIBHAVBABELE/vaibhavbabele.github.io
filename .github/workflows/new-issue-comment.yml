@@ -21,6 +21,4 @@ jobs:
 - 📘 Read the [README](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/README.md)
 - ✅ Follow [Contribution Guidelines](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/CONTRIBUTING.md)
 - 📝 Provide clear details with screenshots or code snippets if applicable.
-
-We’ll get back to you shortly. Stay tuned!`
-            })
+We’ll get back to you shortly. Stay tuned!`})
