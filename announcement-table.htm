@@ -1,0 +1,323 @@
+<!-- If you want to access the data from the backend.Please rename this file to .php and then use it. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcement Table</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+    <style>
+        /* body */
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        /* Conatiner */
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 15px;
+
+            
+        }
+        
+        /* Table Area */
+        .table-response {
+            border-radius: 10px;
+            overflow: hidden;
+            
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 100%;
+            transition: all 0.3s ease;
+               
+
+           
+           
+        }
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: white;
+        }
+
+        /* Table header */
+        th {
+            background-color:#856113;
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 15px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* Table heading */
+		.heading{
+			margin-bottom: 60px;
+			
+		}
+        
+        /* Table data */
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+            vertical-align: middle;
+            color: #333;
+			font-weight:200px;
+            font-size: 15px;
+        }
+
+        /* Table row */
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* Table last row */
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Stats Container */
+        .stats-container {
+            display: grid;
+            width: 40%;
+            margin: 0px auto;
+            padding: 20px;
+            align-items: center;
+            flex: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            min-width: 300px;
+        }
+
+        /* Stats Card */
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #856113;
+        }
+
+        /* Stats card hover */
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);   
+            transition: all 0.3s; 
+        }
+
+        /* Stats number and label */
+         .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #856113;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+
+        /* announcing banner*/
+         .announcement-banner {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #856113, #b8941a);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 400;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+
+        }
+
+        .announcement-banner::before {
+            /* Content will be empty as we dont want anything on our interface */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 1s infinite;
+        }
+
+        /* Shine property for thre banner */
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+
+  <!-- Container -->
+<div class="container">
+    <!-- Heading -->
+        <h1 class="heading" style="  color: #856113;text-align: center;" >Student Announcements</h1>
+
+    <!-- Stats and Table -->
+    <form>       
+
+        <!-- Stats Container -->
+        <div class="stats-container">
+            <!-- Stats Cards -->
+            <div class="stat-card">
+                <div class="stat-number" id="totalEvents">5
+                      <!-- <?php echo $row['total_events']; ?> -->
+                </div>
+                <div class="stat-label">Total Events</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number" id="openRegistrations">0 
+            <!-- <?php echo $row['total_registerations']; ?> --></div>
+                <div class="stat-label">Open Registrations</div>
+            </div>
+        </div>
+
+         <!-- Table Area-->
+        <div class="table-response">
+
+            <!-- Announcement Banner -->
+            <div class="announcement-banner">
+                <div class="scrolling-text">
+                    <marquee class="scrolling-text"  direction="left" scrollamount="5" > <i class="fa-solid fa-bullhorn" > &nbsp; For Latest Announcements & Events - Stay Informed! </i> </marquee>
+                </div>
+            </div>
+            <!-- Table -->
+            <table>
+                <!-- Table Header -->
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Event Name</th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Organizer</th>
+                        <th>Venue</th>
+                        <th>Source URL</th>
+                        <th>Remark</th>
+                    </tr>
+                </thead>
+                <!-- Table body -->
+                <tbody>
+                    <!-- 
+                        THIS IS THE PHP CODE TO ACCESS THE DATA FROM DATABASE AND DISPLAY IT
+                        ON THE WEBPAGE.
+                    <?php
+                            include_once("connection.php");
+                            $sql="select * from annoucement_data";
+                            $res= mysqli_query($con,$sql);
+                                    while($row =mysqli_fetch_array($res)){
+                                        echo'<tr>
+						            <td> '.$row['sr_no'].'</td>
+									<td> '.$row['event_name'].'</td>
+									<td> '.$row['description'].'</td>
+									<td> '.$row['start_date'].'</td>
+                                    <td> '.$row['end_date'].'</td>
+                                    <td> '.$row['organizer'].'</td>
+                                    <td> '.$row['venue'].'</td>
+                                    <td> <a href="'.$row['source_url'].'" target="_blank">View Details</a></td>
+                                    <td> '.$row['remark'].'</td>
+							</tr>';
+						}
+                    ?>
+                    -->
+                    <!-- Sample Rows with data to display -->
+                    <tr>
+                        <td>1</td>
+                        <td>Annual Sports Day</td>
+                        <td>Inter-college sports event</td>
+                        <td>10-Aug-2025</td>
+                        <td>12-Aug-2025</td>
+                        <td>Sports Committee</td>
+                        <td>Main Stadium</td>
+                        <td><a href="#">View Details</a></td>
+                        <td>Registrations Open</td>
+                    </tr>
+                    <!-- Sample Rows with data to display -->
+                    <tr>
+                        <td>2</td>
+                        <td>Annual Sports Day</td>
+                        <td>Inter-college sports event</td>
+                        <td>10-Aug-2025</td>
+                        <td>12-Aug-2025</td>
+                        <td>Sports Committee</td>
+                        <td>Main Stadium</td>
+                        <td><a href="#">View Details</a></td>
+                        <td>Registrations Open</td>
+                    </tr>
+                    <!-- Sample Rows with data to display -->
+                    <tr>
+                        <td>3</td>
+                        <td>Annual Sports Day</td>
+                        <td>Inter-college sports event</td>
+                        <td>10-Aug-2025</td>
+                        <td>12-Aug-2025</td>
+                        <td>Sports Committee</td>
+                        <td>Main Stadium</td>
+                        <td><a href="#">View Details</a></td>
+                        <td>Registrations Open</td>
+                    </tr>
+                    <!-- Sample Rows with data to display -->
+                    <tr>
+                        <td>4</td>
+                        <td>Annual Sports Day</td>
+                        <td>Inter-college sports event</td>
+                        <td>10-Aug-2025</td>
+                        <td>12-Aug-2025</td>
+                        <td>Sports Committee</td>
+                        <td>Main Stadium</td>
+                        <td><a href="#">View Details</a></td>
+                        <td>Registrations Open</td>
+                    </tr>
+                    <!-- Sample Rows with data to display -->
+                    <tr>
+                        <td>5</td>
+                        <td>Annual Sports Day</td>
+                        <td>Inter-college sports event</td>
+                        <td>10-Aug-2025</td>
+                        <td>12-Aug-2025</td>
+                        <td>Sports Committee</td>
+                        <td>Main Stadium</td>
+                        <td><a href="#">View Details</a></td>
+                        <td>Registrations Closed</td>
+                    </tr>
+          
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
