@@ -509,7 +509,7 @@ section{
     gap: 40px;
     margin: 60px;
     justify-content: space-around; 
-    align-items: center;
+    align-items: stretch;
     background-color: #fff;
     background: var(--bg-shade);
     flex-wrap: wrap; 
@@ -522,20 +522,43 @@ section{
     border-radius: 20px;
     border: 5px solid var(--primary-text-color);
     transition: transform 1.2s;
-    grid-template-columns: repeat(5,0fr);  
-    grid-template-rows: repeat(2,0fr);
     height: auto; 
     overflow: hidden; 
     box-sizing: border-box; 
     padding: 5px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
 }
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; 
+    padding: 10px; 
+}
+
 .card a:hover{
     background: var(--main-color);
     color: var(--snd-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
-
 }
 
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold; 
+    color: var(--primary-text-color);
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem; 
+    color: var(--secondary-text-color); 
+    line-height: 1.4; 
+    flex-grow: 1; 
+    margin-bottom: 15px;
+}
 
 .btn-outline-primary:hover{
     background: var(--main-color);
