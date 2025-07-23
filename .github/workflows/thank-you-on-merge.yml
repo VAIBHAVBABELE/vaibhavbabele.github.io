@@ -17,14 +17,10 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `
-🎉 Thank you @${{ github.actor }} for your contribution!
-
-✅ Your PR is now merged.  
-⭐ Don’t forget to star the repo.  
-💬 Join us on [LinkedIn](https://www.linkedin.com/in/vaibhavbabele)  
-📌 Feel free to open more issues!
-
-— Owner: @vaibhavbabele 🙏
-`
+              body: `🎉 Thank you @${{ github.actor }} for your contribution!
+              ✅ Your PR is now merged.  
+              Don’t forget to star the repo. 
+              💬 Join us on [LinkedIn](https://www.linkedin.com/in/vaibhavbabele) 
+              📌 Feel free to open more issues!
+              — Owner: @vaibhavbabele 🙏`
             })
