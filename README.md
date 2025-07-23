@@ -1,7 +1,7 @@
-### what changes I required from contributor check it 
+### What changes I require from contributors check it 
 [list of contribution][CONTRIBUTION.md]
 ### HOME PAGE
-![Screenshot 2025-01-05 000528](https://github.com/user-attachments/assets/711b6daf-872e-4c63-a0a5-b356f0daa178)
+![Screenshot 2025-01-05 000528](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/b267fa66cc4f16c3db76df84b0c26900c9cf56b3/images/home%20page.png)
 
 ### OUR SERVICES
 ![Screenshot 2025-01-05 000555](https://github.com/user-attachments/assets/d9fe8710-2dc1-40ce-88f2-77d7a35c81d7)
