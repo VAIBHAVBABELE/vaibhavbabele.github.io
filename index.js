@@ -44,3 +44,10 @@ load.onload=function(){
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const year = new Date().getFullYear();
+  const copyright = document.getElementById("copyright");
+  if (copyright) {
+    copyright.textContent = `© ${year} nitramitra | All Right Reserved`;
+  }
+});
