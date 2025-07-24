@@ -1,4 +1,4 @@
-### What changes I require from contributors check it 
+### What changes I require from contributors:-
 [list of contribution][CONTRIBUTION.md]
 
 ### HOME PAGE
@@ -17,6 +17,10 @@
 
 ![Screenshot 2025-01-05 000914](https://github.com/user-attachments/assets/9fcff10b-c90d-43c7-84c4-468030ce51ca)
 
+### GALLERY
+
+![Gallery](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/af6a3493dec0d1f6168394a0849f07343cb7b3d6/images/Gallery.png)
+
 ### ANNOUNCEMENT
 
 ![Screenshot 2025-01-05 000642](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/d8040e66dd975b918e79bde5247e31ac32744783/images/Student%20Announcement.png)
@@ -32,7 +36,7 @@
 ### FOOTER
 ![Screenshot 2025-01-05 000731](https://github.com/user-attachments/assets/cce591a4-a95a-40af-bfa7-4d182d263db1)
 
-### vaibhav
+### Vaibhav
 # 🚀 Nitra Mitra
 
 **Nitra Mitra** is an open-source initiative by students of NITRA Technical Campus, Ghaziabad. The project aims to streamline student utilities and tech-based solutions under one platform while offering contributors a chance to learn full-stack web development.
