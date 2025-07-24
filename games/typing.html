@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typing Speed Challenge</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background: #e0f7fa;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .sentence {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      line-height: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .char {
+      padding: 2px 3px;
+      border-bottom: 2px dotted #ccc;
+    }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💻 Typing Speed Challenge</h1>
+    <div id="sentenceDisplay" class="sentence"></div>
+    <input id="inputBox" placeholder="Start typing here..." autocomplete="off" />
+    <div class="stats">⏱️ Time: <span id="timer">0</span> sec</div>
+    <div class="stats">⚡ WPM: <span id="wpm">0</span></div>
+    <div class="stats">🏆 Best Speed: <span id="bestWpm">0</span> WPM</div>
+    <button class="btn" onclick="loadNewSentence()">🔁 Try Another</button>
+  </div>
+
+  <script>
+    const sentences = [
+      "Practice makes perfect.",
+      "Keep it simple, stupid.",
+      "Divide and conquer.",
+      "Recursion is not scary.",
+      "Debugging is twice as hard.",
+      "Every bug starts with logic.",
+      "Think before you code.",
+      "Pointers point to power.",
+      "Semicolons matter.",
+      "One bug at a time."
+    ];
+
+    let currentSentence = "";
+    let timer;
+    let startTime;
+    let isRunning = false;
+    let bestWPM = localStorage.getItem("bestWpm") || 0;
+
+    const inputBox = document.getElementById("inputBox");
+    const sentenceDisplay = document.getElementById("sentenceDisplay");
+    const timerDisplay = document.getElementById("timer");
+    const wpmDisplay = document.getElementById("wpm");
+    const bestWpmDisplay = document.getElementById("bestWpm");
+
+    bestWpmDisplay.textContent = bestWPM;
+
+    function loadNewSentence() {
+      currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
+      sentenceDisplay.innerHTML = '';
+      currentSentence.split('').forEach(char => {
+        const span = document.createElement('span');
+        span.innerText = char;
+        span.classList.add('char');
+        sentenceDisplay.appendChild(span);
+      });
+      inputBox.value = '';
+      timerDisplay.textContent = '0';
+      wpmDisplay.textContent = '0';
+      clearInterval(timer);
+      isRunning = false;
+    }
+
+    function startTimer() {
+      startTime = new Date();
+      timer = setInterval(() => {
+        const elapsed = Math.floor((new Date() - startTime) / 1000);
+        timerDisplay.textContent = elapsed;
+        updateWPM();
+      }, 1000);
+    }
+
+    function updateWPM() {
+      const typed = inputBox.value.trim().split(" ").length;
+      const elapsed = (new Date() - startTime) / 1000 / 60; // minutes
+      const wpm = Math.round(typed / elapsed);
+      if (elapsed > 0) {
+        wpmDisplay.textContent = isFinite(wpm) ? wpm : 0;
+      }
+
+      if (wpm > bestWPM) {
+        bestWPM = wpm;
+        localStorage.setItem("bestWpm", bestWPM);
+        bestWpmDisplay.textContent = bestWPM;
+      }
+    }
+
+    inputBox.addEventListener('input', () => {
+      if (!isRunning) {
+        startTimer();
+        isRunning = true;
+      }
+
+      const input = inputBox.value;
+      const charSpans = sentenceDisplay.querySelectorAll('span');
+      charSpans.forEach((span, index) => {
+        const char = input[index];
+        if (char == null) {
+          span.classList.remove('correct', 'incorrect');
+        } else if (char === span.innerText) {
+          span.classList.add('correct');
+          span.classList.remove('incorrect');
+        } else {
+          span.classList.add('incorrect');
+          span.classList.remove('correct');
+        }
+      });
+    });
+
+    inputBox.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        clearInterval(timer);
+        updateWPM();
+        loadNewSentence();
+      }
+    });
+
+    loadNewSentence();
+  </script>
+</body>
+</html>
