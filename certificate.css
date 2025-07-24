@@ -1,0 +1,158 @@
+/* --- ENHANCED STYLES --- */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Added a subtle gradient to the background */
+    background: linear-gradient(to top, #d5d4d4, #eeeeee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+#certificate-wrapper {
+    width: 800px;
+    height: 550px;
+    /* Replaced solid border with a layered, inset look */
+    background-color: #f7f9f9;
+    padding: 25px;
+    border: 1px solid #d4af37; /* Thin gold outer border */
+    box-shadow: 0 0 0 10px #2c3e50, /* Thick navy inner border */
+                0 0 25px rgba(0, 0, 0, 0.3); /* Softer outer shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* Needed for positioning the seal */
+    overflow: hidden; /* Hide anything that goes outside the border */
+}
+
+/* Added a subtle background pattern */
+#certificate-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                      linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                      linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.certificate-header, .certificate-body, .certificate-footer {
+    text-align: center;
+    color: #333;
+    z-index: 2; /* Ensure content is above the background pattern */
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #856113;
+    margin: 0;
+    /* Added subtle text shadow for depth */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 22px;
+    margin-top: 10px;
+    /* Added uppercase and letter spacing for a more formal look */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #555;
+}
+
+.contributor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    color: #2c3e50;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.contribution-text {
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 0 40px;
+}
+
+.certificate-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.signature p, .date p {
+    margin: 5px 0;
+}
+
+/* --- ADDED: Styles for the gold seal --- */
+.certificate-seal {
+    position: absolute;
+    bottom: 60px;
+    right: 70px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #d4af37 60%, #a27b00 100%);
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3), inset 2px 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Star icon inside the seal */
+.certificate-seal::before {
+    content: '\f005'; /* Font Awesome star icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 50px;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- ENHANCED: Download button with icon and hover effect --- */
+#download-btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#download-btn:hover {
+    background-color: #34495e;
+    transform: translateY(-3px); /* Lifts the button on hover */
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* Adds a download icon to the button */
+#download-btn::before {
+    content: '\f019'; /* Font Awesome download icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 10px;
+}
