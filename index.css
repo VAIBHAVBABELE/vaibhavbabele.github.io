@@ -584,6 +584,41 @@ section{
 .service{
     background: var(--bg-shade);
 }
+/* ==== Stylish Visitor Box ==== */
+/* Visitor Counter Container */
+.visitor-box {
+  background: linear-gradient(135deg, #2b2118, #3b2f25); /* deep brown-black blend */
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  max-width: 220px;
+  margin: 1rem auto;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.visitor-box:hover {
+  transform: scale(1.03);
+}
+
+/* Heading */
+.visitor-box h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #e7d6c4; /* soft beige */
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Counter Number */
+.visitor-count {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c9a47e; /* elegant beige-brown mix */
+  text-shadow: 0 0 4px rgba(201, 164, 126, 0.5);
+  font-family: 'Poppins', sans-serif;
+}
 
 .para{
     color: var(--primary-text-color);
