@@ -2,19 +2,52 @@
 
 class StudentAssistant {
     constructor() {
-        this.apiKey = localStorage.getItem('gemini_api_key');
+        // Configuration
+        this.config = {
+            backendUrl: this.detectBackendUrl(),
+            clientMode: localStorage.getItem('assistant_mode') === 'client',
+            apiKey: localStorage.getItem('gemini_api_key')
+        };
+        
+        // DOM elements
         this.chatMessages = document.getElementById('chatMessages');
         this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');
         this.apiSetup = document.getElementById('apiSetup');
         this.quickSuggestions = document.getElementById('quickSuggestions');
         
+        // Mode toggle elements
+        this.serverModeRadio = document.getElementById('serverMode');
+        this.clientModeRadio = document.getElementById('clientMode');
+        this.serverModeInfo = document.getElementById('serverModeInfo');
+        this.clientModeSetup = document.getElementById('clientModeSetup');
+        this.backendStatus = document.getElementById('backendStatus');
+        
         this.init();
+    }
+    
+    detectBackendUrl() {
+        // Auto-detect backend URL based on environment
+        const hostname = window.location.hostname;
+        
+        if (hostname === 'localhost' || hostname === '127.0.0.1') {
+            return 'http://localhost:5000';
+        } else if (hostname.includes('vercel.app')) {
+            // Use the same domain for Vercel deployment
+            return window.location.origin;
+        } else if (hostname.includes('nitra.nbytes.xyz')) {
+            // Production backend URL - update this to your actual backend URL
+            return 'https://nitra-mitra-backend.vercel.app';
+        } else {
+            // Fallback - use the same origin
+            return window.location.origin;
+        }
     }
     
     init() {
         this.setupEventListeners();
-        this.checkApiKey();
+        this.initializeModeToggle();
+        this.checkConfiguration();
         this.autoResizeTextarea();
     }
     
@@ -32,14 +65,112 @@ class StudentAssistant {
                 this.toggleSendButton();
             }, 10);
         });
+        
+        // Mode toggle listeners
+        this.serverModeRadio.addEventListener('change', () => {
+            if (this.serverModeRadio.checked) {
+                this.switchToServerMode();
+            }
+        });
+        
+        this.clientModeRadio.addEventListener('change', () => {
+            if (this.clientModeRadio.checked) {
+                this.switchToClientMode();
+            }
+        });
     }
     
-    checkApiKey() {
-        if (!this.apiKey) {
-            this.showApiSetup();
+    initializeModeToggle() {
+        // Set initial mode based on stored preference or default to server mode
+        const savedMode = localStorage.getItem('assistant_mode');
+        
+        // Always show the API setup initially so user can see mode selector
+        this.showApiSetup();
+        
+        if (savedMode === 'client') {
+            this.clientModeRadio.checked = true;
+            this.switchToClientMode();
         } else {
-            this.hideApiSetup();
+            this.serverModeRadio.checked = true;
+            this.switchToServerMode();
         }
+    }
+    
+    async switchToServerMode() {
+        this.config.clientMode = false;
+        localStorage.setItem('assistant_mode', 'server');
+        
+        this.serverModeInfo.style.display = 'block';
+        this.clientModeSetup.style.display = 'none';
+        this.backendStatus.style.display = 'block';
+        
+        // Check backend status
+        await this.checkBackendStatus();
+        
+        // Always hide API setup in server mode since no key is needed
+        this.hideApiSetup();
+    }
+    
+    switchToClientMode() {
+        this.config.clientMode = true;
+        localStorage.setItem('assistant_mode', 'client');
+        
+        this.serverModeInfo.style.display = 'none';
+        this.clientModeSetup.style.display = 'block';
+        this.backendStatus.style.display = 'none';
+        
+        // Check if API key is already saved
+        if (this.config.apiKey) {
+            this.hideApiSetup();
+        } else {
+            this.showApiSetup();
+        }
+        
+        this.toggleSendButton();
+    }
+    
+    async checkBackendStatus() {
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        
+        try {
+            statusIndicator.textContent = '🔄';
+            statusText.textContent = 'Checking backend status...';
+            
+            const response = await fetch(`${this.config.backendUrl}/api/status`, {
+                method: 'GET',
+                timeout: 5000
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (data.api_configured) {
+                    statusIndicator.textContent = '✅';
+                    statusText.textContent = 'Backend is ready and configured!';
+                } else {
+                    statusIndicator.textContent = '⚠️';
+                    statusText.textContent = 'Backend available but API key not configured';
+                }
+            } else {
+                throw new Error('Backend not responding');
+            }
+        } catch (error) {
+            statusIndicator.textContent = '❌';
+            statusText.textContent = 'Backend unavailable - switch to client mode';
+            console.warn('Backend status check failed:', error);
+        }
+    }
+    
+    checkConfiguration() {
+        const isReady = this.config.clientMode ? !!this.config.apiKey : true;
+        
+        if (isReady) {
+            this.hideApiSetup();
+        } else {
+            this.showApiSetup();
+        }
+        
+        this.toggleSendButton();
     }
     
     showApiSetup() {
@@ -59,12 +190,16 @@ class StudentAssistant {
     
     toggleSendButton() {
         const hasText = this.messageInput.value.trim().length > 0;
-        this.sendButton.disabled = !hasText || !this.apiKey;
+        const isConfigured = this.config.clientMode ? !!this.config.apiKey : true;
+        this.sendButton.disabled = !hasText || !isConfigured;
     }
     
     async sendMessage(messageText = null) {
         const message = messageText || this.messageInput.value.trim();
-        if (!message || !this.apiKey) return;
+        if (!message) return;
+        
+        const isConfigured = this.config.clientMode ? !!this.config.apiKey : true;
+        if (!isConfigured) return;
         
         // Clear input and hide suggestions
         this.messageInput.value = '';
@@ -79,8 +214,12 @@ class StudentAssistant {
         const typingIndicator = this.showTypingIndicator();
         
         try {
-            // Call Gemini API
-            const response = await this.callGeminiAPI(message);
+            let response;
+            if (this.config.clientMode) {
+                response = await this.callGeminiDirectly(message);
+            } else {
+                response = await this.callBackendAPI(message);
+            }
             
             // Remove typing indicator
             this.removeTypingIndicator(typingIndicator);
@@ -91,12 +230,34 @@ class StudentAssistant {
         } catch (error) {
             console.error('Error:', error);
             this.removeTypingIndicator(typingIndicator);
-            this.addErrorMessage('Sorry, I encountered an error. Please try again or check your API key.');
+            this.addErrorMessage(error.message || 'Sorry, I encountered an error. Please try again.');
         }
     }
     
-    async callGeminiAPI(message) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${this.apiKey}`;
+    async callBackendAPI(message) {
+        const response = await fetch(`${this.config.backendUrl}/api/chat`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.message || `Server error: ${response.status}`);
+        }
+        
+        if (data.candidates && data.candidates.length > 0) {
+            return data.candidates[0].content.parts[0].text;
+        } else {
+            throw new Error('No response generated from the backend');
+        }
+    }
+    
+    async callGeminiDirectly(message) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${this.config.apiKey}`;
         
         const requestBody = {
             contents: [{
@@ -131,7 +292,7 @@ class StudentAssistant {
         });
         
         if (!response.ok) {
-            throw new Error(`API Error: ${response.status}`);
+            throw new Error(`API Error: ${response.status}. Please check your API key.`);
         }
         
         const data = await response.json();
@@ -356,9 +517,8 @@ function saveApiKey() {
     
     if (apiKey) {
         localStorage.setItem('gemini_api_key', apiKey);
-        window.assistant.apiKey = apiKey;
-        window.assistant.hideApiSetup();
-        window.assistant.toggleSendButton();
+        window.assistant.config.apiKey = apiKey;
+        window.assistant.checkConfiguration();
         apiKeyInput.value = '';
         
         // Show success message
@@ -390,6 +550,18 @@ function clearChat() {
         if (confirm('Are you sure you want to clear the chat history?')) {
             window.assistant.clearChat();
         }
+    }
+}
+
+function startChatting() {
+    if (window.assistant) {
+        window.assistant.hideApiSetup();
+    }
+}
+
+function showConfiguration() {
+    if (window.assistant) {
+        window.assistant.showApiSetup();
     }
 }
 
