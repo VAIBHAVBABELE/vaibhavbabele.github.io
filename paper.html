@@ -1,27 +1,55 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- google adsense --->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WZP9NSCWF5');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>papers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="paper.css">
-
+    <meta name="description" content="Access AKTU previous year question papers for CSE students. Resources for 1st, 2nd, and 3rd year courses at NITRA Technical Campus.">
+    <meta name="keywords" content="AKTU, PYQ, Previous Year Papers, NITRA, CSE, Question Papers">
+    <meta name="author" content="NITra MITra">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="AKTU PYQ Papers | NITra MITra">
+    <meta property="og:description" content="Collection of previous year question papers for AKTU students">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/images/social-preview.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AKTU PYQ Papers | NITra MITra">
+    <meta name="twitter:description" content="Collection of previous year question papers for AKTU students">
+    <meta name="twitter:image" content="https://yourdomain.com/images/social-preview.jpg">
+    
+    <title>AKTU PYQ Papers | NITra MITra</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="styles/paper.css" as="style">
+    
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002" crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WZP9NSCWF5');
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap">
+    <link rel="stylesheet" href="styles/paper.css">
+    
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -30,361 +58,452 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body id="onload">
-
-    <!-- NAVBAR DESIGNING -->
-     <nav>
-        <div class="logo "><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="logo">
+            <a href="https://www.nitra.ac.in/" aria-label="NITRA Technical Campus">
+                NITra <span id="mitra">MITra</span>
+            </a>
+        </div>
+        
+        <input type="checkbox" id="click" class="visually-hidden">
+        <label for="click" class="menu-btn" aria-label="Toggle menu">
+            <i class="fa-sharp fa-solid fa-bars" aria-hidden="true"></i>
         </label>
-        <ul id="scroll-hide">
-            <li><a href="index.html" id="active">Home</a></li>
+        
+        <ul id="scroll-hide" class="nav-links">
+            <li><a href="index.html" id="active" aria-current="page">Home</a></li>
             <li><a href="resorces.html">Resources</a></li>
-            <li><a href="#about">About </a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="index.html#Feedback">Feedback</a></li>
             <li><a href="#contact">Contact us</a></li>
-            
         </ul>
-        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        
+        <button id="mode" class="theme-toggle" aria-label="Toggle dark mode">
+            <img src="images/moon.png" alt="" aria-hidden="true">
+        </button>
     </nav>
 
-
- <!-- SERVICE DESIGNING -->
-
-<div class="main">
- <div><a  ></a><a  ></a><a  ></a></div>
-    
- <section class="about " id="about">
-    <h1 class="service-heading">Aktu PYQ Papers</h1>
-    <p class="para" >The <span>Previous Papers</span> section on <span>Nitra Mitra</span> offers a valuable collection of past 
-        examination papers tailored for <span>CSE students</span> under AKTU. These <span>papers</span> provide insights into exam 
-        patterns, important topics, and frequently asked questions, helping you prepare effectively for 
-        your exams. By practicing with these previous papers, you can enhance your problem-solving skills
-         and boost your confidence. <span>Nitra Mitra</span> ensures that you have access to the best resources to 
-         excel in your academic journey.</p>
-    <h1 class="service-heading" color="black">1st year</h1>
-    
-    <div class="about-flex">
-        <div class="About-card">
-           <!-- <div class="icon">
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">Electrical</h2>-->
-            <a href="https://drive.google.com/drive/folders/1vw_A-70PJf-KOoEMsOTaZ7-Gq-fmO9T9" class="primary-button" id="btn">NTC PYQ</a>
-        </div>
-        
-        
-        <div class="About-card">
-           <!-- <div class="icon">
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">Electrical</h2>-->
-            <a href="https://drive.google.com/folderview?id=1L9BFpI6LZWKvQINWSX61BD7rYSWUZeY_" class="primary-button" id="btn">Electrical</a>
-        </div>
-    
-       <div class="About-card">
-    
-            <!--<div class="icon">
-            <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">Chemistry</h2>-->
-            <a href="https://drive.google.com/folderview?id=1LFkNAm1lkf0xxjivBi4mAc3hmU26U4q7" class="primary-button" id="btn"><Obj>Physics</Obj></a>
-    
-        </div>
-        <div class="About-card">
-            <!--<div class="icon">
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">EVS</h2>-->
-            <a href="https://drive.google.com/folderview?id=1Pak1zQcim5OvbjZqSzAggZsLTM2E_whU" class="primary-button" id="btn">Pps</a>
-        </div>
-    
-        <div class="About-card">
-        <!--<div class="icon">
-        <i class="fa-solid fa-code"></i>
-        </div>
-        <h2 class="name">Mathematics</h2>-->
-        <a href="https://drive.google.com/folderview?id=1LAyqCDR4NmWs28vL54IQWCpiMQ82JQAK" class="primary-button" id="btn">Environment</a>
-        </div>
-    
-        <div class="About-card">
-        <!--<div class="icon">
-        <i class="fa-solid fa-code"></i>
-        </div>
-        <h2 class="name">Electronics</h2>-->
-        <a href="https://drive.google.com/folderview?id=1LD7W5HDidZD7tsmABAXLtoGg78Fa-8TP" class="primary-button" id="btn">Mathematics ii</a>
-        </div>
-    
-        <div class="About-card">
-    <!--<div class="icon">
-    <i class="fa-solid fa-code"></i>
-    </div>
-    <h2 class="name">Physics</h2>-->
-    <a href="https://drive.google.com/folderview?id=1LB75HlO9lIO4g14MlavxJsz4uaWNDgSw" class="primary-button" id="btn">Electronics</a>
-    </div>
-   
-    <div class="About-card">
-       <!-- <div class="icon">
-        <i class="fa-solid fa-code"></i>
-        </div>
-        <h2 class="name">Soft Skills</h2>-->
-        <a href="https://drive.google.com/folderview?id=1LAUR9XSt-qL_87Pi9FofFBGMPdg1eoWl" class="primary-button" id="btn">Chemistry</a>
-        </div>
-
-
-        <div class="About-card">
-            <!--<div class="icon">
-            <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">PPS</h2>-->
-            <a href="https://drive.google.com/folderview?id=1NtacsaPIeuQM3LDKkQYZcpY0Jt0nfeEh" class="primary-button" id="btn">Mechanics</a>
-            </div>
-
-    
-
-
-            <div class="About-card">
-                <!--<div class="icon">
-                <i class="fa-solid fa-code"></i>
-                </div>
-                <h2 class="name">Mechanical</h2>-->
-                <a href="https://drive.google.com/folderview?id=1LIgQOJBZnhUuSK08Wh7M7tGu_00Y2W-i" class="primary-button" id="btn">Soft Skill</a>
-            </div>
-        
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        <!-- SERVICE SECTION -->
+        <section class="about" id="about">
+            <header class="section-header">
+                <h1 class="service-heading">AKTU PYQ Papers</h1>
+                <p class="para">
+                    The <span>Previous Papers</span> section on <span>Nitra Mitra</span> offers a valuable collection of past 
+                    examination papers tailored for <span>CSE students</span> under AKTU. These <span>papers</span> provide insights into exam 
+                    patterns, important topics, and frequently asked questions, helping you prepare effectively for 
+                    your exams. By practicing with these previous papers, you can enhance your problem-solving skills
+                    and boost your confidence. <span>Nitra Mitra</span> ensures that you have access to the best resources to 
+                    excel in your academic journey.
+                </p>
+            </header>
             
-        </div>
-        <div class="about " id="about">
-            <h1 class="service-heading" color="black">2nd year</h1>
-            
-            <div class="about-flex">
-                 <div class="About-card">
-           <!-- <div class="icon">
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">Electrical</h2>-->
-            <a href="https://drive.google.com/drive/folders/1wfa1pJ0Q5sbOAMfZfNVPrMK5hzZjawoB" class="primary-button" id="btn">NTC PYQ</a>
-        </div>
-                <div class="About-card">
-
-                    <a href="https://drive.google.com/drive/folders/1Z5M0RilFDjJqvdVId5Xdilla4Ns0DBqS" class="primary-button" id="btn">COA</a>
+            <!-- 1st YEAR PAPERS -->
+            <section aria-labelledby="first-year-heading">
+                <h2 class="service-heading" id="first-year-heading">1st Year Papers</h2>
+                
+                <div class="about-flex card-grid">
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1vw_A-70PJf-KOoEMsOTaZ7-Gq-fmO9T9" class="primary-button">
+                            NTC PYQ
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1L9BFpI6LZWKvQINWSX61BD7rYSWUZeY_" class="primary-button">
+                            Electrical
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1LFkNAm1lkf0xxjivBi4mAc3hmU26U4q7" class="primary-button">
+                            Physics
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Pak1zQcim5OvbjZqSzAggZsLTM2E_whU" class="primary-button">
+                            PPS
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1LAyqCDR4NmWs28vL54IQWCpiMQ82JQAK" class="primary-button">
+                            Environment
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1LD7W5HDidZD7tsmABAXLtoGg78Fa-8TP" class="primary-button">
+                            Mathematics II
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1LB75HlO9lIO4g14MlavxJsz4uaWNDgSw" class="primary-button">
+                            Electronics
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1LAUR9XSt-qL_87Pi9FofFBGMPdg1eoWl" class="primary-button">
+                            Chemistry
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1NtacsaPIeuQM3LDKkQYZcpY0Jt0nfeEh" class="primary-button">
+                            Mechanics
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1LIgQOJBZnhUuSK08Wh7M7tGu_00Y2W-i" class="primary-button">
+                            Soft Skill
+                        </a>
+                    </article>
                 </div>
-                <div class="About-card">
+            </section>
             
-                    <a href="https://drive.google.com/drive/folders/1tXX24VpGESqJRcYALey6OINK5SVVMEEr" class="primary-button" id="btn">DSA</a>
+            <!-- 2nd YEAR PAPERS -->
+            <section aria-labelledby="second-year-heading">
+                <h2 class="service-heading" id="second-year-heading">2nd Year Papers</h2>
+                
+                <div class="about-flex card-grid">
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1wfa1pJ0Q5sbOAMfZfNVPrMK5hzZjawoB" class="primary-button">
+                            NTC PYQ
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1Z5M0RilFDjJqvdVId5Xdilla4Ns0DBqS" class="primary-button">
+                            COA
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1tXX24VpGESqJRcYALey6OINK5SVVMEEr" class="primary-button">
+                            DSA
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1gcnSwtJfJoi-MTETw4QfmyxeQ7qFdMUA" class="primary-button">
+                            Discrete Math
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1ha5tl9zvFdXXFEIy0aP0gIlBRCEZTz9I" class="primary-button">
+                            Python
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1TLBdKUdCtn_PfKeFDlt-cRZGezL-d_kQ" class="primary-button">
+                            Tech. Comm.
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1QMYE_HxQWT2hxy1Dn3V0HmWH69_C3R36" class="primary-button">
+                            TAFL
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Q9jNU4zS3Fs23_lIWzwV7wIU305UQftQ" class="primary-button">
+                            Operating Sys.
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Q9YhYUjfcCd7VEKtmNuw3YAfaN4dq_9_" class="primary-button">
+                            JAVA
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Q6GdX3BuVJY5U6PxNyhxCJm3fFzHvSje" class="primary-button">
+                            Material
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Q8wviF2RkbPZ0SptOi7H8ukEYLAlWwD3" class="primary-button">
+                            Mathematics IV
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Q3pw3M_PgM3cw4J1LEkYGMq79lrUbIyf" class="primary-button">
+                            UHV & PE
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/folderview?id=1Q3Ouof495LtHWFy6eWNLGzmuhtkqm3hf" class="primary-button">
+                            Cyber Security
+                        </a>
+                    </article>
                 </div>
-                <div class="About-card">
+            </section>
             
-                    <a href="https://drive.google.com/drive/folders/1gcnSwtJfJoi-MTETw4QfmyxeQ7qFdMUA" class="primary-button" id="btn">Discrete Math</a>
+            <!-- 3rd YEAR PAPERS -->
+            <section aria-labelledby="third-year-heading">
+                <h2 class="service-heading" id="third-year-heading">3rd Year Papers</h2>
+                
+                <div class="about-flex card-grid">
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1whT8ikycNHYfvyCIRDhxo6vInkT40w7t" class="primary-button">
+                            NTC PYQ
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1JyZWE-DGau_ioZAt-fgjGfqSY8JQTJ8y" class="primary-button">
+                            AI
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1f6yflB4QmZeFbp38sZ73d1ziCY3Blvby" class="primary-button">
+                            COI
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/18A33uKsuNYtTzCZGccvSS6OlOTrSBzcw" class="primary-button">
+                            DAA
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1V1r59GqmcVVmXZuqKQ0xcwRow8QVeHHn" class="primary-button">
+                            DBMS
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/19D2paEna0dR_cIbG4vqo8CPFm6qCPW0z" class="primary-button">
+                            OOSD WITH C++
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/1QNDbxhd1R597Y5pgdTDaTN0pakPNSZGh" class="primary-button">
+                            Soft Computing
+                        </a>
+                    </article>
+                    
+                    <article class="About-card">
+                        <a href="https://drive.google.com/drive/folders/179CYOmp_YRyxbTqiYNrq3MyMuWy0pwh2" class="primary-button">
+                            Web Technology
+                        </a>
+                    </article>
                 </div>
-                <div class="About-card">
-        
-                    <a href="https://drive.google.com/drive/folders/1ha5tl9zvFdXXFEIy0aP0gIlBRCEZTz9I" class="primary-button" id="btn">Python</a>
-                </div>
-                <div class="About-card">
+            </section>
             
-                    <a href="https://drive.google.com/drive/folders/1TLBdKUdCtn_PfKeFDlt-cRZGezL-d_kQ" class="primary-button" id="btn">Tech. Comm.</a>
+            <!-- CONTRIBUTION SECTION -->
+            <section class="contribution" aria-labelledby="contribution-heading">
+                <div class="contri-left">
+                    <h2 id="contribution-heading">Contribute Resources!</h2>
+                    <p>
+                        Send us whatever resources you have and contribute to this amazing journey towards 
+                        providing free and organized resources for everyone.
+                    </p>
+                    <a href="https://docs.google.com/forms/d/1rfP7q1RZYZPwqQ8bE3Y7_n2HXtK8HSB6RJOeV864p0w" 
+                       class="primary-button" 
+                       aria-label="Upload resources form">
+                        Upload
+                    </a>
                 </div>
+            </section>
+        </section>
         
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1QMYE_HxQWT2hxy1Dn3V0HmWH69_C3R36" class="primary-button" id="btn">TAFL</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1Q9jNU4zS3Fs23_lIWzwV7wIU305UQftQ" class="primary-button" id="btn">Operating Sys.</a>
-            </div>
-    
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1Q9YhYUjfcCd7VEKtmNuw3YAfaN4dq_9_" class="primary-button" id="btn">JAVA</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1Q6GdX3BuVJY5U6PxNyhxCJm3fFzHvSje" class="primary-button" id="btn">Material</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1Q8wviF2RkbPZ0SptOi7H8ukEYLAlWwD3" class="primary-button" id="btn">Mathematics iv</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1Q3pw3M_PgM3cw4J1LEkYGMq79lrUbIyf" class="primary-button" id="btn">UHV & PE</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/folderview?id=1Q3Ouof495LtHWFy6eWNLGzmuhtkqm3hf" class="primary-button" id="btn">Cyber Security</a>
-            </div>
+        <!-- ABOUT SECTION -->
+        <section class="about" id="about">
+            <h2 class="service-heading">About Us</h2>
+            <p class="para">
+                <span>Nitra Mitra</span> is a student-driven platform developed by <span>Vaibhav Babele</span> and 
+                <span>Ghanshyam Prajapati</span> of <span>NITRA Technical Campus</span>. Our goal is to simplify academic 
+                life for <span>AKTU students</span> by offering easy access to essential resources like notes, previous 
+                semester papers, and more. With a focus on user-friendly design and relevant content, 
+                <span>Nitra Mitra</span> is tailored to meet the specific needs of students, providing them with 
+                the tools they need to excel in their studies. We are committed to continuously enhancing 
+                the platform to better serve the academic community.
+            </p>
             
-        </div>
-        <div class="about " id="about">
-            <h1 class="service-heading" color="black">3rd year</h1>
-            
-            <div class="about-flex">
-            <div class="About-card">
-           <!-- <div class="icon">
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <h2 class="name">Electrical</h2>-->
-            <a href="https://drive.google.com/drive/folders/1whT8ikycNHYfvyCIRDhxo6vInkT40w7t" class="primary-button" id="btn">NTC PYQ</a>
-        </div>
-        
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/1JyZWE-DGau_ioZAt-fgjGfqSY8JQTJ8y" class="primary-button" id="btn">AI</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/1f6yflB4QmZeFbp38sZ73d1ziCY3Blvby" class="primary-button" id="btn">COI</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/18A33uKsuNYtTzCZGccvSS6OlOTrSBzcw" class="primary-button" id="btn">DAA</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/1V1r59GqmcVVmXZuqKQ0xcwRow8QVeHHn" class="primary-button" id="btn">DBMS</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/19D2paEna0dR_cIbG4vqo8CPFm6qCPW0z" class="primary-button" id="btn">OOSD WITH C++</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/1QNDbxhd1R597Y5pgdTDaTN0pakPNSZGh" class="primary-button" id="btn">Soft Computing</a>
-            </div>
-            <div class="About-card">
-    
-                <a href="https://drive.google.com/drive/folders/179CYOmp_YRyxbTqiYNrq3MyMuWy0pwh2" class="primary-button" id="btn">Web Technology</a>
-            </div>
-            
-    
-    </div>
-
-
-
-
-
-
-    <div class="contribution">
-        <div class="contri-left">
-        <h1>Contribute Resources!</h1>
-        <p>Send us whatever resources you have and contribute to this  amazing journey towards providing free and organized resources for everyone.
-        </p>
-        <a href="https://docs.google.com/forms/d/1rfP7q1RZYZPwqQ8bE3Y7_n2HXtK8HSB6RJOeV864p0w" class="primary-button">Upload</a>
-    </div>
-        
-        
-         
-        
-        
-</div>
-    </section>
-
-
-    <!-- ABOUT DESIGNING -->
-   
-<section class="about  " id="about">
-<h1 class="service-heading">About us</h1>
-<p class="para"><span>Nitra Mitra</span> is a student-driven platform developed by <span>Vaibhav Babele</span> and <span>Ghanshyam Prajapati</span> of <span>NITRA
-    Technical Campus</span>. Our goal is to simplify academic life for <span>AKTU students</span> by offering easy access to 
-    essential resources like notes, previous semester papers, and more. With a focus on user-friendly design 
-    and relevant content, <span>Nitra Mitra</span> is tailored to meet the specific needs of students, providing them with 
-    the tools they need to excel in their studies. We are committed to continuously enhancing the platform to 
-    better serve the academic community.</p>
-<div class="about-flex">
-    <div class="About-card" title="vaibhav babele profile">
-        <div class="icon">
-            <img src="images/vaibhav.jpg" alt="vaibhav babele">
-        </div>
-        <h2 class="name">VAIBHAV</h2>
-        <a href="https://www.linkedin.com/in/vaibhavbabele" class="primary-button" id="btn">View Portfolio</a>
-    </div>
-
-    <div class="About-card">
-
-        <div class="icon">
-        <i class="fas fa-user-tie"></i>
-        </div>
-        <h2 class="name">Ghanshyam</h2>
-        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266" class="primary-button" id="btn">View Portfolio</a>
-
-    </div>
-</div>
-<h4 color="white">Total Visitors</h4> <script type='text/javascript' ></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
-</section>
-</div>
-
-         <!-- CONTACT DESIGNING  -->
-
-<section class="contact-section section-padding" id="contact">
-    <div class="container">
-        <div class="Contact-heading">
-            <H1>Contact us</H1>
-
-        </div>
-        <div class="row">
-            <div class="contact-item">
-                <div class="contact-item-inner">
-                    <a>
-                    <i class="fab fa-whatsapp"></i>
-                    <span>Whatsapp community</span>
-                    <p>NITra MITra</p>
-                   
-                </a>
-                </div>
-            </div>
-         
-            <div class="contact-item">
-                <div class="contact-item-inner">
-                    <a>
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                    <p>nitramitra@gmail.com</p>
-                </a>
-                </div>
+            <div class="about-flex team-grid">
+                <article class="About-card team-member" itemscope itemtype="https://schema.org/Person">
+                    <div class="icon">
+                        <img src="images/vaibhav.jpg" alt="Vaibhav Babele" itemprop="image">
+                    </div>
+                    <h3 class="name" itemprop="name">VAIBHAV BABELE</h3>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele" 
+                       class="primary-button" 
+                       itemprop="url"
+                       aria-label="Vaibhav Babele's LinkedIn profile">
+                        View Portfolio
+                    </a>
+                </article>
+                
+                <article class="About-card team-member" itemscope itemtype="https://schema.org/Person">
+                    <div class="icon">
+                        <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="name" itemprop="name">GHANSHYAM PRAJAPATI</h3>
+                    <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266" 
+                       class="primary-button" 
+                       itemprop="url"
+                       aria-label="Ghanshyam Prajapati's LinkedIn profile">
+                        View Portfolio
+                    </a>
+                </article>
             </div>
             
-            <div class="contact-item">
-                <div class="contact-item-inner">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Address</span>
-                    <p id="sanjay-nagar">Sanjay Nagar,Ghaziabad</p>
-                </div>
+            <div class="visitor-counter">
+                <h4>Total Visitors</h4>
+                <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
             </div>
-        </div>
-        <div class="social-media">
-            <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-<a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
-<a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
-<a ><i class="fa-brands fa-twitter"></i></a>
-        </div>
-       <h3 id="copyright"></h3>
-
-</section>
-
-               <!-- WEBSITE DESIGNING END -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script>
-
-    var Typed = new Typed (".greeting",{
-
-        strings : ["Welcome!! NTCian"],
-        typeSpeed : 150,
-        backspeed : 150,
-        loop : true,
-        showCursor: false 
-    })
+        </section>
         
+        <!-- CONTACT SECTION -->
+        <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contact Us</h2>
+                
+                <div class="row contact-methods">
+                    <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
+                        <div class="contact-item-inner">
+                            <a href="https://whatsapp.com/your-community-link" itemprop="url">
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                                <span>WhatsApp Community</span>
+                                <p itemprop="name">NITra MITra</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" itemscope itemtype="https://schema.org/ContactPoint">
+                        <div class="contact-item-inner">
+                            <a href="mailto:nitramitra@gmail.com" itemprop="email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span>Email</span>
+                                <p itemprop="email">nitramitra@gmail.com</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" itemscope itemtype="https://schema.org/CollegeOrUniversity">
+                        <div class="contact-item-inner">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Address</span>
+                            <p id="sanjay-nagar" itemprop="address">Sanjay Nagar, Ghaziabad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-media">
+                    <a href="https://youtube.com/@my.vlog_spot" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/my_vlog.spot/" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+                
+                <p id="copyright" class="copyright-notice">
+                    &copy; <span id="current-year"></span> NITra MITra. All rights reserved.
+                </p>
+            </div>
+        </section>
+    </main>
     
-</script>
-<script src="index.js">
-</script>
-
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        // Set current year in copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Initialize Typed.js if element exists
+        if (document.querySelector('.greeting')) {
+            new Typed('.greeting', {
+                strings: ["Welcome!! NTCian"],
+                typeSpeed: 150,
+                backSpeed: 150,
+                loop: true,
+                showCursor: false 
+            });
+        }
+        
+        // Lazy loading for images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+        
+        // Dark mode toggle
+        const modeToggle = document.getElementById('mode');
+        if (modeToggle) {
+            modeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            });
+            
+            // Check for saved user preference
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        }
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
