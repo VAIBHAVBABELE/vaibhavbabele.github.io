@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Summary API Tester - Nitra Mitra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    
+    <style>
+        :root {
+            --test-primary: var(--accent-color);
+            --test-primary-dark: var(--accent-color-dark);
+            --test-secondary: var(--bg-shade);
+            --test-text: var(--primary-text-color);
+            --test-bg: var(--white-4345);
+            --test-card-bg: white;
+            --test-border: #dee2e6;
+            --test-success: #28a745;
+            --test-error: #dc3545;
+            --test-warning: #ffc107;
+        }
+        
+        .dark-mode {
+            --test-card-bg: var(--bg-shade);
+            --test-bg: rgb(59, 59, 59);
+            --test-border: #495057;
+            --test-text: rgb(238, 234, 234);
+        }
+        
+        body {
+            background: var(--test-bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--test-text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .test-card {
+            background: var(--test-card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .test-card {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(210, 191, 128, 0.2);
+        }
+        
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .test-header {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .endpoint-badge {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-color-dark));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(210, 191, 128, 0.3);
+        }
+        
+        .test-result {
+            background: var(--test-bg);
+            border: 2px solid var(--test-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            max-height: 500px;
+            overflow-y: auto;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .success {
+            border-left: 6px solid var(--test-success);
+            background: rgba(40, 167, 69, 0.1);
+        }
+        
+        .error {
+            border-left: 6px solid var(--test-error);
+            background: rgba(220, 53, 69, 0.1);
+        }
+        
+        .loading {
+            border-left: 6px solid var(--test-warning);
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .file-drop-zone {
+            border: 3px dashed var(--accent-color);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            background: var(--bg-shade);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .file-drop-zone:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        .file-drop-zone.dragover {
+            background: var(--test-success);
+            border-color: var(--test-success);
+            color: white;
+        }
+        
+        .test-btn {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-color-dark));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(210, 191, 128, 0.3);
+        }
+        
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(210, 191, 128, 0.4);
+        }
+        
+        .test-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .text-area {
+            width: 100%;
+            min-height: 150px;
+            border: 2px solid var(--test-border);
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: 'Poppins', sans-serif;
+            resize: vertical;
+            background: var(--test-card-bg);
+            color: var(--test-text);
+            transition: border-color 0.3s ease;
+        }
+        
+        .text-area:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(210, 191, 128, 0.3);
+        }
+        
+        .form-select {
+            border: 2px solid var(--test-border);
+            border-radius: 10px;
+            padding: 0.75rem;
+            background: var(--test-card-bg);
+            color: var(--test-text);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(210, 191, 128, 0.3);
+        }
+        
+        .alert {
+            border-radius: 10px;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .alert-info {
+            background: rgba(210, 191, 128, 0.2);
+            color: var(--accent-color-dark);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .api-description {
+            color: var(--secondary-text-color);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .dark-mode .api-description {
+            color: var(--placeholder-color);
+        }
+        
+        pre {
+            background: var(--test-bg);
+            border: 1px solid var(--test-border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .summary-content {
+            background: var(--test-card-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+        
+        .btn-outline-danger {
+            border: 2px solid var(--test-error);
+            color: var(--test-error);
+            background: transparent;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-danger:hover {
+            background: var(--test-error);
+            color: white;
+        }
+        
+        .spinner-icon {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .test-container {
+                padding: 1rem;
+            }
+            
+            .test-card {
+                padding: 1.5rem;
+            }
+            
+            .file-drop-zone {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body id="onload">
+    <div class="test-container">
+        <div class="test-card">
+            <h1 class="test-header">
+                <i class="fas fa-flask"></i> File Summary API Tester
+            </h1>
+            <p class="api-description">Test the file summarization endpoints of your Nitra Mitra backend API with our comprehensive testing suite</p>
+            
+            <!-- Dark Mode Toggle -->
+            <div class="text-center mb-3">
+                <button id="darkModeToggle" class="test-btn" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i> Toggle Dark Mode
+                </button>
+            </div>
+        </div>
+
+        <!-- Backend Status Test -->
+        <div class="test-card">
+            <h3 class="section-title"><i class="fas fa-heartbeat"></i> Backend Status Check</h3>
+            <div class="endpoint-badge">GET /api/status</div>
+            <p class="api-description">Verify that your backend server is running and properly configured</p>
+            <button onclick="testBackendStatus()" class="test-btn">
+                <i class="fas fa-play"></i> Test Backend Status
+            </button>
+            <div id="statusResult" class="test-result" style="display: none;"></div>
+        </div>
+
+        <!-- Text Summarization Test -->
+        <div class="test-card">
+            <h3 class="section-title"><i class="fas fa-align-left"></i> Text Summarization Test</h3>
+            <div class="endpoint-badge">POST /api/summarize/text</div>
+            <p class="api-description">Test the text summarization endpoint with sample text or your own content</p>
+            
+            <textarea id="textToSummarize" class="text-area" placeholder="Enter text to summarize (or use the sample text below)">
+Machine learning is a method of data analysis that automates analytical model building. It is a branch of artificial intelligence (AI) based on the idea that systems can learn from data, identify patterns and make decisions with minimal human intervention. Machine learning algorithms build a mathematical model based on training data, known as a "training set", in order to make predictions or decisions without being explicitly programmed to do so. Machine learning algorithms are used in a wide variety of applications, such as email filtering and computer vision, where it is difficult or infeasible to develop conventional algorithms to perform the needed tasks.
+
+The study of machine learning began in the 1950s and has evolved significantly over the decades. Early work in the field included the development of the perceptron by Frank Rosenblatt in 1957, which was one of the first algorithms capable of learning. Since then, the field has expanded to include various approaches such as supervised learning, unsupervised learning, and reinforcement learning.
+
+Supervised learning involves training algorithms on labeled data, where the correct answers are provided during training. This approach is commonly used for classification and regression tasks. Unsupervised learning, on the other hand, involves finding patterns in data without labeled examples. Common unsupervised learning techniques include clustering and dimensionality reduction.
+
+Reinforcement learning is a type of machine learning where an agent learns to make decisions by taking actions in an environment and receiving rewards or penalties. This approach has been particularly successful in game-playing scenarios, such as chess and Go, where AI systems have achieved superhuman performance.
+            </textarea>
+            
+            <button onclick="testTextSummarization()" class="test-btn" id="textSummarizeBtn">
+                <i class="fas fa-magic"></i> Summarize Text
+            </button>
+            <div id="textSummarizeResult" class="test-result" style="display: none;"></div>
+        </div>
+
+        <!-- File Upload Test -->
+        <div class="test-card">
+            <h3 class="section-title"><i class="fas fa-file-upload"></i> File Summarization Test</h3>
+            <div class="endpoint-badge">POST /api/summarize/file</div>
+            <p class="api-description">Upload a PDF, TXT, or MD file to test file summarization capabilities</p>
+            
+            <div class="file-drop-zone" id="fileDropZone" onclick="document.getElementById('fileInput').click()">
+                <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                <h5>Drop a file here or click to browse</h5>
+                <p class="text-muted">Supported formats: PDF, TXT, MD (Max 50MB)</p>
+                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.md" onchange="handleFileSelect(event)">
+            </div>
+            
+            <div id="selectedFile" style="display: none;" class="mt-3">
+                <div class="alert alert-info">
+                    <i class="fas fa-file"></i> 
+                    <span id="fileName"></span> 
+                    (<span id="fileSize"></span>)
+                    <button onclick="clearFile()" class="btn btn-sm btn-outline-danger float-end">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <button onclick="testFileSummarization()" class="test-btn mt-3" id="fileSummarizeBtn" disabled>
+                <i class="fas fa-magic"></i> Summarize File
+            </button>
+            <div id="fileSummarizeResult" class="test-result" style="display: none;"></div>
+        </div>
+
+        <!-- Notes Enhancement Test -->
+        <div class="test-card">
+            <h3 class="section-title"><i class="fas fa-edit"></i> Notes Enhancement Test</h3>
+            <div class="endpoint-badge">POST /api/notes/enhance</div>
+            <p class="api-description">Test the notes enhancement feature to improve and generate questions from your study materials</p>
+            
+            <textarea id="notesToEnhance" class="text-area" placeholder="Enter notes to enhance">
+Python Basics:
+- Variables: store data
+- Functions: reusable code blocks
+- Loops: for, while
+- Data types: int, str, list, dict
+- OOP: classes, objects, inheritance
+- Error handling: try/except
+- File I/O: open, read, write
+- Libraries: import, pip install
+            </textarea>
+            
+            <div class="mt-2">
+                <label for="enhanceType">Enhancement Type:</label>
+                <select id="enhanceType" class="form-select">
+                    <option value="enhance">Enhance Notes</option>
+                    <option value="questions">Generate Questions</option>
+                </select>
+            </div>
+            
+            <button onclick="testNotesEnhancement()" class="test-btn mt-3" id="notesEnhanceBtn">
+                <i class="fas fa-brain"></i> Enhance Notes
+            </button>
+            <div id="notesEnhanceResult" class="test-result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://localhost:5000';
+        let selectedFile = null;
+
+        // Backend Status Test
+        async function testBackendStatus() {
+            const resultDiv = document.getElementById('statusResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result loading';
+            resultDiv.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Checking backend status...';
+
+            try {
+                const response = await fetch(`${BASE_URL}/api/status`);
+                const data = await response.json();
+                
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    <h5><i class="fas fa-check-circle"></i> Backend Status: Online</h5>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <h5><i class="fas fa-times-circle"></i> Backend Status: Offline</h5>
+                    <p>Error: ${error.message}</p>
+                    <p>Make sure the backend server is running on localhost:5000</p>
+                `;
+            }
+        }
+
+        // Text Summarization Test
+        async function testTextSummarization() {
+            const text = document.getElementById('textToSummarize').value.trim();
+            const resultDiv = document.getElementById('textSummarizeResult');
+            const btn = document.getElementById('textSummarizeBtn');
+
+            if (!text) {
+                alert('Please enter some text to summarize');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Summarizing...';
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result loading';
+            resultDiv.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Processing text...';
+
+            try {
+                const response = await fetch(`${BASE_URL}/api/summarize/text`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: text })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `
+                        <h5><i class="fas fa-check-circle"></i> Text Summarized Successfully</h5>
+                        <div class="mt-3">
+                            <strong>Original Length:</strong> ${data.original_length} characters<br>
+                            <strong>Summary:</strong>
+                            <div class="summary-content">
+                                ${data.summary}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <h5><i class="fas fa-times-circle"></i> Text Summarization Failed</h5>
+                    <p>Error: ${error.message}</p>
+                `;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-magic"></i> Summarize Text';
+            }
+        }
+
+        // File handling
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                selectedFile = file;
+                document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileSize').textContent = formatFileSize(file.size);
+                document.getElementById('selectedFile').style.display = 'block';
+                document.getElementById('fileSummarizeBtn').disabled = false;
+            }
+        }
+
+        function clearFile() {
+            selectedFile = null;
+            document.getElementById('fileInput').value = '';
+            document.getElementById('selectedFile').style.display = 'none';
+            document.getElementById('fileSummarizeBtn').disabled = true;
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // File Summarization Test
+        async function testFileSummarization() {
+            if (!selectedFile) {
+                alert('Please select a file first');
+                return;
+            }
+
+            const resultDiv = document.getElementById('fileSummarizeResult');
+            const btn = document.getElementById('fileSummarizeBtn');
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Processing...';
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result loading';
+            resultDiv.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Uploading and processing file...';
+
+            try {
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+
+                const response = await fetch(`${BASE_URL}/api/summarize/file`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `
+                        <h5><i class="fas fa-check-circle"></i> File Summarized Successfully</h5>
+                        <div class="mt-3">
+                            <strong>File:</strong> ${data.filename}<br>
+                            <strong>Extracted Length:</strong> ${data.extracted_length} characters<br>
+                            <strong>Summary:</strong>
+                            <div class="summary-content">
+                                ${data.summary}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <h5><i class="fas fa-times-circle"></i> File Summarization Failed</h5>
+                    <p>Error: ${error.message}</p>
+                `;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-magic"></i> Summarize File';
+            }
+        }
+
+        // Notes Enhancement Test
+        async function testNotesEnhancement() {
+            const notes = document.getElementById('notesToEnhance').value.trim();
+            const type = document.getElementById('enhanceType').value;
+            const resultDiv = document.getElementById('notesEnhanceResult');
+            const btn = document.getElementById('notesEnhanceBtn');
+
+            if (!notes) {
+                alert('Please enter some notes to enhance');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Processing...';
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result loading';
+            resultDiv.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Enhancing notes...';
+
+            try {
+                const response = await fetch(`${BASE_URL}/api/notes/enhance`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ notes: notes, type: type })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `
+                        <h5><i class="fas fa-check-circle"></i> Notes Enhanced Successfully</h5>
+                        <div class="mt-3">
+                            <strong>Type:</strong> ${data.type}<br>
+                            <strong>Original Length:</strong> ${data.original_length} characters<br>
+                            <strong>Enhanced Notes:</strong>
+                            <div class="summary-content">
+                                ${data.enhanced_notes}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <h5><i class="fas fa-times-circle"></i> Notes Enhancement Failed</h5>
+                    <p>Error: ${error.message}</p>
+                `;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-brain"></i> Enhance Notes';
+            }
+        }
+
+        // Drag and drop functionality
+        const dropZone = document.getElementById('fileDropZone');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type === 'application/pdf' || file.type === 'text/plain' || file.name.endsWith('.md')) {
+                    selectedFile = file;
+                    document.getElementById('fileName').textContent = file.name;
+                    document.getElementById('fileSize').textContent = formatFileSize(file.size);
+                    document.getElementById('selectedFile').style.display = 'block';
+                    document.getElementById('fileSummarizeBtn').disabled = false;
+                } else {
+                    alert('Please select a PDF, TXT, or MD file');
+                }
+            }
+        });
+
+        // Auto-test backend status on page load
+        window.addEventListener('load', () => {
+            // Load dark mode preference
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                updateDarkModeToggle(true);
+            }
+            
+            setTimeout(testBackendStatus, 1000);
+        });
+        
+        // Dark mode toggle function
+        function toggleDarkMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            updateDarkModeToggle(isDarkMode);
+        }
+        
+        function updateDarkModeToggle(isDarkMode) {
+            const toggle = document.getElementById('darkModeToggle');
+            if (isDarkMode) {
+                toggle.innerHTML = '<i class="fas fa-sun"></i> Toggle Light Mode';
+            } else {
+                toggle.innerHTML = '<i class="fas fa-moon"></i> Toggle Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
