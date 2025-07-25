@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution Certificate</title>
+    <link rel="stylesheet" href="certificate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div id="certificate-wrapper">
+            <div class="certificate-header">
+                <h1 class="main-title">Certificate of Contribution</h1>
+                <p class="subtitle">Proudly Presented To</p>
+            </div>
+            <div class="certificate-body">
+                <h2 id="contributor-name" class="contributor-name">Contributor Name</h2>
+                <p class="contribution-text">
+                    For their outstanding contribution to the <strong>Nitra Mitra</strong> project.
+                    This certificate recognizes the successful merge of <strong id="pr-count">0</strong> pull request(s),
+                    achieving a contribution level of <strong id="level">Beginner</strong>.
+                </p>
+            </div>
+            <div class="certificate-footer">
+                <div class="signature">
+                    <p><strong>Project Maintainer</strong></p>
+                    <p id="maintainer-name">Nitra Mitra</p>
+                </div>
+                <div class="date">
+                    <p><strong>Date</strong></p>
+                    <p id="issue-date">July 24, 2025</p>
+                </div>
+            </div>
+        </div>
+        <button id="download-btn">Download PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script src="certificate.js"></script>
+
+</body>
+</html>
