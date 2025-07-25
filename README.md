@@ -41,7 +41,7 @@
 
 ![Merged PRs](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/5180c2697a8fb87753ac2d86cc90e442ad715dbb/images/Merged%20PRs.png)
 
-![Eg Certificate](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/5180c2697a8fb87753ac2d86cc90e442ad715dbb/images/Certificate%20exp.png)
+![Eg Certificate](https://github.com/Nikita-Mishraa/vaibhavbabele.github.io/blob/f7ca32d49cddd5fc6443668ac95422ea89a626c5/images/Certificate%20exp.png)
 
 ### FOOTER
 ![Screenshot 2025-01-05 000731](https://github.com/user-attachments/assets/cce591a4-a95a-40af-bfa7-4d182d263db1)
