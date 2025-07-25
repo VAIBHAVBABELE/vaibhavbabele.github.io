@@ -2,3 +2,7 @@ flask==2.3.3
 flask-cors==4.0.0
 requests==2.31.0
 gunicorn==21.2.0
+PyPDF2==3.0.1
+PyMuPDF==1.23.8
+Werkzeug==2.3.7
+

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hangman - CS Terms</title>
+
+  <!-- Fonts & Libraries -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #ffe4ec;
+      --card-bg: #ffffff;
+      --primary: #1c1919;
+      --success: #f849e6;
+      --danger: #d63031;
+      --text: #baccd1;
+      --muted: #c5d0d3;
+      --radius: 10px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text);
+      padding: 20px;
+    }
+    
+nav{
+    padding: 10px;
+    background-color:var(--nav-bgcolor);
+    height:15vh;
+    display: flex; 
+    align-items: center;
+    justify-content:space-around;
+    border:var(--primary-text-color) 5px solid;
+    z-index: 10;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+
+nav ul{
+    
+    margin-top:20px;
+    border-radius: 10px;
+    color: var(--primary-text-color);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+   
+}
+
+
+
+nav ul li a{
+    text-decoration: none;
+    position: relative;
+    color: var(--primary-text-color);
+    margin: 10px;
+    font-size: 18;
+    letter-spacing: 0.5px;
+    font-weight:bold;
+    padding: 8px 8px ;
+    transition: all 0.3s ease;
+    overflow-x: hidden;
+}
+nav ul li a:hover {
+    background-color: #75b1e9;
+    border-radius: 10px;
+    border: 1px solid black;
+    
+    
+  
+}
+
+
+
+
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #555;
+    
+}
+
+nav .logo {
+    font-size: 33px;
+    color: var(--primary-text-color);
+    font-weight: 600;
+    font-family: "Playwrite SK", cursive;
+}
+nav #mitra{
+    margin: 0;
+    padding: 0%;
+    color: var(--primary-text-color);
+}
+nav .menu-btn i {
+    color: #322929;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    
+}
+
+section{
+    padding: 50px var(--padding-inline-section);
+    background: var(--bg-shade);
+    
+    
+}
+.main-page{
+    margin-top: 15vh;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 5%;
+    
+ 
+}
+.header-left{
+   max-width: 40vw;
+}
+.header-left h1{
+    margin-top: 20px;
+}
+.header-right img{
+    width: 100%;
+    margin-left: 10%;
+}
+.get-started-btn{
+    margin-top: 20px;
+    transition: all 0.3s ease;
+
+}
+
+.get-started-btn:hover{
+    transform: translate(1.3);
+    background-color: #577592;
+}
+#click{
+    display: none;
+}
+@media (max-width: 768px) {
+  nav ul {
+    position: fixed;
+    top: 15vh;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 15vh);
+    background-color: var(--nav-bgcolor);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: left 0.3s ease;
+    z-index: 9;
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+
+  nav .menu-btn i {
+    display: block;
+  }
+}
+
+
+  
+
+
+  
+
+
+
+    .game-title {
+      text-align: center;
+      margin-top: 100px; /* Offset for fixed navbar */
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .container {
+      background: var(--card-bg);
+      padding: 30px 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      width: 100%;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #hint {
+      font-size: 1em;
+      color: var(--muted);
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    #word {
+      font-family: monospace;
+      font-size: 2em;
+      letter-spacing: 0.5em;
+      margin: 20px 0;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    input#guess {
+      font-size: 1.2em;
+      width: 60px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    input#guess:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(154, 150, 181, 0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: 600;
+      color: #fff;
+      background-color: var(--primary);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #574b90;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #status {
+      font-size: 1em;
+      margin-top: 20px;
+      font-weight: 500;
+      min-height: 1.5em;
+    }
+
+    .status-success { color: var(--success); }
+    .status-danger { color: var(--danger); }
+    .status-info { color: var(--primary); }
+    .status-win { color: var(--success); }
+    .status-lose { color: var(--danger); }
+
+    #guessed-letters-container {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: var(--muted);
+    }
+
+    #guessedLetters {
+      font-family: monospace;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    #newGameButton {
+      margin-top: 25px;
+      background-color: var(--success);
+    }
+
+    #newGameButton:hover {
+      background-color: #019875;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: #2b2525;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+ <body>
+
+  <!-- NAVBAR - untouched except spacing -->
+  <nav>
+    <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fa-sharp fa-solid fa-bars"></i>
+    </label>
+    <ul>
+      <li><a href="../index.html" id="active">Home</a></li>
+      <li><a href="../index.html#Services">Services</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#Feedback">Feedback</a></li>
+      <li><a href="../index.html#contact">Contact us</a></li>
+    </ul>
+    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+  </nav> 
+
+  <!-- ADD SPACING AFTER NAVBAR -->
+  <div style="height: 100px;"></div>
+
+  <!-- PAGE TITLE OUTSIDE THE CARD -->
+  <h1 style="text-align: center; color: #555172; margin-bottom: 20px;">Hangman - CS Terms</h1>
+
+  <!-- WHITE GAME CARD -->
+  <div class="container">
+    <div id="hint"></div>
+    <p id="word">Loading...</p>
+
+    <div class="input-group">
+      <input type="text" id="guess" maxlength="1" placeholder="a-z" autofocus />
+      <button id="guessButton">Guess</button>
+    </div>
+
+    <div id="guessed-letters-container">
+      Guessed Letters: <span id="guessedLetters"></span>
+    </div>
+
+    <p id="status"></p>
+    <button id="newGameButton">New Game</button>
+  </div>
+
+
+  <!-- Script -->
+  <script>
+    const words = [
+      { word: "algorithm", hint: "Step-by-step solution process" },
+      { word: "compiler", hint: "Turns code into machine instructions" },
+      { word: "debugger", hint: "Tool to identify and fix bugs" },
+      { word: "function", hint: "Reusable block of code" },
+      { word: "variable", hint: "Holds a value in memory" },
+      { word: "framework", hint: "Software skeleton to build on" },
+      { word: "database", hint: "Stores organized data" },
+      { word: "frontend", hint: "What the user sees" },
+      { word: "backend", hint: "Behind-the-scenes server logic" },
+      { word: "protocol", hint: "Set of communication rules" },
+      { word: "recursion", hint: "Function that calls itself" },
+      { word: "boolean", hint: "True or false value" },
+      { word: "repository", hint: "Version-controlled code storage" }
+    ];
+
+    const wordDisplay = document.getElementById("word");
+    const hintDisplay = document.getElementById("hint");
+    const guessInput = document.getElementById("guess");
+    const guessButton = document.getElementById("guessButton");
+    const guessedLettersDisplay = document.getElementById("guessedLetters");
+    const statusDisplay = document.getElementById("status");
+    const newGameButton = document.getElementById("newGameButton");
+
+    let chosenWord = '', chosenHint = '', displayWord = [], guessedLetters = [], triesLeft = 6;
+
+    function initializeGame() {
+      const random = words[Math.floor(Math.random() * words.length)];
+      chosenWord = random.word;
+      chosenHint = random.hint;
+      displayWord = Array(chosenWord.length).fill("_");
+      guessedLetters = [];
+      triesLeft = 6;
+
+      wordDisplay.textContent = displayWord.join(" ");
+      hintDisplay.textContent = `Hint: ${chosenHint}`;
+      guessedLettersDisplay.textContent = "";
+      statusDisplay.textContent = `Tries left: ${triesLeft}`;
+      statusDisplay.className = "";
+
+      guessInput.disabled = false;
+      guessButton.disabled = false;
+      guessInput.focus();
+    }
+
+    function handleGuess() {
+      const guessChar = guessInput.value.toLowerCase();
+      guessInput.value = "";
+      guessInput.focus();
+
+      if (!guessChar || guessChar.length !== 1 || !/[a-z]/.test(guessChar)) {
+        statusDisplay.textContent = "Please enter a valid letter.";
+        statusDisplay.className = "status-info";
+        return;
+      }
+
+      if (guessedLetters.includes(guessChar)) {
+        statusDisplay.textContent = `Already guessed '${guessChar}'`;
+        statusDisplay.className = "status-info";
+        return;
+      }
+
+      guessedLetters.push(guessChar);
+      guessedLettersDisplay.textContent = guessedLetters.join(", ");
+
+      let found = false;
+      for (let i = 0; i < chosenWord.length; i++) {
+        if (chosenWord[i] === guessChar) {
+          displayWord[i] = guessChar;
+          found = true;
+        }
+      }
+
+      if (found) {
+        statusDisplay.textContent = `Correct!`;
+        statusDisplay.className = "status-success";
+      } else {
+        triesLeft--;
+        statusDisplay.textContent = `Wrong! Tries left: ${triesLeft}`;
+        statusDisplay.className = "status-danger";
+      }
+
+      wordDisplay.textContent = displayWord.join(" ");
+
+      if (displayWord.join("") === chosenWord) {
+        statusDisplay.textContent = "You got it!";
+        statusDisplay.className = "status-win";
+        endGame();
+      } else if (triesLeft === 0) {
+        statusDisplay.textContent = `Out of tries! Word was: ${chosenWord}`;
+        statusDisplay.className = "status-lose";
+        endGame();
+      }
+    }
+
+    function endGame() {
+      guessInput.disabled = true;
+      guessButton.disabled = true;
+    }
+
+    guessButton.addEventListener("click", handleGuess);
+    newGameButton.addEventListener("click", initializeGame);
+    guessInput.addEventListener("keypress", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleGuess();
+      }
+    });
+
+    initializeGame();
+
+  </script>
+</body>
+</html>
