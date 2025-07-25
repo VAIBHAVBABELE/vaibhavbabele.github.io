@@ -670,7 +670,6 @@ section{
     background: var(--bg-shade); /* Consistent light beige section */
 }
 
-
 .para{
     color: var(--primary-text-color);
     font-weight: bold;
@@ -755,6 +754,81 @@ section{
     cursor: pointer;
 }
 
+
+.facility-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.para1{
+    color: var(--primary-text-color);
+    font-weight: bold;
+    align-items: center;
+    text-align:justify;
+    padding: 10px;
+    margin: 30px;
+}
+
+.facility-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.facility-card:hover {
+  transform: scale(1.01);
+}
+
+.facility-image img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.facility-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.facility-content h1 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: #2b2b2b;
+  font-weight: bold;
+}
+
+.facility-content p {
+  margin: 0;
+  font-size: 22px;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .facility-card {
+    flex-direction: column;
+  }
+
+  .facility-image img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .facility-content {
+    padding: 15px;
+  }
+}
+
+
 .icon {
     height: 90px;
     width: 90px;
@@ -790,6 +864,7 @@ section{
    
     
 }
+
 
 .about {
     display: flex;
