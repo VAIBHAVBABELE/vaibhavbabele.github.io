@@ -1,0 +1,13 @@
+{
+  "description": "A modern native HTML or HTML5 project template",
+  "required_fields": [],
+  "required_files": [
+    "index.html",
+    "style.css",
+    "script.js"
+  ],
+  "lang": "HTML",
+  "framework": "HTML5",
+  "name": "html_template",
+  "scene": "default_html_project"
+}

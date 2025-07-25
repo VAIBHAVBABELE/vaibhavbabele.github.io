@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>Our Services - Nitra Mitra</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="services-header">
+            <h1>Our Services</h1>
+            <p class="subtitle">Nitra Mitra: <em style="background-color: white">Empowering students through technology and collaborative learning</em></p>
+        </header>
+
+        <div class="services-grid">
+            <!-- Development Experience Card -->
+            <div class="service-card blue" data-tooltip="Structured hands-on projects that build real-world development skills through collaborative team environments.">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2 style="background-color: #eef4ff;">Development Experience</h2>
+                <p style="background-color:#eef4ff;">Gain hands-on experience building full-stack web applications in a collaborative environment.</p>
+                <div class="card-divider"></div>
+                <a href="#" class="learn-more" style="background-color: #eef4ff;">Learn more</a>
+            </div>
+
+            <!-- Learning Resources Card -->
+            <div class="service-card purple" data-tooltip="Structured learning paths, video tutorials, and documentation covering frontend, backend, database design, and deployment strategies.">
+                <div class="card-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h2 style="background-color: #f8f0ff;">Learning Resources</h2>
+                <p style="background-color: #f8f0ff;">Access curated learning materials and tutorials to enhance your tech skills.</p>
+                <div class="card-divider"></div>
+                <a style="background-color: #f8f0ff;" href="#" class="learn-more">Learn more</a>
+            </div>
+
+            <!-- Student Utilities Card -->
+            <div class="service-card green" data-tooltip="Comprehensive set of tools designed specifically for tech students to manage assignments, track progress, and optimize study time.">
+                <div class="card-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h2 style="background-color: #f0fff4;">Student Utilities</h2>
+                <p style="background-color: #f0fff4;">Streamlined tools for academic management, scheduling, and study resources.</p>
+                <div class="card-divider"></div>
+                <a style="background-color: #f0fff4;" href="#" class="learn-more">Learn more</a>
+            </div>
+
+            <!-- Community Engagement Card -->
+            <div class="service-card yellow" data-tooltip="Active community platform with forums, events, hackathons, and networking opportunities to connect with industry professionals.">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2 style="background-color: #fffbeb;">Community Engagement</h2>
+                <p style="background-color: #fffbeb;">Connect with fellow students and tech enthusiasts through events and forums.</p>
+                <div class="card-divider"></div>
+                <a  style="background-color: #fffbeb;"href="#" class="learn-more">Learn more</a>
+            </div>
+        </div>
+
+        <!-- Tooltip container that will be populated by JavaScript -->
+        <div id="tooltip" class="tooltip-container"></div>
+    </div>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

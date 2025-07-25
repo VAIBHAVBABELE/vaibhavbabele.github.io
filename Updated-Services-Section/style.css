@@ -1,0 +1,234 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #F1DAEC;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header styles */
+.services-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-header h1 {
+    font-size: 42px;
+    color: #4169e1; /* Royal blue for the heading */
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Services grid */
+.services-grid {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+/* Card styles */
+.service-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Card colors */
+.blue {
+    background-color: #eef4ff;
+}
+
+.purple {
+    background-color: #f8f0ff;
+}
+
+.green {
+    background-color: #f0fff4;
+}
+
+.yellow {
+    background-color: #fffbeb;
+}
+
+/* Card icon */
+.card-icon {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.blue .card-icon {
+    background-color: #d6e4ff;
+    color: #4169e1;
+}
+
+.purple .card-icon {
+    background-color: #edd6ff;
+    color: #9c27b0;
+}
+
+.green .card-icon {
+    background-color: #d6ffe4;
+    color: #28a745;
+}
+
+.yellow .card-icon {
+    background-color: #fff2d6;
+    color: #ffa000;
+}
+
+/* Card content */
+.service-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-divider {
+    width: 40px;
+    height: 2px;
+    margin: 15px 0;
+}
+
+.blue .card-divider {
+    background-color: #4169e1;
+}
+
+.purple .card-divider {
+    background-color: #9c27b0;
+}
+
+.green .card-divider {
+    background-color: #28a745;
+}
+
+.yellow .card-divider {
+    background-color: #ffa000;
+}
+
+/* Learn more link */
+.learn-more {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: auto;
+    position: relative;
+}
+
+.learn-more:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s;
+}
+
+.learn-more:hover:after {
+    width: 100%;
+}
+
+/* Tooltip styles */
+.tooltip-container {
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 350px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.tooltip-container.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip-container::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    top: -6px;
+    left: 20px;
+    transform: rotate(45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-header h1 {
+        font-size: 32px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+    }
+}
+
+h2{
+    background-color: white;
+}
+
+p{
+    background-color: white;
+}
+a{
+    background-color: white;
+}
