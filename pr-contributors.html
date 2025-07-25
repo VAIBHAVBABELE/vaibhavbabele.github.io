@@ -64,6 +64,8 @@
             font-family: "Poppins", sans-serif;
             color: var(--primary-text-color);
         }
+        
+
         section {
             padding: 50px var(--padding-inline-section);
             background: var(--bg-shade);
@@ -165,6 +167,7 @@
             color: var(--secondary-text-color);
             margin-top: 5px;
         }
+
         .contributors-section, .prs-section {
             padding: 30px;
             background: var(--bg-shade);
@@ -194,10 +197,8 @@
             border-left: 5px solid;
             transition: transform 0.2s, box-shadow 0.2s;
             border: 2px solid white;
-
             display: flex;
             flex-direction: column;
-
         }
 
         .contributor-card:hover {
@@ -223,9 +224,7 @@
             font-size: 0.9rem;
             font-weight: bold;
             margin-bottom: 10px;
-
             align-self: flex-start;
-
         }
 
         .level-1-badge { background: #e74c3c; color: white; }
@@ -237,7 +236,6 @@
             gap: 15px;
             font-size: 0.9rem;
             color: var(--secondary-text-color);
-
             margin-top: auto;
         }
         
@@ -260,8 +258,7 @@
             background-color: #937d4b;
             color: white !important;
         }
-        }
-
+     
 
         .error {
             background: #f8d7da;
@@ -270,7 +267,6 @@
             border-radius: 8px;
             margin: 20px;
         }
-
 
      
         .pr-item {
@@ -313,9 +309,6 @@
             margin-right: 5px;
         }
     
-
-        /* Footer Styles */
-
         .contact-section {
             min-height: 30vh;
             background-color: var(--footer-bgColor);
@@ -472,9 +465,7 @@
     </style>
 </head>
 <body id="onload">
-
     <nav>
-
         <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -500,9 +491,7 @@
             <div class="pr-container">
                 <div class="pr-header">
                     <h1>Our Contributors</h1>
-
                 </div>
-
                 <div id="content"></div>
             </div>
         </section>
@@ -563,10 +552,10 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
 <script>
-    // --- START: MODIFIED SCRIPT ---
+    
 
     let allPRs = [];
     let contributors = new Map();
@@ -794,200 +783,6 @@
         const contentDiv = document.getElementById('content');
         contentDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
     }
-        // Configuration - automatically embedded
-        const REPO = 'VAIBHAVBABELE/vaibhavbabele.github.io';
-        const TOKEN = 'your_api_token_here';
-        
-        let allPRs = [];
-        let contributors = new Map();
-
-        // Dark mode toggle functionality
-        const modeToggle = document.getElementById('mode');
-        const body = document.body;
-
-        modeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            modeToggle.src = isDarkMode ? '../images/sun.png' : '/images/moon.png';
-        });
-
-        // Auto-load PR data when page loads
-        window.addEventListener('load', () => {
-            fetchPRs();
-        });
-
-        async function fetchPRs() {
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = '<div class="loading">🔄 Loading pull requests from ' + REPO + '...</div>';
-
-            try {
-                const headers = {
-                    'Accept': 'application/vnd.github.v3+json',
-                    'User-Agent': 'PR-Tracker',
-                    'Authorization': `token ${TOKEN}`
-                };
-
-                // Fetch merged PRs
-                const response = await fetch(
-                    `https://api.github.com/repos/${REPO}/pulls?state=closed&per_page=100&sort=updated&direction=desc`, 
-                    { headers }
-                );
-
-                if (!response.ok) {
-                    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
-                }
-
-                const prs = await response.json();
-                const mergedPRs = prs.filter(pr => pr.merged_at);
-
-                allPRs = mergedPRs;
-                processContributors(mergedPRs);
-                displayResults(mergedPRs);
-
-            } catch (error) {
-                showError(`Error fetching data: ${error.message}`);
-            }
-        }
-
-        function processContributors(prs) {
-            contributors.clear();
-            
-            prs.forEach(pr => {
-                const username = pr.user.login;
-                
-                if (!contributors.has(username)) {
-                    contributors.set(username, {
-                        name: username,
-                        avatar: pr.user.avatar_url,
-                        prs: [],
-                        totalPRs: 0,
-                        maxLevel: 1,
-                        levelPRs: { 1: 0, 2: 0, 3: 0 }
-                    });
-                }
-                
-                const contributor = contributors.get(username);
-                contributor.prs.push(pr);
-                contributor.totalPRs++;
-                
-                // Extract level from PR labels
-                const prLevel = extractLevelFromLabels(pr.labels || []);
-                if (prLevel > 0) {
-                    contributor.levelPRs[prLevel]++;
-                    if (prLevel > contributor.maxLevel) {
-                        contributor.maxLevel = prLevel;
-                    }
-                }
-            });
-
-            // Set contributor level based on highest level PR they've completed
-            contributors.forEach(contributor => {
-                contributor.level = contributor.maxLevel;
-            });
-        }
-
-        function extractLevelFromLabels(labels) {
-            for (const label of labels) {
-                const labelName = label.name.toLowerCase();
-                
-                // Check for level patterns
-                if (labelName.includes('level 3') || labelName.includes('level3')) return 3;
-                if (labelName.includes('level 2') || labelName.includes('level2')) return 2;
-                if (labelName.includes('level 1') || labelName.includes('level1')) return 1;
-                
-                // Check for difficulty patterns
-                if (labelName.includes('hard') || labelName.includes('expert') || labelName.includes('advanced')) return 3;
-                if (labelName.includes('medium') || labelName.includes('intermediate')) return 2;
-                if (labelName.includes('easy') || labelName.includes('beginner') || labelName.includes('good first issue')) return 1;
-            }
-            return 1; // Default to level 1 if no level found
-        }
-
-        function displayResults(prs) {
-            const contentDiv = document.getElementById('content');
-            
-            const statsHTML = `
-                <div class="stats">
-                    <div class="stat-card">
-                        <div class="stat-number">${prs.length}</div>
-                        <div class="stat-label">Merged PRs</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">${contributors.size}</div>
-                        <div class="stat-label">Contributors</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 3).length}</div>
-                        <div class="stat-label">Level 3 Contributors</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 2).length}</div>
-                        <div class="stat-label">Level 2 Contributors</div>
-                    </div>
-                </div>
-            `;
-
-            const contributorsHTML = displayContributors();
-            
-            contentDiv.innerHTML = statsHTML + contributorsHTML;
-        }
-
-        function displayContributors() {
-    // --- START: MODIFICATION ---
-
-    // 1. Define a list of users to exclude
-    const excludedUsers = ['VAIBHAVBABELE'];
-
-    // 2. Filter out the excluded users from the contributors map
-    const sortedContributors = Array.from(contributors.values())
-        .filter(c => !excludedUsers.includes(c.name))
-        .sort((a, b) => {
-            if (a.level !== b.level) return b.level - a.level;
-            return b.totalPRs - a.totalPRs;
-        });
-
-    const contributorsHTML = sortedContributors.map((contributor, index) => {
-        // 3. Add ranking and medals for the top 3
-        const rank = index + 1;
-        const medals = ['🥇', '🥈', '🥉'];
-        const rankDisplay = rank <= 3 ? medals[index] : `${rank}`;
-
-        const levelClass = `level-${contributor.level}`;
-        const levelBadgeClass = `level-${contributor.level}-badge`;
-        const levelText = ['Beginner', 'Intermediate', 'Advanced'][contributor.level - 1];
-
-        return `
-            <div class="contributor-card ${levelClass}">
-                <div class="contributor-name">${rankDisplay} ${contributor.name}</div>
-                <div class="contributor-level ${levelBadgeClass}">
-                    Level ${contributor.level} - ${levelText}
-                </div>
-                <div class="contributor-stats">
-                    <span>📊 ${contributor.totalPRs} PRs</span>
-                    <span>🎯 L1: ${contributor.levelPRs[1]}</span>
-                    <span>🔥 L2: ${contributor.levelPRs[2]}</span>
-                    <span>💎 L3: ${contributor.levelPRs[3]}</span>
-                </div>
-            </div>
-        `;
-    }).join('');
-
-
-            return `
-        <div class="contributors-section">
-            <h2 class="section-title">🏆 Top Contributors</h2>
-            <div class="contributors-grid">
-                ${contributorsHTML}
-            </div>
-        </div>
-    `;
-        }
-        
-        function showError(message) {
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
-        }
-    </script>
+</script>
 </body>
 </html>
-
