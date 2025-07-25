@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games - Nitra Mitra</title>
+   
+  <!-- Bootstrap + Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: hsl(313, 44%, 89%);
+      font-family: 'Poppins', sans-serif;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-family: 'Comic Neue', cursive;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .card {
+      border-radius: 20px;
+      background-color: #fff0f5;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card-title {
+      font-family: 'Comic Neue', cursive;
+      font-size: 1.3rem;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .game-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .btn-primary {
+      background-color: #ff7ca8;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: lch(62.97% 65 4.01);
+    }
+  </style>
+  <style>
+    /* Prevent service-heading overlap with navbar */
+    #about {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+<body id="onload">
+
+  <!-- NAVBAR DESIGNING -->
+  <nav>
+    <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fa-sharp fa-solid fa-bars"></i>
+    </label>
+    <ul>
+      <li><a href="../index.html" id="active">Home</a></li>
+      <li><a href="../index.html#Services" >Services</a></li>
+      <li><a href="../index.html#about">About </a></li>
+      <li><a href="../index.html#Feedback">Feedback</a></li>
+      <li><a href="../index.html#contact">Contact us</a></li>
+    </ul>
+    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+  </nav>
+
+  
+  <section class="about" id="about">
+    <h1 class="service-heading">Games</h1>
+    <p class="para">Welcome to the Games section of Nitra Mitra, where learning meets fun!
+This space is crafted to help AKTU and Nitra Technical Campus students unwind while staying sharp. Dive into interactive experiences like typing speed challenges, memory tests, coding quizzes, and brain-boosting hangman puzzles, all designed to engage and enhance your focus, reflexes, and logic. Whether you're taking a break from studies or looking to sharpen your skills in a playful way, Nitra Mitra Games has something for everyone. Play, practice, and power up your mind!</p>
+  </section>
+
+
+  <div class="container game-container">
+    <!-- Typing Speed -->
+    <div class="card" style="width: 18rem;">
+      <img src="../images/typing.png" class="card-img-top" alt="Typing Game">
+      <div class="card-body">
+        <h5 class="card-title">Typing Speed Challenge</h5>
+        <p class="card-text">Test how fast you can type in this timed speed challenge made for coding ninjas!</p>
+        <a href="typing.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+
+    <!-- Memory Game -->
+    <div class="card" style="width: 18rem;">
+      <img src="../images/memory.png" class="card-img-top" alt="Memory Game">
+      <div class="card-body">
+        <h5 class="card-title">Memory Game</h5>
+        <p class="card-text">Flip and match iconic CS symbols. Boost your brainpower while having fun.</p>
+        <a href="memory.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+
+    <!-- Coding Quiz -->
+    <div class="card" style="width: 18rem;">
+      <img src="../images/quiz.png" class="card-img-top" alt="Quiz Game">
+      <div class="card-body">
+        <h5 class="card-title">Basic Coding Quiz</h5>
+        <p class="card-text">Take a quick quiz on JavaScript, Python, and basic logic to level up your skills.</p>
+        <a href="quiz.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+
+    <!-- Hangman -->
+    <div class="card" style="width: 18rem;">
+      <img src="../images/hangman.png" class="card-img-top" alt="Hangman">
+      <div class="card-body">
+        <h5 class="card-title">Hangman: CS Edition</h5>
+        <p class="card-text">Guess computer science words before the stick figure is fully drawn. No pressure!</p>
+        <a href="hangman.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

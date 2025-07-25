@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>⚡ Coding Quiz - Nitra Mitra</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: hsl(313, 44%, 89%);
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .container {
+      padding-top: calc(15vh + 20px);
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    .quiz-box {
+      background: #e4b0b0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      transition: 0.3s;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      color: #34495e;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #d1eaff;
+      font-size: 1rem;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .options button:hover {
+      background: #9ad5ff;
+    }
+
+    .result {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    .progress {
+      margin: 15px 0;
+      height: 10px;
+      width: 100%;
+      background: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #7ed6df;
+      width: 0%;
+      transition: width 0.4s;
+    }
+
+    .score {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    #restart {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #82ccdd;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fa-sharp fa-solid fa-bars"></i>
+    </label>
+    <ul>
+      <li><a href="../index.html" id="active">Home</a></li>
+      <li><a href="../index.html#Services" >Services</a></li>
+      <li><a href="../index.html#about">About </a></li>
+      <li><a href="../index.html#Feedback">Feedback</a></li>
+      <li><a href="../index.html#contact">Contact us</a></li>
+    </ul>
+    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+  </nav> 
+
+  <h2>🧪 Basic Coding Quiz</h2>
+  <div class="quiz-box">
+    <div class="progress"><div class="progress-bar" id="bar"></div></div>
+    <div class="score" id="score">Score: 0</div>
+    <div class="question" id="question">Loading question...</div>
+    <div class="options" id="options"></div>
+    <div class="result" id="result"></div>
+    <div class="quote" id="quote"></div>
+    <button id="restart" style="display:none" onclick="restartQuiz()">🔁 Restart Quiz</button>
+  </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "What does HTML stand for?",
+        o: ["HyperText Markup Language", "Hyper Transfer Markup Language", "HighText Machine Language"],
+        a: 0,
+        tip: "HTML is a markup language, not a programming language."
+      },
+      {
+        q: "Which language is used for styling web pages?",
+        o: ["HTML", "JQuery", "CSS"],
+        a: 2,
+        tip: "CSS = Cascading Style Sheets."
+      },
+      {
+        q: "Inside which HTML element do we put JavaScript?",
+        o: ["<script>", "<js>", "<javascript>"],
+        a: 0,
+        tip: "Always use <script> tags for JavaScript."
+      },
+      {
+        q: "Which data structure uses FIFO?",
+        o: ["Stack", "Queue", "Graph"],
+        a: 1,
+        tip: "FIFO stands for First In First Out."
+      },
+      {
+        q: "What does 'const' mean in JavaScript?",
+        o: ["A fixed loop", "An immutable variable", "A variable that can change"],
+        a: 1,
+        tip: "‘const’ creates a constant reference to a value."
+      }
+    ];
+
+    let current = 0, score = 0;
+
+    function loadQuestion() {
+      const q = questions[current];
+      document.getElementById("question").textContent = `Q${current + 1}. ${q.q}`;
+      const opts = document.getElementById("options");
+      opts.innerHTML = "";
+
+      q.o.forEach((opt, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(i);
+        opts.appendChild(btn);
+      });
+
+      document.getElementById("bar").style.width = `${((current) / questions.length) * 100}%`;
+    }
+
+    function checkAnswer(i) {
+      const correct = i === questions[current].a;
+      if (correct) {
+        score++;
+        document.getElementById("result").textContent = "✅ Correct!";
+      } else {
+        document.getElementById("result").textContent = "❌ Wrong!";
+      }
+
+      document.getElementById("score").textContent = `Score: ${score}`;
+      document.getElementById("quote").textContent = `"${questions[current].tip}"`;
+
+      current++;
+      if (current < questions.length) {
+        setTimeout(() => {
+          document.getElementById("result").textContent = "";
+          document.getElementById("quote").textContent = "";
+          loadQuestion();
+        }, 1500);
+      } else {
+        endQuiz();
+      }
+    }
+
+    function endQuiz() {
+      document.getElementById("question").textContent = `🎉 Quiz Over!`;
+      document.getElementById("options").innerHTML = "";
+      document.getElementById("result").textContent = `Your final score is ${score}/${questions.length}`;
+      document.getElementById("bar").style.width = `100%`;
+      document.getElementById("restart").style.display = "inline-block";
+    }
+
+    function restartQuiz() {
+      current = 0;
+      score = 0;
+      document.getElementById("score").textContent = `Score: 0`;
+      document.getElementById("restart").style.display = "none";
+      document.getElementById("result").textContent = "";
+      document.getElementById("quote").textContent = "";
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
