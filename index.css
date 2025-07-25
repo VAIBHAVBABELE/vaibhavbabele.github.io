@@ -632,7 +632,7 @@ section{
 
 .card .effect-text .inner{
     position: absolute;
-    padding: 15px;
+    padding: 0px;
     z-index: 1;
     
 }
