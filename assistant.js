@@ -33,14 +33,14 @@ class StudentAssistant {
         if (hostname === 'localhost' || hostname === '127.0.0.1') {
             return 'http://localhost:5000';
         } else if (hostname.includes('vercel.app')) {
-            // Use the same domain for Vercel deployment
-            return window.location.origin;
-        } else if (hostname.includes('nitra.nbytes.xyz')) {
-            // Production backend URL - update this to your actual backend URL
-            return 'https://nitra-mitra-backend.vercel.app';
+            // Use the deployed backend URL
+            return 'https://nitra-mitra-gssoc.vercel.app';
+        } else if (hostname.includes('nitra.nbytes.xyz') || hostname.includes('github.io')) {
+            // Production backend URL
+            return 'https://nitra-mitra-gssoc.vercel.app';
         } else {
-            // Fallback - use the same origin
-            return window.location.origin;
+            // Default to deployed backend
+            return 'https://nitra-mitra-gssoc.vercel.app';
         }
     }
     
