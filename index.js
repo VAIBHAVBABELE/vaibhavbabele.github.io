@@ -49,3 +49,20 @@ document.addEventListener("DOMContentLoaded", function () {
     copyright.textContent = `© ${year} nitramitra | All Rights Reserved`;
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeElements = document.querySelectorAll(".fade-section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in");
+      }
+    });
+  }, {
+    threshold: 0.15,
+  });
+
+  fadeElements.forEach(el => observer.observe(el));
+});
+
