@@ -1,4 +1,4 @@
-
+/* 
 .floating-btn {
     position: fixed;
     bottom: 30px;
@@ -43,7 +43,7 @@
     width: 270px;
     /* display: flex;
     flex-direction: column; */
-}
+/* }
 
 #container button {
     background-color: #ecf1f6;
@@ -53,7 +53,7 @@
     font-size: 16px;
     cursor: pointer;
     /* display: block; */
-    margin: 10px 0;
+    /* margin: 10px 0;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
@@ -72,4 +72,87 @@ input[type="text"] {
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+/* } */  
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    width: 100px;
+    height: 70px;
+    background-color: #cf8133; /* warm brown */
+    color: #fff0e5; /* beige text */
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(207, 129, 51, 0.4);
+    transition: background-color 0.3s;
 }
+
+.floating-btn:hover {
+    background-color: #a55f20; /* darker brown */
+}
+
+.floating-btn:active {
+    height: 55px;
+    width: 95px;
+}
+
+.hidden {
+    display: none;
+}
+
+#container {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    background-color: #fff5e1; /* light beige */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(165, 95, 32, 0.2);
+    height: 450px;
+    width: 270px;
+}
+
+/* Buttons inside container: Create, Join, Confirm Join */
+#container button {
+    background-color: #cf8133;
+    color: #fff0e5;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    font-family: "Raleway", sans-serif;
+}
+
+#container button:hover {
+    background-color: #a55f20;
+}
+
+/* Join input area */
+#joinMeetingDiv {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1.5px solid #cf8133;
+    border-radius: 6px;
+    background-color: #fffaf4;
+    color: #5a3b1d;
+    font-family: "Raleway", sans-serif;
+}
+
+input[type="text"]::placeholder {
+    color: #a55f20;
+}
+
