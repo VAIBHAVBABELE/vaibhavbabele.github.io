@@ -8,7 +8,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() { dataLayer.push(arguments); }
+
         gtag('js', new Date());
 
         gtag('config', 'G-WZP9NSCWF5');
@@ -70,18 +72,26 @@
 
         </ul>
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
-
+        <script src="index.js"></script>
+       
     </nav>
-
+    
     <div class="main">
         <section id="Home">
             <div class="container flex main-page">
                 <div class="header-left">
                     <h1 class="greeting"></h1>
 
-                    </p>
-                    <a href="#Services" class="primary-button get-started-btn">MY SERVICES</a>
-                </div>
+                </p>
+                <a href="#Services" class="primary-button get-started-btn" >MY SERVICES</a>
+            </div>
+
+            <div class="header-right">
+                <img src="images/student.png" alt="student image" class="student-img">
+            </div>
+
+        </div>
+    </section>
 
                 <div class="header-right">
                     <img src="images/student.png" alt="student image" class="student-img">
@@ -214,23 +224,22 @@
 
     <!-- ABOUT DESIGNING -->           <!--Shifted the About section-->
 
-<section class="about  " id="about">  
-<h1 class="service-heading">About us</h1>
-<p class="para"><span>Nitra Mitra</span> is a student-driven platform developed by <span>Vaibhav Babele</span> and <span>Ghanshyam Prajapati</span> of <span>NITRA
-Technical Campus</span>. Our goal is to simplify academic life for <span>AKTU students</span> by offering easy access to 
-essential resources like notes, previous semester papers, and more. With a focus on user-friendly design 
-and relevant content, <span>Nitra Mitra</span> is tailored to meet the specific needs of students, providing them with 
-the tools they need to excel in their studies. We are committed to continuously enhancing the platform to 
-better serve the academic community.</p>
-<div class="about-flex">
-    <div class="About-card" title="vaibhav babele profile">
-        <div class="icon">
-            <img src="images/vaibhav.jpg" alt="vaibhav babele">
-        </div>
-        <h2 class="name">VAIBHAV</h2>
-        <a href="https://www.linkedin.com/in/vaibhavbabele" class="primary-button" id="btn">View Portfolio</a>
-    </div>
-
+    <section class="about  " id="about">  
+        <h1 class="service-heading">About us</h1>
+        <p class="para"><span>Nitra Mitra</span> is a student-driven platform developed by <span>Vaibhav Babele</span> and <span>Ghanshyam Prajapati</span> of <span>NITRA
+        Technical Campus</span>. Our goal is to simplify academic life for <span>AKTU students</span> by offering easy access to 
+        essential resources like notes, previous semester papers, and more. With a focus on user-friendly design 
+        and relevant content, <span>Nitra Mitra</span> is tailored to meet the specific needs of students, providing them with 
+        the tools they need to excel in their studies. We are committed to continuously enhancing the platform to 
+        better serve the academic community.</p>
+        <div class="about-flex">
+            <div class="About-card" title="vaibhav babele profile">
+                <div class="icon">
+                    <img src="images/vaibhav.jpg" alt="vaibhav babele">
+                </div>
+                <h2 class="name">VAIBHAV</h2>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" class="primary-button" id="btn">View Portfolio</a>
+            </div>
 
         </section>
         <section>
@@ -309,129 +318,143 @@ better serve the academic community.</p>
 
                 <div class="About-card">
 
-                    <div class="icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h2 class="name">GHANSHYAM</h2>
-                    <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266" class="primary-button"
-                        id="btn">View Portfolio</a>
-
-                </div>
-
-            </div>
-            <h4 color="white">Total Visitors</h4>
-            <script type='text/javascript'></script>
-            <script type="text/javascript"
-                src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
-        </section>
-    </div>
-
-
     <!--    google form     start-->
-    <section>
-        <h1 class="service-heading">Feedback Form</h1>
+    <section >
+        <h1   class="service-heading">Feedback Form</h1>
 
-        <p class="para">Your <span>feedback</span> is crucial for improving the <span>Nitra Mitra</span> website! We aim
-            to create the
-            best platform for the <span>NITRA Technical Campus</span> community, and your insights will help us achieve
-            this. Please share your experiences regarding navigation, content relevance, design, and
-            functionality. Your detailed and honest input will guide our enhancements and ensure the site
-            meets your needs effectively. By providing <span>valuable feedback</span>, you contribute directly to making
-            <span>Nitra Mitra</span> a more user-friendly and engaging resource. Thank you for helping us improve and
-            making a difference with your input!
+        <p class="para">Your <span>feedback</span> is crucial for improving the <span>Nitra Mitra</span> website! We aim to create the
+        best platform for the <span>NITRA Technical Campus</span> community, and your insights will help us achieve 
+        this. Please share your experiences regarding navigation, content relevance, design, and 
+        functionality. Your detailed and honest input will guide our enhancements and ensure the site 
+        meets your needs effectively. By providing <span>valuable feedback</span>, you contribute directly to making 
+        <span>Nitra Mitra</span> a more user-friendly and engaging resource. Thank you for helping us improve and 
+        making a difference with your input!
         </p><br><br><br><br>
-        <div class="form">
 
+        <div class="form">
+    
             <div class="form-flex">
                 <div class="form-card">
                     <h2 id="Feedback" class="form-heading">Feedback</h2>
                     <form name="submit-to-google-sheet">
-                        <input type="text" placeholder="Name" name="Name" required><br><br>
-                        <input type="email" placeholder="Email Address" name="Email" required><br><br>
-                        <input type="text" placeholder="College Name " name="College" required><br><br>
-                        <input type="text" placeholder="Branch" name="Branch" required><br><br>
-                        <input type="number" placeholder="Passing Year" name="Passing Year" required><br><br>
-                        <select name="Year" required>
-                            <optgroup label="1st Year">
-                                <option value="1 Year,1 Sem">1 Sem</option>
-                                <option value="1 Year,2 Sem">2 Sem</option>
-                            </optgroup>
-                            <optgroup label="2nd Year">
-                                <option value="2 Year,3 Sem">3 Sem</option>
-                                <option value="2 Year,4 Sem">4 Sem</option>
-                            </optgroup>
-                            <optgroup label="3rd Year">
-                                <option value="3 Year,5 Sem" selected>5 Sem</option>
-                                <option value="3 Year,6 Sem">6 Sem</option>
-                            </optgroup>
-                            <optgroup label="4th Year">
-                                <option value="4 Year,7 Sem">7 Sem</option>
-                                <option value="4 Year,8 Sem">8 Sem</option>
-                            </optgroup>
-                        </select><br><br>
-                        <select name="Approve" required>Your Approval
-                            <option value="yes">Allow</option>
-                            <option value="no">Not Allow</option>
-                        </select><br><br>
+                    <input type="text" placeholder="Name" name="Name" required><br><br>
+                    <input type="email" placeholder="Email Address" name="Email" required><br><br>
+                    <input type="text" placeholder="College Name " name="College" required><br><br>
+                    <input type="text" placeholder="Branch" name="Branch" required><br><br>
+                    <input type="number" placeholder="Passing Year" name="Passing Year" min="2020" max="2030" required><br><br>
+                    <select name="Year" required>
+                    <optgroup label="1st Year">
+                        <option value="" disabled selected hidden>Select Semester</option>
+                        <option value="1 Year,1 Sem">1 Sem</option>
+                        <option value="1 Year,2 Sem">2 Sem</option>
+                    </optgroup>
+                    <optgroup label="2nd Year">
+                        <option value="2 Year,3 Sem">3 Sem</option>
+                        <option value="2 Year,4 Sem">4 Sem</option>
+                    </optgroup>
+                    <optgroup label="3rd Year">
+                        <option value="3 Year,5 Sem">5 Sem</option>
+                        <option value="3 Year,6 Sem">6 Sem</option>
+                    </optgroup>
+                    <optgroup label="4th Year">
+                        <option value="4 Year,7 Sem">7 Sem</option>
+                        <option value="4 Year,8 Sem">8 Sem</option>
+                    </optgroup>
+                    </select><br><br>
+                    <select name="Approve" required>Your Approval
+                        <option value="yes">Allow</option>
+                        <option value="no">Not Allow</option>
+                    </select><br><br>
 
-                        <textarea name="Message" placeholder="Message"></textarea><br><br>
+                    <textarea name="Message" placeholder="Message" ></textarea><br><br>
+        
+            
+                    <div class="emoji">
+                        <h6>Rate The Website</h6>
 
+                        <input type="radio" value="5 star" name="Feedback" id="five">
+                        <label for="five">
+                            <img src="images/grinning.png" alt="5 star">
+                        </label>
 
-                        <div class="emoji">
-                            <h6>Rate The Website </h6>
-                            <input type="radio" value="5 star" name="Feedback" id="five">
-                            <input type="radio" value="4 star" name="Feedback" id="four">
-                            <input type="radio" value="3 star" name="Feedback" id="three">
-                            <input type="radio" value="2 star" name="Feedback" id="two">
-                            <input type="radio" value="1 star" name="Feedback" id="one">
-                            <label for="five">
-                                <img src="images/grinning.png" alt="">
-                            </label>
-                            <label for="four">
-                                <img src="images/smiling.png" alt="">
-                            </label>
-                            <label for="three">
-                                <img src="images/diagonal-mouth.png" alt="">
-                            </label>
-                            <label for="two">
-                                <img src="images/steam.png" alt="">
-                            </label>
-                            <label for="one">
-                                <img src="images/pouting.png" alt="">
-                            </label>
+                        <input type="radio" value="4 star" name="Feedback" id="four">
+                        <label for="four">
+                            <img src="images/smiling.png" alt="4 star">
+                        </label>
 
+                        <input type="radio" value="3 star" name="Feedback" id="three">
+                        <label for="three">
+                            <img src="images/diagonal-mouth.png" alt="3 star">
+                        </label>
 
-                        </div>
-                        <div><br>
+                        <input type="radio" value="2 star" name="Feedback" id="two">
+                        <label for="two">
+                            <img src="images/steam.png" alt="2 star">
+                         </label>
 
-                            <input class="primary-button get-started-btn"
-                                onclick="alert('Thank you for submit feedback form.')" id="btn" type="submit"
-                                value="submit" name="submit"><br><br>
-                        </div>
+                        <input type="radio" value="1 star" name="Feedback" id="one">
+                        <label for="one">
+                             <img src="images/pouting.png" alt="1 star">
+                         </label>
+                    </div>
 
-                        <span id="success"></span>
-                    </form>
-                    <script>
-                        const scriptURL = 'https://script.google.com/macros/s/AKfycbx_5lwHO3A6ap4ZoM0coWzboAUm1nqTHzSIaPT_Q6pB62TWYjIrCQVVUXpNqyzRhDGc/exec'
-                        const form = document.forms['submit-to-google-sheet']
-                        const success = document.getElementById('success')
+                    <div><br>
+        
+                        <input class="primary-button get-started-btn" id="btn" type="submit" value="submit"  name="submit"><br><br>
+                    </div>
 
-                        form.addEventListener('submit', e => {
-                            e.preventDefault()
-                            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                                .then(response => {
-                                    success.innerHTML = "Successfully Submit"
-                                    setTimeout(function () {
-                                        success.innerHTML = "";
-                                    }, 100)
-                                    form.reset();
+                    <span id="success"></span>
+                <script>
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbx_5lwHO3A6ap4ZoM0coWzboAUm1nqTHzSIaPT_Q6pB62TWYjIrCQVVUXpNqyzRhDGc/exec';
+                    const form = document.forms['submit-to-google-sheet'];
+                    const success = document.getElementById('success');
 
-                                })
-                                .catch(error => console.error('Error!', error.message))
-                        })
-                    </script>
-                </div>
-            </div>
+                    form.addEventListener('submit', e => {
+                    e.preventDefault();
+
+                    const submitBtn = form.querySelector('[type="submit"]');
+                    submitBtn.disabled = true;
+                    const originalText = submitBtn.value || submitBtn.textContent;
+                    if (submitBtn.tagName === "INPUT") {
+                        submitBtn.value = "Submitting...";
+                    } else {
+                        submitBtn.textContent = "Submitting...";
+                    }
+
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        form.reset();
+                        success.innerHTML = "✅ Successfully Submitted!";
+
+                    setTimeout(() => {
+                        success.innerHTML = "";
+                        submitBtn.disabled = false;
+                        if (submitBtn.tagName === "INPUT") {
+                            submitBtn.value = originalText;
+                        } else {
+                            submitBtn.textContent = originalText;
+                        }
+                    }, 2000);
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        success.innerHTML = "❌ Submission Failed. Please try again.";
+
+        setTimeout(() => {
+          success.innerHTML = "";
+          submitBtn.disabled = false;
+          if (submitBtn.tagName === "INPUT") {
+            submitBtn.value = originalText;
+          } else {
+            submitBtn.textContent = originalText;
+          }
+
+        }, 2000);
+      });
+      
+  });
+  
+</script>
         </div>
     </section>
     </section>
