@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌈 Colorful Memory Match - CS Icons</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ <style>
+    /* Global Styles */
+    :root {
+      --bg-color: hsl(313, 44%, 89%); /* Light gray background */
+      --text-color: #333;
+      --main-color: #9cbf46; /* Vibrant Blue */
+      --secondary-color: #6c757d; /* Muted gray */
+      --card-back-color: #50aeb9; /* Blue for unflipped cards */
+      --card-front-color: #ffffff;
+      --matched-color: #28a745; /* Green for success */
+      --error-color: #dc3545; /* Red for error */
+      --shadow: rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+    }
+body {font-family: 'IBM Plex Sans', sans-serif; text-align: center; padding: 16vh 10px 10px 10px; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
+    h1 { font-size: 2.2em; color: var(--main-color); margin-bottom: 25px; font-weight: 700; }
+    .game-info { display: flex; justify-content: space-around; width: 100%; max-width: 500px; margin-bottom: 20px; padding: 10px 0; background-color: var(--card-front-color); border-radius: var(--border-radius); box-shadow: 0 2px 8px var(--shadow); font-size: 1em; font-weight: 700; color: var(--main-color); }
+    .controls { margin-bottom: 25px; display: flex; gap: 15px; align-items: center; }
+    select, button { padding: 10px 20px; font-size: 0.95em; border: none; border-radius: var(--border-radius); cursor: pointer; box-shadow: 0 2px 5px var(--shadow); transition: background-color 0.2s ease; }
+    select { background-color: var(--card-front-color); border: 1px solid #ddd; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.5H18.5c-4.1%200-7.9%201.5-10.9%204.5-3%203-4.6%206.8-4.6%2011.1%200%204.2%201.6%208%204.6%2011l128.8%20128.9c3%203%206.8%204.6%2011%204.6s8-.5%2011-4.6l128.7-128.9c3.1-3.1%204.7-6.9%204.7-11.1%200-4.2-1.6-8-4.6-11z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 10px center; background-size: 10px auto; min-width: 130px; }
+    button { background-color: var(--main-color); color: white; font-weight: 700; }
+    button:hover { background-color: #0056b3; }
+    button:disabled { background-color: #ccc; cursor: not-allowed; box-shadow: none; }
+
+    /* Grid & Card Styles */
+    .grid-container { display: grid; gap: 12px; width: fit-content; margin: 0 auto; padding: 20px; background-color: var(--card-front-color); border-radius: var(--border-radius); box-shadow: 0 5px 20px var(--shadow); border: 1px solid #eee; }
+    .card { width: 80px; height: 80px; perspective: 1000px; cursor: pointer; }
+    .card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1); border-radius: var(--border-radius); box-shadow: 0 2px 5px var(--shadow); }
+    .card.flipped .card-inner { transform: rotateY(180deg); }
+    .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; font-size: 2.2em; font-weight: bold; border-radius: var(--border-radius); user-select: none; }
+    .card-front { background-color: var(--card-front-color); color: var(--text-color); transform: rotateY(180deg); } /* Icon color */
+    .card-back { background-color: var(--card-back-color); color: white; } /* Back of the card */
+
+    /* Card States */
+    .card.matched .card-inner { background-color: var(--matched-color); box-shadow: 0 0 10px var(--matched-color); }
+    .card.matched .card-front, .card.matched .card-back { background-color: var(--matched-color); color: white; }
+    .card.matched { cursor: default; pointer-events: none; }
+    .card.wrong .card-inner { background-color: var(--error-color); box-shadow: 0 0 10px var(--error-color); }
+    .card.wrong .card-front, .card.wrong .card-back { background-color: var(--error-color); color: white; }
+
+    /* Messages & Modal */
+    #game-message { margin-top: 20px; font-size: 1.1em; font-weight: 700; color: var(--main-color); min-height: 1.5em; }
+    #game-over-modal { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center; z-index: 100; }
+    .modal-content { background-color: white; padding: 30px; border-radius: var(--border-radius); box-shadow: 0 5px 15px var(--shadow); text-align: center; max-width: 90%; }
+    .modal-content h2 { font-size: 1.8em; color: var(--main-color); margin-bottom: 15px; }
+    .modal-content p { font-size: 1em; margin-bottom: 25px; line-height: 1.4; }
+    .modal-content button { background-color: var(--main-color); color: white; padding: 10px 25px; font-weight: 700; }
+    .modal-content button:hover { background-color: #0056b3; }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; } .card { width: 70px; height: 70px; font-size: 2em; } .game-info { flex-wrap: wrap; gap: 8px; padding: 8px; } .game-info div { flex-basis: 45%; } .controls { flex-direction: column; gap: 8px; } select, button { width: 100%; max-width: 200px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5em; } .card { width: 55px; height: 55px; font-size: 1.5em; } .grid-container { padding: 5px; gap: 5px; } select, button { padding: 8px 10px; font-size: 0.85em; } .modal-content { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+   <nav>
+    <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fa-sharp fa-solid fa-bars"></i>
+    </label>
+    <ul>
+      <li><a href="../index.html" id="active">Home</a></li>
+      <li><a href="../index.html#Services" >Services</a></li>
+      <li><a href="../index.html#about">About </a></li>
+      <li><a href="../index.html#Feedback">Feedback</a></li>
+      <li><a href="../index.html#contact">Contact us</a></li>
+    </ul>
+    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+  </nav> 
+
+  <h1>🌈 Colorful Memory Match</h1>
+
+  <div class="game-info">
+    <div>Score: <span id="score">0</span></div>
+    <div>Time: <span id="timer">0s</span></div>
+    <div>Moves: <span id="moves">0</span></div>
+  </div>
+
+  <div class="controls">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="easy">Easy (8 cards)</option>
+      <option value="medium" selected>Medium (12 cards)</option>
+      <option value="hard">Hard (16 cards)</option>
+      <option value="expert">Expert (20 cards)</option>
+    </select>
+    <button id="startButton">Start New Game</button>
+  </div>
+
+  <div class="grid-container" id="grid-container"></div>
+  <p id="game-message"></p>
+
+  <div id="game-over-modal">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-score"></p>
+      <button id="modal-restart-button">Play Again</button>
+    </div>
+  </div>
+
+  <audio id="flipSound" src="https://www.soundjay.com/buttons/sounds/button-2.mp3" preload="auto"></audio>
+  <audio id="matchSound" src="https://www.soundjay.com/misc/sounds/ding-dong-2.mp3" preload="auto"></audio>
+  <audio id="noMatchSound" src="https://www.soundjay.com/buttons/sounds/button-7.mp3" preload="auto"></audio>
+  <audio id="winSound" src="https://www.soundjay.com/misc/sounds/success-sound-effect.mp3" preload="auto"></audio>
+  <audio id="loseSound" src="https://www.soundjay.com/misc/sounds/error.mp3" preload="auto"></audio>
+
+  <script>
+    
+    // --- Game Configuration ---
+    const allGameIcons = [
+      "fa-solid fa-desktop", "fa-solid fa-memory", "fa-brands fa-html5", "fa-solid fa-robot",
+      "fa-solid fa-microchip", "fa-solid fa-grip-lines", "fa-solid fa-globe", "fa-brands fa-css3-alt",
+      "fa-brands fa-js", "fa-solid fa-database", "fa-solid fa-link", "fa-solid fa-shield-halved",
+      "fa-solid fa-code", "fa-solid fa-terminal", "fa-solid fa-mouse-pointer", "fa-solid fa-cube",
+      "fa-solid fa-network-wired", "fa-solid fa-cloud", "fa-solid fa-lock", "fa-solid fa-server"
+    ]; // Simplified to just icon classes
+
+    const difficulties = {
+      easy: { pairs: 4, timeLimit: 60, gridCols: 4 },
+      medium: { pairs: 6, timeLimit: 90, gridCols: 4 },
+      hard: { pairs: 8, timeLimit: 120, gridCols: 4 },
+      expert: { pairs: 10, timeLimit: 150, gridCols: 5 }
+    };
+
+    // --- DOM Elements ---
+    const [gridContainer, scoreDisplay, timerDisplay, movesDisplay, difficultySelect, startButton, gameMessageDisplay, gameOverModal, modalTitle, modalScore, modalRestartButton] = [
+      'grid-container', 'score', 'timer', 'moves', 'difficulty', 'startButton', 'game-message', 'game-over-modal', 'modal-title', 'modal-score', 'modal-restart-button'
+    ].map(id => document.getElementById(id));
+    const [flipSound, matchSound, noMatchSound, winSound, loseSound] = [
+      'flipSound', 'matchSound', 'noMatchSound', 'winSound', 'loseSound'
+    ].map(id => document.getElementById(id));
+
+    // --- Game State Variables ---
+    let shuffledIcons = []; let flippedCards = []; let matchedCards = [];
+    let score = 0; let moves = 0; let timer = 0; let timerInterval;
+    let awaitingEndOfMove = false; let gameActive = false;
+    let currentDifficulty = difficulties.medium;
+
+    // --- Utility Functions ---
+    const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+    const playSound = (sound) => { sound.currentTime = 0; sound.play().catch(e => {}); };
+    const updateGameInfo = () => { scoreDisplay.textContent = score; timerDisplay.textContent = `${timer}s`; movesDisplay.textContent = moves; };
+
+    // --- Game Logic ---
+    function startGame() {
+      clearInterval(timerInterval);
+      currentDifficulty = difficulties[difficultySelect.value];
+      const uniqueIcons = shuffleArray([...allGameIcons]).slice(0, currentDifficulty.pairs);
+      shuffledIcons = shuffleArray([...uniqueIcons, ...uniqueIcons]);
+
+      flippedCards = []; matchedCards = []; score = 0; moves = 0; timer = 0;
+      awaitingEndOfMove = false; gameActive = true;
+      gameMessageDisplay.textContent = ""; gameOverModal.style.display = "none";
+      startButton.textContent = "Restart Game"; startButton.disabled = true;
+
+      updateGameInfo();
+      renderGrid();
+      startTimer();
+    }
+
+    function renderGrid() {
+      gridContainer.innerHTML = "";
+      gridContainer.style.gridTemplateColumns = `repeat(${currentDifficulty.gridCols}, 1fr)`;
+
+      shuffledIcons.forEach((iconClass, index) => {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        cardElement.dataset.value = iconClass; // Store icon class as value
+
+        const cardInner = document.createElement("div");
+        cardInner.classList.add("card-inner");
+
+        const cardFront = document.createElement("div");
+        cardFront.classList.add("card-face", "card-front");
+        cardFront.innerHTML = `<i class="${iconClass}"></i>`; // Render the icon
+
+        const cardBack = document.createElement("div");
+        cardBack.classList.add("card-face", "card-back");
+        cardBack.innerHTML = `<i class="fa-solid fa-question"></i>`;
+
+        cardInner.append(cardFront, cardBack);
+        cardElement.append(cardInner);
+        cardElement.addEventListener("click", () => flipCard(cardElement));
+        gridContainer.append(cardElement);
+      });
+    }
+
+    function flipCard(card) {
+      if (!gameActive || awaitingEndOfMove || matchedCards.includes(card) || flippedCards.includes(card)) return;
+      playSound(flipSound);
+      card.classList.add("flipped");
+      flippedCards.push(card);
+
+      if (flippedCards.length === 2) {
+        moves++; updateGameInfo(); awaitingEndOfMove = true;
+        setTimeout(checkMatch, 1000);
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flippedCards;
+      if (card1.dataset.value === card2.dataset.value) {
+        playSound(matchSound);
+        card1.classList.add("matched"); card2.classList.add("matched");
+        matchedCards.push(card1, card2); score += 100; gameMessageDisplay.textContent = "Match! 👍";
+        card1.removeEventListener("click", () => flipCard(card1));
+        card2.removeEventListener("click", () => flipCard(card2));
+        if (matchedCards.length === shuffledIcons.length) endGame(true);
+      } else {
+        playSound(noMatchSound); score = Math.max(0, score - 25); gameMessageDisplay.textContent = "No match! 👎";
+        card1.classList.add("wrong"); card2.classList.add("wrong");
+        setTimeout(() => { card1.classList.remove("flipped", "wrong"); card2.classList.remove("flipped", "wrong"); gameMessageDisplay.textContent = ""; }, 800);
+      }
+      flippedCards = [];
+      setTimeout(() => { awaitingEndOfMove = false; gameMessageDisplay.textContent = ""; }, 1000);
+      updateGameInfo();
+    }
+
+    function startTimer() { timerInterval = setInterval(() => { timer++; updateGameInfo(); if (timer >= currentDifficulty.timeLimit) endGame(false); }, 1000); }
+
+    function endGame(win) {
+      gameActive = false; clearInterval(timerInterval); startButton.disabled = false;
+      gameOverModal.style.display = "flex";
+      modalTitle.textContent = win ? "🎉 Congratulations! You Won! 🎉" : "⏱️ Time's Up! Game Over! ⏱️";
+      modalScore.innerHTML = `You made <b>${moves} moves</b> and your final score was <b>${score}</b> in <b>${timer} seconds</b>.`;
+      if (win) playSound(winSound); else playSound(loseSound);
+    }
+
+    // --- Event Listeners & Initial Setup ---
+    startButton.addEventListener("click", startGame);
+    modalRestartButton.addEventListener("click", () => { gameOverModal.style.display = "none"; startGame(); });
+    difficultySelect.addEventListener("change", () => { gameMessageDisplay.textContent = "Click 'Start New Game' to begin!"; startButton.disabled = false; });
+    
+    startGame();
+    startButton.disabled = false; // Enable button on first load
+    gameMessageDisplay.textContent = "Select difficulty and click 'Start New Game'!";
+
+    // NAVBAR MENU TOGGLE
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
