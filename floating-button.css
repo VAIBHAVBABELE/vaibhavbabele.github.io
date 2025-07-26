@@ -156,3 +156,7 @@ input[type="text"]::placeholder {
     color: #a55f20;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+

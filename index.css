@@ -1391,5 +1391,19 @@ width: fit-content;
     }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation for section transitions */
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeInSection 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 
     
