@@ -773,11 +773,13 @@ section{
 
 .facility-card {
   display: flex;
-  background-color: #fff;
+  background-color:#faebdd;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
+  border-style: hidden;
+  border-color: #0e0c0b;
 }
 
 .facility-card:hover {
@@ -811,6 +813,21 @@ section{
   font-size: 22px;
   color: #555;
   line-height: 1.6;
+}
+
+body.dark-mode .facility-container {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .facility-card {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .facility-card h1,
+body.dark-mode .facility-card p {
+  color: #f5f5f5;
 }
 
 @media (max-width: 768px) {
