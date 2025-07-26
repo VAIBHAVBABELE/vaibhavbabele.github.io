@@ -14,7 +14,7 @@ jobs:
         with:
           script: |
             const username = context.payload.issue.user.login;
-            const { data: issues } = await github.search.issuesAndPullRequests({
+            const { data: issues } = await github.rest.search.issuesAndPullRequests({
               q: `author:${username} repo:${context.repo.owner}/${context.repo.repo}`
             });
             return issues.total_count === 1;
