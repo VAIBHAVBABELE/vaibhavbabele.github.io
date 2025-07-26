@@ -28,16 +28,12 @@
         /* Table Area */
         .table-response {
             border-radius: 10px;
-            overflow: hidden;
-            
+            overflow-x: auto;
+            overflow-y: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 100%;
             transition: all 0.3s ease;
-               
-
-           
-           
         }
         /* Table */
         table {
@@ -45,6 +41,7 @@
             border-collapse: separate;
             border-spacing: 0;
             background-color: white;
+        
         }
 
         /* Table header */
@@ -53,7 +50,7 @@
             color: white;
             font-weight: 500;
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 16px;
             padding: 15px;
             text-align: center;
             letter-spacing: 1px;
@@ -72,8 +69,8 @@
             border-bottom: 1px solid #eaeaea;
             vertical-align: middle;
             color: #333;
-			font-weight:200px;
-            font-size: 15px;
+			font-weight: 200;
+            font-size: 17px;
         }
 
         /* Table row */
@@ -139,7 +136,7 @@
          .announcement-banner {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(45deg, #856113, #b8941a);
-            color: white;
+            color: rgb(239, 239, 239);
             padding: 20px;
             border-radius: 10px 10px 0 0;
             text-align: center;
@@ -148,11 +145,16 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 4px;
-            width: 100%;
+            width: 300;
             box-sizing: border-box;
             transition: all 0.3s ease;
 
         }
+        @media screen and (max-width: 768px) {
+        .announcement-banner {
+          width: 330%;
+        }
+      }
 
         .announcement-banner::before {
             /* Content will be empty as we dont want anything on our interface */
@@ -170,6 +172,193 @@
         @keyframes shine {
             0% { left: -100%; }
             100% { left: 100%; }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .stats-container {
+                width: 60%;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            
+            .table-response {
+                overflow-x: auto;
+            }
+            
+            th, td {
+                padding: 12px 8px;
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .heading {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .stats-container {
+                width: 90%;
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .announcement-banner {
+                font-size: 1.1rem;
+                padding: 15px;
+                letter-spacing: 2px;
+            }
+            
+            .table-response {
+                overflow-x: auto;
+                border-radius: 8px;
+            }
+            
+            table {
+                min-width: 900px;
+            }
+            
+            th, td {
+                padding: 10px 6px;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            
+            th {
+                font-size: 13px;
+            }
+            
+            /* Make links more touch-friendly */
+            td a {
+                padding: 4px 8px;
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .heading {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+            
+            .stats-container {
+                width: 95%;
+                padding: 5px;
+                gap: 10px;
+            }
+            
+            .stat-card {
+                width: 75%;
+                
+                padding: 9px;
+            }
+            
+            .stat-number {
+                font-size: 1.3rem;
+            }
+            
+            .stat-label {
+                font-size: 0.75rem;
+            }
+            
+            .announcement-banner {
+                font-size: 1rem;
+                padding: 12px;
+                letter-spacing: 1px;
+            }
+            
+            .announcement-banner marquee {
+                font-size: 0.9rem;
+            }
+            
+            table {
+                min-width: 800px;
+            }
+            
+            th, td {
+                padding: 8px 4px;
+                font-size: 13px;
+            }
+            
+            th {
+                font-size: 12px;
+            }
+            
+            /* Scroll indicator for small screens */
+            .table-response::after {
+                content: "← Scroll horizontally to view all columns →";
+                display: block;
+                text-align: center;
+                padding: 8px;
+                background: linear-gradient(90deg, #856113, #b8941a);
+                font-size: 11px;
+                color: white;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+            
+            /* Make links more touch-friendly on mobile */
+            td a {
+                padding: 6px 10px;
+                background-color: #856113;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                font-size: 10px;
+                display: inline-block;
+                min-width: 60px;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .heading {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+            
+            .stats-container {
+                width: 100%;
+                margin: 0 auto 10px auto;
+            }
+            
+            table {
+                min-width: 700px;
+            }
+            
+            th, td {
+                padding: 6px 3px;
+                font-size: 12px;
+            }
+            
+            td a {
+                padding: 4px 6px;
+                font-size: 9px;
+                min-width: 50px;
+            }
         }
 
     </style>
@@ -208,7 +397,7 @@
             <!-- Announcement Banner -->
             <div class="announcement-banner">
                 <div class="scrolling-text">
-                    <marquee class="scrolling-text"  direction="left" scrollamount="5" > <i class="fa-solid fa-bullhorn" > &nbsp; For Latest Announcements & Events - Stay Informed! </i> </marquee>
+                    <marquee class="scrolling-text"  direction="left" scrollamount="15" > <i class="fa-solid fa-bullhorn" > &nbsp; For Latest Announcements & Events - Stay Informed! </i> </marquee>
                 </div>
             </div>
             <!-- Table -->
