@@ -1,8 +1,17 @@
 /* Student Assistant Chatbot Styles */
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation for section transitions */
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .assistant-section {
-    padding: 2rem 0;
-    min-height: 80vh;
+  animation: fadeInSection 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .chatbot-container {
