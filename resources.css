@@ -6,7 +6,7 @@
 
 }
 
-:root{
+/* :root{
     --snd-bg-color: #c4c8f9;
     --text-color:#fff;
     --main-color:#491a02;
@@ -39,7 +39,57 @@
     --footer-bgColor:#dbb0b0;
     
 
+} */
+:root {
+
+
+
+
+    --snd-bg-color: #fdf0d5; /* Soft beige secondary background */
+    --text-color: #3e3e3e; /* Deep brown for primary text */
+    --main-color: #5a3e2b; /* Rich brown for headings or strong accents */
+    --bg-color: #fdf6ec; /* Light creamy beige main background */
+    --white-4345: #f9f6f0;
+   
+    --bg-shade: #faebdd; /* Subtle background contrast */
+    
+    --primary-text-color: #4b3f32; /* Slightly darker warm brown */
+    --secondary-text-color: #926f57; /* Light brown for secondary elements */
+    --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
+    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
+    --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
+    --padding-inline-section: 10px;
+    --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
+    
 }
+
+/* 🌙 Dark Mode */
+.dark-mode {
+    --bg-color: #2f2a27; /* deep chocolate */
+    --snd-bg-color: #3c312d;
+    --bg-shade: #453631;
+    --text-color: #f5e6dc;
+    --primary-text-color: #f7ede4;
+    --secondary-text-color: #d4bba2;
+    /* --nav-bgcolor: #5c4335; */
+    --nav-bgcolor: #a58b52;
+    --accent-color: #cf9e73;
+    --accent-color-dark: #b87d50;
+    /* --footer-bgColor: #7b4d3c; */
+    --footer-bgColor: #a58672; 
+
+    --nav-bgcolor: #a58b52; /* Tan brown navbar */
+     --bg-color: #1c1a17; /* Warm charcoal background */
+     --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
+     --primary-text-color: #f5f3ee; /* Warm light beige text */
+     --secondary-text-color: #b5a08a; /* Light beige for secondary text */
+     
+     --footer-bgColor: #a58672; /* Warm clay brown */
+     
+     --accent-color: #cda274; /* Keep accent consistent */
+     --accent-color-dark: #d4b996;
+}
+
 
 .main{
     border: var(--primary-text-color) 5px solid;
@@ -67,7 +117,7 @@
 }
 
 body{
-    font-family: "Poppins", sans-serif;
+    font-family: "Raleway", sans-serif;
     color: var(--primary-text-color);
 }
 
@@ -90,7 +140,7 @@ h3{
     margin-bottom: 6%;
 }
 p{
-    font-family: 'roboto',sans-serif;
+    font-family: 'Poppins',sans-serif;
     font-size: 1.25rem;
     color: var(--secondary-text-color);
     line-height: 1.8rem;
@@ -168,7 +218,7 @@ nav ul li a{
 }
 
 nav ul li a:hover {
-    background-color: #75b1e9;
+    background-color:#cda274;
     border-radius: 10px;
     border: 1px solid var(--primary-text-color);
     
@@ -177,14 +227,14 @@ nav ul li a:hover {
 }
 .nav-link:hover,
 .nav-link.active {
-    background-color: #555;
+    background-color: #d4b996;
 }
 
 nav .logo {
     font-size: 33px;
     color: var(--primary-text-color);
     font-weight: 600;
-    font-family: "Playwrite SK", cursive;
+    font-family: "Cinzel", serif;
 }
 nav #mitra{
     margin: 0;
@@ -269,6 +319,7 @@ section{
 .service-heading{
     background: var(--bg-shade);
     margin-bottom: 10%;
+    font-family: "Cinzel", serif;
 }
 
 .about-heading{
@@ -276,7 +327,7 @@ section{
     margin-bottom: 5%;
     text-decoration: dashed;
    list-style:lower-latin;
-   font-family: "Cedarville Cursive", cursive;
+   font-family: "Cinzel", serif;
    padding-bottom: 3%;
 
 
@@ -310,7 +361,7 @@ section{
 .name{
     text-align: center;
     color:var(--primary-text-color);
-   font-family: "Playwrite SK", cursive;
+   font-family: "Cinzel", serif;
 }
 
 .icon i{
@@ -384,7 +435,7 @@ border: 2px solid var(--primary-text-color);
     text-align: center;
     color:var(--text-color);
     bottom: 25px;
-    font-family: "Playwrite SK", cursive;
+    font-family: "Cinzel", serif;
     font-size: 1.5rem;
 
 }

@@ -78,6 +78,9 @@
                             <button class="clear-chat-btn" onclick="clearChat()" title="Clear Chat">
                                 <i class="fas fa-trash"></i>
                             </button>
+                            <button class="config-btn" onclick="showConfiguration()" title="Configure Assistant">
+                                <i class="fas fa-cog"></i>
+                            </button>
                         </div>
                     </div>
                     
@@ -136,16 +139,67 @@
                 <!-- API Key Setup Section -->
                 <div class="api-setup" id="apiSetup">
                     <div class="setup-card">
-                        <h3><i class="fas fa-key"></i> API Configuration</h3>
-                        <p>To use the Student Assistant, please enter your Gemini API key:</p>
-                        <div class="api-input-group">
-                            <input type="password" id="apiKeyInput" placeholder="Enter your Gemini API key">
-                            <button onclick="saveApiKey()" class="primary-button">Save Key</button>
+                        <h3><i class="fas fa-key"></i> Assistant Configuration</h3>
+                        
+                        <!-- Backend Mode Toggle -->
+                        <div class="mode-selector">
+                            <p>Choose how you want to use the assistant:</p>
+                            <div class="mode-options">
+                                <label class="mode-option">
+                                    <input type="radio" name="backendMode" value="server" id="serverMode" checked>
+                                    <span class="mode-label">
+                                        <i class="fas fa-server"></i>
+                                        <strong>Server Mode</strong>
+                                        <small>Use our hosted backend (recommended)</small>
+                                    </span>
+                                </label>
+                                <label class="mode-option">
+                                    <input type="radio" name="backendMode" value="client" id="clientMode">
+                                    <span class="mode-label">
+                                        <i class="fas fa-key"></i>
+                                        <strong>Personal API Key</strong>
+                                        <small>Use your own Gemini API key</small>
+                                    </span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="api-help">
+
+                        <!-- Server Mode Info -->
+                        <div class="server-mode-info" id="serverModeInfo">
+                            <div class="info-card">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Ready to Chat!</h4>
+                                    <p>Our backend is configured and ready. Just start asking questions!</p>
+                                </div>
+                            </div>
+                            <button onclick="startChatting()" class="primary-button">Start Chatting</button>
+                        </div>
+
+                        <!-- Client Mode Setup -->
+                        <div class="client-mode-setup" id="clientModeSetup" style="display: none;">
+                            <p>To use your personal API key, please enter your Gemini API key:</p>
+                            <div class="api-input-group">
+                                <input type="password" id="apiKeyInput" placeholder="Enter your Gemini API key">
+                                <button onclick="saveApiKey()" class="primary-button">Save Key</button>
+                            </div>
+                            <div class="api-help">
+                                <p><small>
+                                    <i class="fas fa-info-circle"></i>
+                                    Get your free API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>
+                                </small></p>
+                                <p><small>
+                                    <i class="fas fa-shield-alt"></i>
+                                    Your API key is stored locally and never sent to our servers
+                                </small></p>
+                            </div>
+                        </div>
+
+                        <!-- Backend Status -->
+                        <div class="backend-status" id="backendStatus" style="display: none;">
                             <p><small>
-                                <i class="fas fa-info-circle"></i>
-                                Get your free API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>
+                                <span id="statusIndicator">🔄</span>
+                                <span id="statusText">Checking backend status...</span>
                             </small></p>
                         </div>
                     </div>
