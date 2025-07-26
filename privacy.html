@@ -1,16 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 40px; background: #f9f9f9; color: #333; }
-    h1 { color: #444; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --snd-bg-color: #c4c8f9;
+            --text-color: #fff;
+            --main-color: #491a02;
+            --bg-color: #a6cde5;
+            --white-4345: #f7f7f7;
+            --bg-shade: #f0d8eb;
+            --img-bg-shade: rgba(242, 227, 241, 0.6);
+            --primary-text-color: #38393a;
+            --secondary-text-color: #926f57;
+            --nav-bgcolor: rgb(242, 208, 135);
+            --accent-color: #d2bf80f0;
+            --accent-color-dark: #856113;
+            --padding-inline-section: 10px;
+            --footer-bgColor: #ec9999;
+            --placeholder-color: #6c757d;
+            --input-bg-color: #dad6d9;
+        }
+
+        .dark-mode {
+            --nav-bgcolor: rgb(165, 139, 82);
+            --bg-shade: rgb(131, 127, 127);
+            --img-bg-shade: rgba(104, 102, 102, 0.6);
+            --primary-text-color: rgb(0, 0, 0);
+            --tertiary-color: rgb(174, 174, 241);
+            --footer-bgColor: #dbb0b0;
+            --placeholder-color: #adb5bd;
+            --input-bg-color: #495057;
+        }
+
+        .main:not(.dark-mode) {
+            border: var(--primary-text-color) 5px solid;
+            margin-top: 15vh;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--primary-text-color);
+        }
+
+        .container {
+            margin-top: 100px;
+            padding: 20px;
+            font-size: smaller;
+        }
+
+        .contact-section {
+            padding-top: 60px;
+            padding-bottom: 60px;
+            background-color: var(--footer-bgColor);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            border: var(--primary-text-color) 5px solid;
+        }
+
+        .Contact-heading {
+            padding-top: 0%;
+            margin-bottom: 5%;
+            text-align: center;
+            color: #fff;
+            bottom: 25px;
+            font-family: "Playwrite SK", cursive;
+            font-size: 1.5rem;
+        }
+
+        .contact-section .contact-item {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-section .contact-item:hover {
+            background: var(--bg-color);
+            color: var(--snd-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .contact-section .contact-item-inner {
+            width: 70%;
+            padding: 5px 5px;
+            text-align: center;
+            box-shadow: var(--shadow-black-100);
+            border-radius: 5px;
+            align-items: center;
+        }
+
+        .contact-section .contact-item-inner i {
+            font-size: 25px;
+            color: var(--main-color);
+        }
+
+        .contact-section .contact-item-inner a span,
+        .contact-section .contact-item-inner span {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-color-dark);
+            margin: 2px 0 5px;
+            text-transform: capitalize;
+            word-wrap: break-word;
+        }
+
+        .contact-section .contact-item-inner a p,
+        .contact-section .contact-item-inner p {
+            font-size: 16px;
+            color: var(--accent-color-dark);
+            line-height: 26px;
+            margin: 0;
+            word-wrap: break-word;
+        }
+
+        .social-media {
+            text-align: center;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: 0.2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 1.5rem 1.5rem 0 0;
+            transition: 0.5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--snd-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: var(--accent-color-dark);
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-links a:hover {
+            color: var(--main-color);
+        }
+
+        #copyright {
+            position: relative;
+            top: 10%;
+            padding: 0;
+            text-align: center;
+            color: #0b0b8b;
+        }
+
+        @media (max-width: 1000px) {
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .contact-section .contact-item {
+                flex: 0 0 50%;
+                max-width: 50%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section .contact-item {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .social-media a {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.5rem;
+                margin: 2rem 1rem 0 0;
+            }
+        }
+
+        .contact-section {
+            margin-top: 40px;
+        }
+
+        .Contact-heading {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+            font-family: "Playwrite SK", cursive;
+            font-size: 2rem;
+            padding-top: 30px;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Privacy Policy</h1>
-  <p>This is a placeholder for the Privacy Policy page..</p>
+    <nav>
+        <div class="logo">
+            <a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a>
+        </div>
+        <input type="checkbox" id="click" />
+        <label for="click" class="menu-btn">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="index.html" id="active">Home</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#about">About </a></li>
+            <li><a href="#Feedback">Feedback</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode" />
+    </nav>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <hr style="
+          height: 3px;
+          background-color: #ccb079;
+          border: none;
+          margin: 10px auto;
+        " />
+        <p>
+            This Privacy Policy outlines how we collect, use, and protect your
+            personal information when you use our website.
+        </p>
+
+        <h4>1. Information We Collect</h4>
+        <p>
+            We collect basic information such as your name, email address, and any
+            other details you voluntarily provide. Additionally, we may collect
+            anonymous usage data to improve user experience.
+        </p>
+
+        <h4>2. How We Use Your Information</h4>
+        <p>
+            Your information is used to enhance our services, respond to inquiries,
+            and ensure proper functionality of the website. We do not sell or share
+            your information with third parties.
+        </p>
+        <h4>3. Data Security</h4>
+        <p>
+            We take appropriate measures to protect your data from unauthorized
+            access or disclosure. However, no method of transmission over the
+            Internet is completely secure.
+        </p>
+        <h4>4. Changes to This Policy</h4>
+        <p>
+            We may update this Privacy Policy periodically. Any changes will be
+            posted on this page with a revised date.
+        </p>
+
+        <h4>5. Contact Us</h4>
+        <p>
+            If you have any questions about this Privacy Policy, please contact us
+            through the information provided on our
+            <a href="/contact.html">Contact Us</a> page.
+        </p>
+        <section class="contact-section section-padding" id="contact">
+            <div class="container">
+                <div class="Contact-heading">
+                    <h1>Contact us</h1>
+                    <hr style="
+                height: 3px;
+                background-color: #ccb079;
+                border: none;
+                width: 200px;
+                margin: 10px auto;
+              " />
+                </div>
+                <div class="row">
+                    <div class="contact-item">
+                        <div class="contact-item-inner">
+                            <a>
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Whatsapp Community</span>
+                                <p>nitra mitra</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-inner">
+                            <a>
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                                <p>nitramitra@gmail.com</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-inner">
+                            <a>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Address</span>
+                                <p id="sanjay-nagar">Sanjay Nagar,Ghaziabad,India</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
+                    <a><i class="fa-brands fa-twitter"></i></a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a> |
+                    <a href="terms.html">Terms & Conditions</a> |
+                    <a href="contact.html">Contact</a> |
+                    <a href="pr-contributors.html" id="active">Contributors</a>
+                </div>
+
+                <h3 id="copyright">© 2024 Nitra Mitra - All Rights Reserved</h3>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const modeToggle = document.getElementById("mode");
+            const body = document.body;
+
+            modeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+                const isDarkMode = body.classList.contains("dark-mode");
+                modeToggle.src = isDarkMode ? "images/sun.png" : "images/moon.png";
+            });
+        </script>
+    </div>
 </body>
+
 </html>

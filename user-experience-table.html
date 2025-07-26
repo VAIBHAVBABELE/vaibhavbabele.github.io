@@ -1,90 +1,87 @@
 <!-- If you want to access the data from the backend.Please rename this file to .php and then use it. -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Announcement Table</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <style>
-        /* body */
-        body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* body */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        }
+      /* Conatiner */
+      .container {
+        max-width: auto;
+        margin: 0 auto;
+        padding: 15px;
+      }
 
-        /* Conatiner */
-        .container {
-            max-width: auto;
-            margin: 0 auto;
-            padding: 15px;
+      /* Table Area */
+      .table-response {
+        border-radius: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 100%;
+        transition: all 0.3s ease;
+      }
+      /* Table */
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background-color: white;
+      }
 
-            
-        }
-        
-        /* Table Area */
-        .table-response {
-            border-radius: 10px;
-            overflow: hidden;
-            
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 100%;
-            transition: all 0.3s ease;
-           
-        }
-        /* Table */
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background-color: white;
-        }
+      /* Table header */
+      th {
+        background-color: #856113;
+        color: white;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 16px;
+        padding: 15px;
+        text-align: center;
+        letter-spacing: 1px;
+      }
 
-        /* Table header */
-        th {
-            background-color:#856113;
-            color: white;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 14px;
-            padding: 15px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
+      /* Table heading */
+      .heading {
+        margin-bottom: 60px;
+      }
 
-        /* Table heading */
-		.heading{
-			margin-bottom: 60px;
-			
-		}
-        
-        /* Table data */
-        td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-            vertical-align: middle;
-            color: #333;
-			font-weight:200px;
-            font-size: 15px;
-        }
+      /* Table data */
+      td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eaeaea;
+        vertical-align: middle;
+        color: #333;
+        font-weight: 200;
+        font-size: 17px;
+      }
 
-        /* Table row */
-        tr:hover {
-            background-color: #f9f9f9;
-        }
-        
-        /* Table last row */
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        /* Stats Container */
-        .stats-container {
+      /* Table row */
+      tr:hover {
+        background-color: #f9f9f9;
+      }
+
+      /* Table last row */
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Stats Container */
+      .stats-container {
             display: grid;
             width: 40%;
             margin: 0px auto;
@@ -110,33 +107,32 @@
             border-top: 4px solid #856113;
         }
 
-        /* Stats card hover */
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);   
-            transition: all 0.3s; 
-        }
+      /* Stats card hover */
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s;
+      }
 
-        /* Stats number and label */
-         .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #856113;
-        }
+      /* Stats number and label */
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #856113;
+      }
 
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
-
-        /* announcing banner*/
-         .announcement-banner {
+      /* announcing banner*/
+      .announcement-banner {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(45deg, #856113, #b8941a);
-            color: white;
+            color: rgb(239, 239, 239);
             padding: 20px;
             border-radius: 10px 10px 0 0;
             text-align: center;
@@ -145,11 +141,45 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 4px;
-            width: 100%;
+            width: 300;
             box-sizing: border-box;
             transition: all 0.3s ease;
 
         }
+        @media screen and (max-width: 768px) {
+        .announcement-banner {
+          width: 290%;
+        }
+      }
+
+      .announcement-banner::before {
+        /* Content will be empty as we dont want anything on our interface */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        animation: shine 1s infinite;
+      }
+
+      /* Shine property for thre banner */
+      @keyframes shine {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+    
 
         .announcement-banner::before {
             /* Content will be empty as we dont want anything on our interface */
@@ -169,61 +199,252 @@
             100% { left: 100%; }
         }
 
-    </style>
-</head>
-<body>
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .stats-container {
+                width: 60%;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            
+            .table-response {
+                overflow-x: auto;
+            }
+            
+            th, td {
+                padding: 12px 8px;
+                font-size: 15px;
+            }
+        }
 
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .heading {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .stats-container {
+                width: 90%;
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .announcement-banner {
+                font-size: 1.1rem;
+                padding: 15px;
+                letter-spacing: 2px;
+            }
+            
+            .table-response {
+                overflow-x: auto;
+                border-radius: 8px;
+            }
+            
+            table {
+                min-width: 900px;
+            }
+            
+            th, td {
+                padding: 10px 6px;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            
+            th {
+                font-size: 13px;
+            }
+            
+            /* Make links more touch-friendly */
+            td a {
+                padding: 4px 8px;
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .heading {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+            
+            .stats-container {
+                width: 95%;
+                padding: 5px;
+                gap: 10px;
+            }
+            
+            .stat-card {
+                width: 75%;
+                
+                padding: 9px;
+            }
+            
+            .stat-number {
+                font-size: 1.3rem;
+            }
+            
+            .stat-label {
+                font-size: 0.75rem;
+            }
+            
+            .announcement-banner {
+                font-size: 1rem;
+                padding: 12px;
+                letter-spacing: 1px;
+            }
+            
+            .announcement-banner marquee {
+                font-size: 0.9rem;
+            }
+            
+            table {
+                min-width: 800px;
+            }
+            
+            th, td {
+                padding: 8px 4px;
+                font-size: 13px;
+            }
+            
+            th {
+                font-size: 12px;
+            }
+            
+            /* Scroll indicator for small screens */
+            .table-response::after {
+                content: "← Scroll horizontally to view all columns →";
+                display: block;
+                text-align: center;
+                padding: 8px;
+                background: linear-gradient(90deg, #856113, #b8941a);
+                font-size: 11px;
+                color: white;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+            
+            /* Make links more touch-friendly on mobile */
+            td a {
+                padding: 6px 10px;
+                background-color: #856113;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                font-size: 10px;
+                display: inline-block;
+                min-width: 60px;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .heading {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+            
+            .stats-container {
+                width: 100%;
+                margin: 0 auto 10px auto;
+            }
+            
+            table {
+                min-width: 700px;
+            }
+            
+            th, td {
+                padding: 6px 3px;
+                font-size: 12px;
+            }
+            
+            td a {
+                padding: 4px 6px;
+                font-size: 9px;
+                min-width: 50px;
+            }
+        }
+
+    </style>
+  </head>
+  <body>
     <!-- PHP Code to display the stats card data from the data base -->
 
+    <!-- Container -->
+    <div class="container">
+      <!-- Heading -->
+      <h1 class="heading" style="color: #856113; text-align: center">
+        User Experience
+      </h1>
 
-  <!-- Container -->
-<div class="container">
-    <!-- Heading -->
-        <h1 class="heading" style="  color: #856113;text-align: center;" >User Experience</h1>
-
-    <!-- Stats and Table -->
-    <form>       
-
+      <!-- Stats and Table -->
+      <form>
         <!-- Stats Container -->
         <div class="stats-container">
-            <!-- Stats Cards -->
-            <div class="stat-card">
-                <div class="stat-number" id="totalEvents">5</div>
-                <div class="stat-label">Total Feedbacks</div>
-            </div>
+          <!-- Stats Cards -->
+          <div class="stat-card">
+            <div class="stat-number" id="totalEvents">5</div>
+            <div class="stat-label">Total Feedbacks</div>
+          </div>
 
-            <div class="stat-card">
-                <div class="stat-number" id="openRegistrations">0</div>
-                <div class="stat-label">Total Messages</div>
-            </div>
+          <div class="stat-card">
+            <div class="stat-number" id="openRegistrations">0</div>
+            <div class="stat-label">Total Messages</div>
+          </div>
         </div>
 
-         <!-- Table Area-->
+        <!-- Table Area-->
         <div class="table-response">
-
-            <!-- Announcement Banner -->
-            <div class="announcement-banner">
-                <div class="scrolling-text">
-                    <marquee class="scrolling-text"  direction="left" scrollamount="5" > <i class="fa-solid fa-bullhorn" > &nbsp;User Feedbacks </i> </marquee>
-                </div>
+          <!-- Announcement Banner -->
+          <div class="announcement-banner">
+            <div class="scrolling-text">
+              <marquee
+                class="scrolling-text"
+                direction="left"
+                scrollamount="15"
+              >
+                <i class="fa-solid fa-bullhorn"> &nbsp;User Feedbacks </i>
+              </marquee>
             </div>
-            <!-- Table -->
-            <table>
-                <!-- Table Header -->
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>College</th>
-                        <th>Year</th>
-                        <th>Branch</th>
-                        <th>Feedback</th>
-                        <th>Message</th>
-                        <th>Passing Year</th>
-                    </tr>
-                </thead>
-                <!-- Table body -->
-                <tbody>
-                    <!-- 
+          </div>
+          <!-- Table -->
+          <table>
+            <!-- Table Header -->
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>College</th>
+                <th>Year</th>
+                <th>Branch</th>
+                <th>Feedback</th>
+                <th>Message</th>
+                <th>Passing Year</th>
+              </tr>
+            </thead>
+            <!-- Table body -->
+            <tbody>
+              <!-- 
                         THIS IS THE PHP CODE TO ACCESS THE DATA FROM DATABASE AND DISPLAY IT
                         ON THE WEBPAGE.
                     <?php
@@ -243,68 +464,61 @@
 						}
                     ?>
                     -->
-                    <!-- Sample Rows with data to display -->
+              <!-- Sample Rows with data to display -->
 
-
-
-
-                    
-                    <tr>
-                        <td>Ghanshyam</td>
-                        <td>Nitra technology campus</td>
-                        <td>3</td>
-                        <td>CSE</td>
-                        <td>5 Star</td>
-                        <td>This is helpful for all NTCians</td>
-                        <td>2027</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                   <tr>
-                        <td>Yuvraj</td>
-                        <td>Nitra technology campus</td>
-                        <td>3</td>
-                        <td>CSE</td>
-                        <td>5 Star</td>
-                        <td>This is helpful for all NTCians</td>
-                        <td>2027</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                   <tr>
-                        <td>Vansh</td>
-                        <td>Nitra technology campus</td>
-                        <td>3</td>
-                        <td>CSE</td>
-                        <td>5 Star</td>
-                        <td>This is helpful for all NTCians</td>
-                        <td>2027</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                   <tr>
-                        <td>Abhishek Sanu</td>
-                        <td>Nitra technology campus</td>
-                        <td>3</td>
-                        <td>CSE</td>
-                        <td>5 Star</td>
-                        <td>This is helpful for all NTCians</td>
-                        <td>2027</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                    <tr>
-                        <td>Sarthak Singh</td>
-                        <td>Nitra technology campus</td>
-                        <td>3</td>
-                        <td>CSE</td>
-                        <td>5 Star</td>
-                        <td>This is helpful for all NTCians</td>
-                        <td>2027</td>
-                    </tr>
-          
-                </tbody>
-            </table>
+              <tr>
+                <td>Ghanshyam</td>
+                <td>Nitra technology campus</td>
+                <td>3</td>
+                <td>CSE</td>
+                <td>5 Star</td>
+                <td>This is helpful for all NTCians</td>
+                <td>2027</td>
+              </tr>
+              <!-- Sample Rows with data to display -->
+              <tr>
+                <td>Yuvraj</td>
+                <td>Nitra technology campus</td>
+                <td>3</td>
+                <td>CSE</td>
+                <td>5 Star</td>
+                <td>This is helpful for all NTCians</td>
+                <td>2027</td>
+              </tr>
+              <!-- Sample Rows with data to display -->
+              <tr>
+                <td>Vansh</td>
+                <td>Nitra technology campus</td>
+                <td>3</td>
+                <td>CSE</td>
+                <td>5 Star</td>
+                <td>This is helpful for all NTCians</td>
+                <td>2027</td>
+              </tr>
+              <!-- Sample Rows with data to display -->
+              <tr>
+                <td>Abhishek Sanu</td>
+                <td>Nitra technology campus</td>
+                <td>3</td>
+                <td>CSE</td>
+                <td>5 Star</td>
+                <td>This is helpful for all NTCians</td>
+                <td>2027</td>
+              </tr>
+              <!-- Sample Rows with data to display -->
+              <tr>
+                <td>Sarthak Singh</td>
+                <td>Nitra technology campus</td>
+                <td>3</td>
+                <td>CSE</td>
+                <td>5 Star</td>
+                <td>This is helpful for all NTCians</td>
+                <td>2027</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </form>
-</div>
-
-
-</body>
+      </form>
+    </div>
+  </body>
 </html>
