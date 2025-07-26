@@ -709,11 +709,6 @@ section{
     box-shadow: 0 0 0.8rem var(--main-color);
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 10px var(--accent-color-dark), 
-                0 0 15px rgba(0, 0, 0, 0.2);
-}
 
 .service {
     background: var(--bg-shade); /* Consistent light beige section */
@@ -743,11 +738,29 @@ section{
 
 }
 
-.card-img-top:hover{
-    cursor: pointer;
-    
+
+/* Gallery Image Hover Effect Styles */
+
+/* Scale the entire card on hover */
+.card:hover {
+    transform: translateY(-10px) scale(1.05); /* Added scale(1.05) to existing transform */
+    box-shadow: 0 0 15px var(--accent-color-dark), 
+                0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 5; /* Ensure hovered card appears above others */
+    transition: all 0.3s ease;
 }
-.card .effect-text{
+
+/* Scale the image itself on hover */
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.5); /* Scale image slightly larger on hover */
+}
+
+/* Ensure the overlay text appears smoothly */
+.card .effect-text {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -757,50 +770,28 @@ section{
     align-items: center;
     justify-content: center;
     text-align: center;
-    background:var(--img-bg-shade) ;
+    background: var(--img-bg-shade);
     overflow: hidden;
-    transition: all .3s ease-in;
+    transition: all 0.3s ease; /* Smoother transition */
     opacity: 0;
     border: 2px solid var(--primary-text-color);
+    border-radius: 15px; /* Match card border radius */
 }
 
-.card .effect-text .inner{
-    position: absolute;
-    padding: 0px;
-    z-index: 1;
-    
-}
-.card .effect-text .inner p{
-    color: var(--primary-text-color);
-    font-weight: bolder;
-}
-
-.card .effect-text:before,
-.card .effect-text:after{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 0;
-    content: "";
-}
-
-.card .effect-text:before{
-    border-top: 3px solid #ffffff;
-    border-right: 3px solid #ffffff;
-    left: -100%;
-    top: 0;
-}
-
-.card .effect-text:after{
-    border-top: 3px solid #ffffff;
-    border-left: 3px solid #ffffff;
-    left: 100%;
-    top: 0;
-}
-
-.card:hover .effect-text{
+/* Make text more visible on hover */
+.card:hover .effect-text {
     opacity: 1;
-    cursor: pointer;
+    background: rgba(250, 235, 221, 0.9); /* Slightly more opaque for better text visibility */
+}
+
+/* Enhance text styling */
+.card .effect-text .inner p {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 10px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -1390,6 +1381,3 @@ width: fit-content;
         margin: 1.5rem 1rem 0 0;
     }
 }
-
-
-    
