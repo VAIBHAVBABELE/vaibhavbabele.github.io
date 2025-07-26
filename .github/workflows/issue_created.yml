@@ -1,0 +1,42 @@
+name: Auto Comment on New Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if first-time contributor
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const username = context.payload.issue.user.login;
+            const { data: issues } = await github.search.issuesAndPullRequests({
+              q: `author:${username} repo:${context.repo.owner}/${context.repo.repo}`
+            });
+            return issues.total_count === 1;
+
+      - name: Comment on Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isFirstTime = ${{ steps.check.outputs.result }};
+            const username = context.payload.issue.user.login;
+
+            let msg = `👋 Hello @${username},\n\nThanks for creating a new issue! ✅\nWe’ll review it soon.\nPlease make sure it follows our [Contribution Guidelines](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/blob/main/CONTRIBUTING.md).\n\n`;
+
+            if (isFirstTime === 'true') {
+              msg += `🎉 Welcome, first-time contributor!\n- Follow us on [LinkedIn](https://www.linkedin.com/in/vaibhavbabele) \n- Join our [Discord](https://discord.gg/cYkT2F3v)\n- Don’t forget to ⭐ the repo!\n\n`;
+            }
+
+            msg += `We'll label it shortly. Stay tuned 🚀`;
+
+            await github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: msg
+            });
