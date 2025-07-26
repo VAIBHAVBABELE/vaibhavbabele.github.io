@@ -7,13 +7,15 @@
     <title>Announcement Table</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
+    <link rel="stylesheet" href="footer.css">
 
     <style>
         /* body */
-        body{
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         /* Conatiner */
@@ -506,7 +508,58 @@
         </div>
     </form>
 </div>
+<!-- Footer included assuming this will be used as a standalone page.
+     Remove if this file is used as a partial. -->
 
+ <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a> |
+                <a href="./terms.html">Terms & Conditions</a> |
+                <a href="./contact.html">Contact</a>
+            </div>
+
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>

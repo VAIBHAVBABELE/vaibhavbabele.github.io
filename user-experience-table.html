@@ -1,94 +1,96 @@
 <!-- If you want to access the data from the backend.Please rename this file to .php and then use it. -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Announcement Table</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="footer.css">
 
     <style>
-      /* body */
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
+        /* body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-      /* Conatiner */
-      .container {
-        max-width: auto;
-        margin: 0 auto;
-        padding: 15px;
-      }
+        /* Container */
+        .container {
+            max-width: auto;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
-      /* Table Area */
-      .table-response {
-        border-radius: 10px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 100%;
-        transition: all 0.3s ease;
-      }
-      /* Table */
-      table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        background-color: white;
-      }
+        /* Table Area */
+        .table-response {
+            border-radius: 10px;
+            overflow-x: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 100%;
+            transition: all 0.3s ease;
+        }
 
-      /* Table header */
-      th {
-        background-color: #856113;
-        color: white;
-        font-weight: 500;
-        text-transform: uppercase;
-        font-size: 16px;
-        padding: 15px;
-        text-align: center;
-        letter-spacing: 1px;
-      }
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: white;
+        }
 
-      /* Table heading */
-      .heading {
-        margin-bottom: 60px;
-      }
+        /* Table header */
+        th {
+            background-color: #856113;
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 15px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
 
-      /* Table data */
-      td {
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #eaeaea;
-        vertical-align: middle;
-        color: #333;
-        font-weight: 200;
-        font-size: 17px;
-      }
+        /* Table heading */
+        .heading {
+            margin-bottom: 60px;
+        }
 
-      /* Table row */
-      tr:hover {
-        background-color: #f9f9f9;
-      }
+        /* Table data */
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+            vertical-align: middle;
+            color: #333;
+            font-weight: 200;
+            font-size: 15px;
+        }
 
-      /* Table last row */
-      tr:last-child td {
-        border-bottom: none;
-      }
+        /* Table row */
+        tr:hover {
+            background-color: #f9f9f9;
+        }
 
-      /* Stats Container */
-      .stats-container {
+        /* Table last row */
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Stats Container */
+        .stats-container {
             display: grid;
             width: 40%;
             margin: 0px auto;
             padding: 20px;
             align-items: center;
             flex: auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
@@ -103,33 +105,33 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border-top: 4px solid #856113;
         }
 
-      /* Stats card hover */
-      .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s;
-      }
+        /* Stats card hover */
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+        }
 
-      /* Stats number and label */
-      .stat-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #856113;
-      }
+        /* Stats number and label */
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #856113;
+        }
 
-      .stat-label {
-        color: #666;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-      /* announcing banner*/
-      .announcement-banner {
+        /* announcing banner*/
+        .announcement-banner {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(45deg, #856113, #b8941a);
             color: rgb(239, 239, 239);
@@ -141,62 +143,30 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 4px;
-            width: 300;
+            width: 100%;
             box-sizing: border-box;
             transition: all 0.3s ease;
-
         }
-        @media screen and (max-width: 768px) {
-        .announcement-banner {
-          width: 290%;
-        }
-      }
-
-      .announcement-banner::before {
-        /* Content will be empty as we dont want anything on our interface */
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        animation: shine 1s infinite;
-      }
-
-      /* Shine property for thre banner */
-      @keyframes shine {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 100%;
-        }
-      }
-
-    
 
         .announcement-banner::before {
-            /* Content will be empty as we dont want anything on our interface */
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shine 1s infinite;
         }
 
-        /* Shine property for thre banner */
+        /* Shine property for the banner */
         @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
         }
 
         /* Responsive Design */
@@ -205,10 +175,6 @@
                 width: 60%;
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 15px;
-            }
-            
-            .table-response {
-                overflow-x: auto;
             }
             
             th, td {
@@ -253,11 +219,6 @@
                 letter-spacing: 2px;
             }
             
-            .table-response {
-                overflow-x: auto;
-                border-radius: 8px;
-            }
-            
             table {
                 min-width: 900px;
             }
@@ -270,12 +231,6 @@
             
             th {
                 font-size: 13px;
-            }
-            
-            /* Make links more touch-friendly */
-            td a {
-                padding: 4px 8px;
-                display: inline-block;
             }
         }
 
@@ -293,7 +248,6 @@
             
             .stat-card {
                 width: 75%;
-                
                 padding: 9px;
             }
             
@@ -340,19 +294,6 @@
                 font-weight: 500;
                 letter-spacing: 1px;
             }
-            
-            /* Make links more touch-friendly on mobile */
-            td a {
-                padding: 6px 10px;
-                background-color: #856113;
-                color: white;
-                text-decoration: none;
-                border-radius: 4px;
-                font-size: 10px;
-                display: inline-block;
-                min-width: 60px;
-                text-align: center;
-            }
         }
 
         @media screen and (max-width: 320px) {
@@ -378,147 +319,153 @@
                 padding: 6px 3px;
                 font-size: 12px;
             }
-            
-            td a {
-                padding: 4px 6px;
-                font-size: 9px;
-                min-width: 50px;
-            }
         }
-
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- PHP Code to display the stats card data from the data base -->
 
     <!-- Container -->
     <div class="container">
-      <!-- Heading -->
-      <h1 class="heading" style="color: #856113; text-align: center">
-        User Experience
-      </h1>
+        <!-- Heading -->
+        <h1 class="heading" style="color: #856113; text-align: center;">User Experience</h1>
 
-      <!-- Stats and Table -->
-      <form>
-        <!-- Stats Container -->
-        <div class="stats-container">
-          <!-- Stats Cards -->
-          <div class="stat-card">
-            <div class="stat-number" id="totalEvents">5</div>
-            <div class="stat-label">Total Feedbacks</div>
-          </div>
+        <!-- Stats and Table -->
+        <form>
+            <!-- Stats Container -->
+            <div class="stats-container">
+                <!-- Stats Cards -->
+                <div class="stat-card">
+                    <div class="stat-number" id="totalEvents">5</div>
+                    <div class="stat-label">Total Feedbacks</div>
+                </div>
 
-          <div class="stat-card">
-            <div class="stat-number" id="openRegistrations">0</div>
-            <div class="stat-label">Total Messages</div>
-          </div>
-        </div>
-
-        <!-- Table Area-->
-        <div class="table-response">
-          <!-- Announcement Banner -->
-          <div class="announcement-banner">
-            <div class="scrolling-text">
-              <marquee
-                class="scrolling-text"
-                direction="left"
-                scrollamount="15"
-              >
-                <i class="fa-solid fa-bullhorn"> &nbsp;User Feedbacks </i>
-              </marquee>
+                <div class="stat-card">
+                    <div class="stat-number" id="openRegistrations">0</div>
+                    <div class="stat-label">Total Messages</div>
+                </div>
             </div>
-          </div>
-          <!-- Table -->
-          <table>
-            <!-- Table Header -->
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>College</th>
-                <th>Year</th>
-                <th>Branch</th>
-                <th>Feedback</th>
-                <th>Message</th>
-                <th>Passing Year</th>
-              </tr>
-            </thead>
-            <!-- Table body -->
-            <tbody>
-              <!-- 
-                        THIS IS THE PHP CODE TO ACCESS THE DATA FROM DATABASE AND DISPLAY IT
-                        ON THE WEBPAGE.
-                    <?php
-                            include_once("connection.php");
-                            $sql="select * from user_experience";
-                            $res= mysqli_query($con,$sql);
-                                while($row =mysqli_fetch_array($res)){
-                                    echo'<tr>
-                                        <td> '.$row['name'].'</td>
-                                        <td> '.$row['college'].'</td>
-                                        <td> '.$row['year'].'</td>
-                                        <td> '.$row['branch'].'</td>
-                                        <td> '.$row['feedback'].'</td>
-                                        <td> '.$row['message'].'</td>
-                                        <td> '.$row['passing_year'].'</td>
-							        </tr>';
-						}
-                    ?>
-                    -->
-              <!-- Sample Rows with data to display -->
 
-              <tr>
-                <td>Ghanshyam</td>
-                <td>Nitra technology campus</td>
-                <td>3</td>
-                <td>CSE</td>
-                <td>5 Star</td>
-                <td>This is helpful for all NTCians</td>
-                <td>2027</td>
-              </tr>
-              <!-- Sample Rows with data to display -->
-              <tr>
-                <td>Yuvraj</td>
-                <td>Nitra technology campus</td>
-                <td>3</td>
-                <td>CSE</td>
-                <td>5 Star</td>
-                <td>This is helpful for all NTCians</td>
-                <td>2027</td>
-              </tr>
-              <!-- Sample Rows with data to display -->
-              <tr>
-                <td>Vansh</td>
-                <td>Nitra technology campus</td>
-                <td>3</td>
-                <td>CSE</td>
-                <td>5 Star</td>
-                <td>This is helpful for all NTCians</td>
-                <td>2027</td>
-              </tr>
-              <!-- Sample Rows with data to display -->
-              <tr>
-                <td>Abhishek Sanu</td>
-                <td>Nitra technology campus</td>
-                <td>3</td>
-                <td>CSE</td>
-                <td>5 Star</td>
-                <td>This is helpful for all NTCians</td>
-                <td>2027</td>
-              </tr>
-              <!-- Sample Rows with data to display -->
-              <tr>
-                <td>Sarthak Singh</td>
-                <td>Nitra technology campus</td>
-                <td>3</td>
-                <td>CSE</td>
-                <td>5 Star</td>
-                <td>This is helpful for all NTCians</td>
-                <td>2027</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </form>
+            <!-- Table Area-->
+            <div class="table-response">
+                <!-- Announcement Banner -->
+                <div class="announcement-banner">
+                    <div class="scrolling-text">
+                        <marquee class="scrolling-text" direction="left" scrollamount="5">
+                            <i class="fa-solid fa-bullhorn"> &nbsp;User Feedbacks </i>
+                        </marquee>
+                    </div>
+                </div>
+                <!-- Table -->
+                <table>
+                    <!-- Table Header -->
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>College</th>
+                            <th>Year</th>
+                            <th>Branch</th>
+                            <th>Feedback</th>
+                            <th>Message</th>
+                            <th>Passing Year</th>
+                        </tr>
+                    </thead>
+                    <!-- Table body -->
+                    <tbody>
+                        <!-- PHP CODE HERE -->
+                        <tr>
+                            <td>Ghanshyam</td>
+                            <td>Nitra technology campus</td>
+                            <td>3</td>
+                            <td>CSE</td>
+                            <td>5 Star</td>
+                            <td>This is helpful for all NTCians</td>
+                            <td>2027</td>
+                        </tr>
+                        <tr>
+                            <td>Yuvraj</td>
+                            <td>Nitra technology campus</td>
+                            <td>3</td>
+                            <td>CSE</td>
+                            <td>5 Star</td>
+                            <td>This is helpful for all NTCians</td>
+                            <td>2027</td>
+                        </tr>
+                        <tr>
+                            <td>Vansh</td>
+                            <td>Nitra technology campus</td>
+                            <td>3</td>
+                            <td>CSE</td>
+                            <td>5 Star</td>
+                            <td>This is helpful for all NTCians</td>
+                            <td>2027</td>
+                        </tr>
+                        <tr>
+                            <td>Abhishek Sanu</td>
+                            <td>Nitra technology campus</td>
+                            <td>3</td>
+                            <td>CSE</td>
+                            <td>5 Star</td>
+                            <td>This is helpful for all NTCians</td>
+                            <td>2027</td>
+                        </tr>
+                        <tr>
+                            <td>Sarthak Singh</td>
+                            <td>Nitra technology campus</td>
+                            <td>3</td>
+                            <td>CSE</td>
+                            <td>5 Star</td>
+                            <td>This is helpful for all NTCians</td>
+                            <td>2027</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
     </div>
-  </body>
+
+    <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank" class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a> |
+                <a href="./terms.html">Terms & Conditions</a> |
+                <a href="./contact.html">Contact</a>
+            </div>
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+</body>
 </html>

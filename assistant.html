@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!---google adsense --->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WZP9NSCWF5');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WZP9NSCWF5');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="assistant.css">
     <link rel="stylesheet" href="floating-button.css">
@@ -32,6 +35,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body id="onload">
 
     <!-- NAVBAR DESIGNING -->
@@ -56,13 +60,14 @@
         <section class="assistant-section" id="assistant">
             <div class="container">
                 <h1 class="service-heading">Student Assistant</h1>
-                <p class="para">Meet your AI-powered <span>Student Assistant</span> from <span>Nitra Mitra</span>! 
-                    Get instant help with your academic queries, study tips, exam preparation, and more. 
-                    Our intelligent assistant is here to support <span>NITRA Technical Campus</span> and 
-                    <span>AKTU</span> students 24/7. Ask questions about subjects, get study guidance, 
-                    or seek help with assignments. Start chatting and enhance your learning experience with 
-                    <span>Nitra Mitra's</span> smart assistant!</p>
-                
+                <p class="para">Meet your AI-powered <span>Student Assistant</span> from <span>Nitra Mitra</span>!
+                    Get instant help with your academic queries, study tips, exam preparation, and more.
+                    Our intelligent assistant is here to support <span>NITRA Technical Campus</span> and
+                    <span>AKTU</span> students 24/7. Ask questions about subjects, get study guidance,
+                    or seek help with assignments. Start chatting and enhance your learning experience with
+                    <span>Nitra Mitra's</span> smart assistant!
+                </p>
+
                 <div class="chatbot-container">
                     <div class="chat-header">
                         <div class="assistant-info">
@@ -83,7 +88,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="chat-messages" id="chatMessages">
                         <div class="message assistant-message">
                             <div class="message-avatar">
@@ -94,10 +99,14 @@
                                     <p><strong>Hello! I'm your Nitra Assistant.</strong> 🤖</p>
                                     <p>I'm here to help you with:</p>
                                     <ul>
-                                        <li><strong>Academic queries</strong> - Subject explanations, concepts, and problem solving</li>
-                                        <li><strong>Study tips</strong> - Effective learning strategies and time management</li>
-                                        <li><strong>AKTU & NITRA</strong> - Campus-specific information and guidance</li>
-                                        <li><strong>Career guidance</strong> - Placement preparation and skill development</li>
+                                        <li><strong>Academic queries</strong> - Subject explanations, concepts, and
+                                            problem solving</li>
+                                        <li><strong>Study tips</strong> - Effective learning strategies and time
+                                            management</li>
+                                        <li><strong>AKTU & NITRA</strong> - Campus-specific information and guidance
+                                        </li>
+                                        <li><strong>Career guidance</strong> - Placement preparation and skill
+                                            development</li>
                                     </ul>
                                     <p><em>How can I assist you today?</em></p>
                                 </div>
@@ -105,30 +114,29 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="chat-input-container">
                         <div class="quick-suggestions" id="quickSuggestions">
-                            <button class="suggestion-btn" onclick="sendQuickMessage('Tell me about AKTU exam pattern')">
+                            <button class="suggestion-btn"
+                                onclick="sendQuickMessage('Tell me about AKTU exam pattern')">
                                 AKTU Exam Pattern
                             </button>
-                            <button class="suggestion-btn" onclick="sendQuickMessage('Study tips for engineering students')">
+                            <button class="suggestion-btn"
+                                onclick="sendQuickMessage('Study tips for engineering students')">
                                 Study Tips
                             </button>
                             <button class="suggestion-btn" onclick="sendQuickMessage('Help with project ideas')">
                                 Project Ideas
                             </button>
-                            <button class="suggestion-btn" onclick="sendQuickMessage('Career guidance for B.Tech students')">
+                            <button class="suggestion-btn"
+                                onclick="sendQuickMessage('Career guidance for B.Tech students')">
                                 Career Guidance
                             </button>
                         </div>
-                        
+
                         <div class="input-wrapper">
-                            <textarea 
-                                id="messageInput" 
-                                placeholder="Type your question here..." 
-                                rows="1"
-                                onkeypress="handleKeyPress(event)"
-                            ></textarea>
+                            <textarea id="messageInput" placeholder="Type your question here..." rows="1"
+                                onkeypress="handleKeyPress(event)"></textarea>
                             <button id="sendButton" onclick="sendMessage()" disabled>
                                 <i class="fas fa-paper-plane"></i>
                             </button>
@@ -140,7 +148,7 @@
                 <div class="api-setup" id="apiSetup">
                     <div class="setup-card">
                         <h3><i class="fas fa-key"></i> Assistant Configuration</h3>
-                        
+
                         <!-- Backend Mode Toggle -->
                         <div class="mode-selector">
                             <p>Choose how you want to use the assistant:</p>
@@ -185,22 +193,23 @@
                             </div>
                             <div class="api-help">
                                 <p><small>
-                                    <i class="fas fa-info-circle"></i>
-                                    Get your free API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>
-                                </small></p>
+                                        <i class="fas fa-info-circle"></i>
+                                        Get your free API key from <a href="https://makersuite.google.com/app/apikey"
+                                            target="_blank">Google AI Studio</a>
+                                    </small></p>
                                 <p><small>
-                                    <i class="fas fa-shield-alt"></i>
-                                    Your API key is stored locally and never sent to our servers
-                                </small></p>
+                                        <i class="fas fa-shield-alt"></i>
+                                        Your API key is stored locally and never sent to our servers
+                                    </small></p>
                             </div>
                         </div>
 
                         <!-- Backend Status -->
                         <div class="backend-status" id="backendStatus" style="display: none;">
                             <p><small>
-                                <span id="statusIndicator">🔄</span>
-                                <span id="statusText">Checking backend status...</span>
-                            </small></p>
+                                    <span id="statusIndicator">🔄</span>
+                                    <span id="statusText">Checking backend status...</span>
+                                </small></p>
                         </div>
                     </div>
                 </div>
@@ -210,12 +219,13 @@
         <!-- ABOUT SECTION -->
         <section class="about" id="about">
             <h1 class="service-heading">About Student Assistant</h1>
-            <p class="para">Our <span>AI-powered Student Assistant</span> is designed specifically for 
-                <span>NITRA Technical Campus</span> students. Using advanced AI technology, it provides 
-                personalized academic support, study guidance, and instant answers to your queries. 
-                Whether you need help with assignments, exam preparation, or career guidance, 
-                our assistant is here to help you succeed in your <span>B.Tech journey</span>.</p>
-            
+            <p class="para">Our <span>AI-powered Student Assistant</span> is designed specifically for
+                <span>NITRA Technical Campus</span> students. Using advanced AI technology, it provides
+                personalized academic support, study guidance, and instant answers to your queries.
+                Whether you need help with assignments, exam preparation, or career guidance,
+                our assistant is here to help you succeed in your <span>B.Tech journey</span>.
+            </p>
+
             <div class="about-flex">
                 <div class="About-card">
                     <div class="icon">
@@ -224,7 +234,7 @@
                     <h2 class="name">Smart AI</h2>
                     <p>Powered by Google's Gemini AI for intelligent responses</p>
                 </div>
-                
+
                 <div class="About-card">
                     <div class="icon">
                         <i class="fas fa-clock"></i>
@@ -232,7 +242,7 @@
                     <h2 class="name">24/7 Available</h2>
                     <p>Get help anytime, anywhere with instant responses</p>
                 </div>
-                
+
                 <div class="About-card">
                     <div class="icon">
                         <i class="fas fa-graduation-cap"></i>
@@ -240,7 +250,7 @@
                     <h2 class="name">Academic Focus</h2>
                     <p>Specialized in helping NITRA and AKTU students</p>
                 </div>
-                
+
                 <div class="About-card">
                     <div class="icon">
                         <i class="fas fa-shield-alt"></i>
@@ -254,11 +264,14 @@
         <!-- CONTACT SECTION -->
         <section class="contact-section section-padding" id="contact">
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
-                <a><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
-            <h3 id="copyright"></h3>
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
         </section>
     </div>
 
@@ -281,4 +294,5 @@
     <script src="assistant.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

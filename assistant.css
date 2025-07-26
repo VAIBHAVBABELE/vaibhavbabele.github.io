@@ -738,6 +738,15 @@
     text-decoration: underline;
 }
 
+/* Footer section */
+#contact .copyright {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #0b0b8b;
+  font-size: 14px;
+}
+
 /* Responsive Design for Mode Selection */
 @media (max-width: 768px) {
     .mode-options {
