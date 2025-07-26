@@ -778,8 +778,8 @@ section{
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
-  border-style: hidden;
-  border-color: #0e0c0b;
+  border-style:solid;
+  border-color: #dfc2b3;
 }
 
 .facility-card:hover {
