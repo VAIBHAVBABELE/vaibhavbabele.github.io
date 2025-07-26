@@ -1,7 +1,6 @@
 const element = document.getElementById('scroll-hide');
 const mode =document.getElementById("mode");
 const load=document.getElementById("onload");
-const form = document.forms['submit-to-google-sheet'];
 function checkWindowSize() {
     if (window.innerWidth < 1000) {
             window.addEventListener('scroll', function() {

@@ -300,7 +300,7 @@
 
                     <div><br>
         
-                        <input class="primary-button get-started-btn" onclick="alert('Thank you for submit feedback form.')" id="btn" type="submit" value="submit"  name="submit"><br><br>
+                        <input class="primary-button get-started-btn" id="btn" type="submit" value="submit"  name="submit"><br><br>
                     </div>
 
                     <span id="success"></span>
@@ -322,17 +322,19 @@
                     }
 
                     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                    .then(response => {success.innerHTML = "✅ Successfully Submitted!";
-                    form.reset();
+                    .then(response => {
+                        form.reset();
+                        success.innerHTML = "✅ Successfully Submitted!";
 
-                    setTimeout(() => {success.innerHTML = "";
-                    submitBtn.disabled = false;
-                    if (submitBtn.tagName === "INPUT") {
-                        submitBtn.value = originalText;
-                    } else {
-                        submitBtn.textContent = originalText;
-                    }
-                }, 2000);
+                    setTimeout(() => {
+                        success.innerHTML = "";
+                        submitBtn.disabled = false;
+                        if (submitBtn.tagName === "INPUT") {
+                            submitBtn.value = originalText;
+                        } else {
+                            submitBtn.textContent = originalText;
+                        }
+                    }, 2000);
       })
       .catch(error => {
         console.error('Error!', error.message);
@@ -346,9 +348,12 @@
           } else {
             submitBtn.textContent = originalText;
           }
+
         }, 2000);
       });
+      
   });
+  
 </script>
 
         </div>
