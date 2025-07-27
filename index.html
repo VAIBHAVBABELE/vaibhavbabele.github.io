@@ -50,14 +50,14 @@
         <label for="click" class="menu-btn">
             <i class="fa-sharp fa-solid fa-bars"></i>
         </label>
-        <ul>
-            <li><a href="index.html" id="active">Home</a></li>
-            <li><a href="#Services">Services</a></li>
-            <li><a href="#about">About </a></li>
-            <li><a href="#Feedback">Feedback</a></li>
-            <li><a href="#contact">Contact us</a></li>
-
-        </ul>
+            <ul>
+                <li><a href="index.html" id="active">Home</a></li>
+                <li><a href="#Services" >Services</a></li>
+                <li><a href="#about">About </a></li>
+                <li><a href="#Feedback">Feedback</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                
+            </ul>
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
         <script src="index.js"></script>
        
@@ -214,7 +214,16 @@
                 <a href="https://www.linkedin.com/in/vaibhavbabele" class="primary-button" id="btn">View Portfolio</a>
             </div>
 
-        </section>
+    <div class="About-card">
+
+        
+        <div class="icon">
+            <img src="images/ghanshyam.jpeg" alt="ghanshyam prajapati">
+        </div>
+        <h2 class="name">GHANSHYAM</h2>
+        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266" class="primary-button" id="btn">View Portfolio</a>
+
+    </div>
     
 
     <!--    google form     start-->
@@ -362,10 +371,75 @@
     <!--    google form     end-->
 
 
-    <section id="googleform" class="embed"><br><br><br><iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSf6MKvfcHg9aKJ58AZSflu_0QkguKBx7iFfmHFDqRQotiblHw/viewform?embedded=true"
-            height="80%" width="100%" scrolling="yes" frameborder="10" marginheight="0"
-            marginwidth="0">Loading…</iframe></section>
+         <!-- TEAM SECTION (Before Footer) -->
+        <section class="team-showcase" style="padding: 80px 0; background: var(--bg-shade); border-top: 5px solid var(--primary-text-color);">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+                    <h2 style="font-size: 3rem; color: var(--primary-text-color); margin-bottom: 20px;">Meet Our Team</h2>
+                    <p style="font-size: 1.2rem; color: var(--secondary-text-color); max-width: 600px; margin: 0 auto;">
+                        Dedicated developers working together to create the best educational platform for NITRA students.
+                    </p>
+                </div>
+                
+                <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; justify-items: center;">
+                    <!-- Vaibhav Babele Card -->
+                    <div class="team-showcase-card" style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <div class="team-avatar" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
+                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Vaibhav Babele</h3>
+                        <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Lead Developer & Founder</p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                            Computer Science Engineering student passionate about creating educational platforms for students.
+                        </p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank" style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                            </a>
+                            <a href="https://github.com/vaibhavbabele" target="_blank" style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fab fa-github" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Ghanshyam Prajapati Card -->
+                    <div class="team-showcase-card" style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <div class="team-avatar" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
+                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Ghanshyam Prajapati</h3>
+                        <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Co-Developer</p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                            Dedicated developer contributing to the platform's growth and student experience enhancement.
+                        </p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in" target="_blank" style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Development Team Card -->
+                    <div class="team-showcase-card" style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <div class="team-avatar placeholder" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; border: 4px solid var(--main-color); background: var(--accent-color); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Development Team</h3>
+                        <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Contributors & Maintainers</p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                            A growing community of student developers working together to improve the platform.
+                        </p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="pr-contributors.html" style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fas fa-users" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- CONTACT DESIGNING  -->
 
 
 
@@ -419,30 +493,48 @@
                 &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
             </p>
         </div>
-    </footer>
+        <div class="social-media">
+            <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
+            <a><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </div>
+</section>
 
 
-    <!-- WEBSITE DESIGNING END -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
+    <!-- FOOTER -->
+    <div class="footer-links" style="text-align: center; margin: 40px 0; padding: 20px; background: var(--nav-bgcolor); border-top: 5px solid var(--primary-text-color); position: relative; z-index: 3;">
+        <a href="./privacy.html" style="color: var(--primary-text-color); text-decoration: none;">Privacy Policy</a> |
+        <a href="terms.html" style="color: var(--primary-text-color); text-decoration: none;">Terms & Conditions</a> |
+        <a href="contact.html" style="color: var(--primary-text-color); text-decoration: none;">Contact</a> |
+        <a href="pr-contributors.html" style="color: var(--primary-text-color); text-decoration: none;">Contributors</a>
+        <h3 id="copyright" style="margin-top: 15px; color: var(--primary-text-color);"></h3>
+    </div>
 
-        var Typed = new Typed(".greeting", {
+               <!-- WEBSITE DESIGNING END -->
 
-            strings: ["Hello!! Students"],
-            typeSpeed: 150,
-            backspeed: 150,
-            loop: false,
-            showCursor: false
-        })
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
 
+    var Typed = new Typed (".greeting",{
 
-    </script>
-    <script src="index.js">
-    </script>
-    <script src="cursor.js" defer></script>
-    <!---pop up   page ---
+        strings : ["Hello!! Students"],
+        typeSpeed : 150,
+        backspeed : 150,
+        loop : false,
+        showCursor: false 
+    })
+        
+    
+</script>
+<script src="index.js">
+</script>
+
+  <!---pop up   page --->
+
 <div class="popup">
     <div class="popup-content">
         <h3></h3>

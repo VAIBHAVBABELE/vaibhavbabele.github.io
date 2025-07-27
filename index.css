@@ -44,21 +44,59 @@
    
 }
 
-.dark-mode {
-  --nav-bgcolor: #a58b52; /* Tan brown navbar */
-  --bg-color: #1c1a17; /* Warm charcoal background */
-  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
-  --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
-  --primary-text-color: #f5f3ee; /* Warm light beige text */
-  --secondary-text-color: #b5a08a; /* Light beige for secondary text */
-  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
-  --footer-bgColor: #a58672; /* Warm clay brown */
-  --placeholder-color: #b9a89f;
-  --input-bg-color: #3f3b3c; /* Dark beige input fields */
-  --accent-color: #cda274; /* Keep accent consistent */
-  --accent-color-dark: #d4b996;
+.dark-mode{
+    --nav-bgcolor:rgb(165, 139, 82);
+    --bg-shade:rgb(59, 59, 59);
+    --img-bg-shade: rgba(104, 102, 102, 0.6);
+    --primary-text-color:rgb(238, 234, 234);
+    --secondary-text-color:rgb(200, 200, 200);
+    --tertiary-color:rgb(174, 174, 241);
+    --footer-bgColor:#dbb0b0;
+    --placeholder-color: #adb5bd;
+    --input-bg-color: #495057; 
+    
+
 }
 
+/* Team Showcase Section */
+.team-showcase {
+    position: relative;
+    z-index: 1;
+    clear: both;
+    margin-top: 0;
+}
+
+.team-showcase-card {
+    position: relative;
+    z-index: 2;
+}
+
+.team-showcase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.dark-mode .team-showcase-card {
+    background: var(--bg-shade) !important;
+    border-color: var(--primary-text-color) !important;
+}
+
+/* Responsive adjustments for team section */
+@media (max-width: 768px) {
+    .team-showcase .section-header h2 {
+        font-size: 2.5rem !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .team-showcase-card {
+        max-width: 100% !important;
+        margin: 0 auto;
+    }
+}
 
 .main:not(.dark-mode){
     /* border: var(--primary-text-color) 5px solid; */
