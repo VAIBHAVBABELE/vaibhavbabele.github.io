@@ -44,6 +44,7 @@
    
 }
 
+<<<<<<< HEAD
 .dark-mode {
   --nav-bgcolor: #a58b52; /* Tan brown navbar */
   --bg-color: #1c1a17; /* Warm charcoal background */
@@ -59,6 +60,61 @@
   --accent-color-dark: #d4b996;
 }
 
+=======
+.dark-mode{
+    --nav-bgcolor:rgb(165, 139, 82);
+    --bg-shade:rgb(59, 59, 59);
+    --img-bg-shade: rgba(104, 102, 102, 0.6);
+    --primary-text-color:rgb(238, 234, 234);
+    --secondary-text-color:rgb(200, 200, 200);
+    --tertiary-color:rgb(174, 174, 241);
+    --footer-bgColor:#dbb0b0;
+    --placeholder-color: #adb5bd;
+    --input-bg-color: #495057; 
+    
+
+}
+
+/* Team Showcase Section */
+.team-showcase {
+    position: relative;
+    z-index: 1;
+    clear: both;
+    margin-top: 0;
+}
+
+.team-showcase-card {
+    position: relative;
+    z-index: 2;
+}
+
+.team-showcase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.dark-mode .team-showcase-card {
+    background: var(--bg-shade) !important;
+    border-color: var(--primary-text-color) !important;
+}
+
+/* Responsive adjustments for team section */
+@media (max-width: 768px) {
+    .team-showcase .section-header h2 {
+        font-size: 2.5rem !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .team-showcase-card {
+        max-width: 100% !important;
+        margin: 0 auto;
+    }
+}
+>>>>>>> 739417a (Add Contact Us page and Team Showcase to all pages)
 
 .main:not(.dark-mode){
     /* border: var(--primary-text-color) 5px solid; */
