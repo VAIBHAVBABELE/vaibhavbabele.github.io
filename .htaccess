@@ -1,6 +1,34 @@
-RewriteEngine On
+RewriteEngine ORewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
-RewriteCond %{HTTPS} off
+
+# Security Headers
+# Content Security Policy
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://www.googletagmanager.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src https://www.google.com;"
+
+# X-Frame-Options (Clickjacking protection)
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# X-Content-Type-Options (MIME type sniffing protection)
+Header always set X-Content-Type-Options "nosniff"
+
+# X-XSS-Protection (XSS filter)
+Header always set X-XSS-Protection "1; mode=block"
+
+# Referrer Policy
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Strict Transport Security (HTTPS enforcement)
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Cache Control with Security
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$"> 
+
+Header set Cache-Control "max-age=2592000, public"
+
+ </filesMatch>
+
+
+ErrorDocument 404 /404.html  Cond %{HTTPS} off
 
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
