@@ -11,7 +11,7 @@
 
 
 :root{
-    --snd-bg-color: #c4c8f9;
+    /* --snd-bg-color: #c4c8f9;
     --text-color:#fff;
     --main-color:#491a02;
     --bg-color: #a6cde5;
@@ -21,7 +21,18 @@
     --secondary-text-color:#926f57;
     --accent-color:#d2bf80f0;
     --accent-color-dark:#856113;
-    --padding-inline-section:10px;
+    --padding-inline-section:10px; */
+    --snd-bg-color: #fdf0d5; /* Soft beige secondary background */
+    --text-color: #3e3e3e; /* Deep brown for primary text */
+    --main-color: #5a3e2b; /* Rich brown for headings or strong accents */
+    --bg-color: #fdf6ec; /* Light creamy beige main background */
+    --white-4345: #f9f6f0; /* Near-white with warm tone */
+    --bg-shade: #faebdd; /* Subtle background contrast */
+    --primary-text-color: #4b3f32; /* Slightly darker warm brown */
+    --secondary-text-color: #926f57; /* Light brown for secondary elements */
+    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
+    --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
+    --padding-inline-section:10px
     
    
 
@@ -104,6 +115,7 @@ body {
     position: relative;
     left: 25px;
     z-index: 1;
+    color: var(--main-color); 
 
 
 }
@@ -129,15 +141,29 @@ section{
     justify-content: center;
     margin-top: 2%;
 }
-.btn-primary {
-    background-color: #1a73e8;
-    border-color: #1a73e8;
+/* .btn-primary {
+    background-color: #8b5e3c;
+    border-color: #8b5e3c;
 }
 .btn-primary:hover {
-    background-color: #155ab6;
-    border-color: #155ab6;
+    background-color: #6d4729;
+    border-color: #6d4729;
     cursor: pointer;
+} */
+.btn-primary {
+    background-color: #cf8133;        /* Warm brown */
+    border-color: #cf8133;
+    color: #fff0e5;                   /* Light beige text */
+    font-weight: bold;
 }
+
+.btn-primary:hover {
+    background-color: #a55f20;       /* Deeper brown on hover */
+    border-color: #a55f20;
+    cursor: pointer;
+    color: #ffffff;
+}
+
 
 .card-title{
    margin-top: 5%;
@@ -222,6 +248,76 @@ section{
        min-width:fit-content ;
     }
 } 
+/* Main floating button */
+.floating-btn {
+    background-color: #cf8133;       /* Warm brown */
+    color: #fff0e5;                  /* Beige text */
+    border: 2px solid #a55f20;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(207, 129, 51, 0.3);
+}
+
+.floating-btn:hover {
+    background-color: #a55f20;       /* Darker brown */
+    color: white;
+    cursor: pointer;
+}
+
+/* Container dropdown buttons */
+#container button {
+    background-color: #fff0e5;       /* Light beige */
+    color: #5a3b1d;                  /* Deep brown */
+    border: 2px solid #cf8133;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+#container button:hover {
+    background-color: #cf8133;
+    color: #fff;
+    border-color: #a55f20;
+}
+
+/* Join Meeting Input */
+#joinMeetingDiv input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1.5px solid #cf8133;
+    margin-right: 10px;
+    background-color: #fffaf4;
+    color: #5a3b1d;
+    font-family: "Poppins", sans-serif;
+}
+
+#joinMeetingDiv input::placeholder {
+    color: #a55f20;
+}
+
+/* Join button inside input section */
+#confirmJoinBtn {
+    background-color: #cf8133;
+    color: #fff0e5;
+    border: 2px solid #a55f20;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+#confirmJoinBtn:hover {
+    background-color: #a55f20;
+    color: white;
+    cursor: pointer;
+}
 
 
 

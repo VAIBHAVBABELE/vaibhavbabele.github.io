@@ -5,9 +5,11 @@ import requests
 import json
 import tempfile
 import PyPDF2
-import fitz  
-from werkzeug.utils import secure_filename
+
 import docx  
+import fitz  # PyMuPDF
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 CORS(app)  
@@ -15,6 +17,10 @@ CORS(app)
 # Configuration
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
 ALLOWED_EXTENSIONS = {'pdf', 'txt', 'md', 'docx', 'doc'}
+
+# Configuration
+app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
+ALLOWED_EXTENSIONS = {'pdf', 'txt', 'md'}
 
 # Get API key from environment variable
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
@@ -48,6 +54,7 @@ def extract_text_from_pdf(file_path):
     
     return text
 
+
 def extract_text_from_docx(file_path):
     """Extract text from DOCX file."""
     try:
@@ -55,6 +62,7 @@ def extract_text_from_docx(file_path):
         return "\n".join([paragraph.text for paragraph in doc.paragraphs])
     except Exception as e:
         raise ValueError(f"Could not extract text from DOCX: {str(e)}")
+
 
 def extract_text_from_file(file_path, filename):
     """Extract text from various file types."""
@@ -65,8 +73,10 @@ def extract_text_from_file(file_path, filename):
     elif file_ext in ['txt', 'md']:
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
+
     elif file_ext in ['docx', 'doc']:
         return extract_text_from_docx(file_path)
+
     else:
         raise ValueError(f"Unsupported file type: {file_ext}")
 
@@ -150,6 +160,7 @@ Generate STUDY QUESTIONS based on the content:
 1. [Definition and concept questions]
 """
     
+
     elif task_type == 'resume':
         specific_prompt = """
 You are an expert resume analyzer and career coach. Analyze this resume and provide detailed feedback:
@@ -187,6 +198,7 @@ You are an expert resume analyzer and career coach. Analyze this resume and prov
 Provide this feedback in clear, actionable bullet points with proper formatting.
 """
     
+
     else:  # default to summarize
         specific_prompt = """
 Create a comprehensive summary of the following content with proper formatting and structure.
@@ -429,6 +441,7 @@ def enhance_notes():
     except Exception as e:
         return jsonify({'error': f'Failed to enhance notes: {str(e)}'}), 500
 
+
 @app.route('/api/resume/analyze', methods=['POST'])
 def analyze_resume():
     """Analyze uploaded resume (PDF, DOCX, TXT)."""
@@ -484,6 +497,7 @@ def analyze_resume():
         return jsonify({
             'error': f'Failed to analyze resume: {str(e)}'
         }), 500
+
 
 def call_gemini_api(prompt):
     """Call Gemini API with the given prompt."""

@@ -1,0 +1,91 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff8e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+#certificate-wrapper {
+    width: 800px;
+    height: 550px;
+    border: 12px solid #d4a056;
+    padding: 30px;
+    background-color: #fef9e7;
+    box-shadow: 0 0 25px rgba(139, 105, 35, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+}
+
+.certificate-header, .certificate-body, .certificate-footer {
+    text-align: center;
+    color: #4b3d2a;
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #a56c1d;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #6d4c41;
+}
+
+.contributor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    color: #5d4037;
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+.contribution-text {
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 0 40px;
+    color: #5b4c3a;
+}
+
+.certificate-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #4e342e;
+}
+
+.signature p, .date p {
+    margin: 5px 0;
+}
+
+#download-btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #cfa75d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#download-btn:hover {
+    background-color: #b68e47;
+}

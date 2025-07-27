@@ -31,6 +31,7 @@ mode.onclick=function(){
     const wasDarkmode = localStorage.getItem('mode') === 'true';
     localStorage.setItem('mode', !wasDarkmode);
     document.body.classList.toggle("dark-mode",!wasDarkmode);
+
     mode.src = !wasDarkmode ? "images/sun.png" : "images/moon.png";
 }
 
@@ -40,6 +41,7 @@ window.onload=function(){
     document.getElementById("mode").src = isDark ? "images/sun.png" : "images/moon.png";
 
 };
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
