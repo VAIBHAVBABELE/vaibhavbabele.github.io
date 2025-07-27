@@ -44,23 +44,6 @@
    
 }
 
-<<<<<<< HEAD
-.dark-mode {
-  --nav-bgcolor: #a58b52; /* Tan brown navbar */
-  --bg-color: #1c1a17; /* Warm charcoal background */
-  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
-  --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
-  --primary-text-color: #f5f3ee; /* Warm light beige text */
-  --secondary-text-color: #b5a08a; /* Light beige for secondary text */
-  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
-  --footer-bgColor: #a58672; /* Warm clay brown */
-  --placeholder-color: #b9a89f;
-  --input-bg-color: #3f3b3c; /* Dark beige input fields */
-  --accent-color: #cda274; /* Keep accent consistent */
-  --accent-color-dark: #d4b996;
-}
-
-=======
 .dark-mode{
     --nav-bgcolor:rgb(165, 139, 82);
     --bg-shade:rgb(59, 59, 59);
@@ -114,7 +97,6 @@
         margin: 0 auto;
     }
 }
->>>>>>> 739417a (Add Contact Us page and Team Showcase to all pages)
 
 .main:not(.dark-mode){
     /* border: var(--primary-text-color) 5px solid; */

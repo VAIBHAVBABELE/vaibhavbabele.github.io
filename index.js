@@ -31,17 +31,6 @@ mode.onclick=function(){
     const wasDarkmode = localStorage.getItem('mode') === 'true';
     localStorage.setItem('mode', !wasDarkmode);
     document.body.classList.toggle("dark-mode",!wasDarkmode);
-<<<<<<< HEAD
-    mode.src = !wasDarkmode ? "images/sun.png" : "images/moon.png";
-}
-
-window.onload=function(){
-    const isDark = localStorage.getItem('mode') === 'true';
-    document.body.classList.toggle("dark-mode", isDark);
-    document.getElementById("mode").src = isDark ? "images/sun.png" : "images/moon.png";
-
-};
-=======
     if(document.body.classList.contains("dark-mode")){
         mode.src="images/sun.png";
     }else{
@@ -58,7 +47,6 @@ load.onload=function(){
         mode.src="images/moon.png";
     }
 }
->>>>>>> 739417a (Add Contact Us page and Team Showcase to all pages)
 
 
 document.addEventListener("DOMContentLoaded", function () {
