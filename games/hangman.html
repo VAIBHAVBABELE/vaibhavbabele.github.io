@@ -37,87 +37,7 @@
       padding: 20px;
     }
     
-nav{
-    padding: 10px;
-    background-color:var(--nav-bgcolor);
-    height:15vh;
-    display: flex; 
-    align-items: center;
-    justify-content:space-around;
-    border:var(--primary-text-color) 5px solid;
-    z-index: 10;
-    position:fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-
-
-nav ul{
-    
-    margin-top:20px;
-    border-radius: 10px;
-    color: var(--primary-text-color);
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
-   
-}
-
-
-
-nav ul li a{
-    text-decoration: none;
-    position: relative;
-    color: var(--primary-text-color);
-    margin: 10px;
-    font-size: 18;
-    letter-spacing: 0.5px;
-    font-weight:bold;
-    padding: 8px 8px ;
-    transition: all 0.3s ease;
-    overflow-x: hidden;
-}
-nav ul li a:hover {
-    background-color: #75b1e9;
-    border-radius: 10px;
-    border: 1px solid black;
-    
-    
-  
-}
-
-
-
-
-
-.nav-link:hover,
-.nav-link.active {
-    background-color: #555;
-    
-}
-
-nav .logo {
-    font-size: 33px;
-    color: var(--primary-text-color);
-    font-weight: 600;
-    font-family: "Playwrite SK", cursive;
-}
-nav #mitra{
-    margin: 0;
-    padding: 0%;
-    color: var(--primary-text-color);
-}
-nav .menu-btn i {
-    color: #322929;
-    font-size: 22px;
-    cursor: pointer;
-    display: none;
-    
-}
+/* Game-specific styles only - navbar styles come from index.css */
 
 section{
     padding: 50px var(--padding-inline-section);
@@ -126,12 +46,25 @@ section{
     
 }
 .main-page{
-    margin-top: 15vh;
+    margin-top: 60px; /* Since hangman doesn't use .main wrapper */
     justify-content: center;
     gap: 50px;
     padding-bottom: 5%;
     
  
+}
+
+/* Mobile responsive fix for main content */
+@media (max-width: 1000px) {
+    .main-page {
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 450px) {
+    .main-page {
+        margin-top: 50px;
+    }
 }
 .header-left{
    max-width: 40vw;
@@ -298,13 +231,6 @@ section{
 
     #newGameButton:hover {
       background-color: #019875;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        background: #2b2525;
-      }
     }
   </style>
 </head>
