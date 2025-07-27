@@ -56,7 +56,7 @@
 
 .main:not(.dark-mode){
     border: 5px solid var(--primary-text-color);
-    margin-top: 15vh;
+    margin-top: 60px; /* Updated to match navbar height */
 }
 
 .dark-mode .main {
@@ -586,14 +586,14 @@ a:hover {
 
 /* Enhanced Navigation */
 nav {
-    padding: 10px;
+    padding: 5px 15px;
     background-color: var(--nav-bgcolor);
     height: 15vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    border: 5px solid var(--primary-text-color);
-    z-index: 10;
+    justify-content: space-between;
+    border: 2px solid var(--primary-text-color); /* Reduced border */
+    z-index: 1000;
     position: fixed;
     top: 0;
     left: 0;
@@ -608,14 +608,14 @@ nav {
 }
 
 nav ul {
-    margin-top: 20px;
-    border-radius: 10px;
+    margin: 0;
+    padding: 0;
     color: var(--primary-text-color);
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
+    gap: 2px; /* Reduced gap */
 }
 
 nav ul li a {
@@ -628,13 +628,13 @@ nav ul li a {
     font-weight: bold;
     padding: 8px;
     transition: all 0.3s ease;
-    overflow-x: hidden;
-    border-radius: 8px;
+    border-radius: 6px;
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
     background-color: var(--accent-color);
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid var(--accent-color-dark);
     color: var(--white-4345);
     transform: translateY(-2px);
@@ -698,7 +698,7 @@ nav .menu-btn i {
 
 /* Enhanced Sections */
 section{
-    padding: 50px var(--padding-inline-section);
+    padding: 20px var(--padding-inline-section) 50px; /* Reduced top padding */
     background: var(--bg-shade);
     transition: background-color 0.3s ease;
 }
@@ -708,7 +708,7 @@ section{
 }
 
 .main-page{
-    margin-top: 15vh;
+    margin-top: 0; /* Remove margin since .main already has it */
     justify-content: center;
     gap: 50px;
     padding-bottom: 5%;

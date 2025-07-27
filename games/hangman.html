@@ -43,12 +43,25 @@ section{
     
 }
 .main-page{
-    margin-top: 15vh;
+    margin-top: 60px; /* Since hangman doesn't use .main wrapper */
     justify-content: center;
     gap: 50px;
     padding-bottom: 5%;
     
  
+}
+
+/* Mobile responsive fix for main content */
+@media (max-width: 1000px) {
+    .main-page {
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 450px) {
+    .main-page {
+        margin-top: 50px;
+    }
 }
 .header-left{
    max-width: 40vw;
@@ -185,13 +198,6 @@ section{
 
     #newGameButton:hover {
       background-color: #019875;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        background: #2b2525;
-      }
     }
   </style>
 </head>
