@@ -22,7 +22,20 @@
     .container {
       max-width: 700px;
       margin: auto;
-      padding-top: 17vh;
+      padding-top: 60px; /* Updated to match new navbar */
+    }
+
+    /* Mobile responsive fixes */
+    @media (max-width: 1000px) {
+      .container {
+        padding-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .container {
+        padding-top: 50px;
+      }
     }
 
     .sentence {

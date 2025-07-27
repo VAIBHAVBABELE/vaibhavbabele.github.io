@@ -70,7 +70,20 @@
 
     .main:not(.dark-mode) {
       border: var(--primary-text-color) 5px solid;
-      margin-top: 15vh;
+      margin-top: 60px; /* Updated to match new navbar */
+    }
+
+    /* Mobile responsive fix for main content */
+    @media (max-width: 1000px) {
+      .main:not(.dark-mode) {
+        margin-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .main:not(.dark-mode) {
+        margin-top: 50px;
+      }
     }
 
     body {
