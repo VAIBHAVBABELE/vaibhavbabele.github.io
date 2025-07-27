@@ -63,7 +63,7 @@
 .main:not(.dark-mode){
     /* border: var(--primary-text-color) 5px solid; */
     border: 5px solid var(--primary-text-color);
-    margin-top: 15vh;
+    margin-top: 60px; /* Updated to match navbar height */
 }
 
 #mode{
@@ -514,51 +514,61 @@ padding-inline: var(--padding-inline-section);
 
 
 nav {
-    padding: 10px;
+    padding: 5px 15px;
     background-color: var(--nav-bgcolor);
-    height: 15vh;
+    height: 60px; /* Reduced height for less spacing */
     display: flex; 
     align-items: center;
-    justify-content: space-around;
-    border: 5px solid var(--primary-text-color);
-    z-index: 10;
+    justify-content: space-between;
+    border: 2px solid var(--primary-text-color); /* Reduced border */
+    z-index: 1000;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 nav ul {
-    margin-top: 20px;
-    border-radius: 10px;
+    margin: 0;
+    padding: 0;
     color: var(--primary-text-color);
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
+    gap: 2px; /* Reduced gap */
 }
 
 nav ul li a {
     text-decoration: none;
     position: relative;
     color: var(--primary-text-color);
-    margin: 10px;
-    font-size: 18px; /* ← fixed missing unit */
-    letter-spacing: 0.5px;
-    font-weight: bold;
-    padding: 8px;
+    margin: 0 4px; /* Reduced margin */
+    font-size: 15px; /* Slightly smaller font */
+    letter-spacing: 0.3px;
+    font-weight: 600;
+    padding: 8px 12px; /* Reduced padding */
     transition: all 0.3s ease;
-    overflow-x: hidden;
-    border-radius: 8px;
+    border-radius: 6px;
+    white-space: nowrap;
 }
 
-/* 🧡 Updated hover with theme colors */
+/* Active tab styling */
+nav ul li a#active,
+nav ul li a.active {
+    background-color: var(--accent-color);
+    color: var(--white-4345);
+    border: 1px solid var(--accent-color-dark);
+}
+
+/* Hover effects */
 nav ul li a:hover {
     background-color: var(--accent-color);
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid var(--accent-color-dark);
     color: var(--white-4345);
+    transform: translateY(-1px);
 }
 
 .nav-link:hover,
@@ -568,10 +578,17 @@ nav ul li a:hover {
 }
 
 nav .logo {
-    font-size: 33px;
-    color: var(--main-color); /* More contrast for brand text */
+    font-size: 22px; /* Reduced logo size */
+    color: var(--main-color);
     font-weight: 600;
     font-family: "Cinzel",serif;
+    text-decoration: none;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+nav .logo a {
+    text-decoration: none;
+    color: inherit;
 }
 
 nav #mitra {
@@ -580,27 +597,70 @@ nav #mitra {
     color: var(--main-color);
 }
 
+nav .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    margin-left: auto; /* Push to the right side */
+}
+
+nav .menu-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
 nav .menu-btn i {
-    color: var(--main-color); /* Instead of pure white */
-    font-size: 22px;
+    color: var(--main-color);
+    font-size: 20px;
     cursor: pointer;
     display: none;
+    line-height: 1; /* Ensure proper vertical alignment */
+}
+
+/* Mode toggle button */
+nav #mode {
+    width: 28px; /* Reduced size */
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+nav #mode:hover {
+    transform: scale(1.1);
 }
 
 
 section{
-    padding: 50px var(--padding-inline-section);
+    padding: 20px var(--padding-inline-section) 50px; /* Reduced top padding */
     background: var(--bg-shade);
     
     
 }
 .main-page{
-    margin-top: 15vh;
+    margin-top: 0; /* Remove margin since .main already has it */
     justify-content: center;
     gap: 50px;
     padding-bottom: 5%;
     
  
+}
+
+/* Additional mobile responsive fixes for main content */
+@media (max-width: 1000px) {
+    section {
+        padding-top: 20px; /* Reduce section padding on mobile */
+    }
+}
+
+@media (max-width: 450px) {
+    section {
+        padding-top: 15px; /* Further reduce padding on very small screens */
+    }
 }
 .header-left{
    max-width: 40vw;
@@ -1078,50 +1138,130 @@ footer .copyright {
   color: #0b0b8b;
   font-size: 14px;
 }
+
+/* Additional responsive improvements for mid-range screens */
+@media (max-width: 1200px) and (min-width: 1001px) {
+  nav {
+    padding: 8px 15px;
+  }
+  
+  nav ul li a {
+    font-size: 15px;
+    padding: 8px 12px;
+    margin: 0 5px;
+  }
+  
+  nav .logo {
+    font-size: 26px;
+  }
+}
+
+/* Tablet specific improvements */
+@media (max-width: 1000px) and (min-width: 769px) {
+  nav {
+    padding: 8px 12px;
+  }
+  
+  nav .logo {
+    font-size: 22px;
+  }
+  
+  nav #mode {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 @media (max-width: 1000px) {
+  nav {
+    height: 55px; /* Compact mobile navbar */
+    padding: 5px 12px;
+  }
+  
+  .main:not(.dark-mode) {
+    margin-top: 55px;
+  }
+  
+  nav .logo {
+    font-size: 18px;
+  }
+  
+  nav .menu-btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav .menu-btn:hover {
+    background-color: rgba(0,0,0,0.1);
+  }
+  
+  nav .menu-btn i {
+    color: var(--primary-text-color);
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+  }
+  
   nav ul {
     position: fixed;
-    top: 80px;
+    top: 55px;
     left: -100%;
-    background: #1b1b1b;
-    height: 50vh;
+    background: var(--nav-bgcolor);
+    height: calc(100vh - 55px);
     width: 100%;
     display: block;
     text-align: center;
     transition: all 0.3s ease;
-    z-index: 1;
+    z-index: 999;
+    padding-top: 20px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
 
-  .btn {
+  nav ul li {
+    margin: 15px 0;
     width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+    color: var(--primary-text-color);
+    padding: 12px 20px;
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid transparent;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active,
+  nav ul li a#active {
+    background-color: var(--accent-color);
+    color: var(--white-4345);
+    border: 1px solid var(--accent-color-dark);
   }
 
   #click:checked ~ .menu-btn i:before {
     content: "\f00d";
   }
+  
   #click:checked ~ ul {
     left: 0%;
   }
 
-  nav .menu-btn i {
-    color: var(--primary-text-color);
-    font-size: 40px;
-    cursor: pointer;
-    display: block;
+  nav #mode {
+    width: 24px;
+    height: 24px;
   }
 
-  nav ul li {
-    margin: 40px 0px;
-  }
-
-  nav ul li a {
-    font-size: 20px;
-    color: #fff;
-  }
-
-  nav ul li a:hover,
-  nav ul li a #active {
-    background-color: none;
+  .btn {
+    width: 100%;
   }
 
   .container1 {
@@ -1169,7 +1309,6 @@ footer .copyright {
   .main-page {
     flex-direction: column-reverse;
     gap: 20px;
-    margin: 0%;
   }
 
   .header-right img {
@@ -1253,6 +1392,45 @@ footer .copyright {
 }
 
 @media only screen and (max-width: 450px) {
+  nav {
+    height: 50px; /* Even more compact for small screens */
+    padding: 3px 8px;
+  }
+  
+  .main:not(.dark-mode) {
+    margin-top: 50px;
+  }
+  
+  nav .logo {
+    font-size: 16px;
+  }
+  
+  nav .menu-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  nav .menu-btn i {
+    font-size: 16px;
+  }
+  
+  nav ul {
+    top: 50px;
+    height: calc(100vh - 50px);
+    padding-top: 15px;
+  }
+  
+  nav ul li a {
+    font-size: 14px;
+    padding: 10px 15px;
+    width: 80%;
+  }
+  
+  nav #mode {
+    width: 22px;
+    height: 22px;
+  }
+  
   p {
     width: fit-content;
   }
