@@ -1019,7 +1019,7 @@ body.dark-mode .facility-card p {
     flex-direction: column;
     text-align: center;
     padding: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 0px;
 }
 
 .about-flex {
@@ -1111,10 +1111,28 @@ border: 2px solid white;
   color: var(--main-color);
 }
 
+
+.contact-section p.contact-intro-text {
+   font-size: 1.1em;
+    line-height: 1.6; /* Added back for readability */
+    text-align: center;
+    margin-bottom: 40px; /* Added back for proper spacing */
+    max-width: 800px; /* Added back for readability/centering */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-section .contact-item-inner i {
+    font-size: 2.5em;
+    color: #856113;
+    margin-bottom: 15px;
+}
+
 .contact-link span {
   font-weight: bold;
   font-size: 18px;
   color: var(--accent-color-dark);
+
 }
 
 .contact-link p {
@@ -1152,6 +1170,20 @@ border: 2px solid white;
   color: var(--snd-bg-color);
   box-shadow: 0 0 8px var(--main-color);
 }
+
+.contact-section h3{
+   font-size: 1.8em;
+    color: #856113;
+    text-align: center;
+    margin-top: 50px; /* Space above each new heading */
+    margin-bottom: 25px; /* Adjust this value for space below the heading */
+    padding: 0; /* Ensures no internal padding */
+    /* REMOVED: position: relative; */
+    /* REMOVED: top: 10%; */
+}
+    
+
+
 
 .footer-links {
   text-align: center;
@@ -1600,10 +1632,23 @@ footer .copyright {
     margin-bottom: 3%;
   }
 
-  .contact-section .contact-item-inner {
+.social-media a { 
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    margin: 1.5rem 1rem 0 0;
+}
+#copyright { 
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+.contact-section .contact-item-inner {
     padding: 20px 10px;
     width: 95%;
-  }
+}
 
   .contact-section .contact-item-inner i {
     font-size: 20px;
