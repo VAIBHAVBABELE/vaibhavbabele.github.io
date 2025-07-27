@@ -560,6 +560,55 @@
         popup.childNodes[1].classList.remove('showPopup');
     })
 </script> -->
+<script>
+  // 1. Validation Functions
+  function validateEmail(email) {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  }
+
+  function validateTextField(value) {
+    // Allows letters, spaces, hyphens
+    const pattern = /^[A-Za-z\s-]+$/;
+    return pattern.test(value);
+  }
+
+  // 2. Attach to Form Submit
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.forms['submit-to-google-sheet'];
+    const nameInput = form.elements['Name'];
+    const emailInput = form.elements['Email'];
+    const collegeInput = form.elements['College'];
+    const errorContainer = document.createElement('div');
+    errorContainer.style.color = 'red';
+    form.prepend(errorContainer);
+
+    form.addEventListener('submit', function (e) {
+      errorContainer.innerHTML = '';  // Clear previous errors
+      let errors = [];
+
+      if (!validateTextField(nameInput.value.trim())) {
+        errors.push('Name must contain only letters, spaces, or hyphens.');
+      }
+      if (!validateEmail(emailInput.value.trim())) {
+        errors.push('Please enter a valid email address.');
+      }
+      if (!validateTextField(collegeInput.value.trim())) {
+        errors.push('College name must contain only letters, spaces, or hyphens.');
+      }
+
+      if (errors.length) {
+        e.preventDefault();
+        // Display errors
+        errors.forEach(msg => {
+          const p = document.createElement('p');
+          p.textContent = msg;
+          errorContainer.appendChild(p);
+        });
+      }
+    });
+  });
+</script>
 
 
 </body>
