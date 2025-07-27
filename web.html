@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!---google adsense --->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-WZP9NSCWF5');
-</script>
+        gtag('config', 'G-WZP9NSCWF5');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web conferencing</title>
@@ -20,79 +21,151 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="web.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            flex: 1;
+        }
+    </style>
 </head>
+
 <body>
-       <nav>
+    <nav>
         <a href="index.html" class="home"><i class="fa-solid fa-house"></i></a>
-       </nav>
+    </nav>
 
 
-    <section >
-     <div class="meeting">
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="images/icons8-meeting-50.png" alt="img not found">
-                <h2 class="card-title">General Discussion</h2>
-                <button class="btn btn-primary" onclick="joinMeetingg('meetingCode1')">comming soon...</button>
+    <section>
+        <div class="meeting">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/icons8-meeting-50.png" alt="img not found">
+                    <h2 class="card-title">General Discussion</h2>
+                    <button class="btn btn-primary" onclick="joinMeetingg('meetingCode1')">comming soon...</button>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="images/icons8-meeting-50.png" alt="img not found">
-                <h2 class="card-title">Homework Help</h2>
-                <button class="btn btn-primary" onclick="joinMeetingg('meetingCode2')">comming soon...</button>
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/icons8-meeting-50.png" alt="img not found">
+                    <h2 class="card-title">Homework Help</h2>
+                    <button class="btn btn-primary" onclick="joinMeetingg('meetingCode2')">comming soon...</button>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="images/icons8-meeting-50.png" alt="img not found">
-                <h2 class="card-title">Exam Prep Session</h2>
-                <button class="btn btn-primary" onclick="joinMeetingg('meetingCode3')">comming soon...</button>
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/icons8-meeting-50.png" alt="img not found">
+                    <h2 class="card-title">Exam Prep Session</h2>
+                    <button class="btn btn-primary" onclick="joinMeetingg('meetingCode3')">comming soon...</button>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="images/icons8-meeting-50.png" alt="img not found">
-                <h2 class="card-title">Subject Specific Q&A</h2>
-                <button class="btn btn-primary" onclick="joinMeetingg('meetingCode4')">comming soon...</button>
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/icons8-meeting-50.png" alt="img not found">
+                    <h2 class="card-title">Subject Specific Q&A</h2>
+                    <button class="btn btn-primary" onclick="joinMeetingg('meetingCode4')">comming soon...</button>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="images/icons8-meeting-50.png" alt="img not found">
-                <h2 class="card-title">Project Collaboration</h2>
-                <button class="btn btn-primary" onclick="joinMeetingg('meetingCode5')">comming soon...</button>
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/icons8-meeting-50.png" alt="img not found">
+                    <h2 class="card-title">Project Collaboration</h2>
+                    <button class="btn btn-primary" onclick="joinMeetingg('meetingCode5')">comming soon...</button>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body text-center">
-                <img src="images/icons8-meeting-50.png" alt="img not found" >
-                <span><h2 class="card-title">study Techniques</h2></span>
-                <button class="btn btn-primary" id="card-title" onclick="joinMeetingg('meetingCode6')">comming soon...</button>
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="images/icons8-meeting-50.png" alt="img not found">
+                    <span>
+                        <h2 class="card-title">study Techniques</h2>
+                    </span>
+                    <button class="btn btn-primary" id="card-title" onclick="joinMeetingg('meetingCode6')">comming
+                        soon...</button>
+                </div>
             </div>
-        </div>
-        
-    
-    </div>
 
-    <button class="floating-btn" id="myButton" onclick="toggleContainer()">Custom Meetings</button>
-    <div id="container" class="hidden">
-        <button id="createBtn" onclick="createMeeting()">Create Meeting</button>
-        <button id="joinBtn" onclick="showJoinInput()">Join Meeting</button>
-        <div id="joinMeetingDiv" class="hidden">
-            <input type="text" id="meetingId" placeholder="Enter Meeting ID">
-            <button id="confirmJoinBtn" onclick="joinMeeting()">Join</button>
+
         </div>
-     </div>
-    
-           
-</section>
-    
-    
-     <script src="web.js"></script>
-     <script src="floating-button.js"></script>
+
+        <button class="floating-btn" id="myButton" onclick="toggleContainer()">Custom Meetings</button>
+        <div id="container" class="hidden">
+            <button id="createBtn" onclick="createMeeting()">Create Meeting</button>
+            <button id="joinBtn" onclick="showJoinInput()">Join Meeting</button>
+            <div id="joinMeetingDiv" class="hidden">
+                <input type="text" id="meetingId" placeholder="Enter Meeting ID">
+                <button id="confirmJoinBtn" onclick="joinMeeting()">Join</button>
+            </div>
+        </div>
+
+
+    </section>
+    <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a> |
+                <a href="./terms.html">Terms & Conditions</a> |
+                <a href="./contact.html">Contact</a>
+            </div>
+
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="web.js"></script>
+    <script src="floating-button.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
