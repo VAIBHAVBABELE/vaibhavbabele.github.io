@@ -1019,7 +1019,7 @@ body.dark-mode .facility-card p {
     flex-direction: column;
     text-align: center;
     padding: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 0px;
 }
 
 .about-flex {
