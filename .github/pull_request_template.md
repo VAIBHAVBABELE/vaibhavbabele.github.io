@@ -24,13 +24,11 @@
 
 ## 📚 Documentation Updated?
 - [ ] Yes, I have updated the relevant section in `README.md` or related files.
-- [ ] No, documentation was not required for this change.
-- [ ] Not yet, I will do it soon.
 
 ---
 
 ## 🖼️ Screenshot or Screen Recording (max 15 seconds)
-> 📸 Attach **screenshot or screen recording** showing the updated section (mandatory for UI/UX or visible changes).
+> 📸 Attach **screenshot or screen recording** showing the updated section (mandatory for all changes).
 
 ---
 
@@ -38,14 +36,20 @@
 <!-- Mention technologies used -->
 - HTML / CSS / JavaScript
 - PHP / MySQL
-- Tailwind / Bootstrap (if applicable)
+- Tailwind / Bootstrap 
 - Other:
 
 ---
 
+## List of File Changed :
+
+# no. of file changed :
+<!-- write the names-->
+
+
 ## 🔗 Issue Reference:
 <!-- Mention the issue number this PR fixes -->
-Closes #IssueNumber
+Closes #IssueNumber <!--change with no. which you solve -->
 
 ---
 
@@ -57,7 +61,9 @@ Closes #IssueNumber
 - [ ] Bug Fix 🐛
 - [ ] Feature Implementation 🚀
 - [ ] Optimization ♻️
+- [ ] AI/ML
 - [ ] Other:
+
 
 ---
 

@@ -1,25 +1,34 @@
-name: Auto Comment on Merged Pull Request
+name: Thank Contributor
 
 on:
   pull_request:
     types: [closed]
 
+permissions:
+  pull-requests: write
+
 jobs:
-  merged-pr-comment:
+  thank-contributor:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: Thank on Merge
+      - name: Send Thank You Comment
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const username = context.payload.pull_request.user.login;
-
-            const msg = `🎉 Congrats @${username}, your pull request has been merged!\nThanks for your contribution 💖\nKeep it up, we appreciate your efforts 🚀`;
-
-            await github.issues.createComment({
-              issue_number: context.payload.pull_request.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: msg
-            });
+              const prAuthor = context.payload.pull_request.user.login;
+              const prNumber = context.payload.pull_request.number;
+              await github.rest.issues.createComment({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `🎉 धन्यवाद @${prAuthor} जी! आपका योगदान हमारे प्रोजेक्ट के लिए बहुत महत्वपूर्ण है। 🙌`
+              });
+              await github.rest.issues.createComment({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `🚀 कृपया अपने योगदान को [Discord](https://discord.gg/cYkT2F3v) पर साझा करें ताकि हम इसे और भी बेहतर बना सकें।
+                कृपया अगली बार योगदान देने से पहले अपनी Local Repository को अपडेट (fetch/pull) करना न भूलें ताकि कोई conflict न हो। 😊`
+              });

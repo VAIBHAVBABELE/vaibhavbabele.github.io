@@ -54,9 +54,9 @@
     background: var(--white-4345);
     border-radius: 20px;
     padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -73,7 +73,7 @@
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon {
@@ -141,7 +141,7 @@
 
 .try-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     color: white;
     text-decoration: none;
 }
@@ -164,7 +164,7 @@
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .demo-header {
@@ -220,7 +220,7 @@
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .file-upload-area:hover,
@@ -284,8 +284,13 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .stats-section {
@@ -393,7 +398,7 @@
     font-family: 'Courier New', Consolas, monospace;
     font-size: 0.9rem;
     color: var(--accent-color);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .markdown-content pre {
@@ -402,7 +407,7 @@
     border-radius: 8px;
     overflow-x: auto;
     margin: 1rem 0;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .markdown-content pre code {
@@ -496,14 +501,14 @@
 }
 
 .dark-mode .markdown-content code {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--accent-color);
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .dark-mode .markdown-content pre {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode .markdown-content pre code {
@@ -517,38 +522,38 @@
 .dark-mode .markdown-content table,
 .dark-mode .markdown-content th,
 .dark-mode .markdown-content td {
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .dark-mode .markdown-content th {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--accent-color);
 }
 
 /* Dark mode styles */
 .dark-mode .feature-card {
     background: var(--bg-shade);
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode .tool-demo {
     background: var(--bg-shade);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode .text-area {
     background: var(--primary-text-color);
     color: white;
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .dark-mode .file-upload-area {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .dark-mode .result-area {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .dark-mode .result-area.success {
@@ -560,7 +565,7 @@
 }
 
 .dark-mode .selected-file-info {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Responsive design */
@@ -568,24 +573,24 @@
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .feature-cards {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .feature-card {
         padding: 2rem;
     }
-    
+
     .tool-demo {
         padding: 1.5rem;
     }
-    
+
     .file-upload-area {
         padding: 2rem 1rem;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -595,21 +600,21 @@
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .feature-card {
         padding: 1.5rem;
     }
-    
+
     .feature-icon {
         width: 60px;
         height: 60px;
         font-size: 1.5rem;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }

@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!---google adsense --->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WZP9NSCWF5');
-    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Summary Features - Nitra Mitra</title>
-    <meta name="description" content="AI-powered text and file summarization tools for students. Extract key insights from PDFs, documents, and text content with Nitra Mitra's intelligent summary features.">
+    <meta name="description"
+        content="AI-powered text and file summarization tools for students. Extract key insights from PDFs, documents, and text content with Nitra Mitra's intelligent summary features.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="summary.css">
     <link rel="stylesheet" href="floating-button.css">
@@ -33,6 +27,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body id="onload">
 
     <!-- NAVBAR DESIGNING -->
@@ -59,8 +54,9 @@
                 <div class="hero-content">
                     <h1 class="hero-title">Smart Summary Features</h1>
                     <p class="hero-subtitle">
-                        Transform your learning experience with AI-powered summarization tools. 
-                        Extract key insights from documents, create concise summaries, and enhance your study efficiency.
+                        Transform your learning experience with AI-powered summarization tools.
+                        Extract key insights from documents, create concise summaries, and enhance your study
+                        efficiency.
                     </p>
                     <div class="hero-buttons">
                         <a href="#features" class="try-button">
@@ -76,8 +72,9 @@
         <section class="section-padding" id="features">
             <div class="container">
                 <h2 class="service-heading">Powerful Summary Tools</h2>
-                <p class="para">Discover our comprehensive suite of AI-powered summarization features designed to enhance your academic journey.</p>
-                
+                <p class="para">Discover our comprehensive suite of AI-powered summarization features designed to
+                    enhance your academic journey.</p>
+
                 <div class="feature-cards">
                     <!-- Text Summarization -->
                     <div class="feature-card">
@@ -86,7 +83,8 @@
                         </div>
                         <h3 class="feature-title">Text Summarization</h3>
                         <p class="feature-description">
-                            Transform lengthy text content into concise, meaningful summaries. Perfect for articles, research papers, and study materials.
+                            Transform lengthy text content into concise, meaningful summaries. Perfect for articles,
+                            research papers, and study materials.
                         </p>
                         <ul class="feature-list">
                             <li>Instant text processing</li>
@@ -107,7 +105,8 @@
                         </div>
                         <h3 class="feature-title">File Summarization</h3>
                         <p class="feature-description">
-                            Upload PDF documents, text files, or markdown files and get intelligent summaries with key insights extracted automatically.
+                            Upload PDF documents, text files, or markdown files and get intelligent summaries with key
+                            insights extracted automatically.
                         </p>
                         <ul class="feature-list">
                             <li>PDF, TXT, MD file support</li>
@@ -128,7 +127,8 @@
                         </div>
                         <h3 class="feature-title">Notes Enhancement</h3>
                         <p class="feature-description">
-                            Enhance your study notes with AI-powered improvements. Convert rough notes into well-structured, comprehensive study materials.
+                            Enhance your study notes with AI-powered improvements. Convert rough notes into
+                            well-structured, comprehensive study materials.
                         </p>
                         <ul class="feature-list">
                             <li>Note restructuring</li>
@@ -159,11 +159,8 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="textInput" class="form-label"><strong>Enter Text to Summarize:</strong></label>
-                            <textarea 
-                                id="textInput" 
-                                class="text-area" 
-                                placeholder="Paste your text here... (articles, research papers, long content)"
-                            ></textarea>
+                            <textarea id="textInput" class="text-area"
+                                placeholder="Paste your text here... (articles, research papers, long content)"></textarea>
                             <div class="mt-3">
                                 <button onclick="summarizeText()" class="try-button" id="textSummarizeBtn">
                                     <i class="fas fa-magic"></i>
@@ -197,7 +194,8 @@
                                 <i class="fas fa-cloud-upload-alt upload-icon"></i>
                                 <div class="upload-text">Click to upload or drag & drop</div>
                                 <div class="upload-subtext">Supports PDF, TXT, and MD files</div>
-                                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.md" onchange="handleFileSelect(event)">
+                                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.md"
+                                    onchange="handleFileSelect(event)">
                             </div>
                             <div id="selectedFile" style="display: none; margin-top: 1rem;">
                                 <div style="background: var(--bg-shade); padding: 1rem; border-radius: 10px;">
@@ -238,11 +236,8 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="notesInput" class="form-label"><strong>Enter Your Notes:</strong></label>
-                            <textarea 
-                                id="notesInput" 
-                                class="text-area" 
-                                placeholder="Paste your rough notes here..."
-                            ></textarea>
+                            <textarea id="notesInput" class="text-area"
+                                placeholder="Paste your rough notes here..."></textarea>
                             <div class="mt-3">
                                 <label for="enhanceType" class="form-label"><strong>Enhancement Type:</strong></label>
                                 <select id="enhanceType" class="form-select">
@@ -300,12 +295,13 @@
         <!-- ABOUT SECTION -->
         <section class="about" id="about">
             <h1 class="service-heading">About Summary Features</h1>
-            <p class="para">Our <span>AI-powered summary features</span> are designed to revolutionize how 
-                <span>NITRA Technical Campus</span> students consume and process information. Using cutting-edge 
-                artificial intelligence, we help you extract key insights, create meaningful summaries, and 
-                enhance your learning efficiency. Whether you're dealing with research papers, lecture notes, 
-                or study materials, our tools make information more accessible and digestible.</p>
-            
+            <p class="para">Our <span>AI-powered summary features</span> are designed to revolutionize how
+                <span>NITRA Technical Campus</span> students consume and process information. Using cutting-edge
+                artificial intelligence, we help you extract key insights, create meaningful summaries, and
+                enhance your learning efficiency. Whether you're dealing with research papers, lecture notes,
+                or study materials, our tools make information more accessible and digestible.
+            </p>
+
             <div class="about-flex">
                 <div class="About-card">
                     <div class="icon">
@@ -314,7 +310,7 @@
                     <h2 class="name">Lightning Fast</h2>
                     <p>Get summaries in seconds, not minutes</p>
                 </div>
-                
+
                 <div class="About-card">
                     <div class="icon">
                         <i class="fas fa-bullseye"></i>
@@ -322,7 +318,7 @@
                     <h2 class="name">Highly Accurate</h2>
                     <p>95% accuracy in key information extraction</p>
                 </div>
-                
+
                 <div class="About-card">
                     <div class="icon">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -330,7 +326,7 @@
                     <h2 class="name">Versatile Formats</h2>
                     <p>Support for PDF, text, and markdown files</p>
                 </div>
-                
+
                 <div class="About-card">
                     <div class="icon">
                         <i class="fas fa-user-graduate"></i>
@@ -341,27 +337,156 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-        <section class="contact-section section-padding" id="contact">
-            <div class="social-media">
-                <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
-                <a><i class="fa-brands fa-twitter"></i></a>
+        <!-- TEAM SECTION (Before Footer) -->
+        <section class="team-showcase"
+            style="padding: 80px 0; background: var(--bg-shade); border-top: 5px solid var(--primary-text-color);">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+                    <h2 style="font-size: 3rem; color: var(--primary-text-color); margin-bottom: 20px;">Meet Our Team
+                    </h2>
+                    <p style="font-size: 1.2rem; color: var(--secondary-text-color); max-width: 600px; margin: 0 auto;">
+                        Dedicated developers working together to create the best educational platform for NITRA
+                        students.
+                    </p>
+                </div>
+
+                <div class="team-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; justify-items: center;">
+                    <!-- Vaibhav Babele Card -->
+                    <div class="team-showcase-card"
+                        style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <div class="team-avatar"
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
+                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Vaibhav
+                            Babele</h3>
+                        <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">
+                            Lead Developer & Founder</p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                            Computer Science Engineering student passionate about creating educational platforms for
+                            students.
+                        </p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"
+                                style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                            </a>
+                            <a href="https://github.com/vaibhavbabele" target="_blank"
+                                style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fab fa-github" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ghanshyam Prajapati Card -->
+                    <div class="team-showcase-card"
+                        style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <div class="team-avatar"
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
+                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Ghanshyam
+                            Prajapati</h3>
+                        <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">
+                            Co-Developer</p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                            Dedicated developer contributing to the platform's growth and student experience
+                            enhancement.
+                        </p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                                target="_blank"
+                                style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Development Team Card -->
+                    <div class="team-showcase-card"
+                        style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        <div class="team-avatar placeholder"
+                            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; border: 4px solid var(--main-color); background: var(--accent-color); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">
+                            Development Team</h3>
+                        <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">
+                            Contributors & Maintainers</p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                            A growing community of student developers working together to improve the platform.
+                        </p>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="pr-contributors.html"
+                                style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+                                <i class="fas fa-users" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3 id="copyright"></h3>
         </section>
+
+        <footer class="footer-section">
+            <div class="container">
+                <h1 class="contact-heading">Contact Us</h1>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Whatsapp Community</span>
+                            <p>Nitra Mitra</p>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                            <p>nitramitra@gmail.com</p>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                            class="contact-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Address</span>
+                            <p>Sanjay Nagar, Ghaziabad, India</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a> |
+                    <a href="./terms.html">Terms & Conditions</a> |
+                    <a href="./contact.html">Contact</a> |
+                    <a href="pr-contributors.html">Contributors</a>
+                </div>
+
+                <p class="copyright">
+                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+                </p>
+            </div>
+
+    </div>
+    </footer>
     </div>
 
-    <!-- Floating Button for Custom Meetings -->
-    <button class="floating-btn" id="myButton" onclick="toggleContainer()">Custom Meetings</button>
-    <div id="container" class="hidden">
-        <button id="createBtn" onclick="createMeeting()">Create Meeting</button>
-        <button id="joinBtn" onclick="showJoinInput()">Join Meeting</button>
-        <div id="joinMeetingDiv" class="hidden">
-            <input type="text" id="meetingId" placeholder="Enter meeting ID or URL">
-            <button onclick="joinMeeting()">Join</button>
-        </div>
-    </div>
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
@@ -371,4 +496,5 @@
     <script src="summary.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
