@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---google adsense --->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WZP9NSCWF5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Summary Features - Nitra Mitra</title>
+    <meta name="description" content="AI-powered text and file summarization tools for students. Extract key insights from PDFs, documents, and text content with Nitra Mitra's intelligent summary features.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="summary.css">
+    <link rel="stylesheet" href="floating-button.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body id="onload">
+
+    <!-- NAVBAR DESIGNING -->
+    <nav>
+        <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </label>
+        <ul id="scroll-hide">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="index.html#Feedback">Feedback</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+    </nav>
+
+    <div class="main">
+        <!-- HERO SECTION -->
+        <section class="summary-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Smart Summary Features</h1>
+                    <p class="hero-subtitle">
+                        Transform your learning experience with AI-powered summarization tools. 
+                        Extract key insights from documents, create concise summaries, and enhance your study efficiency.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#features" class="try-button">
+                            <i class="fas fa-rocket"></i>
+                            Explore Features
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="section-padding" id="features">
+            <div class="container">
+                <h2 class="service-heading">Powerful Summary Tools</h2>
+                <p class="para">Discover our comprehensive suite of AI-powered summarization features designed to enhance your academic journey.</p>
+                
+                <div class="feature-cards">
+                    <!-- Text Summarization -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-align-left"></i>
+                        </div>
+                        <h3 class="feature-title">Text Summarization</h3>
+                        <p class="feature-description">
+                            Transform lengthy text content into concise, meaningful summaries. Perfect for articles, research papers, and study materials.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Instant text processing</li>
+                            <li>Key point extraction</li>
+                            <li>Customizable summary length</li>
+                            <li>Maintains context and meaning</li>
+                        </ul>
+                        <a href="#text-demo" class="try-button">
+                            <i class="fas fa-play"></i>
+                            Try Text Summary
+                        </a>
+                    </div>
+
+                    <!-- File Summarization -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3 class="feature-title">File Summarization</h3>
+                        <p class="feature-description">
+                            Upload PDF documents, text files, or markdown files and get intelligent summaries with key insights extracted automatically.
+                        </p>
+                        <ul class="feature-list">
+                            <li>PDF, TXT, MD file support</li>
+                            <li>Bulk content processing</li>
+                            <li>Smart content extraction</li>
+                            <li>Structured summary output</li>
+                        </ul>
+                        <a href="#file-demo" class="try-button">
+                            <i class="fas fa-upload"></i>
+                            Try File Summary
+                        </a>
+                    </div>
+
+                    <!-- Notes Enhancement -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">Notes Enhancement</h3>
+                        <p class="feature-description">
+                            Enhance your study notes with AI-powered improvements. Convert rough notes into well-structured, comprehensive study materials.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Note restructuring</li>
+                            <li>Gap filling & clarification</li>
+                            <li>Format optimization</li>
+                            <li>Content enrichment</li>
+                        </ul>
+                        <a href="#notes-demo" class="try-button">
+                            <i class="fas fa-magic"></i>
+                            Try Notes Enhancement
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMO TOOLS SECTION -->
+        <section class="summary-tools">
+            <div class="container">
+                <!-- Text Summarization Demo -->
+                <div class="tool-demo" id="text-demo">
+                    <div class="demo-header">
+                        <div class="demo-icon">
+                            <i class="fas fa-align-left"></i>
+                        </div>
+                        <h3 class="demo-title">Text Summarization Tool</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="textInput" class="form-label"><strong>Enter Text to Summarize:</strong></label>
+                            <textarea 
+                                id="textInput" 
+                                class="text-area" 
+                                placeholder="Paste your text here... (articles, research papers, long content)"
+                            ></textarea>
+                            <div class="mt-3">
+                                <button onclick="summarizeText()" class="try-button" id="textSummarizeBtn">
+                                    <i class="fas fa-magic"></i>
+                                    Summarize Text
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label"><strong>Summary Result:</strong></label>
+                            <div id="textResult" class="result-area">
+                                <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
+                                    <i class="fas fa-info-circle"></i><br>
+                                    Your summary will appear here
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Summarization Demo -->
+                <div class="tool-demo" id="file-demo">
+                    <div class="demo-header">
+                        <div class="demo-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3 class="demo-title">File Summarization Tool</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                <div class="upload-text">Click to upload or drag & drop</div>
+                                <div class="upload-subtext">Supports PDF, TXT, and MD files</div>
+                                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.md" onchange="handleFileSelect(event)">
+                            </div>
+                            <div id="selectedFile" style="display: none; margin-top: 1rem;">
+                                <div style="background: var(--bg-shade); padding: 1rem; border-radius: 10px;">
+                                    <strong>Selected File:</strong> <span id="fileName"></span><br>
+                                    <strong>Size:</strong> <span id="fileSize"></span>
+                                    <button onclick="clearFile()" class="btn btn-sm btn-outline-danger ms-2">
+                                        <i class="fas fa-times"></i> Remove
+                                    </button>
+                                </div>
+                                <div class="mt-3">
+                                    <button onclick="summarizeFile()" class="try-button" id="fileSummarizeBtn" disabled>
+                                        <i class="fas fa-magic"></i>
+                                        Summarize File
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label"><strong>File Summary Result:</strong></label>
+                            <div id="fileResult" class="result-area">
+                                <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
+                                    <i class="fas fa-upload"></i><br>
+                                    Upload a file to see its summary
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes Enhancement Demo -->
+                <div class="tool-demo" id="notes-demo">
+                    <div class="demo-header">
+                        <div class="demo-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="demo-title">Notes Enhancement Tool</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="notesInput" class="form-label"><strong>Enter Your Notes:</strong></label>
+                            <textarea 
+                                id="notesInput" 
+                                class="text-area" 
+                                placeholder="Paste your rough notes here..."
+                            ></textarea>
+                            <div class="mt-3">
+                                <label for="enhanceType" class="form-label"><strong>Enhancement Type:</strong></label>
+                                <select id="enhanceType" class="form-select">
+                                    <option value="structure">Structure & Format</option>
+                                    <option value="expand">Expand & Clarify</option>
+                                    <option value="summarize">Summarize & Condense</option>
+                                </select>
+                            </div>
+                            <div class="mt-3">
+                                <button onclick="enhanceNotes()" class="try-button" id="notesEnhanceBtn">
+                                    <i class="fas fa-brain"></i>
+                                    Enhance Notes
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label"><strong>Enhanced Notes Result:</strong></label>
+                            <div id="notesResult" class="result-area">
+                                <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
+                                    <i class="fas fa-lightbulb"></i><br>
+                                    Your enhanced notes will appear here
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="service-heading" style="color: white; margin-bottom: 3rem;">Summary Features in Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">10,000+</span>
+                        <div class="stat-label">Documents Processed</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5 Sec</span>
+                        <div class="stat-label">Average Processing Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">Service Availability</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="about" id="about">
+            <h1 class="service-heading">About Summary Features</h1>
+            <p class="para">Our <span>AI-powered summary features</span> are designed to revolutionize how 
+                <span>NITRA Technical Campus</span> students consume and process information. Using cutting-edge 
+                artificial intelligence, we help you extract key insights, create meaningful summaries, and 
+                enhance your learning efficiency. Whether you're dealing with research papers, lecture notes, 
+                or study materials, our tools make information more accessible and digestible.</p>
+            
+            <div class="about-flex">
+                <div class="About-card">
+                    <div class="icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h2 class="name">Lightning Fast</h2>
+                    <p>Get summaries in seconds, not minutes</p>
+                </div>
+                
+                <div class="About-card">
+                    <div class="icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h2 class="name">Highly Accurate</h2>
+                    <p>95% accuracy in key information extraction</p>
+                </div>
+                
+                <div class="About-card">
+                    <div class="icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h2 class="name">Versatile Formats</h2>
+                    <p>Support for PDF, text, and markdown files</p>
+                </div>
+                
+                <div class="About-card">
+                    <div class="icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h2 class="name">Student-Focused</h2>
+                    <p>Tailored for academic content and needs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
+                <a><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <h3 id="copyright"></h3>
+        </section>
+    </div>
+
+    <!-- Floating Button for Custom Meetings -->
+    <button class="floating-btn" id="myButton" onclick="toggleContainer()">Custom Meetings</button>
+    <div id="container" class="hidden">
+        <button id="createBtn" onclick="createMeeting()">Create Meeting</button>
+        <button id="joinBtn" onclick="showJoinInput()">Join Meeting</button>
+        <div id="joinMeetingDiv" class="hidden">
+            <input type="text" id="meetingId" placeholder="Enter meeting ID or URL">
+            <button onclick="joinMeeting()">Join</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+    <script src="floating-button.js"></script>
+    <script src="index.js"></script>
+    <script src="summary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
