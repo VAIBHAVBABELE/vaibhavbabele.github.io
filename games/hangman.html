@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg-color: #ffe4ec;
@@ -32,13 +33,9 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text);
       padding: 20px;
     }
     
-/* Game-specific styles only - navbar styles come from index.css */
-
 section{
     padding: 50px var(--padding-inline-section);
     background: var(--bg-shade);
@@ -89,60 +86,30 @@ section{
 #click{
     display: none;
 }
-@media (max-width: 768px) {
-  nav ul {
-    position: fixed;
-    top: 15vh;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 15vh);
-    background-color: var(--nav-bgcolor);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    transition: left 0.3s ease;
-    z-index: 9;
-  }
-
-  #click:checked ~ ul {
-    left: 0;
-  }
-
-  nav .menu-btn i {
-    display: block;
-  }
-}
-
-
-  
-
-
-  
-
-
 
     .game-title {
       text-align: center;
       margin-top: 100px; /* Offset for fixed navbar */
       font-size: 2rem;
       font-weight: 600;
-      color: var(--primary);
+    
     }
 
     .container {
-      background: var(--card-bg);
+      background-color: rgb(225, 209, 209);
       padding: 30px 25px;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow:4px 4px 4px gray;
       max-width: 500px;
       width: 100%;
       margin: 20px auto;
       text-align: center;
     }
-
+   .dark-mode .container{
+    background-color: #4d463e;;
+   }
     #hint {
       font-size: 1em;
-      color: var(--muted);
       margin-bottom: 15px;
       font-style: italic;
     }
@@ -260,7 +227,7 @@ section{
   <div style="height: 100px;"></div>
 
   <!-- PAGE TITLE OUTSIDE THE CARD -->
-  <h1 style="text-align: center; color: #555172; margin-bottom: 20px;">Hangman - CS Terms</h1>
+  <h1 style="text-align: center; margin-bottom: 20px;">Hangman - CS Terms</h1>
 
   <!-- WHITE GAME CARD -->
   <div class="container">
@@ -282,6 +249,7 @@ section{
 
 
   <!-- Script -->
+  <script src="game-theme.js"></script>
   <script>
     const words = [
       { word: "algorithm", hint: "Step-by-step solution process" },
