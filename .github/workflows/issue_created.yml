@@ -1,42 +1,47 @@
-name: Auto Comment on New Issue
+name: Greet on New Issue
 
 on:
   issues:
     types: [opened]
 
+permissions:
+  issues: write
+
 jobs:
-  comment:
+  greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if first-time contributor
-        id: check
-        uses: actions/github-script@v7
+      - name: Greet Issue Creator
+        uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const username = context.payload.issue.user.login;
-            const { data: issues } = await github.rest.search.issuesAndPullRequests({
-              q: `author:${username} repo:${context.repo.owner}/${context.repo.repo}`
+            const issueNumber = context.payload.issue.number;
+            const repoOwner = context.repo.owner;
+            const repoName = context.repo.repo;
+
+            const { data: events } = await github.rest.issues.listEventsForTimeline({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
             });
-            return issues.total_count === 1;
 
-      - name: Comment on Issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const isFirstTime = ${{ steps.check.outputs.result }};
-            const username = context.payload.issue.user.login;
+            const isFirstTime = !events.some(event => 
+              event.actor?.login === username && event.event === "commented"
+            );
 
-            let msg = `👋 Hello @${username},\n\nThanks for creating a new issue! ✅\nWe’ll review it soon.\nPlease make sure it follows our [Contribution Guidelines](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/blob/main/CONTRIBUTING.md).\n\n`;
+            let message = "";
 
-            if (isFirstTime === 'true') {
-              msg += `🎉 Welcome, first-time contributor!\n- Follow us on [LinkedIn](https://www.linkedin.com/in/vaibhavbabele) \n- Join our [Discord](https://discord.gg/cYkT2F3v)\n- Don’t forget to ⭐ the repo!\n\n`;
+            if (isFirstTime) {
+              message = `👋 **Hi @${username}!**\n\nWelcome and thanks for creating your first issue in this repository! 🎉\n\nPlease make sure to:\n- Follow our [Contribution Guidelines](https://github.com/${repoOwner}/${repoName}/blob/main/CONTRIBUTING.md)\n- Read our [Code of Conduct](https://github.com/${repoOwner}/${repoName}/blob/main/CODE_OF_CONDUCT.md)\n- Star the repo 🌟 if you like the project!\n\n📢 Stay connected with us on:\n- [Instagram](https://instagram.com/vaibhav_be_able)\n- [LinkedIn](https://linkedin.com/in/vaibhavbabele)\n- [GitHub Discussions](https://github.com/${repoOwner}/${repoName}/discussions)\n[Discord](https://discord.gg/cYkT2F3v)\nHappy contributing! 🚀 \nPlease wait while we review your issue it take some time also share the issue link on [Discord](https://discord.gg/cYkT2F3v)\n @meetarora10 please review this issue`;
+            } else {
+              message = `Thanks @${username} for opening this issue again! We appreciate your continued contributions. 😊\n\nPlease wait while we review your issue it take some time also share the issue link on [Discord](https://discord.gg/cYkT2F3v)\n , @meetarora10 please review this issue . 🔍`;
             }
 
-            msg += `We'll label it shortly. Stay tuned 🚀`;
-
-            await github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: msg
+            await github.rest.issues.createComment({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              body: message
             });

@@ -46,27 +46,39 @@
 
 
 
-    --snd-bg-color: #fdf0d5; /* Soft beige secondary background */
-    --text-color: #3e3e3e; /* Deep brown for primary text */
-    --main-color: #5a3e2b; /* Rich brown for headings or strong accents */
-    --bg-color: #fdf6ec; /* Light creamy beige main background */
+    --snd-bg-color: #fdf0d5;
+    /* Soft beige secondary background */
+    --text-color: #3e3e3e;
+    /* Deep brown for primary text */
+    --main-color: #5a3e2b;
+    /* Rich brown for headings or strong accents */
+    --bg-color: #fdf6ec;
+    /* Light creamy beige main background */
     --white-4345: #f9f6f0;
-   
-    --bg-shade: #faebdd; /* Subtle background contrast */
-    
-    --primary-text-color: #4b3f32; /* Slightly darker warm brown */
-    --secondary-text-color: #926f57; /* Light brown for secondary elements */
-    --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
-    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
-    --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
+
+    --bg-shade: #faebdd;
+    /* Subtle background contrast */
+
+    --primary-text-color: #4b3f32;
+    /* Slightly darker warm brown */
+    --secondary-text-color: #926f57;
+    /* Light brown for secondary elements */
+    --nav-bgcolor: #f2d087;
+    /* Warm yellow beige for navbar */
+    --accent-color: #cda274;
+    /* Tan - for buttons, links, highlights */
+    --accent-color-dark: #856113;
+    /* Deep goldish-brown for hover or emphasis */
     --padding-inline-section: 10px;
-    --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
-    
+    --footer-bgColor: #e7c6b6;
+    /* Warm dusty rose-beige for footer */
+
 }
 
 /* 🌙 Dark Mode */
 .dark-mode {
-    --bg-color: #2f2a27; /* deep chocolate */
+    --bg-color: #2f2a27;
+    /* deep chocolate */
     --snd-bg-color: #3c312d;
     --bg-shade: #453631;
     --text-color: #f5e6dc;
@@ -77,22 +89,29 @@
     --accent-color: #cf9e73;
     --accent-color-dark: #b87d50;
     /* --footer-bgColor: #7b4d3c; */
-    --footer-bgColor: #a58672; 
+    --footer-bgColor: #a58672;
 
-    --nav-bgcolor: #a58b52; /* Tan brown navbar */
-     --bg-color: #1c1a17; /* Warm charcoal background */
-     --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
-     --primary-text-color: #f5f3ee; /* Warm light beige text */
-     --secondary-text-color: #b5a08a; /* Light beige for secondary text */
-     
-     --footer-bgColor: #a58672; /* Warm clay brown */
-     
-     --accent-color: #cda274; /* Keep accent consistent */
-     --accent-color-dark: #d4b996;
+    --nav-bgcolor: #a58b52;
+    /* Tan brown navbar */
+    --bg-color: #1c1a17;
+    /* Warm charcoal background */
+    --bg-shade: #2a2723;
+    /* Slightly lighter for cards or sections */
+    --primary-text-color: #f5f3ee;
+    /* Warm light beige text */
+    --secondary-text-color: #b5a08a;
+    /* Light beige for secondary text */
+
+    --footer-bgColor: #a58672;
+    /* Warm clay brown */
+
+    --accent-color: #cda274;
+    /* Keep accent consistent */
+    --accent-color-dark: #d4b996;
 }
 
 
-.main{
+.main {
     border: var(--primary-text-color) 5px solid;
     margin-top: 15vh;
 }
@@ -118,7 +137,7 @@
 }
 
 
-body{
+body {
     font-family: "Raleway", sans-serif;
     color: var(--primary-text-color);
 }
@@ -144,8 +163,8 @@ h3 {
     margin-bottom: 6%;
 }
 
-p{
-    font-family: 'Poppins',sans-serif;
+p {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.25rem;
     color: var(--secondary-text-color);
     line-height: 1.8rem;
@@ -227,7 +246,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color:#cda274;
+    background-color: #cda274;
     border-radius: 10px;
     border: 1px solid var(--primary-text-color);
 
@@ -347,9 +366,9 @@ section {
     text-align: center;
     margin-bottom: 5%;
     text-decoration: dashed;
-   list-style:lower-latin;
-   font-family: "Cinzel", serif;
-   padding-bottom: 3%;
+    list-style: lower-latin;
+    font-family: "Cinzel", serif;
+    padding-bottom: 3%;
 }
 
 .icon {
@@ -379,8 +398,8 @@ section {
 
 .name {
     text-align: center;
-    color:var(--primary-text-color);
-   font-family: "Cinzel", serif;
+    color: var(--primary-text-color);
+    font-family: "Cinzel", serif;
 }
 
 .icon i {
@@ -443,7 +462,8 @@ section {
     background: var(--main-color);
     color: var(--snd-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
-  }
+}
+
 #btn {
     margin-bottom: 20px;
     border-radius: 2em;
@@ -809,34 +829,35 @@ footer .copyright {
     }
 
     .contact-section .contact-item {
-    flex: 1 1 100%;
-    max-width: 100%;
-    padding: 10px;
-  }
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
 
-  .contact-section .contact-item-inner {
-    width: 90%;
-    justify-items: center;
-  }
+    .contact-section .contact-item-inner {
+        width: 90%;
+        justify-items: center;
+    }
 
-  .social-media {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    .social-media {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-  .social-media a {
-    width: 2.8rem;
-    height: 2.8rem;
-    font-size: 1.3rem;
-    margin: 1rem 0.5rem 0 0;
-  }
+    .social-media a {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.3rem;
+        margin: 1rem 0.5rem 0 0;
+    }
 
-  .footer-links {
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
-    line-height: 1.4;
-  }
+    .footer-links {
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
     #sanjay-nagar {
         display: inline-flex;
     }
@@ -853,40 +874,40 @@ footer .copyright {
 
 @media only screen and (max-width: 275px) {
     .Contact-heading {
-    font-size: 1.2rem;
-    margin-bottom: 3%;
-  }
+        font-size: 1.2rem;
+        margin-bottom: 3%;
+    }
 
-  .contact-section .contact-item-inner {
-    padding: 20px 10px;
-    width: 95%;
-  }
+    .contact-section .contact-item-inner {
+        padding: 20px 10px;
+        width: 95%;
+    }
 
-  .contact-section .contact-item-inner i {
-    font-size: 20px;
-  }
+    .contact-section .contact-item-inner i {
+        font-size: 20px;
+    }
 
-  .contact-section .contact-item-inner a span,
-  .contact-section .contact-item-inner span {
-    font-size: 14px;
-    margin: 10px 0 5px;
-  }
+    .contact-section .contact-item-inner a span,
+    .contact-section .contact-item-inner span {
+        font-size: 14px;
+        margin: 10px 0 5px;
+    }
 
-  .contact-section .contact-item-inner a p,
-  .contact-section .contact-item-inner p {
-    font-size: 14px;
-    line-height: 22px;
-  }
+    .contact-section .contact-item-inner a p,
+    .contact-section .contact-item-inner p {
+        font-size: 14px;
+        line-height: 22px;
+    }
 
-  .social-media a {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.2rem;
-    margin: 1rem 0.5rem 0 0;
-  }
+    .social-media a {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        margin: 1rem 0.5rem 0 0;
+    }
 
-  .footer-links {
-    font-size: 11px;
-    padding: 8px;
-  }
+    .footer-links {
+        font-size: 11px;
+        padding: 8px;
+    }
 }

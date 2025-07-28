@@ -31,15 +31,22 @@ mode.onclick=function(){
     const wasDarkmode = localStorage.getItem('mode') === 'true';
     localStorage.setItem('mode', !wasDarkmode);
     document.body.classList.toggle("dark-mode",!wasDarkmode);
-    mode.src = !wasDarkmode ? "images/sun.png" : "images/moon.png";
+    if(document.body.classList.contains("dark-mode")){
+        mode.src="images/sun.png";
+    }else{
+        mode.src="images/moon.png";
+    }
 }
 
-window.onload=function(){
-    const isDark = localStorage.getItem('mode') === 'true';
-    document.body.classList.toggle("dark-mode", isDark);
-    document.getElementById("mode").src = isDark ? "images/sun.png" : "images/moon.png";
-
-};
+load.onload=function(){
+    document.body.classList.toggle('dark-mode', localStorage.getItem('mode') === 'true');
+    // Set correct icon on page load
+    if(document.body.classList.contains("dark-mode")){
+        mode.src="images/sun.png";
+    }else{
+        mode.src="images/moon.png";
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
