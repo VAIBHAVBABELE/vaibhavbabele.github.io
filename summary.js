@@ -14,10 +14,10 @@ function renderMarkdown(content) {
             smartLists: true,
             smartypants: true
         });
-        
+
         // Parse markdown and sanitize if DOMPurify is available
         const htmlContent = marked.parse(content);
-        
+
         if (typeof DOMPurify !== 'undefined') {
             return DOMPurify.sanitize(htmlContent);
         }
@@ -41,10 +41,10 @@ function renderMarkdown(content) {
 function displayResult(resultDiv, data, type) {
     const content = type === 'notes' ? data.enhanced_notes : data.summary;
     const renderedContent = renderMarkdown(content);
-    
+
     let title, stats;
-    
-    switch(type) {
+
+    switch (type) {
         case 'text':
             title = 'Summary Generated Successfully';
             stats = `
@@ -72,7 +72,7 @@ function displayResult(resultDiv, data, type) {
             `;
             break;
     }
-    
+
     resultDiv.className = 'result-area success';
     resultDiv.innerHTML = `
         <h5><i class="fas fa-check-circle"></i> ${title}</h5>
@@ -99,7 +99,7 @@ async function summarizeText() {
 
     btn.disabled = true;
     btn.innerHTML = '<div class="spinner"></div> Processing...';
-    
+
     resultDiv.className = 'result-area loading';
     resultDiv.innerHTML = '<div class="spinner"></div> <span>Analyzing and summarizing your text...</span>';
 
@@ -178,7 +178,7 @@ async function summarizeFile() {
 
     btn.disabled = true;
     btn.innerHTML = '<div class="spinner"></div> Processing...';
-    
+
     resultDiv.className = 'result-area loading';
     resultDiv.innerHTML = '<div class="spinner"></div> <span>Uploading and processing your file...</span>';
 
@@ -225,7 +225,7 @@ async function enhanceNotes() {
 
     btn.disabled = true;
     btn.innerHTML = '<div class="spinner"></div> Processing...';
-    
+
     resultDiv.className = 'result-area loading';
     resultDiv.innerHTML = '<div class="spinner"></div> <span>Enhancing your notes...</span>';
 
@@ -275,7 +275,7 @@ function initializeDragAndDrop() {
         fileUploadArea.addEventListener('drop', (e) => {
             e.preventDefault();
             fileUploadArea.classList.remove('dragover');
-            
+
             const files = e.dataTransfer.files;
             if (files.length > 0) {
                 const file = files[0];
@@ -316,9 +316,9 @@ function validateFile(file) {
     const maxSize = 10 * 1024 * 1024; // 10MB
 
     // Check file type
-    const isValidType = allowedTypes.includes(file.type) || 
-                       allowedExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
-    
+    const isValidType = allowedTypes.includes(file.type) ||
+        allowedExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
+
     if (!isValidType) {
         alert('Please select a PDF, TXT, or MD file only.');
         return false;
@@ -345,29 +345,29 @@ function handleFileSelectWithValidation(event) {
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize drag and drop
     initializeDragAndDrop();
-    
+
     // Initialize smooth scrolling
     initializeSmoothScrolling();
-    
+
     // Add file validation to file input
     const fileInput = document.getElementById('fileInput');
     if (fileInput) {
         fileInput.removeEventListener('change', handleFileSelect);
         fileInput.addEventListener('change', handleFileSelectWithValidation);
     }
-    
+
     console.log('Summary page JavaScript initialized successfully');
 });
 
 // Utility function for error handling
 function handleApiError(error, context) {
     console.error(`Error in ${context}:`, error);
-    
+
     let userMessage = 'An unexpected error occurred. Please try again.';
-    
+
     if (error.message.includes('fetch')) {
         userMessage = 'Network error. Please check your internet connection.';
     } else if (error.message.includes('timeout')) {
@@ -375,7 +375,7 @@ function handleApiError(error, context) {
     } else if (error.message.includes('500')) {
         userMessage = 'Server error. Please try again later.';
     }
-    
+
     return userMessage;
 }
 

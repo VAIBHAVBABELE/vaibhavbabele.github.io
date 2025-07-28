@@ -1,13 +1,14 @@
 <!-- If you want to access the data from the backend.Please rename this file to .php and then use it. -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Announcement Table</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="footer.css">
+
 
     <style>
         /* body */
@@ -24,31 +25,32 @@
             margin: 0 auto;
             padding: 15px;
 
-            
+
         }
-        
+
         /* Table Area */
         .table-response {
             border-radius: 10px;
             overflow-x: auto;
             overflow-y: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 100%;
             transition: all 0.3s ease;
         }
+
         /* Table */
         table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
             background-color: white;
-        
+
         }
 
         /* Table header */
         th {
-            background-color:#856113;
+            background-color: #856113;
             color: white;
             font-weight: 500;
             text-transform: uppercase;
@@ -59,11 +61,11 @@
         }
 
         /* Table heading */
-		.heading{
-			margin-bottom: 60px;
-			
-		}
-        
+        .heading {
+            margin-bottom: 60px;
+
+        }
+
         /* Table data */
         td {
             padding: 15px;
@@ -71,7 +73,7 @@
             border-bottom: 1px solid #eaeaea;
             vertical-align: middle;
             color: #333;
-			font-weight: 200;
+            font-weight: 200;
             font-size: 17px;
         }
 
@@ -79,12 +81,12 @@
         tr:hover {
             background-color: #f9f9f9;
         }
-        
+
         /* Table last row */
         tr:last-child td {
             border-bottom: none;
         }
-        
+
         /* Stats Container */
         .stats-container {
             display: grid;
@@ -93,7 +95,7 @@
             padding: 20px;
             align-items: center;
             flex: auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
@@ -108,19 +110,19 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border-top: 4px solid #856113;
         }
 
         /* Stats card hover */
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);   
-            transition: all 0.3s; 
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
         }
 
         /* Stats number and label */
-         .stat-number {
+        .stat-number {
             font-size: 2rem;
             font-weight: bold;
             color: #856113;
@@ -135,7 +137,7 @@
 
 
         /* announcing banner*/
-         .announcement-banner {
+        .announcement-banner {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(45deg, #856113, #b8941a);
             color: rgb(239, 239, 239);
@@ -152,11 +154,12 @@
             transition: all 0.3s ease;
 
         }
+
         @media screen and (max-width: 768px) {
-        .announcement-banner {
-          width: 330%;
+            .announcement-banner {
+                width: 330%;
+            }
         }
-      }
 
         .announcement-banner::before {
             /* Content will be empty as we dont want anything on our interface */
@@ -166,14 +169,19 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shine 1s infinite;
         }
 
         /* Shine property for thre banner */
         @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         /* Responsive Design */
@@ -183,12 +191,13 @@
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 15px;
             }
-            
+
             .table-response {
                 overflow-x: auto;
             }
-            
-            th, td {
+
+            th,
+            td {
                 padding: 12px 8px;
                 font-size: 15px;
             }
@@ -198,12 +207,12 @@
             .container {
                 padding: 10px;
             }
-            
+
             .heading {
                 font-size: 1.8rem;
                 margin-bottom: 40px;
             }
-            
+
             .stats-container {
                 width: 90%;
                 grid-template-columns: 1fr;
@@ -211,44 +220,45 @@
                 padding: 15px;
                 margin-bottom: 15px;
             }
-            
+
             .stat-card {
                 padding: 20px;
             }
-            
+
             .stat-number {
                 font-size: 1.5rem;
             }
-            
+
             .stat-label {
                 font-size: 0.8rem;
             }
-            
+
             .announcement-banner {
                 font-size: 1.1rem;
                 padding: 15px;
                 letter-spacing: 2px;
             }
-            
+
             .table-response {
                 overflow-x: auto;
                 border-radius: 8px;
             }
-            
+
             table {
                 min-width: 900px;
             }
-            
-            th, td {
+
+            th,
+            td {
                 padding: 10px 6px;
                 font-size: 14px;
                 white-space: nowrap;
             }
-            
+
             th {
                 font-size: 13px;
             }
-            
+
             /* Make links more touch-friendly */
             td a {
                 padding: 4px 8px;
@@ -261,50 +271,51 @@
                 font-size: 1.5rem;
                 margin-bottom: 30px;
             }
-            
+
             .stats-container {
                 width: 95%;
                 padding: 5px;
                 gap: 10px;
             }
-            
+
             .stat-card {
                 width: 75%;
-                
+
                 padding: 9px;
             }
-            
+
             .stat-number {
                 font-size: 1.3rem;
             }
-            
+
             .stat-label {
                 font-size: 0.75rem;
             }
-            
+
             .announcement-banner {
                 font-size: 1rem;
                 padding: 12px;
                 letter-spacing: 1px;
             }
-            
+
             .announcement-banner marquee {
                 font-size: 0.9rem;
             }
-            
+
             table {
                 min-width: 800px;
             }
-            
-            th, td {
+
+            th,
+            td {
                 padding: 8px 4px;
                 font-size: 13px;
             }
-            
+
             th {
                 font-size: 12px;
             }
-            
+
             /* Scroll indicator for small screens */
             .table-response::after {
                 content: "← Scroll horizontally to view all columns →";
@@ -317,7 +328,7 @@
                 font-weight: 500;
                 letter-spacing: 1px;
             }
-            
+
             /* Make links more touch-friendly on mobile */
             td a {
                 padding: 6px 10px;
@@ -336,91 +347,95 @@
             .container {
                 padding: 5px;
             }
-            
+
             .heading {
                 font-size: 1.3rem;
                 margin-bottom: 20px;
             }
-            
+
             .stats-container {
                 width: 100%;
                 margin: 0 auto 10px auto;
             }
-            
+
             table {
                 min-width: 700px;
             }
-            
-            th, td {
+
+            th,
+            td {
                 padding: 6px 3px;
                 font-size: 12px;
             }
-            
+
             td a {
                 padding: 4px 6px;
                 font-size: 9px;
                 min-width: 50px;
             }
         }
-
     </style>
 </head>
+
 <body>
 
 
-  <!-- Container -->
-<div class="container">
-    <!-- Heading -->
-        <h1 class="heading" style="  color: #856113;text-align: center;" >Student Announcements</h1>
+    <!-- Container -->
+    <div class="container">
+        <!-- Heading -->
+        <h1 class="heading" style="  color: #856113;text-align: center;">Student Announcements</h1>
 
-    <!-- Stats and Table -->
-    <form>       
+        <!-- Stats and Table -->
+        <form>
 
-        <!-- Stats Container -->
-        <div class="stats-container">
-            <!-- Stats Cards -->
-            <div class="stat-card">
-                <div class="stat-number" id="totalEvents">5
-                      <!-- <?php echo $row['total_events']; ?> -->
+            <!-- Stats Container -->
+            <div class="stats-container">
+                <!-- Stats Cards -->
+                <div class="stat-card">
+                    <div class="stat-number" id="totalEvents">5
+                        <!-- <?php echo $row['total_events']; ?> -->
+                    </div>
+                    <div class="stat-label">Total Events</div>
                 </div>
-                <div class="stat-label">Total Events</div>
-            </div>
 
-            <div class="stat-card">
-                <div class="stat-number" id="openRegistrations">0 
-            <!-- <?php echo $row['total_registerations']; ?> --></div>
-                <div class="stat-label">Open Registrations</div>
-            </div>
-        </div>
-
-         <!-- Table Area-->
-        <div class="table-response">
-
-            <!-- Announcement Banner -->
-            <div class="announcement-banner">
-                <div class="scrolling-text">
-                    <marquee class="scrolling-text"  direction="left" scrollamount="15" > <i class="fa-solid fa-bullhorn" > &nbsp; For Latest Announcements & Events - Stay Informed! </i> </marquee>
+                <div class="stat-card">
+                    <div class="stat-number" id="openRegistrations">0
+                        <!-- <?php echo $row['total_registerations']; ?> -->
+                    </div>
+                    <div class="stat-label">Open Registrations</div>
                 </div>
             </div>
-            <!-- Table -->
-            <table>
-                <!-- Table Header -->
-                <thead>
-                    <tr>
-                        <th>Sr. No.</th>
-                        <th>Event Name</th>
-                        <th>Description</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Organizer</th>
-                        <th>Venue</th>
-                        <th>Source URL</th>
-                        <th>Remark</th>
-                    </tr>
-                </thead>
-                <!-- Table body -->
-                <tbody>
-                    <!-- 
+
+            <!-- Table Area-->
+            <div class="table-response">
+
+                <!-- Announcement Banner -->
+                <div class="announcement-banner">
+                    <div class="scrolling-text">
+                        <marquee class="scrolling-text" direction="left" scrollamount="15"> <i
+                                class="fa-solid fa-bullhorn"> &nbsp; For Latest Announcements & Events - Stay Informed!
+                            </i> </marquee>
+                    </div>
+                </div>
+                <!-- Table -->
+                <table>
+                    <!-- Table Header -->
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Event Name</th>
+                            <th>Description</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Organizer</th>
+                            <th>Venue</th>
+                            <th>Source URL</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <!-- Table body -->
+                    <tbody>
+                        <!-- 
                         THIS IS THE PHP CODE TO ACCESS THE DATA FROM DATABASE AND DISPLAY IT
                         ON THE WEBPAGE.
                     <?php
@@ -442,124 +457,74 @@
 						}
                     ?>
                     -->
-                    <!-- Sample Rows with data to display -->
-                    <tr>
-                        <td>1</td>
-                        <td>Annual Sports Day</td>
-                        <td>Inter-college sports event</td>
-                        <td>10-Aug-2025</td>
-                        <td>12-Aug-2025</td>
-                        <td>Sports Committee</td>
-                        <td>Main Stadium</td>
-                        <td><a href="#">View Details</a></td>
-                        <td>Registrations Open</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                    <tr>
-                        <td>2</td>
-                        <td>Annual Sports Day</td>
-                        <td>Inter-college sports event</td>
-                        <td>10-Aug-2025</td>
-                        <td>12-Aug-2025</td>
-                        <td>Sports Committee</td>
-                        <td>Main Stadium</td>
-                        <td><a href="#">View Details</a></td>
-                        <td>Registrations Open</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                    <tr>
-                        <td>3</td>
-                        <td>Annual Sports Day</td>
-                        <td>Inter-college sports event</td>
-                        <td>10-Aug-2025</td>
-                        <td>12-Aug-2025</td>
-                        <td>Sports Committee</td>
-                        <td>Main Stadium</td>
-                        <td><a href="#">View Details</a></td>
-                        <td>Registrations Open</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                    <tr>
-                        <td>4</td>
-                        <td>Annual Sports Day</td>
-                        <td>Inter-college sports event</td>
-                        <td>10-Aug-2025</td>
-                        <td>12-Aug-2025</td>
-                        <td>Sports Committee</td>
-                        <td>Main Stadium</td>
-                        <td><a href="#">View Details</a></td>
-                        <td>Registrations Open</td>
-                    </tr>
-                    <!-- Sample Rows with data to display -->
-                    <tr>
-                        <td>5</td>
-                        <td>Annual Sports Day</td>
-                        <td>Inter-college sports event</td>
-                        <td>10-Aug-2025</td>
-                        <td>12-Aug-2025</td>
-                        <td>Sports Committee</td>
-                        <td>Main Stadium</td>
-                        <td><a href="#">View Details</a></td>
-                        <td>Registrations Closed</td>
-                    </tr>
-          
-                </tbody>
-            </table>
-        </div>
-    </form>
-</div>
-<!-- Footer included assuming this will be used as a standalone page.
-     Remove if this file is used as a partial. -->
+                        <!-- Sample Rows with data to display -->
+                        <tr>
+                            <td>1</td>
+                            <td>Annual Sports Day</td>
+                            <td>Inter-college sports event</td>
+                            <td>10-Aug-2025</td>
+                            <td>12-Aug-2025</td>
+                            <td>Sports Committee</td>
+                            <td>Main Stadium</td>
+                            <td><a href="#">View Details</a></td>
+                            <td>Registrations Open</td>
+                        </tr>
+                        <!-- Sample Rows with data to display -->
+                        <tr>
+                            <td>2</td>
+                            <td>Annual Sports Day</td>
+                            <td>Inter-college sports event</td>
+                            <td>10-Aug-2025</td>
+                            <td>12-Aug-2025</td>
+                            <td>Sports Committee</td>
+                            <td>Main Stadium</td>
+                            <td><a href="#">View Details</a></td>
+                            <td>Registrations Open</td>
+                        </tr>
+                        <!-- Sample Rows with data to display -->
+                        <tr>
+                            <td>3</td>
+                            <td>Annual Sports Day</td>
+                            <td>Inter-college sports event</td>
+                            <td>10-Aug-2025</td>
+                            <td>12-Aug-2025</td>
+                            <td>Sports Committee</td>
+                            <td>Main Stadium</td>
+                            <td><a href="#">View Details</a></td>
+                            <td>Registrations Open</td>
+                        </tr>
+                        <!-- Sample Rows with data to display -->
+                        <tr>
+                            <td>4</td>
+                            <td>Annual Sports Day</td>
+                            <td>Inter-college sports event</td>
+                            <td>10-Aug-2025</td>
+                            <td>12-Aug-2025</td>
+                            <td>Sports Committee</td>
+                            <td>Main Stadium</td>
+                            <td><a href="#">View Details</a></td>
+                            <td>Registrations Open</td>
+                        </tr>
+                        <!-- Sample Rows with data to display -->
+                        <tr>
+                            <td>5</td>
+                            <td>Annual Sports Day</td>
+                            <td>Inter-college sports event</td>
+                            <td>10-Aug-2025</td>
+                            <td>12-Aug-2025</td>
+                            <td>Sports Committee</td>
+                            <td>Main Stadium</td>
+                            <td><a href="#">View Details</a></td>
+                            <td>Registrations Closed</td>
+                        </tr>
 
- <footer class="footer-section">
-        <div class="container">
-            <h1 class="contact-heading">Contact Us</h1>
-
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>Whatsapp Community</span>
-                        <p>Nitra Mitra</p>
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                        <p>nitramitra@gmail.com</p>
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
-                        class="contact-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Address</span>
-                        <p>Sanjay Nagar, Ghaziabad, India</p>
-                    </a>
-                </div>
+                    </tbody>
+                </table>
             </div>
+        </form>
+    </div>
 
-            <div class="social-media">
-                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-
-            <div class="footer-links">
-                <a href="./privacy.html">Privacy Policy</a> |
-                <a href="./terms.html">Terms & Conditions</a> |
-                <a href="./contact.html">Contact</a>
-            </div>
-
-            <p class="copyright">
-                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
 
 </body>
+
 </html>
