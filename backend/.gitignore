@@ -32,3 +32,18 @@ Thumbs.db
 
 # Logs
 *.log
+
+
+# Uploads directory
+/upload/*
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# IDE specific files
+.idea/
+.vscode/

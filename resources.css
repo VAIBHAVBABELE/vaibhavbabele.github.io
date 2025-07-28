@@ -866,6 +866,7 @@ footer .copyright {
     font-size: 20px;
   }
 
+
   .contact-section .contact-item-inner a span,
   .contact-section .contact-item-inner span {
     font-size: 14px;
@@ -879,14 +880,15 @@ footer .copyright {
   }
 
   .social-media a {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.2rem;
-    margin: 1rem 0.5rem 0 0;
-  }
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        margin: 1.5rem 1rem 0 0;
+    }
 
   .footer-links {
     font-size: 11px;
     padding: 8px;
   }
+
 }
