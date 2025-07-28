@@ -5,11 +5,18 @@ import requests
 import json
 import tempfile
 import PyPDF2
+
+import docx  
 import fitz  # PyMuPDF
 from werkzeug.utils import secure_filename
 
+
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  
+
+# Configuration
+app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
+ALLOWED_EXTENSIONS = {'pdf', 'txt', 'md', 'docx', 'doc'}
 
 # Configuration
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
@@ -47,6 +54,16 @@ def extract_text_from_pdf(file_path):
     
     return text
 
+
+def extract_text_from_docx(file_path):
+    """Extract text from DOCX file."""
+    try:
+        doc = docx.Document(file_path)
+        return "\n".join([paragraph.text for paragraph in doc.paragraphs])
+    except Exception as e:
+        raise ValueError(f"Could not extract text from DOCX: {str(e)}")
+
+
 def extract_text_from_file(file_path, filename):
     """Extract text from various file types."""
     file_ext = filename.rsplit('.', 1)[1].lower()
@@ -56,6 +73,10 @@ def extract_text_from_file(file_path, filename):
     elif file_ext in ['txt', 'md']:
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
+
+    elif file_ext in ['docx', 'doc']:
+        return extract_text_from_docx(file_path)
+
     else:
         raise ValueError(f"Unsupported file type: {file_ext}")
 
@@ -139,6 +160,45 @@ Generate STUDY QUESTIONS based on the content:
 1. [Definition and concept questions]
 """
     
+
+    elif task_type == 'resume':
+        specific_prompt = """
+You are an expert resume analyzer and career coach. Analyze this resume and provide detailed feedback:
+
+### **🔍 Resume Analysis Report**
+
+#### **1. First Impressions**
+- Overall structure and formatting assessment
+- Visual appeal and readability
+- Professional appearance
+
+#### **2. Content Evaluation**
+- **Strengths**: Highlight 3-5 strong points
+- **Areas for Improvement**: Identify 3-5 areas needing work
+- **Missing Elements**: Note any important missing sections
+
+#### **3. Keyword Optimization**
+- Analysis of relevant keywords for the industry
+- Suggestions for better keyword placement
+
+#### **4. ATS Compatibility**
+- Assessment of Applicant Tracking System compatibility
+- Formatting recommendations for better parsing
+
+#### **5. Actionable Recommendations**
+- Specific changes to improve the resume
+- Career advice based on the content
+- Resources for further improvement
+
+### **📝 Final Summary**
+- Overall rating (1-5 stars)
+- Most important changes needed
+- Encouragement and next steps
+
+Provide this feedback in clear, actionable bullet points with proper formatting.
+"""
+    
+
     else:  # default to summarize
         specific_prompt = """
 Create a comprehensive summary of the following content with proper formatting and structure.
@@ -380,6 +440,64 @@ def enhance_notes():
     
     except Exception as e:
         return jsonify({'error': f'Failed to enhance notes: {str(e)}'}), 500
+
+
+@app.route('/api/resume/analyze', methods=['POST'])
+def analyze_resume():
+    """Analyze uploaded resume (PDF, DOCX, TXT)."""
+    try:
+        if 'resume' not in request.files:
+            return jsonify({'error': 'No resume file provided'}), 400
+        
+        file = request.files['resume']
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+        
+        if not allowed_file(file.filename):
+            return jsonify({
+                'error': 'File type not allowed. Supported: PDF, DOCX, DOC, TXT'
+            }), 400
+        
+        # Save file temporarily
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(tempfile.gettempdir(), filename)
+        file.save(file_path)
+        
+        try:
+            # Extract text
+            extracted_text = extract_text_from_file(file_path, filename)
+            
+            if not extracted_text.strip():
+                return jsonify({'error': 'No text found in the resume'}), 400
+            
+            if len(extracted_text) > 500000:
+                return jsonify({
+                    'error': 'Resume text too long. Maximum 500KB allowed.'
+                }), 400
+            
+            # Create prompt for resume analysis
+            prompt = create_prompt_for_task(extracted_text, 'resume')
+            
+            # Get analysis from Gemini
+            analysis = call_gemini_api(prompt)
+            
+            return jsonify({
+                'success': True,
+                'filename': filename,
+                'analysis': analysis,
+                'extracted_length': len(extracted_text)
+            })
+        
+        finally:
+            # Clean up
+            if os.path.exists(file_path):
+                os.remove(file_path)
+    
+    except Exception as e:
+        return jsonify({
+            'error': f'Failed to analyze resume: {str(e)}'
+        }), 500
+
 
 def call_gemini_api(prompt):
     """Call Gemini API with the given prompt."""

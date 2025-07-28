@@ -1,8 +1,13 @@
-flask==2.3.3
+flask==3.1.1
 flask-cors==4.0.0
 requests==2.31.0
 gunicorn==21.2.0
+
+openai==1.97.1
 PyPDF2==3.0.1
-PyMuPDF==1.23.8
+python-docx==1.2.0
+PyMuPDF==1.26.3
+
 Werkzeug==2.3.7
+
 
