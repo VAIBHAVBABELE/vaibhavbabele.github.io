@@ -1,0 +1,91 @@
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: hsl(313, 44%, 89%);
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .container {
+      padding-top: calc(15vh + 20px);
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    .quiz-box {
+      background: #e4b0b0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      transition: 0.3s;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      color: #34495e;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #d1eaff;
+      font-size: 1rem;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .options button:hover {
+      background: #9ad5ff;
+    }
+
+    .result {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    .progress {
+      margin: 15px 0;
+      height: 10px;
+      width: 100%;
+      background: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #7ed6df;
+      width: 0%;
+      transition: width 0.4s;
+    }
+
+    .score {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    #restart {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #82ccdd;
+      cursor: pointer;
+    }
+  
