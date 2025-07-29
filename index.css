@@ -30,7 +30,7 @@
     --white-4345: #f9f6f0; /* Near-white with warm tone */
     --bg-shade: #faebdd; /* Subtle background contrast */
     --img-bg-shade: rgba(250, 235, 221, 0.6); /* Beige translucent background for images */
-    --primary-text-color: #4b3f32; /* Slightly darker warm brown */
+    --primary-text-color: #4e342e; /* Slightly darker warm brown */
     --secondary-text-color: #926f57; /* Light brown for secondary elements */
     --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
     --accent-color: #cda274; /* Tan - for buttons, links, highlights */
@@ -39,11 +39,25 @@
     --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
     --placeholder-color: #8a7e74; /* Muted warm gray for placeholder text */
     --input-bg-color: #f0e3d3; 
-
-    
-   
+    --card-bg-color: #fff;  
 }
 
+
+.dark-mode {
+  --nav-bgcolor: #a58b52; /* Tan brown navbar */
+  --bg-color: #1c1a17; /* Warm charcoal background */
+  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
+  --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
+  --primary-text-color: #fdf0d5; /* Warm light beige text */
+  --secondary-text-color: #b5a08a; /* Light beige for secondary text */
+  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
+  --footer-bgColor: #a58672; /* Warm clay brown */
+  --placeholder-color: #b9a89f;
+  --input-bg-color: #3f3b3c; /* Dark beige input fields */
+  --accent-color: #cda274; /* Keep accent consistent */
+  --accent-color-dark: #d4b996;
+  --card-bg-color: #1e1e1e;
+=======
 .dark-mode{
     --nav-bgcolor:rgb(165, 139, 82);
     --bg-shade:rgb(59, 59, 59);
@@ -69,6 +83,7 @@
 .team-showcase-card {
     position: relative;
     z-index: 2;
+
 }
 
 .team-showcase-card:hover {
@@ -749,7 +764,7 @@ section{
 }
 
 .card {
-    background-color: var(--white-4345); /* Light beige */
+    background-color: var(--card-bg-color); /* Light beige */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     border: 3px solid var(--accent-color); /* Warm brown border */
