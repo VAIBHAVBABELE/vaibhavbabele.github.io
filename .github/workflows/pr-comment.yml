@@ -1,0 +1,40 @@
+name: Greet on Pull Request
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  greet-and-discord:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add comment on PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prAuthor = context.payload.pull_request.user.login;
+            const prNumber = context.payload.pull_request.number;
+            const repoOwner = context.repo.owner;
+            const message =  `
+            👋 **Hi @${prAuthor}**, thank you for opening this Pull Request!
+            🔧 Please ensure the following:
+            - ✅ Resolve any **merge conflicts**, if they exist.
+            - 🧾 Clearly **mention the issue number** you are solving (e.g., \`Fixes #issue_number\`).
+            - 📎 Please **update your PR description** if anything is unclear or incorrect.
+            - 📷 Attach a **screenshot or screen recording** of your fix.
+            - 💬 Kindly **share the PR link in the Discord server manually** for better tracking.
+            - @meetarora10 please review this pr.
+            
+
+            Happy Contributing! 🚀`;
+
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: message
+              });
