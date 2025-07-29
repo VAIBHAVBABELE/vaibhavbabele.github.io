@@ -43,7 +43,14 @@
     
    
 }
-
+/* announcement section responsiveness */
+    @media (max-width: 600px) {
+      #announcement-heading {
+        font-size: 1.9em;
+        font-weight: bold;
+  
+      }
+    }
 .dark-mode{
     --nav-bgcolor:rgb(165, 139, 82);
     --bg-shade:rgb(59, 59, 59);
@@ -64,11 +71,40 @@
     z-index: 1;
     clear: both;
     margin-top: 0;
+    padding: 80px 0; 
+    background: var(--bg-shade);
+     border-top: 5px solid var(--primary-text-color);
 }
 
+#teamcontainer{
+max-width: 1200px; 
+margin: 0 auto; 
+padding: 0 20px;
+}
+
+#teamheading{
+  font-size: 3rem; 
+  color: var(--primary-text-color); 
+  margin-bottom: 20px;
+}
+
+#teampara{
+  font-size: 1.2rem; 
+  color: var(--secondary-text-color); 
+  max-width: 600px; 
+  margin: 0 auto;
+}
 .team-showcase-card {
     position: relative;
     z-index: 2;
+    background: var(--white-4345); 
+    border: 3px solid var(--main-color); 
+    border-radius: 20px; padding: 40px; 
+    text-align: center; 
+    max-width: 400px; 
+    width: 100%; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    transition: all 0.3s ease;
 }
 
 .team-showcase-card:hover {
@@ -81,6 +117,74 @@
     border-color: var(--primary-text-color) !important;
 }
 
+.section-header{
+text-align: center;
+ margin-bottom: 60px;
+}
+
+.team-grid{
+display: grid; 
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 40px; 
+justify-items: center;
+}
+
+.placeholder{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.boxheading{
+  font-size: 1.8rem; 
+  color: var(--primary-text-color); 
+  margin-bottom: 10px;
+}
+
+.iframes{
+overflow: auto;
+}
+
+.boximg{
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+}
+.boxp1{
+  color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;
+}
+
+.boxp2{
+color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;
+}
+
+.social-links{
+  display: flex; justify-content: center; gap: 15px;
+}
+
+.linkbutton{
+  width: 45px; 
+  height: 45px; 
+  background: var(--main-color); color: white; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-decoration: none; 
+  transition: all 0.3s ease;
+}
+.team-avatar{
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%; 
+  margin: 0 auto 25px; 
+  overflow: hidden; 
+  border: 4px solid var(--main-color);
+  background: var(--accent-color);
+}
+
+
+
 /* Responsive adjustments for team section */
 @media (max-width: 768px) {
     .team-showcase .section-header h2 {
@@ -90,6 +194,7 @@
     .team-grid {
         grid-template-columns: 1fr !important;
         gap: 30px !important;
+        
     }
     
     .team-showcase-card {
@@ -166,12 +271,6 @@ iframe{
   transform: scale(1.2);
   filter: grayscale(0%);
 }
-
-
-/*    emoji  end */
-
-
-/*   feedback form   */
 
 
 .form{
@@ -393,39 +492,7 @@ body{
     font-family: "Raleway", sans-serif;
     color: var(--primary-text-color);
 }
-/* pop up   */ 
 
-
-/* .popup {
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .3);
-    display: grid;
-    place-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 200ms ease-in-out opacity;
-}
-.popup-content:hover{
-    transform: translateY(10px);
-    box-shadow: 0 0 5px #40413c, 0 0 5px #1e1f1c, 0 0 18px rgb(70, 70, 52), 0 0 15px rgb(238, 235, 240), 0 0 15px rgb(201, 6, 208) ;
-
-}
-.popup-content {
-    width: clamp(700px, 500vw, 700px);
-    background-color:#f9eff7;
-    padding: clamp(1rem, 20vw, 2rem);
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
-    border-radius: 3em;
-    opacity: 0;
-    cursor: pointer;
-    transform: translateY(20%);
-    transition: 200ms ease-in-out opacity,
-                200ms ease-in-out transform;
-    position: relative;
-} */
 .popup {
     position: fixed;
     top: 0;
@@ -485,11 +552,7 @@ body{
     transform: scale(.9);
 }
 
-/* .popup h4{
-    text-align: center;
-    text-shadow: #090908;
-    color: #5864e9;
-} */
+
 .popup h4 {
     text-align: center;
     color: var(--main-color); /* Rich brown */
@@ -735,6 +798,7 @@ section{
     display: none;
 }
 
+
 .container1 {
     display: flex;
     gap: 40px;
@@ -761,6 +825,7 @@ section{
     display: flex; 
     flex-direction: column; 
     justify-content: space-between;
+    width: 25%;
 }
 
 .card-body {
@@ -1497,7 +1562,7 @@ footer .copyright {
     margin: 20px;
     gap: 10px;
   }
-
+  
   .card {
     width: 100%;
     margin-bottom: 10px;
