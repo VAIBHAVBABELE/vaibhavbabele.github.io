@@ -1,6 +1,6 @@
 name: Contribution Request
 description: Submit your contribution idea or bug report here.
-title: "[Contribution]: "
+title: " "
 labels: ["triage"]
 body:
   - type: dropdown
@@ -10,6 +10,9 @@ body:
       options:
         - 💻 Frontend (HTML/CSS/JS)
         - 🖥️ Backend (PHP/MySQL)
+        - 📱 Mobile (React Native)
+        -  Artificial Intelligence (AI/ML)
+        - 🌐 Full Stack (Frontend + Backend)
         - 🐛 Bug Report
         - 📈 Feature Request
         - 🎨 UI/UX Design
@@ -44,7 +47,7 @@ body:
 
   - type: textarea
     attributes:
-      label: 🖼️ Screenshots (if applicable)
+      label: 🖼️ Screenshots (required)
       description: Drag and drop or paste any screenshots that help explain the issue.
       placeholder: Upload or paste image URLs/screenshots here.
     validations:
@@ -54,7 +57,8 @@ body:
     attributes:
       value: |
         ✅ After creating this issue:
-        - Wait for a maintainer to assign it.
+        - Wait for a maintainer to assign it.because it may be already assigned to someone.or admin busy with other tasks.
+        - If you want to work on it, please follow these steps:
         - Comment: “I want to work on this” if you're ready to contribute.
         - Follow guidelines in `CONTRIBUTING.md`.
 

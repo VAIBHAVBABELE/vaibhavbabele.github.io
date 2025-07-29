@@ -4,6 +4,9 @@ on:
   pull_request:
     types: [closed]
 
+permissions:
+  contents: write  # ✅ जरूरी permission
+
 jobs:
   generate-doc:
     if: github.event.pull_request.merged == true
@@ -13,12 +16,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Ensure docs folder exists
+        run: mkdir -p docs
+
       - name: Generate Markdown
         run: |
           echo "### ✨ Contribution Details" >> docs/contributions.md
           echo "| Contributor | PR | Title | Labels | Merged By | Time |" >> docs/contributions.md
           echo "|-------------|----|-------|--------|-----------|------|" >> docs/contributions.md
-          echo "| ![avatar](${GITHUB_ACTOR_AVATAR_URL}) [@${{ github.actor }}](https://github.com/${{ github.actor }}) | #${{ github.event.pull_request.number }} | ${{ github.event.pull_request.title }} | \`${{ join(github.event.pull_request.labels.*.name, ', ') }}\` | [@${{ github.event.pull_request.merged_by.login }}](https://github.com/${{ github.event.pull_request.merged_by.login }}) | $(date '+%Y-%m-%d %H:%M') |" >> docs/contributions.md
+          echo "| [@${{ github.actor }}](https://github.com/${{ github.actor }}) | #${{ github.event.pull_request.number }} | ${{ github.event.pull_request.title }} | \`${{ join(github.event.pull_request.labels.*.name, ', ') }}\` | [@${{ github.event.pull_request.merged_by.login }}](https://github.com/${{ github.event.pull_request.merged_by.login }}) | $(date '+%Y-%m-%d %H:%M') |" >> docs/contributions.md
 
       - name: Commit & Push
         run: |

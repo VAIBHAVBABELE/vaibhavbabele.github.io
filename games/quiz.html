@@ -18,7 +18,20 @@
       text-align: center;
     }
     .container {
-      padding-top: calc(15vh + 20px);
+      padding-top: 60px; /* Updated to match new navbar */
+    }
+
+    /* Mobile responsive fixes */
+    @media (max-width: 1000px) {
+      .container {
+        padding-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .container {
+        padding-top: 50px;
+      }
     }
 
     h2 {
