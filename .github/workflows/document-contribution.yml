@@ -5,7 +5,7 @@ on:
     types: [closed]
 
 permissions:
-  contents: write  # ✅ जरूरी permission
+  contents: write  # Required to push commits
 
 jobs:
   generate-doc:
@@ -13,23 +13,81 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Ensure docs folder exists
         run: mkdir -p docs
 
-      - name: Generate Markdown
-        run: |
-          echo "### ✨ Contribution Details" >> docs/contributions.md
-          echo "| Contributor | PR | Title | Labels | Merged By | Time |" >> docs/contributions.md
-          echo "|-------------|----|-------|--------|-----------|------|" >> docs/contributions.md
-          echo "| [@${{ github.actor }}](https://github.com/${{ github.actor }}) | #${{ github.event.pull_request.number }} | ${{ github.event.pull_request.title }} | \`${{ join(github.event.pull_request.labels.*.name, ', ') }}\` | [@${{ github.event.pull_request.merged_by.login }}](https://github.com/${{ github.event.pull_request.merged_by.login }}) | $(date '+%Y-%m-%d %H:%M') |" >> docs/contributions.md
-
-      - name: Commit & Push
+      - name: Setup Git
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+
+      - name: Fetch PR Info
+        id: pr_data
+        run: |
+          echo "title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+          echo "body=${{ github.event.pull_request.body }}" >> $GITHUB_OUTPUT
+          echo "author=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
+          echo "merged_by=${{ github.event.pull_request.merged_by.login }}" >> $GITHUB_OUTPUT
+          echo "url=${{ github.event.pull_request.html_url }}" >> $GITHUB_OUTPUT
+          echo "number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          echo "commit_sha=${{ github.event.pull_request.merge_commit_sha }}" >> $GITHUB_OUTPUT
+          echo "files_changed=${{ github.event.pull_request.changed_files }}" >> $GITHUB_OUTPUT
+          echo "timestamp=$(date '+%Y-%m-%d %H:%M')" >> $GITHUB_OUTPUT
+
+      - name: Extract Labels
+        id: labels
+        run: |
+          LABELS=$(echo '${{ toJson(github.event.pull_request.labels) }}' | jq -r '.[].name' | paste -sd "," -)
+          if [ -z "$LABELS" ]; then
+            LABELS="No labels"
+          fi
+          echo "labels=$LABELS" >> $GITHUB_OUTPUT
+
+      - name: Extract Reviewer (if any)
+        id: reviewer
+        run: |
+          REVIEWER=$(echo '${{ toJson(github.event.pull_request.requested_reviewers) }}' | jq -r '.[].login' | paste -sd "," -)
+          if [ -z "$REVIEWER" ]; then
+            REVIEWER="None"
+          fi
+          echo "reviewer=$REVIEWER" >> $GITHUB_OUTPUT
+
+      - name: Determine Order Number
+        id: count_prs
+        run: |
+          COUNT=$(git log --oneline --grep="Auto-update contribution log" | wc -l)
+          ORDER=$((COUNT + 1))
+          echo "order=$ORDER" >> $GITHUB_OUTPUT
+
+      - name: Append to contributions.md
+        run: |
+          FILE="docs/contributions.md"
+          if [ ! -f "$FILE" ]; then
+            echo "### ✨ Contribution Log" > $FILE
+            echo "| Order | Contributor | PR | Issue | Title | Description | Files Changed | Labels | Reviewer | Merged By | Conflict | Commit | Time |" >> $FILE
+            echo "|-------|-------------|----|--------|-------|-------------|----------------|--------|----------|-----------|----------|--------|------|" >> $FILE
+          fi
+
+          # Extract issue number from title/body
+          ISSUE=$(echo "${{ steps.pr_data.outputs.title }} ${{ steps.pr_data.outputs.body }}" | grep -oE '#[0-9]+' | head -n 1)
+          if [ -z "$ISSUE" ]; then
+            ISSUE="None"
+          fi
+
+          # Check for conflicts
+          if [[ "${{ github.event.pull_request.mergeable_state }}" == *"conflicting"* ]]; then
+            CONFLICT="Yes"
+          else
+            CONFLICT="No"
+          fi
+
+          echo "| ${{ steps.count_prs.outputs.order }} | [@${{ steps.pr_data.outputs.author }}](https://github.com/${{ steps.pr_data.outputs.author }}) | [#${{ steps.pr_data.outputs.number }}](${{ steps.pr_data.outputs.url }}) | $ISSUE | ${{ steps.pr_data.outputs.title }} | ${{ steps.pr_data.outputs.body }} | ${{ steps.pr_data.outputs.files_changed }} | \`${{ steps.labels.outputs.labels }}\` | ${{ steps.reviewer.outputs.reviewer }} | [@${{ steps.pr_data.outputs.merged_by }}](https://github.com/${{ steps.pr_data.outputs.merged_by }}) | $CONFLICT | \`${{ steps.pr_data.outputs.commit_sha }}` | ${{ steps.pr_data.outputs.timestamp }} |" >> $FILE
+
+      - name: Commit and Push Log
+        run: |
           git add docs/contributions.md
           git commit -m "📝 Auto-update contribution log for PR #${{ github.event.pull_request.number }}"
           git push
