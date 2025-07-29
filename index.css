@@ -1038,13 +1038,15 @@ body.dark-mode .facility-card p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #cab5af;
+
     border-radius: 40px;
     border-bottom-right-radius: 0;
     border: 2px solid white;
     box-shadow: 0 0 1rem var(--main-color);
     text-align: center;
     transition: transform 0.3s ease;
+    background-color: var(--white-4345); /* Use your theme's light beige */
+
 }
 
 .About-card:hover{
@@ -1053,6 +1055,7 @@ body.dark-mode .facility-card p {
 }
 
 .About-card a{
+      background-color: var(--white-4345);
     margin-top: auto;
     padding: 10px,20px;
     color: var(--snd-bg-color);
