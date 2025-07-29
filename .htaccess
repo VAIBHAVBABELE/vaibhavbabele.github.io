@@ -1,27 +1,91 @@
+# Nitra Mitra Security and Performance Configuration
+# Enhanced .htaccess with comprehensive security headers and performance optimizations
+
+# ================================
+# HTTPS REDIRECT AND SECURITY
+# ================================
 RewriteEngine On
 
+# Force HTTPS redirect
 RewriteCond %{HTTPS} off
-
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# ================================
+# SECURITY HEADERS
+# ================================
 
+# Content Security Policy (CSP) - Prevents XSS attacks
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'self' https://www.youtube.com"
+    
+    # Prevent clickjacking attacks
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # HTTP Strict Transport Security (HSTS) - Force HTTPS for 1 year
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Referrer Policy - Control referrer information
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Remove server signature for security
+    Header always unset Server
+    Header always unset X-Powered-By
+</IfModule>
+
+# ================================
+# URL REWRITING (REMOVE .HTML)
+# ================================
 RewriteEngine on
 
+# Remove .html extension from URLs
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-
 RewriteRule ^ /%1 [NC,L,R=301]
 
+# Add .html extension internally
 RewriteCond %{REQUEST_FILENAME}.html -f
-
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
+# ================================
+# CACHE CONTROL AND PERFORMANCE
+# ================================
 
+# Cache static assets for better performance
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico|woff|woff2|ttf|svg)$">
+    Header set Cache-Control "max-age=2592000, public"
+    # Enable compression
+    <IfModule mod_deflate.c>
+        SetOutputFilter DEFLATE
+    </IfModule>
+</filesMatch>
 
-<filesMatch “.(css|jpg|jpeg|png|gif|js|ico)$”> 
+# Cache HTML files for shorter periods
+<filesMatch ".(html|htm)$">
+    Header set Cache-Control "max-age=86400, public"
+</filesMatch>
 
-Header set Cache-Control “max-age=2592000, public”
+# ================================
+# SECURITY FILE PROTECTION
+# ================================
 
- </filesMatch>
+# Protect sensitive files
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
 
+# Protect configuration files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
 
-ErrorDocument 404 /404.html  
+# ================================
+# ERROR PAGES
+# ================================
+ErrorDocument 404 /404.html
