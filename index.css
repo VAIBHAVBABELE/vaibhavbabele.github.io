@@ -844,8 +844,9 @@ section{
     transition: transform 0.3s ease;
 }
 
+.card:hover,
 .card:hover .card-img-top {
-    transform: scale(1.5); /* Scale image slightly larger on hover */
+    transform: scale(1.15); /* Scale image slightly larger on hover */
 }
 
 /* Ensure the overlay text appears smoothly */
