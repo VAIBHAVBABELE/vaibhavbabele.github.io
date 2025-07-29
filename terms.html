@@ -20,8 +20,81 @@
   <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="terms.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px;
+    }
+
+    :root {
+      --snd-bg-color: #c4c8f9;
+      --text-color: #fff;
+      --main-color: #491a02;
+      --bg-color: #a6cde5;
+      --white-4345: #f7f7f7;
+      --bg-shade: #f0d8eb;
+      --img-bg-shade: rgba(242, 227, 241, 0.6);
+      --primary-text-color: #38393a;
+      --secondary-text-color: #926f57;
+      --nav-bgcolor: rgb(242, 208, 135);
+      --accent-color: #d2bf80f0;
+      --accent-color-dark: #856113;
+      --padding-inline-section: 10px;
+      --footer-bgColor: #ec9999;
+      --placeholder-color: #6c757d;
+      --input-bg-color: #dad6d9;
+    }
+
+    .dark-mode {
+      --nav-bgcolor: rgb(165, 139, 82);
+      --bg-shade: rgb(131, 127, 127);
+      --img-bg-shade: rgba(104, 102, 102, 0.6);
+      --primary-text-color: rgb(0, 0, 0);
+      --tertiary-color: rgb(174, 174, 241);
+      --footer-bgColor: #dbb0b0;
+      --placeholder-color: #adb5bd;
+      --input-bg-color: #495057;
+    }
+
+    .main:not(.dark-mode) {
+      border: var(--primary-text-color) 5px solid;
+      margin-top: 60px;
+      /* Updated to match new navbar */
+    }
+
+    /* Mobile responsive fix for main content */
+    @media (max-width: 1000px) {
+      .main:not(.dark-mode) {
+        margin-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .main:not(.dark-mode) {
+        margin-top: 50px;
+      }
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--primary-text-color);
+    }
+  </style>
 </head>
 
 <body>
@@ -44,81 +117,89 @@
     <p>We are not responsible for any damages resulting from the use of this site or its content.</p>
   </main>
 
- <!-- TEAM SECTION (Before Footer) -->
-        <section class="team-showcase">
-            <div class="container" id="teamcontainer">
-                <div class="section-header">
-                    <h2 id="teamheading">Meet Our Team
-                    </h2>
-                    <p id="teampara">
-                        Dedicated developers working together to create the best educational platform for NITRA
-                        students.
-                    </p>
-                </div>
+  <!-- TEAM SECTION (Before Footer) -->
+  <section class="team-showcase"
+    style="padding: 80px 0; background: var(--bg-shade); border-top: 5px solid var(--primary-text-color);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-size: 3rem; color: var(--primary-text-color); margin-bottom: 20px;">Meet Our Team</h2>
+        <p style="font-size: 1.2rem; color: var(--secondary-text-color); max-width: 600px; margin: 0 auto;">
+          Dedicated developers working together to create the best educational platform for NITRA students.
+        </p>
+      </div>
 
-                <div class="team-grid">
-                    <!-- Vaibhav Babele Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar">
-                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele" class="boximg">
-                        </div>
-                        <h3 class="boxheading">Vaibhav Babele</h3>
-                        <p class="boxp1">Lead Developer & Founder</p>
-                        <p class="boxp2">
-                            Computer Science Engineering student passionate about creating educational platforms for
-                            students.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank" class="linkbutton">
-                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
-                            </a>
-                            <a href="https://github.com/vaibhavbabele" target="_blank" class="linkbutton">
-                                <i class="fab fa-github" style="font-size: 1.2rem;"></i>
-                            </a>
-                        </div>
-                    </div>
+      <div class="team-grid"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; justify-items: center;">
+        <!-- Vaibhav Babele Card -->
+        <div class="team-showcase-card"
+          style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <div class="team-avatar"
+            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
+            <img src="images/vaibhav.jpg" alt="Vaibhav Babele" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Vaibhav Babele</h3>
+          <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Lead Developer
+            & Founder</p>
+          <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+            Computer Science Engineering student passionate about creating educational platforms for students.
+          </p>
+          <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"
+              style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+            </a>
+            <a href="https://github.com/vaibhavbabele" target="_blank"
+              style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-github" style="font-size: 1.2rem;"></i>
+            </a>
+          </div>
+        </div>
 
-                    <!-- Ghanshyam Prajapati Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar">
-                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati" class="boximg">
-                        </div>
-                        <h3 class="boxheading">Ghanshyam Prajapati</h3>
-                        <p class="boxp1">Co-Developer</p>
-                        <p class="boxp2">
-                            Dedicated developer contributing to the platform's growth and student experience
-                            enhancement.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                                target="_blank" class="linkbutton">
-                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
-                            </a>
-                        </div>
-                    </div>
+        <!-- Ghanshyam Prajapati Card -->
+        <div class="team-showcase-card"
+          style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <div class="team-avatar"
+            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
+            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati"
+              style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Ghanshyam Prajapati</h3>
+          <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Co-Developer
+          </p>
+          <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+            Dedicated developer contributing to the platform's growth and student experience enhancement.
+          </p>
+          <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in" target="_blank"
+              style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+            </a>
+          </div>
+        </div>
 
-                    <!-- Development Team Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar placeholder">
-                            <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
-                        </div>
-                        <h3 class="boxheading">
-                            Development Team</h3>
-                        <p class="boxp1">
-                            Contributors & Maintainers</p>
-                        <p class="boxp2">
-                            A growing community of student developers working together to improve the platform.
-                        </p>
-                        <div class="social-links">
-                            <a href="pr-contributors.html" class="linkbutton">
-                                <i class="fas fa-users" style="font-size: 1.2rem;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+        <!-- Development Team Card -->
+        <div class="team-showcase-card"
+          style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <div class="team-avatar placeholder"
+            style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; border: 4px solid var(--main-color); background: var(--accent-color); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
+          </div>
+          <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Development Team</h3>
+          <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Contributors &
+            Maintainers</p>
+          <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+            A growing community of student developers working together to improve the platform.
+          </p>
+          <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
+            <a href="pr-contributors.html"
+              style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fas fa-users" style="font-size: 1.2rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer-section">
     <div class="container">
