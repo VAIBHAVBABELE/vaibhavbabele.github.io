@@ -67,7 +67,7 @@ This PR implements comprehensive security enhancements for the Nitra Mitra educa
 ---
 
 ## 🔗 Issue Reference:
-Closes #[Security Vulnerabilities Issue] 
+Closes #145
 
 ---
 
