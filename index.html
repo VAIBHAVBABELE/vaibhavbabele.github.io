@@ -24,8 +24,23 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    
+    <style>
+      #btn-back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none; /* Hidden by default */
 
+        background-color: #8B4513;
+        border-color: #8B4513;
+      }
 
+      #btn-back-to-top:hover {
+        background-color: #7A3D11; /* Darker brown on hover */
+        border-color: #7A3D11;
+      }
+    </style>
 
 </head>
 
@@ -595,6 +610,42 @@
                 }
             });
         });
+    </script>
+
+    <button
+        type="button"
+        data-mdb-button-init
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"
+    ></script>
+
+    <script>
+      //Get the button
+      const mybutton = document.getElementById("btn-back-to-top");
+
+      // When the user scrolls down 100px from the top of the document, show the button
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      };
+
+      // When the user clicks on the button, scroll to the top of the document
+      mybutton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     </script>
 
 
