@@ -13,284 +13,8 @@
         href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-
-    <style>
-        :root {
-            --test-primary: var(--accent-color);
-            --test-primary-dark: var(--accent-color-dark);
-            --test-secondary: var(--bg-shade);
-            --test-text: var(--primary-text-color);
-            --test-bg: var(--white-4345);
-            --test-card-bg: white;
-            --test-border: #dee2e6;
-            --test-success: #28a745;
-            --test-error: #dc3545;
-            --test-warning: #ffc107;
-        }
-
-        .dark-mode {
-            --test-card-bg: var(--bg-shade);
-            --test-bg: rgb(59, 59, 59);
-            --test-border: #495057;
-            --test-text: rgb(238, 234, 234);
-        }
-
-        body {
-            background: var(--test-bg);
-            font-family: 'Poppins', sans-serif;
-            color: var(--test-text);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-
-        .test-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-        }
-
-        .test-card {
-            background: var(--test-card-bg);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode .test-card {
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 30px rgba(210, 191, 128, 0.2);
-        }
-
-        .test-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .test-header {
-            color: var(--accent-color);
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .endpoint-badge {
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-color-dark));
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(210, 191, 128, 0.3);
-        }
-
-        .test-result {
-            background: var(--test-bg);
-            border: 2px solid var(--test-border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            max-height: 500px;
-            overflow-y: auto;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .success {
-            border-left: 6px solid var(--test-success);
-            background: rgba(40, 167, 69, 0.1);
-        }
-
-        .error {
-            border-left: 6px solid var(--test-error);
-            background: rgba(220, 53, 69, 0.1);
-        }
-
-        .loading {
-            border-left: 6px solid var(--test-warning);
-            background: rgba(255, 193, 7, 0.1);
-        }
-
-        .file-drop-zone {
-            border: 3px dashed var(--accent-color);
-            border-radius: 15px;
-            padding: 3rem;
-            text-align: center;
-            background: var(--bg-shade);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .file-drop-zone:hover {
-            background: var(--accent-color);
-            color: white;
-            transform: scale(1.02);
-        }
-
-        .file-drop-zone.dragover {
-            background: var(--test-success);
-            border-color: var(--test-success);
-            color: white;
-        }
-
-        .test-btn {
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-color-dark));
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 4px 15px rgba(210, 191, 128, 0.3);
-        }
-
-        .test-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(210, 191, 128, 0.4);
-        }
-
-        .test-btn:disabled {
-            background: #6c757d;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .text-area {
-            width: 100%;
-            min-height: 150px;
-            border: 2px solid var(--test-border);
-            border-radius: 10px;
-            padding: 1rem;
-            font-family: 'Poppins', sans-serif;
-            resize: vertical;
-            background: var(--test-card-bg);
-            color: var(--test-text);
-            transition: border-color 0.3s ease;
-        }
-
-        .text-area:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(210, 191, 128, 0.3);
-        }
-
-        .form-select {
-            border: 2px solid var(--test-border);
-            border-radius: 10px;
-            padding: 0.75rem;
-            background: var(--test-card-bg);
-            color: var(--test-text);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-select:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(210, 191, 128, 0.3);
-        }
-
-        .alert {
-            border-radius: 10px;
-            border: none;
-            padding: 1rem 1.5rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .alert-info {
-            background: rgba(210, 191, 128, 0.2);
-            color: var(--accent-color-dark);
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .api-description {
-            color: var(--secondary-text-color);
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .dark-mode .api-description {
-            color: var(--placeholder-color);
-        }
-
-        pre {
-            background: var(--test-bg);
-            border: 1px solid var(--test-border);
-            border-radius: 8px;
-            padding: 1rem;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-        }
-
-        .summary-content {
-            background: var(--test-card-bg);
-            border: 2px solid var(--accent-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            line-height: 1.6;
-        }
-
-        .btn-outline-danger {
-            border: 2px solid var(--test-error);
-            color: var(--test-error);
-            background: transparent;
-            border-radius: 20px;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-danger:hover {
-            background: var(--test-error);
-            color: white;
-        }
-
-        .spinner-icon {
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .test-container {
-                padding: 1rem;
-            }
-
-            .test-card {
-                padding: 1.5rem;
-            }
-
-            .file-drop-zone {
-                padding: 2rem;
-            }
-        }
-    </style>
+<link rel="stylesheet" href="test.css">
+   
 </head>
 
 <body id="onload">
@@ -697,95 +421,81 @@ Python Basics:
             }
         }
     </script>
-    <!-- TEAM SECTION (Before Footer) -->
-    <section class="team-showcase"
-        style="padding: 80px 0; background: var(--bg-shade); border-top: 5px solid var(--primary-text-color);">
-        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-                <h2 style="font-size: 3rem; color: var(--primary-text-color); margin-bottom: 20px;">Meet Our Team</h2>
-                <p style="font-size: 1.2rem; color: var(--secondary-text-color); max-width: 600px; margin: 0 auto;">
-                    Dedicated developers working together to create the best educational platform for NITRA students.
-                </p>
-            </div>
-
-            <div class="team-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; justify-items: center;">
-                <!-- Vaibhav Babele Card -->
-                <div class="team-showcase-card"
-                    style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                    <div class="team-avatar"
-                        style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
-                        <img src="images/vaibhav.jpg" alt="Vaibhav Babele"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Vaibhav Babele
-                    </h3>
-                    <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">Lead
-                        Developer & Founder</p>
-                    <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
-                        Computer Science Engineering student passionate about creating educational platforms for
+   <!-- TEAM SECTION (Before Footer) -->
+        <section class="team-showcase">
+            <div class="container" id="teamcontainer">
+                <div class="section-header">
+                    <h2 id="teamheading">Meet Our Team
+                    </h2>
+                    <p id="teampara">
+                        Dedicated developers working together to create the best educational platform for NITRA
                         students.
                     </p>
-                    <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
-                        <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"
-                            style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
-                            <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
-                        </a>
-                        <a href="https://github.com/vaibhavbabele" target="_blank"
-                            style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
-                            <i class="fab fa-github" style="font-size: 1.2rem;"></i>
-                        </a>
-                    </div>
                 </div>
 
-                <!-- Ghanshyam Prajapati Card -->
-                <div class="team-showcase-card"
-                    style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                    <div class="team-avatar"
-                        style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 4px solid var(--main-color); background: var(--accent-color);">
-                        <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="team-grid">
+                    <!-- Vaibhav Babele Card -->
+                    <div class="team-showcase-card">
+                        <div class="team-avatar">
+                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele" class="boximg">
+                        </div>
+                        <h3 class="boxheading">Vaibhav Babele</h3>
+                        <p class="boxp1">Lead Developer & Founder</p>
+                        <p class="boxp2">
+                            Computer Science Engineering student passionate about creating educational platforms for
+                            students.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank" class="linkbutton">
+                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                            </a>
+                            <a href="https://github.com/vaibhavbabele" target="_blank" class="linkbutton">
+                                <i class="fab fa-github" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Ghanshyam
-                        Prajapati</h3>
-                    <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">
-                        Co-Developer</p>
-                    <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
-                        Dedicated developer contributing to the platform's growth and student experience enhancement.
-                    </p>
-                    <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
-                        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                            target="_blank"
-                            style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
-                            <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Development Team Card -->
-                <div class="team-showcase-card"
-                    style="background: var(--white-4345); border: 3px solid var(--main-color); border-radius: 20px; padding: 40px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-                    <div class="team-avatar placeholder"
-                        style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; border: 4px solid var(--main-color); background: var(--accent-color); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
+                    <!-- Ghanshyam Prajapati Card -->
+                    <div class="team-showcase-card">
+                        <div class="team-avatar">
+                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati" class="boximg">
+                        </div>
+                        <h3 class="boxheading">Ghanshyam Prajapati</h3>
+                        <p class="boxp1">Co-Developer</p>
+                        <p class="boxp2">
+                            Dedicated developer contributing to the platform's growth and student experience
+                            enhancement.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                                target="_blank" class="linkbutton">
+                                <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3 style="font-size: 1.8rem; color: var(--primary-text-color); margin-bottom: 10px;">Development
-                        Team</h3>
-                    <p style="color: var(--main-color); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px;">
-                        Contributors & Maintainers</p>
-                    <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
-                        A growing community of student developers working together to improve the platform.
-                    </p>
-                    <div class="social-links" style="display: flex; justify-content: center; gap: 15px;">
-                        <a href="pr-contributors.html"
-                            style="width: 45px; height: 45px; background: var(--main-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
-                            <i class="fas fa-users" style="font-size: 1.2rem;"></i>
-                        </a>
+
+                    <!-- Development Team Card -->
+                    <div class="team-showcase-card">
+                        <div class="team-avatar placeholder">
+                            <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                        <h3 class="boxheading">
+                            Development Team</h3>
+                        <p class="boxp1">
+                            Contributors & Maintainers</p>
+                        <p class="boxp2">
+                            A growing community of student developers working together to improve the platform.
+                        </p>
+                        <div class="social-links">
+                            <a href="pr-contributors.html" class="linkbutton">
+                                <i class="fas fa-users" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+
+        </section>
     <footer class="footer-section">
         <div class="container">
             <h1 class="contact-heading">Contact Us</h1>
