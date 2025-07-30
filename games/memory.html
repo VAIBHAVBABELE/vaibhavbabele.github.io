@@ -26,7 +26,20 @@
       --shadow: rgba(0, 0, 0, 0.1);
       --border-radius: 8px;
     }
-body {font-family: 'IBM Plex Sans', sans-serif; text-align: center; padding: 16vh 10px 10px 10px; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
+body {font-family: 'IBM Plex Sans', sans-serif; text-align: center; padding: 60px 10px 10px 10px; background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
+
+    /* Mobile responsive fixes */
+    @media (max-width: 1000px) {
+      body {
+        padding-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      body {
+        padding-top: 50px;
+      }
+    }
     h1 { font-size: 2.2em; color: var(--main-color); margin-bottom: 25px; font-weight: 700; }
     .game-info { display: flex; justify-content: space-around; width: 100%; max-width: 500px; margin-bottom: 20px; padding: 10px 0; background-color: var(--card-front-color); border-radius: var(--border-radius); box-shadow: 0 2px 8px var(--shadow); font-size: 1em; font-weight: 700; color: var(--main-color); }
     .controls { margin-bottom: 25px; display: flex; gap: 15px; align-items: center; }

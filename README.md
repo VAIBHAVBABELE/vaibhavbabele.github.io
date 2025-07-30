@@ -1,5 +1,44 @@
+### Feature which you have to add in website :-
+
+## 📘 Academic Support
+- 🧾 Syllabus Tracker – Upload/view syllabus for each subject (PHP, MySQL)
+- 📈 Attendance Monitor – Manual/auto attendance record (PHP, JS, MySQL)
+- 📘 Subject Wiki – Centralized wiki page for each subject curated by students (Markdown + PHP + MySQL)
+- 🧪 Lab Report Templates – Upload/view lab report formats & submissions (PDF, PHP, MySQL)
+
+## 🏠 Non-Academic / PG Support
+- 📌 Notice Board – Post college/PG announcements (PHP, MySQL, JS)
+- 🛒 Marketplace – Sell/buy books, accessories among students (PHP, MySQL, Bootstrap)
+- 🧹 Service Rating System – Rate tiffin/laundry services (PHP, MySQL)
+- 📦 Lost & Found Portal – List and claim lost/found items (PHP, Bootstrap)
+
+## 🧠 Technical & Project Help
+- 🔍 Open Source Opportunities – Curated list via GitHub API (PHP, GitHub REST API)
+- 💻 IDE Recommendation System – Suggest IDE/tools based on project type (PHP, JS)
+- 🧾 Documentation Templates – Download basic README, LICENSE, Contributing.md formats
+- 🔐 Version Control Tips – Git basics, cheatsheet, commands & tutorials
+
+## 🎉 Community & Events
+- 📸 Photo Gallery – Upload/view event images (Cloudinary, PHP, JS)
+- 🗣️ Club Portal – Join/manage tech & cultural clubs (PHP, MySQL, Bootstrap)
+- 🏆 Leaderboard – Top participants in quizzes, events (PHP, JS, MySQL)
+- 📺 Live Sessions – Embedded YouTube/Zoom recordings of past events (JS embed)
+
+## 🎓 Career & Growth
+- 🧑‍💼 Job Board – Post/view off-campus job listings (PHP, MySQL)
+- 🎯 Skill Tracker – Track your progress in key skills (PHP, Chart.js)
+- 📈 Mock Test Section – MCQ quizzes with scorecard & feedback (PHP, JS, MySQL)
+- 🗂️ Career Resource Library – Articles, prep docs, & referral guides (PDF, PHP)
+
+## 🛠️ Utility & Enhancements
+-🌙 Dark Mode Toggle – Switch theme for better UX (JavaScript + CSS)
+- 🌐 Multi-language Support – Localized content (JavaScript, i18n)
+- 🧑‍🎓 Student Dashboard – One-stop hub for your resources (PHP, Bootstrap cards)
+- 🔔 Push Notifications – Alerts for events or uploads (OneSignal API or JS-based polling)
+
+
 ### What changes I require from contributors:-
-[list of contribution][CONTRIBUTION.md]
+[list of contribution](CONTRIBUTION.md)
 
 ### HOME PAGE
 
