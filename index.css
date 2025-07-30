@@ -57,20 +57,10 @@
   --accent-color: #cda274; /* Keep accent consistent */
   --accent-color-dark: #d4b996;
   --card-bg-color: #1e1e1e;
-=======
-.dark-mode{
-    --nav-bgcolor:rgb(165, 139, 82);
-    --bg-shade:rgb(59, 59, 59);
-    --img-bg-shade: rgba(104, 102, 102, 0.6);
-    --primary-text-color:rgb(238, 234, 234);
-    --secondary-text-color:rgb(200, 200, 200);
-    --tertiary-color:rgb(174, 174, 241);
-    --footer-bgColor:#dbb0b0;
-    --placeholder-color: #adb5bd;
-    --input-bg-color: #495057; 
-    
-
 }
+
+
+
 
 /* Team Showcase Section */
 .team-showcase {
