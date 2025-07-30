@@ -4,21 +4,47 @@ on:
   pull_request:
     types: [closed]
 
+permissions:
+  contents: write  # ✅ Required to commit changes
+
 jobs:
   generate-doc:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate Markdown
+      - name: Ensure docs folder exists
+        run: mkdir -p docs
+
+      - name: Append contribution entry
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_MERGED_BY: ${{ github.event.pull_request.merged_by.login }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          LABELS_JSON: ${{ toJson(github.event.pull_request.labels) }}
         run: |
-          echo "### ✨ Contribution Details" >> docs/contributions.md
-          echo "| Contributor | PR | Title | Labels | Merged By | Time |" >> docs/contributions.md
-          echo "|-------------|----|-------|--------|-----------|------|" >> docs/contributions.md
-          echo "| ![avatar](${GITHUB_ACTOR_AVATAR_URL}) [@${{ github.actor }}](https://github.com/${{ github.actor }}) | #${{ github.event.pull_request.number }} | ${{ github.event.pull_request.title }} | \`${{ join(github.event.pull_request.labels.*.name, ', ') }}\` | [@${{ github.event.pull_request.merged_by.login }}](https://github.com/${{ github.event.pull_request.merged_by.login }}) | $(date '+%Y-%m-%d %H:%M') |" >> docs/contributions.md
+          TIMESTAMP=$(date '+%Y-%m-%d %H:%M')
+
+          # Extract labels from JSON using jq
+          LABELS=$(echo "$LABELS_JSON" | jq -r '.[].name' | paste -sd "," -)
+          if [ -z "$LABELS" ]; then
+            LABELS="No labels"
+          fi
+
+          # Create file with header if it doesn't exist
+          if [ ! -f docs/contributions.md ]; then
+            echo "### ✨ Contribution Details" > docs/contributions.md
+            echo "| Contributor | PR | Title | Labels | Merged By | Time |" >> docs/contributions.md
+            echo "|-------------|----|-------|--------|-----------|------|" >> docs/contributions.md
+          fi
+
+          # Append new row
+          echo "| [@$PR_AUTHOR](https://github.com/$PR_AUTHOR) | [#$PR_NUMBER]($PR_URL) | $PR_TITLE | \`$LABELS\` | [@$PR_MERGED_BY](https://github.com/$PR_MERGED_BY) | $TIMESTAMP |" >> docs/contributions.md
 
       - name: Commit & Push
         run: |
