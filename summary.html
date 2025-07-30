@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
+    <!---google adsense --->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1013609987989002"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZP9NSCWF5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WZP9NSCWF5');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary - Nitra Mitra</title>
-    <meta name="description"
-        content="AI-powered text and file summarization tools for students. Extract key insights from PDFs, documents, and text content with Nitra Mitra's intelligent summary features.">
+    <title>AI Study Summary - Nitra Mitra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="summary.css">
-    <link rel="stylesheet" href="team.css">
     <link rel="stylesheet" href="floating-button.css">
+    <link rel="stylesheet" href="summary.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -27,13 +31,14 @@
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    
+    
 </head>
-
 <body id="onload">
 
     <!-- NAVBAR DESIGNING -->
     <nav>
-        <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        <div class="logo "><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
             <i class="fa-sharp fa-solid fa-bars"></i>
@@ -49,245 +54,131 @@
     </nav>
 
     <div class="main">
-        <!-- HERO SECTION -->
-        <section class="summary-hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Smart Summary Features</h1>
-                    <p class="hero-subtitle">
-                        Transform your learning experience with AI-powered summarization tools.
-                        Extract key insights from documents, create concise summaries, and enhance your study
-                        efficiency.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#features" class="try-button">
-                            <i class="fas fa-rocket"></i>
-                            Explore Features
-                        </a>
+        <!-- SUMMARY TOOL SECTION -->
+        <section class="summary-section" id="summary">
+            <div class="summary-container">
+                <div class="summary-card">
+                    <h1 class="tool-header">
+                        <i class="fas fa-brain"></i> AI Study Summary Tool
+                    </h1>
+                    <p class="tool-description">Transform your study materials into comprehensive summaries, enhanced notes, and practice questions using advanced AI technology</p>
+                    
+                    <div class="text-center mb-4">
+                        <span class="feature-badge"><i class="fas fa-file-alt"></i> Text Summarization</span>
+                        <span class="feature-badge"><i class="fas fa-file-upload"></i> File Processing</span>
+                        <span class="feature-badge"><i class="fas fa-magic"></i> Notes Enhancement</span>
+                        <span class="feature-badge"><i class="fas fa-question-circle"></i> Question Generation</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- FEATURES SECTION -->
-        <section class="section-padding" id="features">
-            <div class="container">
-                <h2 class="service-heading">Powerful Summary Tools</h2>
-                <p class="para">Discover our comprehensive suite of AI-powered summarization features designed to
-                    enhance your academic journey.</p>
-
-                <div class="feature-cards">
-                    <!-- Text Summarization -->
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-align-left"></i>
-                        </div>
-                        <h3 class="feature-title">Text Summarization</h3>
-                        <p class="feature-description">
-                            Transform lengthy text content into concise, meaningful summaries. Perfect for articles,
-                            research papers, and study materials.
-                        </p>
-                        <ul class="feature-list">
-                            <li>Instant text processing</li>
-                            <li>Key point extraction</li>
-                            <li>Customizable summary length</li>
-                            <li>Maintains context and meaning</li>
-                        </ul>
-                        <a href="#text-demo" class="try-button">
-                            <i class="fas fa-play"></i>
-                            Try Text Summary
-                        </a>
+                <!-- Tab Navigation -->
+                <div class="summary-card">
+                    <div class="tab-container">
+                        <button class="tab-btn active" onclick="switchTab('text')">
+                            <i class="fas fa-align-left"></i> Text Summary
+                        </button>
+                        <button class="tab-btn" onclick="switchTab('file')">
+                            <i class="fas fa-file-upload"></i> File Summary
+                        </button>
+                        <button class="tab-btn" onclick="switchTab('notes')">
+                            <i class="fas fa-edit"></i> Enhance Notes
+                        </button>
                     </div>
 
-                    <!-- File Summarization -->
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3 class="feature-title">File Summarization</h3>
-                        <p class="feature-description">
-                            Upload PDF documents, text files, or markdown files and get intelligent summaries with key
-                            insights extracted automatically.
-                        </p>
-                        <ul class="feature-list">
-                            <li>PDF, TXT, MD file support</li>
-                            <li>Bulk content processing</li>
-                            <li>Smart content extraction</li>
-                            <li>Structured summary output</li>
-                        </ul>
-                        <a href="#file-demo" class="try-button">
-                            <i class="fas fa-upload"></i>
-                            Try File Summary
-                        </a>
+                    <!-- Text Summarization Tab -->
+                    <div class="tab-content active" id="textTab">
+                        <h3 class="section-title"><i class="fas fa-align-left"></i> Text Summarization</h3>
+                        <p class="tool-description">Paste your text content below and get an intelligent summary with key insights and takeaways</p>
+                        
+                        <textarea id="textInput" class="input-area" placeholder="Paste your text content here... (articles, lecture notes, research papers, etc.)">
+Enter your text content here to generate a comprehensive summary. You can paste:
+
+• Lecture notes and study materials
+• Research articles and papers
+• Book chapters and excerpts
+• Online articles and blogs
+• Any educational content
+
+The AI will analyze your content and provide:
+✓ Key concepts and main ideas
+✓ Important details and facts
+✓ Structured summary with headings
+✓ Critical insights and takeaways
+✓ Study-friendly formatting
+                        </textarea>
+                        
+                        <button onclick="summarizeText()" class="action-btn" id="textSummaryBtn">
+                            <i class="fas fa-magic"></i> Generate Summary
+                        </button>
+                        
+                        <div id="textResult" class="result-container"></div>
                     </div>
 
-                    <!-- Notes Enhancement -->
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
+                    <!-- File Summarization Tab -->
+                    <div class="tab-content" id="fileTab">
+                        <h3 class="section-title"><i class="fas fa-file-upload"></i> File Summarization</h3>
+                        <p class="tool-description">Upload PDF, TXT, or MD files to extract and summarize their content automatically</p>
+                        
+                        <div class="file-upload-area" id="fileUploadArea" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-cloud-upload-alt fa-4x mb-3"></i>
+                            <h4>Drop your file here or click to browse</h4>
+                            <p>Supported formats: PDF, TXT, MD files (Max 50MB)</p>
+                            <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.md" onchange="handleFileUpload(event)">
                         </div>
-                        <h3 class="feature-title">Notes Enhancement</h3>
-                        <p class="feature-description">
-                            Enhance your study notes with AI-powered improvements. Convert rough notes into
-                            well-structured, comprehensive study materials.
-                        </p>
-                        <ul class="feature-list">
-                            <li>Note restructuring</li>
-                            <li>Gap filling & clarification</li>
-                            <li>Format optimization</li>
-                            <li>Content enrichment</li>
-                        </ul>
-                        <a href="#notes-demo" class="try-button">
-                            <i class="fas fa-magic"></i>
-                            Try Notes Enhancement
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DEMO TOOLS SECTION -->
-        <section class="summary-tools">
-            <div class="container">
-                <!-- Text Summarization Demo -->
-                <div class="tool-demo" id="text-demo">
-                    <div class="demo-header">
-                        <div class="demo-icon">
-                            <i class="fas fa-align-left"></i>
-                        </div>
-                        <h3 class="demo-title">Text Summarization Tool</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label for="textInput" class="form-label"><strong>Enter Text to Summarize:</strong></label>
-                            <textarea id="textInput" class="text-area"
-                                placeholder="Paste your text here... (articles, research papers, long content)"></textarea>
-                            <div class="mt-3">
-                                <button onclick="summarizeText()" class="try-button" id="textSummarizeBtn">
-                                    <i class="fas fa-magic"></i>
-                                    Summarize Text
+                        
+                        <div id="fileInfo" class="file-info">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong><i class="fas fa-file"></i> <span id="selectedFileName"></span></strong>
+                                    <br><small>Size: <span id="selectedFileSize"></span></small>
+                                </div>
+                                <button onclick="clearSelectedFile()" class="clear-btn">
+                                    <i class="fas fa-times"></i> Remove
                                 </button>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <label class="form-label"><strong>Summary Result:</strong></label>
-                            <div id="textResult" class="result-area">
-                                <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
-                                    <i class="fas fa-info-circle"></i><br>
-                                    Your summary will appear here
-                                </p>
-                            </div>
-                        </div>
+                        
+                        <button onclick="summarizeFile()" class="action-btn" id="fileSummaryBtn" disabled>
+                            <i class="fas fa-magic"></i> Summarize File
+                        </button>
+                        
+                        <div id="fileResult" class="result-container"></div>
                     </div>
-                </div>
 
-                <!-- File Summarization Demo -->
-                <div class="tool-demo" id="file-demo">
-                    <div class="demo-header">
-                        <div class="demo-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3 class="demo-title">File Summarization Tool</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
-                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                                <div class="upload-text">Click to upload or drag & drop</div>
-                                <div class="upload-subtext">Supports PDF, TXT, and MD files</div>
-                                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt,.md"
-                                    onchange="handleFileSelect(event)">
-                            </div>
-                            <div id="selectedFile" style="display: none; margin-top: 1rem;">
-                                <div style="background: var(--bg-shade); padding: 1rem; border-radius: 10px;">
-                                    <strong>Selected File:</strong> <span id="fileName"></span><br>
-                                    <strong>Size:</strong> <span id="fileSize"></span>
-                                    <button onclick="clearFile()" class="btn btn-sm btn-outline-danger ms-2">
-                                        <i class="fas fa-times"></i> Remove
-                                    </button>
-                                </div>
-                                <div class="mt-3">
-                                    <button onclick="summarizeFile()" class="try-button" id="fileSummarizeBtn" disabled>
-                                        <i class="fas fa-magic"></i>
-                                        Summarize File
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="form-label"><strong>File Summary Result:</strong></label>
-                            <div id="fileResult" class="result-area">
-                                <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
-                                    <i class="fas fa-upload"></i><br>
-                                    Upload a file to see its summary
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Notes Enhancement Tab -->
+                    <div class="tab-content" id="notesTab">
+                        <h3 class="section-title"><i class="fas fa-edit"></i> Notes Enhancement</h3>
+                        <p class="tool-description">Improve your existing notes with AI insights or generate practice questions for better learning</p>
+                        
+                        <select id="enhancementType" class="enhancement-select">
+                            <option value="enhance">🔥 Enhance & Structure Notes</option>
+                            <option value="questions">❓ Generate Practice Questions</option>
+                        </select>
+                        
+                        <textarea id="notesInput" class="input-area" placeholder="Enter your notes to enhance...">
+Enter your study notes here. For example:
 
-                <!-- Notes Enhancement Demo -->
-                <div class="tool-demo" id="notes-demo">
-                    <div class="demo-header">
-                        <div class="demo-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="demo-title">Notes Enhancement Tool</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label for="notesInput" class="form-label"><strong>Enter Your Notes:</strong></label>
-                            <textarea id="notesInput" class="text-area"
-                                placeholder="Paste your rough notes here..."></textarea>
-                            <div class="mt-3">
-                                <label for="enhanceType" class="form-label"><strong>Enhancement Type:</strong></label>
-                                <select id="enhanceType" class="form-select">
-                                    <option value="structure">Structure & Format</option>
-                                    <option value="expand">Expand & Clarify</option>
-                                    <option value="summarize">Summarize & Condense</option>
-                                </select>
-                            </div>
-                            <div class="mt-3">
-                                <button onclick="enhanceNotes()" class="try-button" id="notesEnhanceBtn">
-                                    <i class="fas fa-brain"></i>
-                                    Enhance Notes
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="form-label"><strong>Enhanced Notes Result:</strong></label>
-                            <div id="notesResult" class="result-area">
-                                <p style="text-align: center; color: var(--secondary-text-color); margin: 2rem 0;">
-                                    <i class="fas fa-lightbulb"></i><br>
-                                    Your enhanced notes will appear here
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+Python Programming Basics:
+- Variables store data
+- Functions are reusable code blocks  
+- Loops: for and while
+- Data types: int, str, list, dict
+- OOP concepts: classes, objects
+- Error handling with try/except
 
-        <!-- STATS SECTION -->
-        <section class="stats-section">
-            <div class="container">
-                <h2 class="service-heading" style="color: white; margin-bottom: 3rem;">Summary Features in Numbers</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">10,000+</span>
-                        <div class="stat-label">Documents Processed</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <div class="stat-label">Accuracy Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5 Sec</span>
-                        <div class="stat-label">Average Processing Time</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <div class="stat-label">Service Availability</div>
+The AI will help you:
+✓ Organize and structure content
+✓ Add detailed explanations
+✓ Create practice questions
+✓ Identify key concepts
+✓ Improve readability
+                        </textarea>
+                        
+                        <button onclick="enhanceNotes()" class="action-btn" id="notesEnhanceBtn">
+                            <i class="fas fa-brain"></i> Enhance Notes
+                        </button>
+                        
+                        <div id="notesResult" class="result-container"></div>
                     </div>
                 </div>
             </div>
@@ -295,193 +186,433 @@
 
         <!-- ABOUT SECTION -->
         <section class="about" id="about">
-            <h1 class="service-heading">About Summary Features</h1>
-            <p class="para">Our <span>AI-powered summary features</span> are designed to revolutionize how
-                <span>NITRA Technical Campus</span> students consume and process information. Using cutting-edge
-                artificial intelligence, we help you extract key insights, create meaningful summaries, and
-                enhance your learning efficiency. Whether you're dealing with research papers, lecture notes,
-                or study materials, our tools make information more accessible and digestible.
-            </p>
-
+            <h1 class="service-heading">About AI Study Summary</h1>
+            <p class="para">Our <span>AI-powered Study Summary Tool</span> is designed to help 
+                <span>NITRA Technical Campus</span> and <span>AKTU students</span> maximize their learning efficiency. 
+                Using advanced artificial intelligence, we transform complex study materials into digestible summaries, 
+                enhance your notes with valuable insights, and generate practice questions to test your understanding. 
+                Perfect for <span>exam preparation</span>, <span>research</span>, and <span>daily study sessions</span>.</p>
+            
             <div class="about-flex">
                 <div class="About-card">
                     <div class="icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-magic"></i>
                     </div>
-                    <h2 class="name">Lightning Fast</h2>
-                    <p>Get summaries in seconds, not minutes</p>
+                    <h2 class="name">Smart Summarization</h2>
+                    <p>AI-powered text analysis that extracts key concepts and insights from any content</p>
                 </div>
-
+                
                 <div class="About-card">
                     <div class="icon">
-                        <i class="fas fa-bullseye"></i>
+                        <i class="fas fa-file-alt"></i>
                     </div>
-                    <h2 class="name">Highly Accurate</h2>
-                    <p>95% accuracy in key information extraction</p>
+                    <h2 class="name">Multi-Format Support</h2>
+                    <p>Process PDFs, text files, and markdown documents with intelligent content extraction</p>
                 </div>
-
+                
                 <div class="About-card">
                     <div class="icon">
-                        <i class="fas fa-expand-arrows-alt"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h2 class="name">Versatile Formats</h2>
-                    <p>Support for PDF, text, and markdown files</p>
+                    <h2 class="name">Study Enhancement</h2>
+                    <p>Transform basic notes into comprehensive study materials with structured formatting</p>
                 </div>
-
+                
                 <div class="About-card">
                     <div class="icon">
-                        <i class="fas fa-user-graduate"></i>
+                        <i class="fas fa-download"></i>
                     </div>
-                    <h2 class="name">Student-Focused</h2>
-                    <p>Tailored for academic content and needs</p>
+                    <h2 class="name">Export Ready</h2>
+                    <p>Download your summaries and enhanced notes in various formats for offline study</p>
                 </div>
             </div>
         </section>
 
-        <!-- TEAM SECTION (Before Footer) -->
-        <section class="team-showcase">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Meet Our Team
-                    </h2>
-                    <p>
-                        Dedicated developers working together to create the best educational platform for NITRA
-                        students.
-                    </p>
-                </div>
-
-                <div class="team-grid">
-                    <!-- Vaibhav Babele Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar">
-                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
-                        </div>
-                        <h3>Vaibhav
-                            Babele</h3>
-                        <p>
-                            Lead Developer & Founder</p>
-                        <p>
-                            Computer Science Engineering student passionate about creating educational platforms for
-                            students.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/vaibhavbabele" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Ghanshyam Prajapati Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar">
-                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
-                        </div>
-                        <h3>Ghanshyam
-                            Prajapati</h3>
-                        <p>
-                            Co-Developer</p>
-                        <p>
-                            Dedicated developer contributing to the platform's growth and student experience
-                            enhancement.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                                target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Development Team Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar placeholder">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>
-                            Development Team</h3>
-                        <p>
-                            Contributors & Maintainers</p>
-                        <p>
-                            A growing community of student developers working together to improve the platform.
-                        </p>
-                        <div class="social-links">
-                            <a href="pr-contributors.html">
-                                <i class="fas fa-users"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- CONTACT SECTION -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
+                <a><i class="fa-brands fa-twitter"></i></a>
             </div>
+            <h3 id="copyright"></h3>
         </section>
-
-        <footer class="footer-section">
-            <div class="container">
-                <h1 class="contact-heading">Contact Us</h1>
-
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>Whatsapp Community</span>
-                            <p>Nitra Mitra</p>
-                        </a>
-                    </div>
-
-                    <div class="contact-item">
-                        <a href="mailto:nitramitra@gmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                            <p>nitramitra@gmail.com</p>
-                        </a>
-                    </div>
-
-                    <div class="contact-item">
-                        <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
-                            class="contact-link">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Address</span>
-                            <p>Sanjay Nagar, Ghaziabad, India</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="social-media">
-                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-
-                <div class="footer-links">
-                    <a href="./privacy.html">Privacy Policy</a> |
-                    <a href="./terms.html">Terms & Conditions</a> |
-                    <a href="./contact.html">Contact</a> |
-                    <a href="pr-contributors.html">Contributors</a>
-                </div>
-
-                <p class="copyright">
-                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-                </p>
-            </div>
-
-    </div>
-    </footer>
     </div>
 
-
+    <!-- Floating Button for Custom Meetings -->
+    <button class="floating-btn" id="myButton" onclick="toggleContainer()">Custom Meetings</button>
+    <div id="container" class="hidden">
+        <button id="createBtn" onclick="createMeeting()">Create Meeting</button>
+        <button id="joinBtn" onclick="showJoinInput()">Join Meeting</button>
+        <div id="joinMeetingDiv" class="hidden">
+            <input type="text" id="meetingId" placeholder="Enter meeting ID or URL">
+            <button onclick="joinMeeting()">Join</button>
+        </div>
+    </div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
     <script src="floating-button.js"></script>
     <script src="index.js"></script>
-    <script src="summary.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+    <script>
+        const API_BASE_URL = 'https://nitra-mitra-gssoc.vercel.app';
+        let selectedFile = null;
+        
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            
+            // Add active class to clicked tab button
+            event.target.classList.add('active');
+        }
+        
+        // Text Summarization
+        async function summarizeText() {
+            const text = document.getElementById('textInput').value.trim();
+            const resultDiv = document.getElementById('textResult');
+            const btn = document.getElementById('textSummaryBtn');
+
+            if (!text) {
+                showError(resultDiv, 'Please enter some text to summarize');
+                return;
+            }
+
+            if (text.length < 50) {
+                showError(resultDiv, 'Please enter at least 50 characters for a meaningful summary');
+                return;
+            }
+
+            setLoading(btn, resultDiv, 'Analyzing and summarizing your text...');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/summarize/text`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: text })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showSuccess(resultDiv, data.summary, {
+                        title: 'Text Summary Generated Successfully',
+                        stats: `Original: ${data.original_length} characters`,
+                        type: 'text'
+                    });
+                } else {
+                    throw new Error(data.error || 'Failed to generate summary');
+                }
+            } catch (error) {
+                showError(resultDiv, `Summary generation failed: ${error.message}`);
+            } finally {
+                resetButton(btn, '<i class="fas fa-magic"></i> Generate Summary');
+            }
+        }
+
+        // File Upload Handling
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (!isValidFileType(file)) {
+                    alert('Please select a PDF, TXT, or MD file');
+                    return;
+                }
+                
+                if (file.size > 50 * 1024 * 1024) { // 50MB limit
+                    alert('File size must be less than 50MB');
+                    return;
+                }
+
+                selectedFile = file;
+                document.getElementById('selectedFileName').textContent = file.name;
+                document.getElementById('selectedFileSize').textContent = formatFileSize(file.size);
+                document.getElementById('fileInfo').style.display = 'block';
+                document.getElementById('fileSummaryBtn').disabled = false;
+            }
+        }
+
+        function clearSelectedFile() {
+            selectedFile = null;
+            document.getElementById('fileInput').value = '';
+            document.getElementById('fileInfo').style.display = 'none';
+            document.getElementById('fileSummaryBtn').disabled = true;
+            
+            // Clear any existing results
+            const resultDiv = document.getElementById('fileResult');
+            resultDiv.style.display = 'none';
+        }
+
+        // File Summarization
+        async function summarizeFile() {
+            if (!selectedFile) {
+                alert('Please select a file first');
+                return;
+            }
+
+            const resultDiv = document.getElementById('fileResult');
+            const btn = document.getElementById('fileSummaryBtn');
+
+            setLoading(btn, resultDiv, 'Uploading and processing your file...');
+
+            try {
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+
+                const response = await fetch(`${API_BASE_URL}/api/summarize/file`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showSuccess(resultDiv, data.summary, {
+                        title: 'File Summarized Successfully',
+                        stats: `File: ${data.filename} | Extracted: ${data.extracted_length} characters`,
+                        type: 'file'
+                    });
+                } else {
+                    throw new Error(data.error || 'Failed to process file');
+                }
+            } catch (error) {
+                showError(resultDiv, `File processing failed: ${error.message}`);
+            } finally {
+                resetButton(btn, '<i class="fas fa-magic"></i> Summarize File');
+            }
+        }
+
+        // Notes Enhancement
+        async function enhanceNotes() {
+            const notes = document.getElementById('notesInput').value.trim();
+            const type = document.getElementById('enhancementType').value;
+            const resultDiv = document.getElementById('notesResult');
+            const btn = document.getElementById('notesEnhanceBtn');
+
+            if (!notes) {
+                showError(resultDiv, 'Please enter some notes to enhance');
+                return;
+            }
+
+            if (notes.length < 20) {
+                showError(resultDiv, 'Please enter at least 20 characters for meaningful enhancement');
+                return;
+            }
+
+            const actionText = type === 'questions' ? 'Generating practice questions...' : 'Enhancing your notes...';
+            setLoading(btn, resultDiv, actionText);
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/notes/enhance`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ notes: notes, type: type })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    const title = type === 'questions' ? 'Practice Questions Generated' : 'Notes Enhanced Successfully';
+                    showSuccess(resultDiv, data.enhanced_notes, {
+                        title: title,
+                        stats: `Original: ${data.original_length} characters | Type: ${type}`,
+                        type: 'notes'
+                    });
+                } else {
+                    throw new Error(data.error || 'Failed to enhance notes');
+                }
+            } catch (error) {
+                showError(resultDiv, `Notes enhancement failed: ${error.message}`);
+            } finally {
+                resetButton(btn, '<i class="fas fa-brain"></i> Enhance Notes');
+            }
+        }
+
+        // Utility Functions
+        function setLoading(btn, resultDiv, message) {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner spinner-icon"></i> Processing...';
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result-container loading-result';
+            resultDiv.innerHTML = `
+                <div class="text-center">
+                    <i class="fas fa-spinner spinner-icon fa-2x mb-3"></i>
+                    <h5>${message}</h5>
+                    <p>This may take a few moments...</p>
+                </div>
+            `;
+        }
+
+        function showSuccess(resultDiv, content, options) {
+            resultDiv.className = 'result-container success-result';
+            resultDiv.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5><i class="fas fa-check-circle text-success"></i> ${options.title}</h5>
+                    <div>
+                        <button onclick="copyToClipboard('${options.type}')" class="copy-btn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button onclick="downloadContent('${options.type}')" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+                <div class="stats-row">
+                    <span><i class="fas fa-info-circle"></i> ${options.stats}</span>
+                    <span><i class="fas fa-clock"></i> Generated: ${new Date().toLocaleTimeString()}</span>
+                </div>
+                <div class="summary-content" id="${options.type}Content">
+                    ${formatContent(content)}
+                </div>
+            `;
+        }
+
+        function showError(resultDiv, message) {
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result-container error-result';
+            resultDiv.innerHTML = `
+                <h5><i class="fas fa-exclamation-circle text-danger"></i> Error</h5>
+                <p>${message}</p>
+                <p><small>Please try again or contact support if the problem persists.</small></p>
+            `;
+        }
+
+        function resetButton(btn, originalText) {
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        }
+
+        function formatContent(content) {
+            // Convert markdown-like formatting to HTML
+            return content
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/###\s(.*?)$/gm, '<h4>$1</h4>')
+                .replace(/##\s(.*?)$/gm, '<h3>$1</h3>')
+                .replace(/^\•\s(.*)$/gm, '<li>$1</li>')
+                .replace(/^-\s(.*)$/gm, '<li>$1</li>')
+                .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+                .replace(/`(.*?)`/g, '<code>$1</code>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/^(.*)$/gm, '<p>$1</p>')
+                .replace(/<p><h/g, '<h')
+                .replace(/<\/h([3-6])><\/p>/g, '</h$1>')
+                .replace(/<p><ul>/g, '<ul>')
+                .replace(/<\/ul><\/p>/g, '</ul>')
+                .replace(/<p><\/p>/g, '');
+        }
+
+        function copyToClipboard(type) {
+            const content = document.getElementById(type + 'Content').innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                // Visual feedback
+                const btn = event.target.closest('.copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '#17a2b8';
+                }, 2000);
+            });
+        }
+
+        function downloadContent(type) {
+            const content = document.getElementById(type + 'Content').innerText;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `nitra-mitra-${type}-summary-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function isValidFileType(file) {
+            const validTypes = ['application/pdf', 'text/plain'];
+            const validExtensions = ['.md'];
+            return validTypes.includes(file.type) || validExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Drag and drop functionality for file upload
+        const fileUploadArea = document.getElementById('fileUploadArea');
+
+        fileUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadArea.classList.add('dragover');
+        });
+
+        fileUploadArea.addEventListener('dragleave', () => {
+            fileUploadArea.classList.remove('dragover');
+        });
+
+        fileUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (isValidFileType(file)) {
+                    if (file.size <= 50 * 1024 * 1024) {
+                        selectedFile = file;
+                        document.getElementById('selectedFileName').textContent = file.name;
+                        document.getElementById('selectedFileSize').textContent = formatFileSize(file.size);
+                        document.getElementById('fileInfo').style.display = 'block';
+                        document.getElementById('fileSummaryBtn').disabled = false;
+                    } else {
+                        alert('File size must be less than 50MB');
+                    }
+                } else {
+                    alert('Please select a PDF, TXT, or MD file');
+                }
+            }
+        });
+
+        // Auto-resize textareas
+        document.querySelectorAll('.input-area').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.max(200, this.scrollHeight) + 'px';
+            });
+        });
+
+        // Update enhancement button text based on selection
+        document.getElementById('enhancementType').addEventListener('change', function() {
+            const btn = document.getElementById('notesEnhanceBtn');
+            if (this.value === 'questions') {
+                btn.innerHTML = '<i class="fas fa-question-circle"></i> Generate Questions';
+            } else {
+                btn.innerHTML = '<i class="fas fa-brain"></i> Enhance Notes';
+            }
+        });
+    </script>
+</body>
 </html>
