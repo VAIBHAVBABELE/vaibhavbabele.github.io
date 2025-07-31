@@ -18,13 +18,10 @@ jobs:
             const repo = context.repo.repo;
             const owner = context.repo.owner;
             const message = `Hi @${prUser}, 🎉 Thank you for your awesome contribution!
-            
-🌟 If you haven’t already, please consider starring [${repo}](https://github.com/${owner}/${repo}) to support the project.
-            
-🚀 We’d love to see more amazing PRs from you. Keep contributing and let’s make this repo even better together!
-            
-Best wishes,  
-Team ${repo} 😊`;
+            🌟 If you haven’t already, please consider starring [${repo}](https://github.com/${owner}/${repo}) to support the project.
+            🚀 We’d love to see more amazing PRs from you. Keep contributing and let’s make this repo even better together!
+            Best wishes,  
+            Team ${repo} 😊`;
 
             await github.issues.createComment({
               owner,
