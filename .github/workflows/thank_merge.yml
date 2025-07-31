@@ -14,18 +14,36 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const prUser = context.payload.pull_request.user.login;
-            const repo = context.repo.repo;
-            const owner = context.repo.owner;
-            const message = `Hi @${prUser}, 🎉 Thank you for your awesome contribution!
-            🌟 If you haven’t already, please consider starring [${repo}](https://github.com/${owner}/${repo}) to support the project.
-            🚀 We’d love to see more amazing PRs from you. Keep contributing and let’s make this repo even better together!
-            Best wishes,  
-            Team ${repo} 😊`;
+            try {
+              // Check if PR info is available
+              if (!context.payload.pull_request) {
+                core.warning("No pull_request data found in context.");
+                return;
+              }
+              const prUser = context.payload.pull_request.user?.login;
+              if (!prUser) {
+                core.warning("No PR user found.");
+                return;
+              }
+              const repo = context.repo.repo;
+              const owner = context.repo.owner;
+              const prNumber = context.payload.pull_request.number;
+              if (!prNumber) {
+                core.warning("No PR number found.");
+                return;
+              }
+              const message = `Hi @${prUser}, 🎉 Thank you for your awesome contribution!
+              🌟 If you haven’t already, please consider starring [${repo}](https://github.com/${owner}/${repo}) to support the project.
+              🚀 We’d love to see more amazing PRs from you. Keep contributing and let’s make this repo even better together!
+              Best wishes,  
+              Team ${repo} 😊`;
 
-            await github.issues.createComment({
-              owner,
-              repo,
-              issue_number: context.payload.pull_request.number,
-              body: message
-            });
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: prNumber,
+                body: message
+              });
+            } catch (error) {
+              core.warning(`Failed to thank contributor: ${error.message}`);
+            }
