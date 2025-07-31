@@ -1,0 +1,34 @@
+name: Thank Contributor on PR Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  thank_contributor:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Thank the contributor with a custom message
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prUser = context.payload.pull_request.user.login;
+            const repo = context.repo.repo;
+            const owner = context.repo.owner;
+            const message = `Hi @${prUser}, 🎉 Thank you for your awesome contribution!
+            
+🌟 If you haven’t already, please consider starring [${repo}](https://github.com/${owner}/${repo}) to support the project.
+            
+🚀 We’d love to see more amazing PRs from you. Keep contributing and let’s make this repo even better together!
+            
+Best wishes,  
+Team ${repo} 😊`;
+
+            await github.issues.createComment({
+              owner,
+              repo,
+              issue_number: context.payload.pull_request.number,
+              body: message
+            });
