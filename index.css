@@ -4,6 +4,15 @@
     box-sizing: border-box;
 
 }
+/* CSS Reset */
+nav, nav *, nav *::before, nav *::after {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 18px !important;
+  letter-spacing: normal !important;
+}
 
 
 :root{
@@ -579,6 +588,10 @@ nav ul {
     list-style: none;
     display: flex;
     align-items: center;
+    fix-navbar-allignment
+    gap: 1.5rem;
+    overflow-x: hidden;
+    padding: 0 1rem;
     justify-content: center;
     gap: 2px; /* Reduced gap */
 }
@@ -587,6 +600,17 @@ nav ul li a {
     text-decoration: none;
     position: relative;
     color: var(--primary-text-color);
+    fix-navbar-allignment
+    margin: 10px;
+    font-size: 18px; /* ← fixed missing unit */
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    padding: 10px 18px;
+    transition: all 0.3s ease;
+    overflow-x: hidden;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: max-content;
     margin: 0 4px; /* Reduced margin */
     font-size: 15px; /* Slightly smaller font */
     letter-spacing: 0.3px;
@@ -621,6 +645,20 @@ nav ul li a:hover {
 }
 
 nav .logo {
+
+    font-size: 33px;
+    font-weight: 300;
+    font-family: "Cinzel", serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-color-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 0 5px;
+
     font-size: 22px; /* Reduced logo size */
     color: var(--main-color);
     font-weight: 600;
@@ -632,12 +670,35 @@ nav .logo {
 nav .logo a {
     text-decoration: none;
     color: inherit;
+
 }
 
-nav #mitra {
-    margin: 0;
-    padding: 0;
+nav .logo:hover {
+    letter-spacing: 1.2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav .logo span {
+    font-weight: 600;
+    position: relative;
     color: var(--main-color);
+    
+}
+
+nav .logo span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav .logo:hover span::after {
+    transform: scaleX(1);
 }
 
 nav .menu-btn {
