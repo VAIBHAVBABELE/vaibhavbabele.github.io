@@ -30,7 +30,7 @@
     --white-4345: #f9f6f0; /* Near-white with warm tone */
     --bg-shade: #faebdd; /* Subtle background contrast */
     --img-bg-shade: rgba(250, 235, 221, 0.6); /* Beige translucent background for images */
-    --primary-text-color: #4b3f32; /* Slightly darker warm brown */
+    --primary-text-color: #4e342e; /* Slightly darker warm brown */
     --secondary-text-color: #926f57; /* Light brown for secondary elements */
     --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
     --accent-color: #cda274; /* Tan - for buttons, links, highlights */
@@ -39,24 +39,28 @@
     --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
     --placeholder-color: #8a7e74; /* Muted warm gray for placeholder text */
     --input-bg-color: #f0e3d3; 
-
-    
-   
+    --card-bg-color: #fff;  
 }
 
-.dark-mode{
-    --nav-bgcolor:rgb(165, 139, 82);
-    --bg-shade:rgb(59, 59, 59);
-    --img-bg-shade: rgba(104, 102, 102, 0.6);
-    --primary-text-color:rgb(238, 234, 234);
-    --secondary-text-color:rgb(200, 200, 200);
-    --tertiary-color:rgb(174, 174, 241);
-    --footer-bgColor:#dbb0b0;
-    --placeholder-color: #adb5bd;
-    --input-bg-color: #495057; 
-    
 
+.dark-mode {
+  --nav-bgcolor: #a58b52; /* Tan brown navbar */
+  --bg-color: #1c1a17; /* Warm charcoal background */
+  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
+  --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
+  --primary-text-color: #fdf0d5; /* Warm light beige text */
+  --secondary-text-color: #b5a08a; /* Light beige for secondary text */
+  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
+  --footer-bgColor: #a58672; /* Warm clay brown */
+  --placeholder-color: #b9a89f;
+  --input-bg-color: #3f3b3c; /* Dark beige input fields */
+  --accent-color: #cda274; /* Keep accent consistent */
+  --accent-color-dark: #d4b996;
+  --card-bg-color: #1e1e1e;
 }
+
+
+
 
 /* Team Showcase Section */
 .team-showcase {
@@ -69,6 +73,7 @@
 .team-showcase-card {
     position: relative;
     z-index: 2;
+
 }
 
 .team-showcase-card:hover {
@@ -749,7 +754,7 @@ section{
 }
 
 .card {
-    background-color: var(--white-4345); /* Light beige */
+    background-color: var(--card-bg-color); /* Light beige */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     border: 3px solid var(--accent-color); /* Warm brown border */
@@ -761,6 +766,7 @@ section{
     display: flex; 
     flex-direction: column; 
     justify-content: space-between;
+    width:25%;
 }
 
 .card-body {
@@ -1019,7 +1025,7 @@ body.dark-mode .facility-card p {
     flex-direction: column;
     text-align: center;
     padding: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 0px;
 }
 
 .about-flex {
@@ -1032,8 +1038,12 @@ body.dark-mode .facility-card p {
 
 .About-card {
     width: 15rem;
-    height: auto;
+    min-height: 400px;
     margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #cab5af;
     border-radius: 40px;
     border-bottom-right-radius: 0;
@@ -1043,27 +1053,43 @@ body.dark-mode .facility-card p {
     transition: transform 0.3s ease;
 }
 
-.About-card:hover {
-    transform: translateY(-10px);
-}
-
 .About-card:hover{
-    transform: translateY(16px);
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .About-card a{
-    margin-top: 12%;
+    margin-top: auto;
+    padding: 10px,20px;
+    color: var(--snd-bg-color);
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3 ease;
 }
 
 .About-card a:hover{
-    background: var(--main-color);
-    color: var(--snd-bg-color);
+    background: #8c6723;
+    color: #fff;
     box-shadow: 0 0 1rem var(--main-color);
+}
+/*card width adjust on the small screen */
+@media  screen and (max-width : 768px){
+.About-card{
+    width: 90%;
+    min-height: auto;
+}
 }
 #btn{
 margin-bottom: 20px;
 border-radius: 2em;
 border: 2px solid white;
+background-color: #6b4f1d;
+color: white;
+padding: 12px 24px;
+font-weight: bold;
+font-size: 1rem;
+transition: background-color 0.4s ease, transform 0.2 ease;
 }
 .footer-section {
   background-color: var(--footer-bgColor);
