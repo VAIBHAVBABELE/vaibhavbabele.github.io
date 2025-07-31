@@ -832,6 +832,243 @@ section{
 
 
 }
+/* Main Calculator Section */
+/* Dark Mode Support */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0e9e1;
+}
+
+body.dark-mode .main,
+body.dark-mode .calculator-box,
+body.dark-mode #calculator .tab-content,
+body.dark-mode #subject-container .row,
+body.dark-mode #cgpa-container .row {
+  background-color: #2b2b2b;
+  color: #f0e9e1;
+}
+
+body.dark-mode .nav-tabs .nav-link {
+  color: #ccc;
+}
+
+body.dark-mode .nav-tabs .nav-link.active {
+  background-color: #4e4e4e;
+  color: #ffffff;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #3c3c3c;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #bb995c;
+  color: #1a120b;
+}
+
+body.dark-mode .btn-primary:hover {
+  background-color: #a67d42;
+  color: #fff;
+}
+
+body.dark-mode .btn-success {
+  background-color: #2e6e4d;
+}
+body.dark-mode .btn-success:hover {
+  background-color: #255d41;
+}
+
+body.dark-mode .btn-danger {
+  background-color: #922d2d;
+}
+body.dark-mode .btn-danger:hover {
+  background-color: #7a2222;
+}
+
+body.dark-mode #result,
+body.dark-mode #cgpa-result {
+  background-color: #4e4e4e;
+  color: #ffffff;
+}
+
+body.dark-mode .hero-section {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .hero-section h1,
+body.dark-mode .hero-section p,
+body.dark-mode .hero-section h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .hero-section .btn {
+  background-color: #bb995c;
+  color: #1a120b;
+}
+
+body.dark-mode .hero-section .btn:hover {
+  background-color: #a67d42;
+  color: #ffffff;
+}
+
+.main{
+  background-color: #faebdd;
+}
+.calculator-box {
+  background-color: #f2d087;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 900px;
+  margin: 50px auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* Tabs Styling */
+.nav-tabs .nav-link {
+  color: #121111;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #e0c89b;
+  color: #0c0c0c;
+  font-weight: 600;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Inner Form Container */
+#calculator .tab-content {
+  background-color: #faebdd;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+#calculator.py-5 {
+background-color: #e0c89b;
+}
+/* Subject Input Rows */
+#subject-container .row,
+#cgpa-container .row {
+  background-color:#faebdd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#subject-container input,
+#subject-container select,
+#cgpa-container input {
+  background-color: #faebdd;
+  color: #070707;
+  border: 1px solid #d2b48c;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Remove Button */
+.btn-danger {
+  background-color: #b23c3c;
+  border: none;
+}
+.btn-danger:hover {
+  background-color: #8e2e2e;
+}
+
+/* Add & Switch Mode Buttons */
+.btn-success,
+.btn-secondary {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+}
+
+.btn-success {
+  background-color: #3ca96c;
+  border: none;
+}
+.btn-success:hover {
+  background-color: #2b8852;
+}
+
+.btn-secondary {
+  background-color: #444;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background-color: #333;
+}
+
+/* Calculate Buttons */
+.btn-primary {
+  background-color: #e0c89b;
+  color: #3c2f1f;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+}
+.btn-primary:hover {
+  background-color: #d6b87d;
+  color: #2c1c0f;
+}
+
+/* Result Text */
+#result,
+#cgpa-result {
+  font-size: 1.4rem;
+  color: #3c2f1f;
+  font-weight: 600;
+  background-color:#e0c89b;
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Hero Section Tweaks */
+.hero-section h1{
+    color: #100f0f;
+margin-bottom: 5%;
+}
+.hero-section p {
+  color: #100f0f;
+}
+.hero-section .btn {
+  background-color: #e0c89b;
+  color: #3c2f1f;
+  border: none;
+  border-radius: 25px;
+}
+.hero-section .btn:hover {
+  background-color: #d2b376;
+  color: #291c0b;
+}
+.hero-section{
+  background-color: #faebdd;
+}
+.hero-section h3 {
+  color: #100f0f;
+}
+.reset-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #3c2f1f;
+  transition: transform 0.3s ease;
+}
+.reset-icon:hover {
+  transform: rotate(90deg);
+  color: #2a1c10;
+}
+
 
 
 /* Gallery Image Hover Effect Styles */
