@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure - Nitra Mitra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500;600&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="team.css">
+
+</head>
+
+<body id="onload">
+    <nav>
+        <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="index.html" id="active">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About </a></li>
+            <li><a href="index.html#Feedback">Feedback</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+
+        </ul>
+        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+
+    </nav>
+    <div class="main">
+        <section class="hero-section text-center text-light py-5">
+            <div class="container">
+                <h1 class="display-4 " style="font-family:  'Cinzel, serif,">Ultimate SGPA & CGPA Calculator</h1>
+                <p class="lead">Easily calculate your SGPA (Semester Grade Point Average) and CGPA (Cumulative Grade Point Average) with our student-friendly tool.
+Switch between SGPA and CGPA tabs, enter your grades , and get instant, accurate results — tailored for Indian universities.</p>
+
+                <div class="mt-4">
+                    <a href="#calculator" class="btn btn-light btn-lg me-3">Calculate Now</a>
+                </div>
+                <div class="stats mt-5 d-flex justify-content-center gap-5">
+                    <div>
+                        <h3>50K+</h3>
+                        <p>Students</p>
+                    </div>
+                    <div>
+                        <h3>100+</h3>
+                        <p>Universities</p>
+                    </div>
+                    <div>
+                        <h3>4.9</h3>
+                        <p>Rating</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="calculator-box ">
+            <div class="reset-icon" onclick="resetCalculator()" title="Reset All">
+  <i class="fas fa-sync-alt"></i>
+</div>
+
+            <section id="calculator" class="py-5" style="background-color: #faebdd;">
+                <div class="container">
+                    <ul class="nav nav-tabs mb-4" id="calcTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="sgpa-tab" data-bs-toggle="tab" data-bs-target="#sgpa"
+                                type="button" role="tab">SGPA Calculator</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="cgpa-tab" data-bs-toggle="tab" data-bs-target="#cgpa"
+                                type="button" role="tab">CGPA Calculator</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="text-center mt-4">
+  
+</div>
+
+
+                        <div class="tab-pane fade show active" id="sgpa" role="tabpanel">
+                            <h1 class="display-4 " style="font-family:  'Cinzel, serif,">Calculate your SGPA</h1>
+                            <form id="calculator-form">
+                                <div class="mb-3 text-end">
+                                    <button type="button" class="btn btn-success" onclick="addSubject()">Add
+                                        Subject</button>
+                                </div>
+                                <div id="subject-container"></div>
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">Calculate SGPA</button>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <h4 id="result" class="fw-bold text-dark"></h4>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="cgpa" role="tabpanel">
+                            <h1 class="display-4 " style="font-family:  'Cinzel, serif,">Calculate your CGPA</h1>
+
+                            <form id="cgpa-form">
+                                <div id="cgpa-container">
+                                    <div class="row mb-3">
+                                        <div class="col-md-5">
+                                            <input type="number" class="form-control" placeholder="SGPA" step="0.01"
+                                                required>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="number" class="form-control" placeholder="Semester Credits"
+                                                required>
+                                        </div>
+                                        <div class="col-md-2 text-end">
+                                            <button type="button" class="btn btn-danger"
+                                                onclick="this.closest('.row').remove()">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-end mb-3">
+                                    <button type="button" class="btn btn-success" onclick="addCGPAField()">Add
+                                        Semester</button>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Calculate CGPA</button>
+                                    <h4 id="cgpa-result" class="mt-3 fw-bold text-dark"></h4>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+
+        <!-- TEAM SECTION (Before Footer) -->
+        <section class="team-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet Our Team</h2>
+                    <p>
+                        Dedicated developers working together to create the best educational platform for NITRA
+                        students.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Vaibhav Babele Card -->
+                    <div class="team-showcase-card">
+                        <div class="team-avatar">
+                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
+                        </div>
+                        <h3>Vaibhav
+                            Babele</h3>
+                        <p>
+                            Lead Developer & Founder</p>
+                        <p>
+                            Computer Science Engineering student passionate about creating educational platforms for
+                            students.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/vaibhavbabele" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ghanshyam Prajapati Card -->
+                    <div class="team-showcase-card">
+                        <div class="team-avatar">
+                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
+                        </div>
+                        <h3>Ghanshyam
+                            Prajapati</h3>
+                        <p>
+                            Co-Developer</p>
+                        <p>
+                            Dedicated developer contributing to the platform's growth and student experience
+                            enhancement.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                                target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Development Team Card -->
+                    <div class="team-showcase-card">
+                        <div class="team-avatar placeholder">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>
+                            Development Team</h3>
+                        <p>
+                            Contributors & Maintainers</p>
+                        <p>
+                            A growing community of student developers working together to improve the platform.
+                        </p>
+                        <div class="social-links">
+                            <a href="pr-contributors.html">
+                                <i class="fas fa-users"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-section">
+            <div class="container">
+                <h1 class="contact-heading">Contact Us</h1>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Whatsapp Community</span>
+                            <p>Nitra Mitra</p>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                            <p>nitramitra@gmail.com</p>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                            class="contact-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Address</span>
+                            <p>Sanjay Nagar, Ghaziabad, India</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a> |
+                    <a href="./terms.html">Terms & Conditions</a> |
+                    <a href="./contact.html">Contact</a> |
+                    <a href="pr-contributors.html">Contributors</a>
+                </div>
+
+                <p class="copyright">
+                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+                </p>
+            </div>
+
+    </div>
+    </footer>
+
+
+    </div>
+
+    <script>
+        // CGPA Calculator Script
+        function addCGPAField() {
+            const container = document.getElementById("cgpa-container");
+            const div = document.createElement("div");
+            div.className = "row mb-3";
+            div.innerHTML = `
+      <div class="col-md-5">
+        <input type="number" class="form-control" placeholder="SGPA" step="0.01" required>
+      </div>
+      <div class="col-md-5">
+        <input type="number" class="form-control" placeholder="Semester Credits" required>
+      </div>
+      <div class="col-md-2 text-end">
+        <button type="button" class="btn btn-danger" onclick="this.closest('.row').remove()">Remove</button>
+      </div>
+    `;
+            container.appendChild(div);
+        }
+
+        document.getElementById("cgpa-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const rows = document.querySelectorAll("#cgpa-container .row");
+            let totalSgpa = 0, totalCredits = 0;
+
+            rows.forEach(row => {
+                const inputs = row.querySelectorAll("input");
+                const sgpa = parseFloat(inputs[0].value);
+                const credits = parseFloat(inputs[1].value);
+
+                if (!isNaN(sgpa) && !isNaN(credits)) {
+                    totalSgpa += sgpa * credits;
+                    totalCredits += credits;
+                }
+            });
+
+            const cgpa = (totalSgpa / totalCredits).toFixed(2);
+            document.getElementById("cgpa-result").textContent = `Your CGPA is: ${isNaN(cgpa) ? "N/A" : cgpa}`;
+        });
+    </script>
+    <script>
+        document.querySelector('a[href="#calculator"]').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector("#calculator").scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+    <script>
+        const modeToggle = document.getElementById("mode");
+        const body = document.body;
+
+        // Check for previously selected mode in localStorage
+        const savedMode = localStorage.getItem("mode");
+        if (savedMode === "dark") {
+            body.classList.add("dark-mode");
+            modeToggle.src = "images/sun.png";
+        }
+
+        modeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                modeToggle.src = "images/sun.png";
+                localStorage.setItem("mode", "dark");
+            } else {
+                modeToggle.src = "images/moon.png";
+                localStorage.setItem("mode", "light");
+            }
+        });
+    </script>
+   <script>
+  function resetCalculator() {
+    location.reload(); // reloads the entire page to reset
+  }
+</script>
+    <script>
+        let inputMode = "grade";
+
+        const gradeMap = {
+            "A+": 10, "A": 9, "B+": 8, "B": 7, "C": 6, "D": 5, "F": 0
+        };
+
+        function switchInputMode(mode) {
+            inputMode = mode;
+            document.getElementById("subject-container").innerHTML = "";
+            addSubject();
+        }
+
+        function addSubject() {
+            const container = document.getElementById("subject-container");
+            const div = document.createElement("div");
+            div.className = "row align-items-center mb-3";
+            div.innerHTML = `
+      <div class="col-md-5">
+        <input type="text" class="form-control" placeholder="Subject Name" required>
+      </div>
+      <div class="col-md-3">
+        ${inputMode === "grade"
+                    ? `<select class="form-control">
+                <option value="">Grade</option>
+                ${Object.keys(gradeMap).map(g => `<option value="${g}">${g}</option>`).join("")}
+              </select>`
+                    : `<input type="number" class="form-control" placeholder="Marks (0-100)" min="0" max="100" required>`
+                }
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="Credits" required>
+      </div>
+      <div class="col-md-2 text-end">
+        <button type="button" class="btn btn-danger" onclick="removeSubject(this)">Remove</button>
+      </div>
+    `;
+            container.appendChild(div);
+        }
+
+        function removeSubject(button) {
+            button.parentElement.parentElement.remove();
+        }
+
+        function marksToGradePoint(marks) {
+            if (marks >= 90) return 10;
+            if (marks >= 80) return 9;
+            if (marks >= 70) return 8;
+            if (marks >= 60) return 7;
+            if (marks >= 50) return 6;
+            if (marks >= 40) return 5;
+            return 0;
+        }
+
+        document.getElementById("calculator-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const rows = document.querySelectorAll("#subject-container .row");
+            let totalPoints = 0, totalCredits = 0;
+
+            rows.forEach(row => {
+                const inputs = row.querySelectorAll("input, select");
+                const name = inputs[0].value.trim();
+                const value = inputs[1].value;
+                const credits = parseFloat(inputs[2].value);
+
+                let gradePoint = 0;
+                if (inputMode === "grade") {
+                    gradePoint = gradeMap[value] ?? 0;
+                } else {
+                    gradePoint = marksToGradePoint(parseFloat(value));
+                }
+
+                if (!isNaN(gradePoint) && !isNaN(credits)) {
+                    totalPoints += gradePoint * credits;
+                    totalCredits += credits;
+                }
+            });
+
+            const sgpa = (totalPoints / totalCredits).toFixed(2);
+            document.getElementById("result").textContent = `Your SGPA is: ${isNaN(sgpa) ? "N/A" : sgpa}`;
+        });
+
+        window.onload = () => {
+            switchInputMode("grade");
+            for (let i = 0; i < 3; i++) {
+                addSubject();
+            }
+            addCGPAField();
+            addCGPAField();
+            addCGPAField();
+        };
+
+    </script>
+
+
+</body>
+
+</html>
