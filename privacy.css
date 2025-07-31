@@ -1,0 +1,92 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+         /* --snd-bg-color: #c4c8f9;
+    --text-color:#fff;
+    --main-color:#491a02;
+    --bg-color: #a6cde5;
+    --white-4345: #f7f7f7;
+    --bg-shade: #f0d8eb;
+    --img-bg-shade: rgba(242, 227, 241, 0.6);
+    --primary-text-color:#38393a;
+    --secondary-text-color:#926f57;
+    --nav-bgcolor:rgb(242, 208, 135);
+    --accent-color:#d2bf80f0;
+    --accent-color-dark:#856113;
+    --padding-inline-section:10px;
+    --footer-bgColor:#ec9999;
+    --placeholder-color: #6c757d;
+    --input-bg-color: #dad6d9; */
+    --snd-bg-color: #fdf0d5; /* Soft beige secondary background */
+    --text-color: #3e3e3e; /* Deep brown for primary text */
+    --main-color: #5a3e2b; /* Rich brown for headings or strong accents */
+    --bg-color: #fdf6ec; /* Light creamy beige main background */
+    --white-4345: #f9f6f0; /* Near-white with warm tone */
+    --bg-shade: #faebdd; /* Subtle background contrast */
+    --img-bg-shade: rgba(250, 235, 221, 0.6); /* Beige translucent background for images */
+    --primary-text-color: #4e342e; /* Slightly darker warm brown */
+    --secondary-text-color: #926f57; /* Light brown for secondary elements */
+    --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
+    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
+    --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
+    --padding-inline-section: 10px;
+    --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
+    --placeholder-color: #8a7e74; /* Muted warm gray for placeholder text */
+    --input-bg-color: #f0e3d3; 
+    }
+
+    .dark-mode {
+         --nav-bgcolor: #a58b52; /* Tan brown navbar */
+  --bg-color: #1c1a17; /* Warm charcoal background */
+  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
+  --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
+  --primary-text-color: #fdf0d5; /* Warm light beige text */
+  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
+  --footer-bgColor: #a58672; /* Warm clay brown */
+  --placeholder-color: #b9a89f;
+  --input-bg-color: #3f3b3c; /* Dark beige input fields */
+    }
+
+    .main:not(.dark-mode) {
+      border: var(--primary-text-color) 5px solid;
+      margin-top: 60px;
+      /* Updated to match new navbar */
+    }
+
+    /* Mobile responsive fix for main content */
+    @media (max-width: 1000px) {
+      .main:not(.dark-mode) {
+        margin-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .main:not(.dark-mode) {
+        margin-top: 50px;
+      }
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--primary-text-color);
+      flex: 1;
+    }
+
+    .container {
+      margin-top: 100px;
+      padding: 20px;
+      font-size: smaller;
+    }
