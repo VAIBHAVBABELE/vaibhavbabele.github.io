@@ -24,6 +24,14 @@
 - 🏆 Leaderboard – Top participants in quizzes, events (PHP, JS, MySQL)
 - 📺 Live Sessions – Embedded YouTube/Zoom recordings of past events (JS embed)
 
+## 🤖 AI-Powered Features
+- 🧠 AI Study Assistant – Intelligent chatbot for academic help and Q&A (Python, Flask, AI APIs)
+- 📄 AI Summary Tool – Smart text & file summarization with notes enhancement (Python, AI/ML)
+- 🔤 Text Summarization – Extract key insights from any text content (AI processing)
+- 📁 File Processing – PDF, TXT, MD file summarization and content extraction (AI/ML)
+- ❓ Question Generation – Auto-generate practice questions from study materials (AI processing)
+- ✨ Notes Enhancement – Transform basic notes into comprehensive study materials (AI/ML)
+
 ## 🎓 Career & Growth
 - 🧑‍💼 Job Board – Post/view off-campus job listings (PHP, MySQL)
 - 🎯 Skill Tracker – Track your progress in key skills (PHP, Chart.js)
@@ -113,6 +121,7 @@
 
 **Nitra Mitra** is a student-centric project built to:
 - Help students with daily academic tasks
+- Provide AI-powered study assistance and smart summarization
 - Offer digital utilities and games
 - Promote collaborative open-source learning
 - Empower beginners in web development
@@ -123,6 +132,8 @@
 
 - 🎮 Games & Tools for learning
 - 🧾 Notes Upload/Download
+- 🤖 AI Study Assistant - Smart chatbot for academic help
+- 📄 AI Summary Tool - Intelligent text & file summarization
 - 🗒 Event & Blog Management
 - 📊 Leaderboards & Admin Dashboard
 - 🖼 Verified Gallery Uploads
@@ -133,9 +144,10 @@
 
 ## 🧑‍💻 Tech Stack
 
-| Frontend     | Backend       | Database | AI/ML (Planned) | APIs         |
+| Frontend     | Backend       | Database | AI/ML            | APIs         |
 |--------------|---------------|----------|------------------|--------------|
-| HTML, CSS, JS| PHP (Laravel) | MySQL    | TensorFlow, Sklearn | Google Maps, Twilio |
+| HTML, CSS, JS| PHP (Laravel) | MySQL    | Python, Flask    | Google Maps, Twilio |
+|              | Python Flask  |          | AI APIs          | OpenAI/AI APIs |
 
 ---
 
