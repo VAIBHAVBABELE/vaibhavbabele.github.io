@@ -1,517 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PR Contributors - Nitra Mitra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="team.css">
-  
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --snd-bg-color: #c4c8f9;
-            --text-color: #fff;
-            --main-color: #491a02;
-            --bg-color: #a6cde5;
-            --white-4345: #f7f7f7;
-            --bg-shade: #faebdd;
-            --img-bg-shade: rgba(242, 227, 241, 0.6);
-            --primary-text-color: #38393a;
-            --secondary-text-color: #926f57;
-            --nav-bgcolor: rgb(242, 208, 135);
-            --accent-color: #d2bf80f0;
-            --accent-color-dark: #856113;
-            --padding-inline-section: 10px;
-            --footer-bgColor: #e7c6b6;
-            --placeholder-color: #6c757d;
-            --input-bg-color: #dad6d9;
-        }
-
-        .dark-mode {
-            --nav-bgcolor: rgb(165, 139, 82);
-            --bg-shade: rgb(131, 127, 127);
-            --img-bg-shade: rgba(104, 102, 102, 0.6);
-            --primary-text-color: rgb(0, 0, 0);
-            --tertiary-color: rgb(174, 174, 241);
-            --footer-bgColor: #dbb0b0;
-            --placeholder-color: #adb5bd;
-            --input-bg-color: #495057;
-        }
-
-        .main:not(.dark-mode) {
-            border: var(--primary-text-color) 5px solid;
-            margin-top: 60px;
-            /* Updated to match new navbar */
-        }
-
-        /* Mobile responsive fix for main content */
-        @media (max-width: 1000px) {
-            .main:not(.dark-mode) {
-                margin-top: 55px;
-            }
-        }
-
-        @media (max-width: 450px) {
-            .main:not(.dark-mode) {
-                margin-top: 50px;
-            }
-        }
-
-
-        body {
-            font-family: "Poppins", sans-serif;
-            color: var(--primary-text-color);
-        }
-
-
-        section {
-            padding: 50px var(--padding-inline-section);
-            background: var(--bg-shade);
-        }
-
-        .container {
-            margin-inline: auto;
-            padding-inline: var(--padding-inline-section);
-        }
-
-        .service-heading {
-            text-align: center;
-            margin-bottom: 5%;
-            text-decoration: dashed;
-            list-style: lower-latin;
-            font-family: "Cedarville Cursive", cursive;
-            padding-bottom: 3%;
-        }
-
-        .para {
-            color: var(--primary-text-color);
-            font-weight: bold;
-            align-items: center;
-            text-align: justify;
-            padding: 10px;
-            margin: 30px;
-        }
-
-        .para span {
-            color: #cf8133;
-        }
-
-        /* GitHub PR Tracker Styles */
-        .pr-container {
-            max-width: 1200px;
-            margin: 15vh auto 0;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: var(--primary-text-color) 5px solid;
-        }
-
-        .pr-header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .pr-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-
-        .pr-header p {
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            font-size: 1.2rem;
-            color: var(--secondary-text-color);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 30px;
-            background: var(--bg-shade);
-        }
-
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            border: 2px solid var(--primary-text-color);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 5px #40413c, 0 0 5px #1e1f1c, 0 0 18px rgb(70, 70, 52), 0 0 15px rgb(238, 235, 240), 0 0 15px rgb(201, 6, 208);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-color-dark);
-        }
-
-        .stat-label {
-            color: var(--secondary-text-color);
-            margin-top: 5px;
-        }
-
-        .contributors-section,
-        .prs-section {
-            padding: 30px;
-            background: var(--bg-shade);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary-text-color);
-            border-bottom: 3px solid var(--accent-color-dark);
-            padding-bottom: 10px;
-            font-family: "Cedarville Cursive", cursive;
-        }
-
-        .contributors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .contributor-card {
-            background: #cab5af;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid white;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contributor-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 5px #40413c, 0 0 5px #1e1f1c, 0 0 18px rgb(70, 70, 52), 0 0 15px rgb(238, 235, 240), 0 0 15px rgb(201, 6, 208);
-        }
-
-        .level-1 {
-            border-left-color: #e74c3c;
-        }
-
-        .level-2 {
-            border-left-color: #f39c12;
-        }
-
-        .level-3 {
-            border-left-color: #27ae60;
-        }
-
-        .contributor-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--primary-text-color);
-        }
-
-        .contributor-level {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            align-self: flex-start;
-        }
-
-        .level-1-badge {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .level-2-badge {
-            background: #f39c12;
-            color: white;
-        }
-
-        .level-3-badge {
-            background: #27ae60;
-            color: white;
-        }
-
-        .contributor-stats {
-            display: flex;
-            gap: 15px;
-            font-size: 0.9rem;
-            color: var(--secondary-text-color);
-            margin-top: auto;
-        }
-
-        .certificate-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 16px;
-            background-color: var(--accent-color-dark);
-            color: white !important;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            align-self: flex-start;
-        }
-
-        .certificate-btn:hover {
-            background-color: #937d4b;
-            color: white !important;
-        }
-
-
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px;
-        }
-
-
-        .pr-item {
-            background: #fff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #3498db;
-        }
-
-        .pr-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .pr-header-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .pr-number {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .pr-meta {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .pr-labels {
-            margin-top: 10px;
-        }
-
-        .label {
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-        }
-
-        .contact-section {
-            min-height: 30vh;
-            background-color: var(--footer-bgColor);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            border: var(--primary-text-color) 5px solid;
-        }
-
-        .Contact-heading {
-            margin-bottom: 5%;
-            text-align: center;
-            color: #fff;
-            bottom: 25px;
-            font-family: "Playwrite SK", cursive;
-            font-size: 1.5rem;
-        }
-
-        .contact-section .contact-item {
-            flex: 0 0 33.33%;
-            max-width: 33.33%;
-            padding: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .contact-section .contact-item:hover {
-            background: var(--bg-color);
-            color: var(--snd-bg-color);
-            box-shadow: 0 0 1rem var(--main-color);
-        }
-
-        .contact-section .contact-item-inner {
-            width: 70%;
-            padding: 5px 5px;
-            text-align: center;
-            box-shadow: var(--shadow-black-100);
-            border-radius: 5px;
-            align-items: center;
-        }
-
-        .contact-section .contact-item-inner i {
-            font-size: 25px;
-            color: var(--main-color);
-        }
-
-        .contact-section .contact-item-inner a span,
-        .contact-section .contact-item-inner span {
-            display: block;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--accent-color-dark);
-            margin: 2px 0 5px;
-            text-transform: capitalize;
-            word-wrap: break-word;
-        }
-
-        .contact-section .contact-item-inner a p,
-        .contact-section .contact-item-inner p {
-            font-size: 16px;
-            color: var(--accent-color-dark);
-            line-height: 26px;
-            margin: 0;
-            word-wrap: break-word;
-        }
-
-        .social-media {
-            text-align: center;
-        }
-
-        .social-media a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 4rem;
-            height: 4rem;
-            background: transparent;
-            border: .2rem solid var(--main-color);
-            border-radius: 50%;
-            font-size: 2rem;
-            color: var(--main-color);
-            margin: 1.5rem 1.5rem 0 0;
-            transition: .5s ease;
-        }
-
-        .social-media a:hover {
-            background: var(--main-color);
-            color: var(--snd-bg-color);
-            box-shadow: 0 0 1rem var(--main-color);
-        }
-
-        .footer-links {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-links a {
-            color: var(--accent-color-dark);
-            text-decoration: none;
-            margin: 0 5px;
-        }
-
-        .footer-links a:hover {
-            color: var(--main-color);
-        }
-
-        #copyright {
-            position: relative;
-            top: 10%;
-            padding: 0;
-            text-align: center;
-            color: #0b0b8b;
-        }
-
-        @media (max-width: 1000px) {
-
-
-            .contributors-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-section {
-                flex-direction: column;
-                align-items: center;
-                padding: 10px;
-            }
-
-            .contact-section .contact-item {
-                flex: 0 0 50%;
-                max-width: 50%;
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contributors-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-section .contact-item {
-                flex: 0 0 100%;
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .social-media a {
-                width: 3rem;
-                height: 3rem;
-                font-size: 1.5rem;
-                margin: 2rem 1rem 0 0;
-            }
-        }
-    </style>
-</head>
-
-<body id="onload">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pr-contributor.css">
+  </head>
+    <!-- NAVBAR DESIGNING -->
     <nav>
         <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
@@ -527,391 +27,679 @@
 
         </ul>
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <script src="index.js"></script>
 
     </nav>
 
-    <div class="main">
-        <section>
-            <h1 class="service-heading">🏆 PR Contributors</h1>
-            <p class="para">Welcome to the <span>PR Contributors</span> section! This page tracks and celebrates all the
-                amazing contributors who have helped improve <span>Nitra Mitra</span> through their pull requests. Here
-                you can view contributor rankings, track merged PRs, and see the impact each contributor has made to our
-                platform. Thank you to all our <span>contributors</span> for making Nitra Mitra better for the entire
-                <span>NITRA Technical Campus</span> community!</p>
-
-            <div class="pr-container">
-                <div class="pr-header">
-                    <h1>Our Contributors</h1>
-                </div>
-                <div id="content"></div>
+    <main class="main-content">
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="service-heading">🏆 PR Contributors</h1>
+                <p class="para">Welcome to the <span>PR Contributors</span> section! This page tracks and celebrates all the amazing contributors who have helped improve <span>Nitra Mitra</span> through their pull requests. Here you can view contributor rankings, track merged PRs, and see the impact each contributor has made to our platform. Thank you to all our <span>contributors</span> for making Nitra Mitra better for the entire <span>NITRA Technical Campus</span> community!</p>
             </div>
-        </section>
-    </div>
-
-
-    <!-- TEAM SECTION (Before Footer) -->
-    <section class="team-showcase">
-        <div class="container">
-            <div class="section-header">
-                <h2>Meet Our Team</h2>
-                <p>
-                    Dedicated developers working together to create the best educational platform for NITRA
-                    students.
-                </p>
-            </div>
-
-            <div class="team-grid">
-                <!-- Vaibhav Babele Card -->
-                <div class="team-showcase-card">
-                    <div class="team-avatar">
-                        <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="pr-container">
+                    <div class="pr-header">
+                        <h2>Our Contributors</h2>
+                        <p>Celebrating excellence in open source contributions</p>
                     </div>
-                    <h3>Vaibhav
-                        Babele</h3>
-                    <p>
-                        Lead Developer & Founder</p>
-                    <p>
-                        Computer Science Engineering student passionate about creating educational platforms for
-                        students.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/vaibhavbabele" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Ghanshyam Prajapati Card -->
-                <div class="team-showcase-card">
-                    <div class="team-avatar">
-                        <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
-                    </div>
-                    <h3>Ghanshyam
-                        Prajapati</h3>
-                    <p>
-                        Co-Developer</p>
-                    <p>
-                        Dedicated developer contributing to the platform's growth and student experience
-                        enhancement.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                            target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Development Team Card -->
-                <div class="team-showcase-card">
-                    <div class="team-avatar placeholder">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>
-                        Development Team</h3>
-                    <p>
-                        Contributors & Maintainers</p>
-                    <p>
-                        A growing community of student developers working together to improve the platform.
-                    </p>
-                    <div class="social-links">
-                        <a href="pr-contributors.html">
-                            <i class="fas fa-users"></i>
-                        </a>
+                    <div id="content" class="main-content-area">
+                        <div class="loading">🔄 Loading contributors...</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <footer class="footer-section">
-        <div class="container">
-            <h1 class="contact-heading">Contact Us</h1>
-
-            <div class="contact-grid">
+    <footer>
+        <section class="contact-section section-padding" id="contact">
+            <div class="Contact-heading">
+                <h1>Contact us</h1>
+            </div>
+            <div class="contact-items-wrapper" style="display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; width: 100%; margin-bottom: 30px;">
                 <div class="contact-item">
-                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>Whatsapp Community</span>
-                        <p>Nitra Mitra</p>
-                    </a>
+                    <div class="contact-item-inner">
+                        <a>
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Whatsapp Community</span>
+                            <p>nitra mitra</p>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="contact-item">
-                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                        <p>nitramitra@gmail.com</p>
-                    </a>
+                    <div class="contact-item-inner">
+                        <a>
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                            <p>nitramitra@gmail.com</p>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="contact-item">
-                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
-                        class="contact-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Address</span>
-                        <p>Sanjay Nagar, Ghaziabad, India</p>
-                    </a>
+                    <div class="contact-item-inner">
+                        <a>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Address</span>
+                            <p id="sanjay-nagar">Sanjay Nagar,Ghaziabad,India</p>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="social-media">
-                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/"><i class="fa-brands fa-instagram"></i></a>
+                <a><i class="fa-brands fa-twitter"></i></a>
             </div>
 
             <div class="footer-links">
                 <a href="./privacy.html">Privacy Policy</a> |
-                <a href="./terms.html">Terms & Conditions</a> |
-                <a href="./contact.html">Contact</a> |
-                <a href="pr-contributors.html">Contributors</a>
+                <a href="terms.html">Terms & Conditions</a> |
+                <a href="contact.html">Contact</a> |
+                <a href="#" id="active">Contributors</a>
             </div>
 
-            <p class="copyright">
-                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-            </p>
-        </div>
-
-        </div>
+            <h3 id="copyright">© 2024 Nitra Mitra - All Rights Reserved</h3>
+        </section>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
+    let allPRs = [];
+let contributors = new Map();
+const API_TOKEN = '';
+let useApiToken = false;
 
+// Cache configuration - extended for comprehensive data
+const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds (since we're fetching all contributor data)
+const CACHE_KEYS = {
+    PRS: 'github_prs_cache',
+    CONTRIBUTORS: 'github_contributors_cache',
+    TIMESTAMP: 'cache_timestamp'
+};
 
-        let allPRs = [];
-        let contributors = new Map();
+// Dark mode toggle functionality
+const modeToggle = document.getElementById('mode');
+const body = document.body;
 
-        // Dark mode toggle functionality
-        const modeToggle = document.getElementById('mode');
-        const body = document.body;
+if (modeToggle) {
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        modeToggle.src = isDarkMode ? 'images/sun.png' : 'images/moon.png';
+    });
+}
 
-        modeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            modeToggle.src = isDarkMode ? 'images/sun.png' : 'images/moon.png';
+// Cache management functions
+function saveToCache(key, data) {
+    try {
+        sessionStorage.setItem(key, JSON.stringify(data));
+        sessionStorage.setItem(CACHE_KEYS.TIMESTAMP, Date.now().toString());
+        console.log(`✅ Data cached for key: ${key}`);
+    } catch (error) {
+        console.warn('Cache save failed:', error);
+    }
+}
+
+function getFromCache(key) {
+    try {
+        const timestamp = sessionStorage.getItem(CACHE_KEYS.TIMESTAMP);
+        if (!timestamp) return null;
+        
+        const age = Date.now() - parseInt(timestamp);
+        if (age > CACHE_DURATION) {
+            clearCache();
+            return null;
+        }
+        
+        const data = sessionStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    } catch (error) {
+        console.warn('Cache read failed:', error);
+        return null;
+    }
+}
+
+function clearCache() {
+    try {
+        Object.values(CACHE_KEYS).forEach(key => {
+            sessionStorage.removeItem(key);
+        });
+        console.log('🗑️ Cache cleared');
+    } catch (error) {
+        console.warn('Cache clear failed:', error);
+    }
+}
+
+function isCacheValid() {
+    const timestamp = sessionStorage.getItem(CACHE_KEYS.TIMESTAMP);
+    if (!timestamp) return false;
+    
+    const age = Date.now() - parseInt(timestamp);
+    return age < CACHE_DURATION;
+}
+
+function displayCacheStatus() {
+    const timestamp = sessionStorage.getItem(CACHE_KEYS.TIMESTAMP);
+    if (timestamp) {
+        const age = Date.now() - parseInt(timestamp);
+        const remainingTime = Math.max(0, CACHE_DURATION - age);
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = Math.floor((remainingTime % 60000) / 1000);
+        
+        console.log(`💾 Cache valid for: ${minutes}m ${seconds}s`);
+        
+        // Show cache status on page
+        const statusDiv = document.createElement('div');
+        statusDiv.className = 'cache-status';
+        statusDiv.style.cssText = `
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 128, 0, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            z-index: 1000;
+        `;
+        statusDiv.innerHTML = `💾 Cache: ${minutes}m ${seconds}s left`;
+        document.body.appendChild(statusDiv);
+        
+        setTimeout(() => statusDiv.remove(), 5000);
+    }
+}
+
+function getRepoDetails() {
+    const hostname = window.location.hostname;
+    const pathParts = window.location.pathname.split('/').filter(p => p && !p.endsWith('.html'));
+
+    if (!hostname.endsWith('github.io')) {
+        console.warn("Not running on a GitHub Pages site. Using fallback repository.");
+        return 'VAIBHAVBABELE/vaibhavbabele.github.io';
+    }
+
+    const owner = hostname.split('.')[0];
+    const repoName = pathParts.length > 0 ? pathParts[0] : `${owner}.github.io`;
+
+    return `${owner}/${repoName}`;
+}
+
+function checkRateLimitFromHeaders(response) {
+    const rateLimitInfo = {
+        limit: response.headers.get('X-RateLimit-Limit'),
+        remaining: response.headers.get('X-RateLimit-Remaining'),
+        reset: response.headers.get('X-RateLimit-Reset'),
+        used: response.headers.get('X-RateLimit-Used'),
+        resource: response.headers.get('X-RateLimit-Resource')
+    };
+    
+    if (rateLimitInfo.reset) {
+        const resetDate = new Date(parseInt(rateLimitInfo.reset) * 1000);
+        rateLimitInfo.resetDate = resetDate.toLocaleString();
+    }
+    
+    return rateLimitInfo;
+}
+
+function displayRateLimitInfo(rateLimitInfo) {
+    console.log('📊 GitHub API Rate Limit Status:');
+    console.log(`   Remaining: ${rateLimitInfo.remaining || 'N/A'}/${rateLimitInfo.limit || 'N/A'}`);
+    console.log(`   Resets at: ${rateLimitInfo.resetDate || 'N/A'}`);
+    
+    if (rateLimitInfo.remaining && rateLimitInfo.remaining < 50) {
+        console.warn('⚠️  Warning: Low API rate limit remaining!');
+    }
+    
+    return rateLimitInfo;
+}
+
+function displayRateLimitOnPage(rateLimitInfo) {
+    const existingRateLimit = document.querySelector('.rate-limit-info');
+    if (existingRateLimit) {
+        existingRateLimit.remove();
+    }
+    
+    const rateLimitDiv = document.createElement('div');
+    rateLimitDiv.className = 'rate-limit-info';
+    rateLimitDiv.style.cssText = `
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        z-index: 1000;
+        max-width: 200px;
+    `;
+    
+    const remaining = rateLimitInfo.remaining || 'N/A';
+    const limit = rateLimitInfo.limit || 'N/A';
+    
+    rateLimitDiv.innerHTML = `
+        <strong>GitHub API</strong><br>
+        Remaining: ${remaining}/${limit}
+    `;
+    
+    if (rateLimitInfo.remaining && rateLimitInfo.remaining < 50) {
+        rateLimitDiv.style.background = 'rgba(255, 165, 0, 0.8)';
+    }
+    
+    document.body.appendChild(rateLimitDiv);
+    
+    setTimeout(() => {
+        if (rateLimitDiv.parentNode) {
+            rateLimitDiv.remove();
+        }
+    }, 8000);
+}
+
+// Main fetch function with aggressive caching
+async function fetchPRs() {
+    const contentDiv = document.getElementById('content');
+    const repo = getRepoDetails();
+
+    if (!repo) {
+        showError("Could not determine the GitHub repository.");
+        return;
+    }
+
+    // Check cache first
+    const cachedPRs = getFromCache(CACHE_KEYS.PRS);
+    const cachedContributors = getFromCache(CACHE_KEYS.CONTRIBUTORS);
+    
+    if (cachedPRs && cachedContributors && isCacheValid()) {
+        
+        allPRs = cachedPRs;
+        contributors = new Map(cachedContributors);
+        displayResults(allPRs);
+        displayCacheStatus();
+        return;
+    }
+
+    // If no cache, fetch from API
+    contentDiv.innerHTML = `<div class="loading">🔄 Fetching fresh data from ${repo}... br><small>Getting all contributor details - this may take a moment</small></div>`;
+
+    try {
+        const headers = {
+            'Accept': 'application/vnd.github.v3+json',
+        };
+
+        if (useApiToken && API_TOKEN) {
+            headers['Authorization'] = `token ${API_TOKEN}`;
+        }
+
+        // Single API call for PRs
+        const response = await fetch(
+            `https://api.github.com/repos/${repo}/pulls?state=closed&per_page=100&sort=updated&direction=desc`, {
+                headers
+            }
+        );
+
+        const rateLimitInfo = checkRateLimitFromHeaders(response);
+        displayRateLimitInfo(rateLimitInfo);
+        displayRateLimitOnPage(rateLimitInfo);
+
+        if (!response.ok) {
+            if (response.status === 403 && !useApiToken && API_TOKEN) {
+                console.log('');
+                useApiToken = true;
+                return await fetchPRs();
+            } else if (response.status === 403) {
+                throw new Error(`GitHub API rate limit exceeded.`);
+            }
+            throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+        }
+
+        const prs = await response.json();
+        const mergedPRs = prs.filter(pr => pr.merged_at);
+
+        allPRs = mergedPRs;
+        
+        // Process contributors with batched user data fetching
+        await processContributorsOptimized(mergedPRs);
+        
+        // Cache the results
+        saveToCache(CACHE_KEYS.PRS, allPRs);
+        saveToCache(CACHE_KEYS.CONTRIBUTORS, Array.from(contributors.entries()));
+        
+        displayResults(mergedPRs);
+        console.log('✅ Data fetched and cached successfully!');
+
+    } catch (error) {
+        showError(`Error: ${error.message}`);
+    }
+}
+
+// Optimized contributor processing with minimal API calls
+async function processContributorsOptimized(prs) {
+    contributors.clear();
+    
+    // First pass: collect basic contributor info from PR data
+    prs.forEach(pr => {
+        const username = pr.user.login;
+        if (!contributors.has(username)) {
+            contributors.set(username, {
+                name: username,
+                avatar: pr.user.avatar_url,
+                profileUrl: pr.user.html_url,
+                prs: [],
+                totalPRs: 0,
+                maxLevel: 1,
+                levelPRs: { 1: 0, 2: 0, 3: 0 },
+                score: 0,
+                bio: '',
+                company: '',
+                location: '',
+                linkedinUrl: '',
+                twitterUrl: '',
+                websiteUrl: ''
+            });
+        }
+        const contributor = contributors.get(username);
+        contributor.prs.push(pr);
+        contributor.totalPRs++;
+        const prLevel = extractLevelFromLabels(pr.labels || []);
+        if (prLevel > 0) {
+            contributor.levelPRs[prLevel]++;
+            if (prLevel > contributor.maxLevel) {
+                contributor.maxLevel = prLevel;
+            }
+        }
+    });
+
+    // Second pass: fetch user details for ALL contributors (with smart batching)
+    const allContributors = Array.from(contributors.keys());
+    const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
+    const contributorsToFetch = allContributors.filter(username => !excludedUsers.includes(username));
+
+    console.log(`🎯 Fetching detailed info for all ${contributorsToFetch.length} contributors`);
+
+    // Batch fetch with increased delay and error handling
+    const batchSize = 10; // Process in batches to avoid overwhelming the API
+    
+    for (let i = 0; i < contributorsToFetch.length; i += batchSize) {
+        const batch = contributorsToFetch.slice(i, i + batchSize);
+        console.log(`📦 Processing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(contributorsToFetch.length/batchSize)}`);
+        
+        // Process batch with Promise.all for parallel requests (but limited batch size)
+        const batchPromises = batch.map(async (username, batchIndex) => {
+            try {
+                // Add staggered delay within batch
+                await new Promise(resolve => setTimeout(resolve, batchIndex * 200));
+                
+                const headers = { 'Accept': 'application/vnd.github.v3+json' };
+                if (useApiToken && API_TOKEN) {
+                    headers['Authorization'] = `token ${API_TOKEN}`;
+                }
+                
+                const response = await fetch(`https://api.github.com/users/${username}`, { headers });
+                
+                if (response.ok) {
+                    const userData = await response.json();
+                    const contributor = contributors.get(username);
+                    
+                    contributor.bio = userData.bio || '';
+                    contributor.company = userData.company || '';
+                    contributor.location = userData.location || '';
+                    contributor.websiteUrl = userData.blog || '';
+                    contributor.twitterUrl = userData.twitter_username ? `https://twitter.com/${userData.twitter_username}` : '';
+                    
+                    const bioText = (userData.bio || '').toLowerCase();
+                    const linkedinMatch = bioText.match(/linkedin\.com\/in\/([a-zA-Z0-9-]+)/);
+                    if (linkedinMatch) {
+                        contributor.linkedinUrl = `https://linkedin.com/in/${linkedinMatch[1]}`;
+                    }
+                    
+                    console.log(`✅ Fetched info for ${username}`);
+                } else if (response.status === 403) {
+                    console.warn(`⚠️ Rate limited while fetching ${username}, skipping detailed info`);
+                    return; // Skip this user but continue with others
+                } else {
+                    console.warn(`❌ Failed to fetch ${username}: ${response.status}`);
+                }
+                
+            } catch (error) {
+                console.warn(`Failed to fetch profile for ${username}:`, error.message);
+            }
+        });
+        
+        // Wait for current batch to complete
+        await Promise.all(batchPromises);
+        
+        // Add delay between batches to be respectful to API
+        if (i + batchSize < contributorsToFetch.length) {
+            console.log('⏳ Waiting between batches...');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+
+    // Calculate scores for all contributors
+    contributors.forEach(contributor => {
+        contributor.level = contributor.maxLevel;
+        contributor.score = (contributor.levelPRs[1] * 10) + 
+                           (contributor.levelPRs[2] * 25) + 
+                           (contributor.levelPRs[3] * 50);
+    });
+}
+
+function extractLevelFromLabels(labels) {
+    for (const label of labels) {
+        const labelName = label.name.toLowerCase();
+        if (labelName.includes('level 3') || labelName.includes('level3') || labelName.includes('hard')) return 3;
+        if (labelName.includes('level 2') || labelName.includes('level2') || labelName.includes('medium')) return 2;
+        if (labelName.includes('level 1') || labelName.includes('level1') || labelName.includes('easy')) return 1;
+    }
+    return 1;
+}
+
+function displayResults(prs) {
+    const contentDiv = document.getElementById('content');
+    const statsHTML = `
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">${prs.length}</div>
+                <div class="stat-label">Merged PRs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${contributors.size}</div>
+                <div class="stat-label">Contributors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 3).length}</div>
+                <div class="stat-label">Level 3 Contributors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 2).length}</div>
+                <div class="stat-label">Level 2 Contributors</div>
+            </div>
+        </div>
+    `;
+    const contributorsHTML = displayContributors();
+    const prsHTML = displayPRs(prs);
+    contentDiv.innerHTML = statsHTML + contributorsHTML + prsHTML;
+}
+
+function displayContributors() {
+    const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
+    const sortedContributors = Array.from(contributors.values())
+        .filter(c => !excludedUsers.includes(c.name))
+        .sort((a, b) => {
+            if (a.score !== b.score) return b.score - a.score;
+            return b.totalPRs - a.totalPRs;
         });
 
+    const topThree = sortedContributors.slice(0, 3);
+    const restContributors = sortedContributors.slice(3);
 
-        function getRepoDetails() {
-            const hostname = window.location.hostname;
-            const pathParts = window.location.pathname.split('/').filter(p => p && !p.endsWith('.html'));
-
-            // Check if it's a GitHub Pages URL
-            if (!hostname.endsWith('github.io')) {
-                console.warn("Not running on a GitHub Pages site. Using fallback repository.");
-                // Provide a fallback for local testing
-                return 'VAIBHAVBABELE/vaibhavbabele.github.io';
-            }
-
-            const owner = hostname.split('.')[0];
-            // If path has parts, it's a project page (e.g., owner.github.io/repo-name/)
-            // Otherwise, it's a user/org page (e.g., owner.github.io/)
-            const repoName = pathParts.length > 0 ? pathParts[0] : `${owner}.github.io`;
-
-            return `${owner}/${repoName}`;
-        }
-
-        async function fetchPRs() {
-            const contentDiv = document.getElementById('content');
-            const repo = getRepoDetails();
-
-            if (!repo) {
-                showError("Could not determine the GitHub repository.");
-                return;
-            }
-
-            contentDiv.innerHTML = `<div class="loading">🔄 Loading pull requests from ${repo}...</div>`;
-
-            try {
-
-                const headers = {
-                    'Accept': 'application/vnd.github.v3+json',
-                };
-
-                const response = await fetch(
-                    `https://api.github.com/repos/${repo}/pulls?state=closed&per_page=100&sort=updated&direction=desc`, {
-                    headers
-                }
-                );
-
-                if (!response.ok) {
-
-                    if (response.status === 403) {
-                        throw new Error(`GitHub API rate limit exceeded. Please try again later. (Status: ${response.status})`);
-                    }
-                    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
-                }
-
-                const prs = await response.json();
-                const mergedPRs = prs.filter(pr => pr.merged_at);
-
-                allPRs = mergedPRs;
-                processContributors(mergedPRs);
-                displayResults(mergedPRs);
-
-            } catch (error) {
-                showError(`Error fetching data: ${error.message}`);
-            }
-        }
-
-
-        window.addEventListener('load', fetchPRs);
-
-        function processContributors(prs) {
-            contributors.clear();
-            prs.forEach(pr => {
-                const username = pr.user.login;
-                if (!contributors.has(username)) {
-                    contributors.set(username, {
-                        name: username,
-                        avatar: pr.user.avatar_url,
-                        prs: [],
-                        totalPRs: 0,
-                        maxLevel: 1,
-                        levelPRs: { 1: 0, 2: 0, 3: 0 }
-                    });
-                }
-                const contributor = contributors.get(username);
-                contributor.prs.push(pr);
-                contributor.totalPRs++;
-                const prLevel = extractLevelFromLabels(pr.labels || []);
-                if (prLevel > 0) {
-                    contributor.levelPRs[prLevel]++;
-                    if (prLevel > contributor.maxLevel) {
-                        contributor.maxLevel = prLevel;
-                    }
-                }
-            });
-            contributors.forEach(contributor => {
-                contributor.level = contributor.maxLevel;
-            });
-        }
-
-        function extractLevelFromLabels(labels) {
-            for (const label of labels) {
-                const labelName = label.name.toLowerCase();
-                if (labelName.includes('level 3') || labelName.includes('level3') || labelName.includes('hard')) return 3;
-                if (labelName.includes('level 2') || labelName.includes('level2') || labelName.includes('medium')) return 2;
-                if (labelName.includes('level 1') || labelName.includes('level1') || labelName.includes('easy')) return 1;
-            }
-            return 1;
-        }
-
-        function displayResults(prs) {
-            const contentDiv = document.getElementById('content');
-            const statsHTML = `
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-number">${prs.length}</div>
-                    <div class="stat-label">Merged PRs</div>
+    const podiumHTML = `
+        <div class="ranking-podium">
+            ${topThree.length > 1 ? `
+                <div class="podium-item position-2">
+                    <div class="podium-avatar">
+                        <img src="${topThree[1].avatar}" alt="${topThree[1].name}">
+                        <div class="crown silver">🥈</div>
+                    </div>
+                    <div class="podium-name">${topThree[1].name}</div>
+                    <div class="podium-score">⭐ ${topThree[1].score}</div>
+                    <div class="podium-level">Level ${topThree[1].level}</div>
+                    <div class="podium-prs">📊 ${topThree[1].totalPRs} PRs</div>
+                    <div class="podium-links">
+                        <a href="${topThree[1].profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${topThree[1].linkedinUrl ? `<a href="${topThree[1].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">${contributors.size}</div>
-                    <div class="stat-label">Contributors</div>
+            ` : ''}
+            
+            ${topThree.length > 0 ? `
+                <div class="podium-item position-1">
+                    <div class="podium-avatar">
+                        <img src="${topThree[0].avatar}" alt="${topThree[0].name}">
+                        <div class="crown gold">👑</div>
+                    </div>
+                    <div class="podium-name">${topThree[0].name}</div>
+                    <div class="podium-score">⭐ ${topThree[0].score}</div>
+                    <div class="podium-level">Level ${topThree[0].level}</div>
+                    <div class="podium-prs">📊 ${topThree[0].totalPRs} PRs</div>
+                    <div class="podium-links">
+                        <a href="${topThree[0].profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${topThree[0].linkedinUrl ? `<a href="${topThree[0].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 3).length}</div>
-                    <div class="stat-label">Level 3 Contributors</div>
+            ` : ''}
+            
+            ${topThree.length > 2 ? `
+                <div class="podium-item position-3">
+                    <div class="podium-avatar">
+                        <img src="${topThree[2].avatar}" alt="${topThree[2].name}">
+                        <div class="crown bronze">🥉</div>
+                    </div>
+                    <div class="podium-name">${topThree[2].name}</div>
+                    <div class="podium-score">⭐ ${topThree[2].score}</div>
+                    <div class="podium-level">Level ${topThree[2].level}</div>
+                    <div class="podium-prs">📊 ${topThree[2].totalPRs} PRs</div>
+                    <div class="podium-links">
+                        <a href="${topThree[2].profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${topThree[2].linkedinUrl ? `<a href="${topThree[2].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 2).length}</div>
-                    <div class="stat-label">Level 2 Contributors</div>
-                </div>
-            </div>
-        `;
-            const contributorsHTML = displayContributors();
-            const prsHTML = displayPRs(prs);
-            contentDiv.innerHTML = statsHTML + contributorsHTML + prsHTML;
-        }
+            ` : ''}
+        </div>
+    `;
 
-        function displayContributors() {
-            const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
-            const sortedContributors = Array.from(contributors.values())
-                .filter(c => !excludedUsers.includes(c.name))
-                .sort((a, b) => {
-                    if (a.level !== b.level) return b.level - a.level;
-                    return b.totalPRs - a.totalPRs;
-                });
-            const contributorsHTML = sortedContributors.map((contributor, index) => {
-                const rank = index + 1;
-                const medals = ['🥇', '🥈', '🥉'];
-                const rankDisplay = rank <= 3 ? medals[index] : `${rank}`;
-                const levelClass = `level-${contributor.level}`;
-                const levelBadgeClass = `level-${contributor.level}-badge`;
-                const levelText = ['Beginner', 'Intermediate', 'Advanced'][contributor.level - 1];
-                return `
-                <div class="contributor-card ${levelClass}">
-                    <div class="contributor-name">${rankDisplay} ${contributor.name}</div>
+    const listHTML = restContributors.map((contributor, index) => {
+        const rank = index + 4;
+        const levelClass = `level-${contributor.level}`;
+        const levelBadgeClass = `level-${contributor.level}-badge`;
+        const levelText = ['Beginner', 'Intermediate', 'Advanced'][contributor.level - 1];
+        
+        return `
+            <div class="contributor-rank-item ${levelClass}">
+                <div class="rank-number">${rank}</div>
+                <div class="contributor-avatar">
+                    <img src="${contributor.avatar}" alt="${contributor.name}">
+                </div>
+                <div class="contributor-details">
+                    <div class="contributor-name">${contributor.name}</div>
                     <div class="contributor-level ${levelBadgeClass}">
                         Level ${contributor.level} - ${levelText}
                     </div>
-                    <div class="contributor-stats">
-                        <span>📊 ${contributor.totalPRs} PRs</span>
-                        <span>🎯 L1: ${contributor.levelPRs[1]}</span>
-                        <span>🔥 L2: ${contributor.levelPRs[2]}</span>
-                        <span>💎 L3: ${contributor.levelPRs[3]}</span>
+                    ${contributor.bio ? `<div class="contributor-bio">${contributor.bio.substring(0, 100)}${contributor.bio.length > 100 ? '...' : ''}</div>` : ''}
+                </div>
+                <div class="contributor-stats">
+                    <div class="score">⭐ ${contributor.score}</div>
+                    <div class="pr-count">📊 ${contributor.totalPRs} PRs</div>
+                </div>
+                <div class="contributor-actions">
+                    <div class="social-links">
+                        <a href="${contributor.profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${contributor.linkedinUrl ? `<a href="${contributor.linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
                     </div>
-                    <a href="certificate.html?name=${encodeURIComponent(contributor.name)}&level=${contributor.level}&prs=${contributor.totalPRs}" target="_blank" class="certificate-btn">📜 Get Certificate</a>
-                </div>`;
-            }).join('');
-            return `
-            <div class="contributors-section">
-                <h2 class="section-title">🏆 Top Contributors</h2>
-                <div class="contributors-grid">${contributorsHTML}</div>
-            </div>`;
-        }
+                </div>
+            </div>
+        `;
+    }).join('');
 
-        function displayPRs(prs) {
-            const prsHTML = prs.slice(0, 10).map(pr => {
-                const labels = pr.labels?.map(label =>
-                    `<span class="label" style="background-color: #${label.color}; color: ${getContrastColor(label.color)}">${label.name}</span>`
-                ).join('') || '';
-                const mergedDate = new Date(pr.merged_at).toLocaleDateString();
-                const prLevel = extractLevelFromLabels(pr.labels || []);
-                const levelEmoji = ['🔰', '⭐', '💎'][prLevel - 1] || '🔰';
-                return `
-                <div class="pr-item">
-                    <div class="pr-header-item">
-                        <div class="pr-title">${levelEmoji} ${pr.title}</div>
-                        <a href="${pr.html_url}" target="_blank" class="pr-number">#${pr.number}</a>
-                    </div>
-                    <div class="pr-meta">
-                        <span>👤 ${pr.user.login}</span>
-                        <span>📅 Merged: ${mergedDate}</span>
-                    </div>
-                    ${labels ? `<div class="pr-labels">${labels}</div>` : ''}
-                </div>`;
-            }).join('');
-            return `
-            <div class="prs-section">
-                <h2 class="section-title">📋 Recent Merged Pull Requests</h2>
+    return `
+        <div class="contributors-section">
+            <h2 class="section-title">🏆 Top Contributors Ranking</h2>
+            ${podiumHTML}
+            <div class="contributors-ranking-list">
+                ${listHTML}
+            </div>
+        </div>
+    `;
+}
+
+function displayPRs(prs) {
+    const prsHTML = prs.slice(0, 10).map(pr => {
+        const labels = pr.labels?.map(label =>
+            `<span class="label" style="background-color: #${label.color}; color: ${getContrastColor(label.color)}">${label.name}</span>`
+        ).join('') || '';
+        const mergedDate = new Date(pr.merged_at).toLocaleDateString();
+        const prLevel = extractLevelFromLabels(pr.labels || []);
+        const levelEmoji = ['🔰', '⭐', '💎'][prLevel - 1] || '🔰';
+        return `
+            <div class="pr-item">
+                <div class="pr-header-item">
+                    <div class="pr-title">${levelEmoji} ${pr.title}</div>
+                    <a href="${pr.html_url}" target="_blank" class="pr-number">#${pr.number}</a>
+                </div>
+                <div class="pr-meta">
+                    <span>👤 ${pr.user.login}</span>
+                    <span>📅 Merged: ${mergedDate}</span>
+                </div>
+                ${labels ? `<div class="pr-labels">${labels}</div>` : ''}
+            </div>`;
+    }).join('');
+    return `
+        <div class="prs-section">
+            <h2 class="section-title">📋 Recent Merged Pull Requests</h2>
+            <div class="prs-list">
                 ${prsHTML}
-            </div>`;
-        }
+            </div>
+        </div>`;
+}
 
-        function getContrastColor(hexColor) {
-            if (hexColor.startsWith('#')) {
-                hexColor = hexColor.slice(1);
-            }
-            const r = parseInt(hexColor.substr(0, 2), 16);
-            const g = parseInt(hexColor.substr(2, 2), 16);
-            const b = parseInt(hexColor.substr(4, 2), 16);
-            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            return luminance > 0.5 ? '#000000' : '#ffffff';
-        }
+function getContrastColor(hexColor) {
+    if (hexColor.startsWith('#')) {
+        hexColor = hexColor.slice(1);
+    }
+    const r = parseInt(hexColor.substr(0, 2), 16);
+    const g = parseInt(hexColor.substr(2, 2), 16);
+    const b = parseInt(hexColor.substr(4, 2), 16);
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance > 0.5 ? '#000000' : '#ffffff';
+}
 
-        function showError(message) {
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
-        }
-    </script>
-</body>
+function showError(message) {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
+}
 
+
+
+
+// Initialize the app
+window.addEventListener('load', () => {
+    fetchPRs();
+    addRefreshButton();
+});
+</script>
+  </body>
 </html>
