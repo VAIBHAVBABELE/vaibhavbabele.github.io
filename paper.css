@@ -5,30 +5,37 @@
 
 }
 
-
-:root {
-    --snd-bg-color: #c4c8f9;
-    --text-color: #fff;
-    --main-color: #491a02;
-    --bg-color: #a6cde5;
-    --white-4345: #f7f7f7;
-    --bg-shade: #f0d8eb;
-    --primary-text-color: #38393a;
-    --secondary-text-color: #926f57;
-    --nav-bgcolor: rgb(242, 208, 135);
-    --accent-color: #d2bf80f0;
-    --accent-color-dark: #856113;
+:root{
+    --snd-bg-color: #fdf0d5; /* Soft beige secondary background */
+    --text-color: #3e3e3e; /* Deep brown for primary text */
+    --main-color: #5a3e2b; /* Rich brown for headings or strong accents */
+    --bg-color: #fdf6ec; /* Light creamy beige main background */
+    --white-4345: #f9f6f0; /* Near-white with warm tone */
+    --bg-shade: #faebdd; /* Subtle background contrast */
+    --img-bg-shade: rgba(250, 235, 221, 0.6); /* Beige translucent background for images */
+    --primary-text-color: #4e342e; /* Slightly darker warm brown */
+    --secondary-text-color: #926f57; /* Light brown for secondary elements */
+    --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
+    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
+    --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
     --padding-inline-section: 10px;
-    --footer-bgColor: #ec9999;
-
-
-
+    --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
+    --placeholder-color: #8a7e74; /* Muted warm gray for placeholder text */
+    --input-bg-color: #f0e3d3; 
+    --card-bg-color: #fff;  
 }
 
 
-
-
-
+.dark-mode {
+  --nav-bgcolor: #a58b52; /* Tan brown navbar */
+  --bg-color: #1c1a17; /* Warm charcoal background */
+  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
+  --primary-text-color: #fdf0d5; /* Warm light beige text */
+  --secondary-text-color: #b5a08a; /* Light beige for secondary text */
+  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
+  --footer-bgColor: #a58672; /* Warm clay brown */
+  
+}
 
 .dark-mode {
     --nav-bgcolor: rgb(165, 139, 82);
