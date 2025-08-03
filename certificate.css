@@ -1,48 +1,133 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #fff8e1;
+    background-color: #fff8f0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    padding: 20px;
     box-sizing: border-box;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
     text-align: center;
+}
+
+.certificate-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 40px;
+}
+
+.org-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.org-logo {
+  height: 5rem;
+  width: 5rem;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.org-label {
+  font-size: 14px;
+  color: #6d4c41;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 2px 0;
 }
 
 #certificate-wrapper {
-    width: 800px;
-    height: 550px;
-    border: 12px solid #d4a056;
-    padding: 30px;
-    background-color: #fef9e7;
-    box-shadow: 0 0 25px rgba(139, 105, 35, 0.3);
+    max-width: 100%;
+    width: 90vw;
+    height: auto;
+    padding: 40px 30px;
+    border: 10px solid #f7931e;
+    background: linear-gradient(white, white) padding-box,
+              linear-gradient(45deg, #ff6b35, #f7931e, #ffb347, #ff6b35) border-box;
+    box-shadow:  0 0 25px rgba(44, 62, 80, 0.25);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
 }
 
-.certificate-header, .certificate-body, .certificate-footer {
-    text-align: center;
-    color: #4b3d2a;
+.certificate-header,
+.certificate-body,
+.certificate-footer {
+  text-align: center;
+  color: #4b3d2a;
 }
 
 .main-title {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    color: #a56c1d;
+    color: #ff6b35;
     margin: 0;
+    font-weight: 700;
 }
 
 .subtitle {
     font-size: 24px;
     margin-top: 10px;
     color: #6d4c41;
+}
+
+.mentor-badge {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.badge-circle {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 15px rgba(229, 46, 113, 0.4);
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.badge-icon {
+  font-size: 2.2rem;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  margin-bottom: 4px;
+}
+
+.badge-text {
+  font-size: 0.80rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
 }
 
 .contributor-name {
@@ -58,6 +143,16 @@ body {
     line-height: 1.6;
     padding: 0 40px;
     color: #5b4c3a;
+    background: rgba(255, 107, 53, 0.05);
+    border-left: 4px solid #f7931e;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.rank-highlight {
+  font-weight: bold;
+  color: #ff6b35;
+  font-size: 1.2em;
 }
 
 .certificate-footer {
@@ -69,8 +164,21 @@ body {
     color: #4e342e;
 }
 
-.signature p, .date p {
+.signature p, 
+.date p {
     margin: 5px 0;
+}
+
+.signature-font {
+    font-family: 'Great Vibes', cursive;
+    font-size: 20px;
+    color: #ff6b35;
+}
+
+.sig-line {
+    border-top: 1px solid #ff6b35;
+    width: 150px;
+    margin: 0 auto 5px auto;
 }
 
 #download-btn {
@@ -78,14 +186,105 @@ body {
     padding: 12px 25px;
     font-size: 16px;
     font-weight: 600;
-    background-color: #cfa75d;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
 }
 
 #download-btn:hover {
     background-color: #b68e47;
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-1px);
+}
+
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.05;
+    background: url('nitra-mitra-logo.png') no-repeat center;
+    background-size: 300px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+/* Responsiveness Addition */
+@media (max-width: 1024px) {
+    #certificate-wrapper {
+        width: 90%;
+        height: auto;
+        padding: 25px;
+    }
+
+    .main-title {
+        font-size: 38px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .contributor-name {
+        font-size: 42px;
+    }
+
+    .contribution-text {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .certificate-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        font-size: 13px;
+    }
+
+    #download-btn {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    #certificate-wrapper {
+        border-width: 8px;
+        padding: 20px;
+    }
+
+    .main-title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .contributor-name {
+        font-size: 32px;
+    }
+
+    .contribution-text {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .certificate-footer {
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    #download-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
