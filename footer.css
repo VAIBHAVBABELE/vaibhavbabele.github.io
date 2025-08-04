@@ -15,6 +15,7 @@
      --footer-bgColor:#a58672;
  }
  
+
 .footer-section {
   background-color: var(--footer-bgColor);
   padding: 50px 20px;
@@ -23,12 +24,14 @@
 }
 
 
+
 .contact-heading {
   text-align: center;
-  color: #fff;
+  color: var(--primary-text-color);
   font-family: "Playwrite SK", cursive;
   font-size: 2rem;
   margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .contact-grid {
@@ -39,9 +42,33 @@
   gap: 20px;
 }
 
+
 .contact-item {
-  flex: 1 1 250px;
-  max-width: 300px;
+   flex: 1 1 0;
+  min-width: 220px;
+  max-width: 100%;
+ 
+}
+.contact-item {
+  background-color: #fdf6ec; /* Light mode background */
+  color: var(--accent-color-dark); /* Text color for light mode */
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(205, 162, 116, 0.08);
+  padding: 18px;
+  /* margin-bottom: 18px; */
+  transition: background 0.3s, color 0.3s;
+   box-sizing: border-box;
+   overflow:hidden;
+
+}
+body.dark-mode .contact-item {
+  background-color: #2a2723; /* Dark mode background */
+  color: #fdf0d5; /* Text color for dark mode */
+  box-shadow: 0 2px 8px rgba(205, 162, 116, 0.18);
+}
+body.dark-mode .contact-link i {
+  color: var(--accent-color); /* Lighter accent for dark mode */
+ 
 }
 
 .contact-link {
@@ -52,13 +79,16 @@
   text-align: center;
   border-radius: 10px;
   transition: 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.05);
+  /* background-color: rgba(255, 255, 255, 0.05); */
+   box-sizing: border-box;
+  height:100%;
 }
 
 .contact-link i {
   font-size: 30px;
   margin-bottom: 10px;
   color: var(--main-color);
+  overflow:hidden;
 }
 
 .contact-link span {
@@ -154,6 +184,7 @@ footer .copyright {
          font-size: 14px;
          margin-top: 20px;
      }
+     
  }
 
  @media only screen and (max-width: 772px) {
