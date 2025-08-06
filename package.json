@@ -1,0 +1,30 @@
+{
+  "name": "vaibhavbabele.github.io",
+  "version": "1.0.0",
+  "description": "- 🧾 Syllabus Tracker – Upload/view syllabus for each subject (PHP, MySQL)\r - 📈 Attendance Monitor – Manual/auto attendance record (PHP, JS, MySQL)\r - 📘 Subject Wiki – Centralized wiki page for each subject curated by students (Markdown + PHP + MySQL)\r - 🧪 Lab Report Templates – Upload/view lab report formats & submissions (PDF, PHP, MySQL)",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/issues"
+  },
+  "homepage": "https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io#readme",
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "htmlhint": "^1.6.3",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.23.0"
+  }
+}
