@@ -86,6 +86,176 @@
     border-color: var(--primary-text-color) !important;
 }
 
+/* Focus Toggle Button Styles */
+#focusToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#focusToggle:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
+}
+
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+/* Focus Mode Styles */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+.focus-mode body {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+.focus-mode .main {
+    background: #ffffff !important;
+}
+
+.focus-mode nav {
+    background: #f8f9fa !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .card {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .facility-card {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .facility-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .About-card {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .About-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .floating-btn {
+    display: none !important;
+}
+
+.focus-mode #container {
+    display: none !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    display: none !important;
+}
+
+.focus-mode .primary-button {
+    background: #007bff !important;
+    color: #ffffff !important;
+    border: 1px solid #007bff !important;
+}
+
+.focus-mode .primary-button:hover {
+    background: #0056b3 !important;
+    transform: none !important;
+}
+
+.focus-mode .btn {
+    background: #007bff !important;
+    color: #ffffff !important;
+    border: 1px solid #007bff !important;
+}
+
+.focus-mode .btn:hover {
+    background: #0056b3 !important;
+    transform: none !important;
+}
+
+.focus-mode .social-media a {
+    background: #f8f9fa !important;
+    color: #6c757d !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: #e9ecef !important;
+    transform: none !important;
+}
+
+.focus-mode .contact-link {
+    background: #f8f9fa !important;
+    color: #6c757d !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: #e9ecef !important;
+    transform: none !important;
+}
+
+.focus-mode footer {
+    background: #f8f9fa !important;
+    color: #6c757d !important;
+}
+
+.focus-mode .footer-links a {
+    color: #6c757d !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: #495057 !important;
+}
+
 /* Responsive adjustments for team section */
 @media (max-width: 768px) {
     .team-showcase .section-header h2 {
@@ -1921,5 +2091,24 @@ footer .copyright {
     font-size: 11px;
     padding: 8px;
   }
+}
+
+/* Responsive design for Focus Toggle Button */
+@media (max-width: 768px) {
+    #focusToggle {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #focusToggle {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
 }
 

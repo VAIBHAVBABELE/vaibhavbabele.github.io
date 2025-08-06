@@ -553,3 +553,170 @@
         font-size: 2rem;
     }
 }
+
+/* Focus Mode Toggle Button */
+#focusToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    background-color: #5a3e2b;
+    color: #fdf6ec;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 8px rgba(90, 62, 43, 0.3);
+    transition: all 0.3s ease;
+}
+
+#focusToggle:hover {
+    background-color: #856113;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(90, 62, 43, 0.4);
+}
+
+/* Focus Mode Styles */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
+}
+
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+.focus-mode body {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+.focus-mode .main {
+    background: #ffffff !important;
+}
+
+.focus-mode nav {
+    background: #f8f9fa !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .contact-hero {
+    background: #f8f9fa !important;
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.focus-mode .contact-form-section {
+    background: #ffffff !important;
+}
+
+.focus-mode .contact-form-container {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .contact-info-card {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .contact-info-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .team-card {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .team-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .faq-item {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .faq-question:hover {
+    background: #f8f9fa !important;
+    transform: none !important;
+}
+
+.focus-mode .submit-btn {
+    background: #007bff !important;
+    color: #ffffff !important;
+    border: 1px solid #007bff !important;
+}
+
+.focus-mode .submit-btn:hover {
+    background: #0056b3 !important;
+    transform: none !important;
+}
+
+.focus-mode .form-control {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+}
+
+.focus-mode .form-control:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25) !important;
+    transform: none !important;
+}
+
+.focus-mode .social-links a {
+    background: #f8f9fa !important;
+    color: #6c757d !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.focus-mode .social-links a:hover {
+    background: #e9ecef !important;
+    transform: none !important;
+}
+
+/* Responsive design for Focus Toggle Button */
+@media (max-width: 768px) {
+    #focusToggle {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #focusToggle {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+}
