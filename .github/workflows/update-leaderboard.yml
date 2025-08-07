@@ -36,7 +36,7 @@ jobs:
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
         run: |
-          node .github/scripts/generate-leaderboard.js
+          node .github/scripts/generate-leaderboard.cjs
 
       - name: Commit and push changes
         run: |
