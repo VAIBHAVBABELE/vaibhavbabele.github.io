@@ -1,8 +1,12 @@
 name: Auto Comment on Merge Conflict
 
 on:
+  # Event-based triggers
   pull_request:
     types: [opened, reopened, synchronize]
+  # Time-based trigger (every 6 hours)
+  schedule:
+    - cron: '0 */6 * * *'
 
 permissions:
   pull-requests: write
@@ -11,35 +15,57 @@ jobs:
   comment-on-merge-conflict:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for merge conflict and auto-comment
+      - name: Check for merge conflict on event and schedule, auto-comment
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const pr = context.payload.pull_request;
-            if (!pr) return;
-
-            // Fetch latest PR data (mergeable state can be null at first, so try multiple times if needed)
-            let tries = 0;
-            let data = null;
-            while (tries < 3) {
-              const result = await github.rest.pulls.get({
+            // Helper: Get all open PRs (for schedule), or just the triggered one (for PR event)
+            let prs = [];
+            if (context.eventName === "schedule") {
+              prs = await github.paginate(github.rest.pulls.list, {
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                pull_number: pr.number
+                state: 'open'
               });
-              data = result.data;
-              if (data.mergeable !== null) break;
-              await new Promise(r => setTimeout(r, 3000));
-              tries++;
+            } else if (context.payload.pull_request) {
+              prs = [context.payload.pull_request];
             }
 
-            if (data.mergeable === false) {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: pr.number,
-                body: `
+            for (const pr of prs) {
+              // Get latest PR details (for mergeable state, labels, etc)
+              let tries = 0;
+              let prDetails = null;
+              while (tries < 3) {
+                const resp = await github.rest.pulls.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: pr.number
+                });
+                prDetails = resp.data;
+                if (prDetails.mergeable !== null) break;
+                await new Promise(r => setTimeout(r, 3000));
+                tries++;
+              }
+
+              // If merge conflict
+              if (prDetails.mergeable === false) {
+                // To avoid duplicate comments, check if already commented
+                const comments = await github.rest.issues.listComments({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number
+                });
+                const alreadyCommented = comments.data.some(c =>
+                  c.body && c.body.includes("**Merge Conflict Detected!**")
+                );
+                if (alreadyCommented) continue;
+
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: `
 ⚠️ **Merge Conflict Detected!**
 
 Hi @${pr.user.login}, your pull request currently has a merge conflict with the base branch. Please resolve the conflict so your PR can be merged.
@@ -95,6 +121,7 @@ If you need any help, please ask your mentors by replying here!
 ---
 
 *This is an automated message to help you resolve merge conflicts and get your PR ready for review. Thank you!*
-                `
-              });
+                  `
+                });
+              }
             }
