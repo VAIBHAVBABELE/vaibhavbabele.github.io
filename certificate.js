@@ -4,7 +4,8 @@ window.onload = function() {
     const name = urlParams.get('name') || 'Valued Contributor';
     const level = urlParams.get('level') || '1';
     const prs = urlParams.get('prs') || '0';
-    const maintainer = urlParams.get('maintainer') || 'Vaibhav Babele'; 
+    const rank = urlParams.get('rank') || '1';
+    const score = urlParams.get('score') || '0';
 
     // Map level number to a readable string
     const levelText = {
@@ -17,7 +18,8 @@ window.onload = function() {
     document.getElementById('contributor-name').textContent = decodeURIComponent(name);
     document.getElementById('pr-count').textContent = prs;
     document.getElementById('level').textContent = levelText[level] || 'Beginner';
-    document.getElementById('maintainer-name').textContent = maintainer; 
+    document.getElementById('rank').textContent = rank;
+    document.getElementById('score').textContent = score;   
 
     // Set the issue date to the current date
     const today = new Date();

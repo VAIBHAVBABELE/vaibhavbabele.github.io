@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="theme-color" content="#0288d1" />
     <meta charset="UTF-8">
@@ -8,9 +9,12 @@
     <link rel="stylesheet" href="certificate.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -19,10 +23,16 @@
             <div class="certificate-header-bar">
                 <div class="org-info">
                     <img src="gssoc25-logo.jpg" alt="GSSoC 2025 Logo" class="org-logo" />
-                    <p class="org-label girlScript"> 
+                    <p class="org-label girlScript">
                         GirlScript
                     </p>
                     <p class="org-label">Summer of Code '25</p>
+                </div>
+                <div class="mentor-badge">
+                    <div class="badge-circle">
+                        <i class="fas fa-star badge-icon"></i>
+                        <span class="badge-text">CONTRIBUTOR</span>
+                    </div>
                 </div>
                 <div class="org-info">
                     <img src="nitra-mitra-logo.png" alt="Nitra Mitra Logo" class="org-logo" />
@@ -37,35 +47,35 @@
             </div>
 
             <!-- Mentor Badge -->
-            <div class="mentor-badge">
-                <div class="badge-circle">
-                <i class="fas fa-star badge-icon"></i>
-                <span class="badge-text">CONTRIBUTOR</span>
-                </div>
-            </div>
+        
+
 
             <!--Body -->
             <div class="certificate-body">
                 <h2 id="contributor-name" class="contributor-name">Contributor Name</h2>
                 <p class="contribution-text">
-                For their outstanding contribution to the <strong>Nitra Mitra</strong> project, this certificate recognizes the successful merge of <strong id="pr-count">0</strong> pull request(s),
-                and achievement of the <strong id="level">Beginner</strong> contribution level under the <i><strong>GirlScript Summer of Code 2025</strong></i> program.<br><br>
-                <strong>Rank Achieved:</strong> <span id="rank">5th</span> in the project.
+                    For their outstanding contribution to the <strong>Nitra Mitra</strong> project, this certificate
+                    recognizes the successful merge of <strong id="pr-count">0</strong> pull request(s),
+                    and achievement of the <strong id="level">Beginner</strong> contribution level with <strong><span
+                            id="score">0 </span> Points</strong> under the <i><strong>GirlScript Summer of Code
+                            2025</strong></i> program.<br><br>
+                    <strong>Rank Achieved:</strong> <span class="rank-highlight" id="rank">5th</span> in the project.
                 </p>
             </div>
 
             <!-- Footer -->
             <div class="certificate-footer">
                 <div class="signature">
+
+                    <p id="maintainer-name" class="signature-font">Vaibhav Babele</p>
                     <div class="sig-line"></div>
-                    <p id="maintainer-name" class="signature-font">Nitra Mitra</p>
-                    <p><strong>Project Maintainer</strong></p>
-                    
+                    <p><strong>Project Admin</strong></p>
+
                 </div>
                 <div class="date">
                     <p id="issue-date">July 24, 2025</p>
                     <p><strong>Date</strong></p>
-                    
+
                 </div>
             </div>
             <!-- Watermark -->
@@ -80,8 +90,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
+
     <script src="certificate.js"></script>
 
 </body>
+
 </html>

@@ -51,244 +51,242 @@
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
 
     </nav>
-    <div class="main">
-        <section class="hero-section text-center text-light py-5">
-            <div class="container">
-                <h1 class="display-4 " style="font-family:  'Cinzel, serif,">Ultimate SGPA & CGPA Calculator</h1>
-                <p class="lead">Easily calculate your SGPA (Semester Grade Point Average) and CGPA (Cumulative Grade Point Average) with our student-friendly tool.
-Switch between SGPA and CGPA tabs, enter your grades , and get instant, accurate results — tailored for Indian universities.</p>
 
-                <div class="mt-4">
-                    <a href="#calculator" class="btn btn-light btn-lg me-3">Calculate Now</a>
+
+    <section class="hero-section text-center text-light py-5">
+        <div class="container">
+            <h1 class="display-4 ">Ultimate SGPA & CGPA Calculator</h1>
+            <p class="lead">Easily calculate your SGPA (Semester Grade Point Average) and CGPA (Cumulative Grade
+                Point Average) with our student-friendly tool.
+                Switch between SGPA and CGPA tabs, enter your grades , and get instant, accurate results — tailored
+                for Indian universities.</p>
+
+            <div class="mt-4">
+                <a href="#calculator" class="btn btn-light btn-lg me-3">Calculate Now</a>
+            </div>
+            <div class="stats mt-5 d-flex justify-content-center gap-5">
+                <div>
+                    <h3>50K+</h3>
+                    <p>Students</p>
                 </div>
-                <div class="stats mt-5 d-flex justify-content-center gap-5">
-                    <div>
-                        <h3>50K+</h3>
-                        <p>Students</p>
-                    </div>
-                    <div>
-                        <h3>100+</h3>
-                        <p>Universities</p>
-                    </div>
-                    <div>
-                        <h3>4.9</h3>
-                        <p>Rating</p>
-                    </div>
+                <div>
+                    <h3>100+</h3>
+                    <p>Universities</p>
+                </div>
+                <div>
+                    <h3>4.9</h3>
+                    <p>Rating</p>
                 </div>
             </div>
-        </section>
-        <div class="calculator-box ">
-            <div class="reset-icon" onclick="resetCalculator()" title="Reset All">
-  <i class="fas fa-sync-alt"></i>
-</div>
-
-            <section id="calculator" class="py-5" style="background-color: #faebdd;">
-                <div class="container">
-                    <ul class="nav nav-tabs mb-4" id="calcTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="sgpa-tab" data-bs-toggle="tab" data-bs-target="#sgpa"
-                                type="button" role="tab">SGPA Calculator</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="cgpa-tab" data-bs-toggle="tab" data-bs-target="#cgpa"
-                                type="button" role="tab">CGPA Calculator</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="text-center mt-4">
-  
-</div>
-
-
-                        <div class="tab-pane fade show active" id="sgpa" role="tabpanel">
-                            <h1 class="display-4 " style="font-family:  'Cinzel, serif,">Calculate your SGPA</h1>
-                            <form id="calculator-form">
-                                <div class="mb-3 text-end">
-                                    <button type="button" class="btn btn-success" onclick="addSubject()">Add
-                                        Subject</button>
-                                </div>
-                                <div id="subject-container"></div>
-                                <div class="text-center mt-4">
-                                    <button type="submit" class="btn btn-primary btn-lg">Calculate SGPA</button>
-                                </div>
-                                <div class="text-center mt-3">
-                                    <h4 id="result" class="fw-bold text-dark"></h4>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="cgpa" role="tabpanel">
-                            <h1 class="display-4 " style="font-family:  'Cinzel, serif,">Calculate your CGPA</h1>
-
-                            <form id="cgpa-form">
-                                <div id="cgpa-container">
-                                    <div class="row mb-3">
-                                        <div class="col-md-5">
-                                            <input type="number" class="form-control" placeholder="SGPA" step="0.01"
-                                                required>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <input type="number" class="form-control" placeholder="Semester Credits"
-                                                required>
-                                        </div>
-                                        <div class="col-md-2 text-end">
-                                            <button type="button" class="btn btn-danger"
-                                                onclick="this.closest('.row').remove()">Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-end mb-3">
-                                    <button type="button" class="btn btn-success" onclick="addCGPAField()">Add
-                                        Semester</button>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Calculate CGPA</button>
-                                    <h4 id="cgpa-result" class="mt-3 fw-bold text-dark"></h4>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        </div>
+    </section>
+    <div class="calculator-box ">
+        <div class="reset-icon" onclick="resetCalculator()" title="Reset All">
+            <i class="fas fa-sync-alt"></i>
         </div>
 
-
-
-
-        <!-- TEAM SECTION (Before Footer) -->
-        <section class="team-showcase">
+        <section id="calculator" class="py-5">
             <div class="container">
-                <div class="section-header">
-                    <h2>Meet Our Team</h2>
-                    <p>
-                        Dedicated developers working together to create the best educational platform for NITRA
-                        students.
-                    </p>
-                </div>
+                <ul class="nav nav-tabs mb-4" id="calcTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="sgpa-tab" data-bs-toggle="tab" data-bs-target="#sgpa"
+                            type="button" role="tab">SGPA Calculator</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="cgpa-tab" data-bs-toggle="tab" data-bs-target="#cgpa" type="button"
+                            role="tab">CGPA Calculator</button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="text-center mt-4">
 
-                <div class="team-grid">
-                    <!-- Vaibhav Babele Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar">
-                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
-                        </div>
-                        <h3>Vaibhav
-                            Babele</h3>
-                        <p>
-                            Lead Developer & Founder</p>
-                        <p>
-                            Computer Science Engineering student passionate about creating educational platforms for
-                            students.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/vaibhavbabele" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
                     </div>
 
-                    <!-- Ghanshyam Prajapati Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar">
-                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
-                        </div>
-                        <h3>Ghanshyam
-                            Prajapati</h3>
-                        <p>
-                            Co-Developer</p>
-                        <p>
-                            Dedicated developer contributing to the platform's growth and student experience
-                            enhancement.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                                target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- Development Team Card -->
-                    <div class="team-showcase-card">
-                        <div class="team-avatar placeholder">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>
-                            Development Team</h3>
-                        <p>
-                            Contributors & Maintainers</p>
-                        <p>
-                            A growing community of student developers working together to improve the platform.
-                        </p>
-                        <div class="social-links">
-                            <a href="pr-contributors.html">
-                                <i class="fas fa-users"></i>
-                            </a>
-                        </div>
+                    <div class="tab-pane fade show active" id="sgpa" role="tabpanel">
+                        <h1 class="display-4 " >Calculate your SGPA</h1>
+                        <form id="calculator-form">
+                            <div class="mb-3 text-end">
+                                <button type="button" class="btn btn-success" onclick="addSubject()">Add
+                                    Subject</button>
+                            </div>
+                            <div id="subject-container"></div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">Calculate SGPA</button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h4 id="result" class="fw-bold text-dark"></h4>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="cgpa" role="tabpanel">
+                        <h1 class="display-4 " >Calculate your CGPA</h1>
+
+                        <form id="cgpa-form">
+                            <div id="cgpa-container">
+                                <div class="row mb-3">
+                                    <div class="col-md-5">
+                                        <input type="number" class="form-control" placeholder="SGPA" step="0.01"
+                                            required>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="number" class="form-control" placeholder="Semester Credits"
+                                            required>
+                                    </div>
+                                    <div class="col-md-2 text-end">
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="this.closest('.row').remove()">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end mb-3">
+                                <button type="button" class="btn btn-success" onclick="addCGPAField()">Add
+                                    Semester</button>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Calculate CGPA</button>
+                                <h4 id="cgpa-result" class="mt-3 fw-bold text-dark"></h4>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
+    </div>
 
-        <footer class="footer-section">
-            <div class="container">
-                <h1 class="contact-heading">Contact Us</h1>
 
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>Whatsapp Community</span>
-                            <p>Nitra Mitra</p>
-                        </a>
-                    </div>
 
-                    <div class="contact-item">
-                        <a href="mailto:nitramitra@gmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                            <p>nitramitra@gmail.com</p>
-                        </a>
-                    </div>
 
-                    <div class="contact-item">
-                        <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
-                            class="contact-link">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Address</span>
-                            <p>Sanjay Nagar, Ghaziabad, India</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="social-media">
-                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-
-                <div class="footer-links">
-                    <a href="./privacy.html">Privacy Policy</a> |
-                    <a href="./terms.html">Terms & Conditions</a> |
-                    <a href="./contact.html">Contact</a> |
-                    <a href="pr-contributors.html">Contributors</a>
-                </div>
-
-                <p class="copyright">
-                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+    <!-- TEAM SECTION (Before Footer) -->
+    <section class="team-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>
+                    Dedicated developers working together to create the best educational platform for NITRA
+                    students.
                 </p>
             </div>
 
-    </div>
+            <div class="team-grid">
+                <!-- Vaibhav Babele Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar">
+                        <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
+                    </div>
+                    <h3>Vaibhav
+                        Babele</h3>
+                    <p>
+                        Lead Developer & Founder</p>
+                    <p>
+                        Computer Science Engineering student passionate about creating educational platforms for
+                        students.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/vaibhavbabele" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ghanshyam Prajapati Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar">
+                        <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
+                    </div>
+                    <h3>Ghanshyam
+                        Prajapati</h3>
+                    <p>
+                        Co-Developer</p>
+                    <p>
+                        Dedicated developer contributing to the platform's growth and student experience
+                        enhancement.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                            target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Development Team Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar placeholder">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>
+                        Development Team</h3>
+                    <p>
+                        Contributors & Maintainers</p>
+                    <p>
+                        A growing community of student developers working together to improve the platform.
+                    </p>
+                    <div class="social-links">
+                        <a href="pr-contributors.html">
+                            <i class="fas fa-users"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a> |
+                <a href="./terms.html">Terms & Conditions</a> |
+                <a href="./contact.html">Contact</a> |
+                <a href="pr-contributors.html">Contributors</a>
+            </div>
+
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
     </footer>
 
 
-    </div>
 
     <script>
         // CGPA Calculator Script
@@ -360,11 +358,11 @@ Switch between SGPA and CGPA tabs, enter your grades , and get instant, accurate
             }
         });
     </script>
-   <script>
-  function resetCalculator() {
-    location.reload(); // reloads the entire page to reset
-  }
-</script>
+    <script>
+        function resetCalculator() {
+            location.reload(); // reloads the entire page to reset
+        }
+    </script>
     <script>
         let inputMode = "grade";
 

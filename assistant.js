@@ -5,23 +5,23 @@ class StudentAssistant {
         // Configuration
         this.config = {
             backendUrl: this.detectBackendUrl(),
-            clientMode: localStorage.getItem('assistant_mode') === 'client',
-            apiKey: localStorage.getItem('gemini_api_key')
+            clientMode: localStorage.getItem("assistant_mode") === "client",
+            apiKey: localStorage.getItem("gemini_api_key")
         };
         
         // DOM elements
-        this.chatMessages = document.getElementById('chatMessages');
-        this.messageInput = document.getElementById('messageInput');
-        this.sendButton = document.getElementById('sendButton');
-        this.apiSetup = document.getElementById('apiSetup');
-        this.quickSuggestions = document.getElementById('quickSuggestions');
+        this.chatMessages = document.getElementById("chatMessages");
+        this.messageInput = document.getElementById("messageInput");
+        this.sendButton = document.getElementById("sendButton");
+        this.apiSetup = document.getElementById("apiSetup");
+        this.quickSuggestions = document.getElementById("quickSuggestions");
         
         // Mode toggle elements
-        this.serverModeRadio = document.getElementById('serverMode');
-        this.clientModeRadio = document.getElementById('clientMode');
-        this.serverModeInfo = document.getElementById('serverModeInfo');
-        this.clientModeSetup = document.getElementById('clientModeSetup');
-        this.backendStatus = document.getElementById('backendStatus');
+        this.serverModeRadio = document.getElementById("serverMode");
+        this.clientModeRadio = document.getElementById("clientMode");
+        this.serverModeInfo = document.getElementById("serverModeInfo");
+        this.clientModeSetup = document.getElementById("clientModeSetup");
+        this.backendStatus = document.getElementById("backendStatus");
         
         this.init();
     }
@@ -30,17 +30,17 @@ class StudentAssistant {
         // Auto-detect backend URL based on environment
         const hostname = window.location.hostname;
         
-        if (hostname === 'localhost' || hostname === '127.0.0.1') {
-            return 'http://localhost:5000';
-        } else if (hostname.includes('vercel.app')) {
+        if (hostname === "localhost" || hostname === "127.0.0.1") {
+            return "http://localhost:5000";
+        } else if (hostname.includes("vercel.app")) {
             // Use the deployed backend URL
-            return 'https://nitra-mitra-gssoc.vercel.app';
-        } else if (hostname.includes('nitra.nbytes.xyz') || hostname.includes('github.io')) {
+            return "https://nitra-mitra-gssoc.vercel.app";
+        } else if (hostname.includes("nitra.nbytes.xyz") || hostname.includes("github.io")) {
             // Production backend URL
-            return 'https://nitra-mitra-gssoc.vercel.app';
+            return "https://nitra-mitra-gssoc.vercel.app";
         } else {
             // Default to deployed backend
-            return 'https://nitra-mitra-gssoc.vercel.app';
+            return "https://nitra-mitra-gssoc.vercel.app";
         }
     }
     
@@ -53,13 +53,13 @@ class StudentAssistant {
     
     setupEventListeners() {
         // Auto-resize textarea
-        this.messageInput.addEventListener('input', () => {
+        this.messageInput.addEventListener("input", () => {
             this.autoResizeTextarea();
             this.toggleSendButton();
         });
         
         // Handle paste
-        this.messageInput.addEventListener('paste', () => {
+        this.messageInput.addEventListener("paste", () => {
             setTimeout(() => {
                 this.autoResizeTextarea();
                 this.toggleSendButton();
@@ -67,13 +67,13 @@ class StudentAssistant {
         });
         
         // Mode toggle listeners
-        this.serverModeRadio.addEventListener('change', () => {
+        this.serverModeRadio.addEventListener("change", () => {
             if (this.serverModeRadio.checked) {
                 this.switchToServerMode();
             }
         });
         
-        this.clientModeRadio.addEventListener('change', () => {
+        this.clientModeRadio.addEventListener("change", () => {
             if (this.clientModeRadio.checked) {
                 this.switchToClientMode();
             }
@@ -82,12 +82,12 @@ class StudentAssistant {
     
     initializeModeToggle() {
         // Set initial mode based on stored preference or default to server mode
-        const savedMode = localStorage.getItem('assistant_mode');
+        const savedMode = localStorage.getItem("assistant_mode");
         
         // Always show the API setup initially so user can see mode selector
         this.showApiSetup();
         
-        if (savedMode === 'client') {
+        if (savedMode === "client") {
             this.clientModeRadio.checked = true;
             this.switchToClientMode();
         } else {
@@ -98,11 +98,11 @@ class StudentAssistant {
     
     async switchToServerMode() {
         this.config.clientMode = false;
-        localStorage.setItem('assistant_mode', 'server');
+        localStorage.setItem("assistant_mode", "server");
         
-        this.serverModeInfo.style.display = 'block';
-        this.clientModeSetup.style.display = 'none';
-        this.backendStatus.style.display = 'block';
+        this.serverModeInfo.style.display = "block";
+        this.clientModeSetup.style.display = "none";
+        this.backendStatus.style.display = "block";
         
         // Check backend status
         await this.checkBackendStatus();
@@ -113,11 +113,11 @@ class StudentAssistant {
     
     switchToClientMode() {
         this.config.clientMode = true;
-        localStorage.setItem('assistant_mode', 'client');
+        localStorage.setItem("assistant_mode", "client");
         
-        this.serverModeInfo.style.display = 'none';
-        this.clientModeSetup.style.display = 'block';
-        this.backendStatus.style.display = 'none';
+        this.serverModeInfo.style.display = "none";
+        this.clientModeSetup.style.display = "block";
+        this.backendStatus.style.display = "none";
         
         // Check if API key is already saved
         if (this.config.apiKey) {
@@ -130,34 +130,34 @@ class StudentAssistant {
     }
     
     async checkBackendStatus() {
-        const statusIndicator = document.getElementById('statusIndicator');
-        const statusText = document.getElementById('statusText');
+        const statusIndicator = document.getElementById("statusIndicator");
+        const statusText = document.getElementById("statusText");
         
         try {
-            statusIndicator.textContent = '🔄';
-            statusText.textContent = 'Checking backend status...';
+            statusIndicator.textContent = "🔄";
+            statusText.textContent = "Checking backend status...";
             
             const response = await fetch(`${this.config.backendUrl}/api/status`, {
-                method: 'GET',
+                method: "GET",
                 timeout: 5000
             });
             
             if (response.ok) {
                 const data = await response.json();
                 if (data.api_configured) {
-                    statusIndicator.textContent = '✅';
-                    statusText.textContent = 'Backend is ready and configured!';
+                    statusIndicator.textContent = "✅";
+                    statusText.textContent = "Backend is ready and configured!";
                 } else {
-                    statusIndicator.textContent = '⚠️';
-                    statusText.textContent = 'Backend available but API key not configured';
+                    statusIndicator.textContent = "⚠️";
+                    statusText.textContent = "Backend available but API key not configured";
                 }
             } else {
-                throw new Error('Backend not responding');
+                throw new Error("Backend not responding");
             }
         } catch (error) {
-            statusIndicator.textContent = '❌';
-            statusText.textContent = 'Backend unavailable - switch to client mode';
-            console.warn('Backend status check failed:', error);
+            statusIndicator.textContent = "❌";
+            statusText.textContent = "Backend unavailable - switch to client mode";
+            console.warn("Backend status check failed:", error);
         }
     }
     
@@ -174,18 +174,18 @@ class StudentAssistant {
     }
     
     showApiSetup() {
-        this.apiSetup.classList.remove('hidden');
-        document.body.classList.add('show-api-setup');
+        this.apiSetup.classList.remove("hidden");
+        document.body.classList.add("show-api-setup");
     }
     
     hideApiSetup() {
-        this.apiSetup.classList.add('hidden');
-        document.body.classList.remove('show-api-setup');
+        this.apiSetup.classList.add("hidden");
+        document.body.classList.remove("show-api-setup");
     }
     
     autoResizeTextarea() {
-        this.messageInput.style.height = 'auto';
-        this.messageInput.style.height = Math.min(this.messageInput.scrollHeight, 120) + 'px';
+        this.messageInput.style.height = "auto";
+        this.messageInput.style.height = Math.min(this.messageInput.scrollHeight, 120) + "px";
     }
     
     toggleSendButton() {
@@ -202,13 +202,13 @@ class StudentAssistant {
         if (!isConfigured) return;
         
         // Clear input and hide suggestions
-        this.messageInput.value = '';
+        this.messageInput.value = "";
         this.autoResizeTextarea();
         this.toggleSendButton();
         this.hideQuickSuggestions();
         
         // Add user message
-        this.addMessage(message, 'user');
+        this.addMessage(message, "user");
         
         // Show typing indicator
         const typingIndicator = this.showTypingIndicator();
@@ -225,20 +225,20 @@ class StudentAssistant {
             this.removeTypingIndicator(typingIndicator);
             
             // Add assistant response
-            this.addMessage(response, 'assistant');
+            this.addMessage(response, "assistant");
             
         } catch (error) {
-            console.error('Error:', error);
+            console.error("Error:", error);
             this.removeTypingIndicator(typingIndicator);
-            this.addErrorMessage(error.message || 'Sorry, I encountered an error. Please try again.');
+            this.addErrorMessage(error.message || "Sorry, I encountered an error. Please try again.");
         }
     }
     
     async callBackendAPI(message) {
         const response = await fetch(`${this.config.backendUrl}/api/chat`, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({ message })
         });
@@ -252,7 +252,7 @@ class StudentAssistant {
         if (data.candidates && data.candidates.length > 0) {
             return data.candidates[0].content.parts[0].text;
         } else {
-            throw new Error('No response generated from the backend');
+            throw new Error("No response generated from the backend");
         }
     }
     
@@ -284,9 +284,9 @@ class StudentAssistant {
         };
         
         const response = await fetch(url, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(requestBody)
         });
@@ -300,27 +300,27 @@ class StudentAssistant {
         if (data.candidates && data.candidates.length > 0) {
             return data.candidates[0].content.parts[0].text;
         } else {
-            throw new Error('No response generated');
+            throw new Error("No response generated");
         }
     }
     
     addMessage(text, sender) {
-        const messageDiv = document.createElement('div');
+        const messageDiv = document.createElement("div");
         messageDiv.className = `message ${sender}-message`;
         
-        const avatar = document.createElement('div');
-        avatar.className = 'message-avatar';
-        avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+        const avatar = document.createElement("div");
+        avatar.className = "message-avatar";
+        avatar.innerHTML = sender === "user" ? "<i class='fas fa-user'></i>" : "<i class='fas fa-robot'></i>";
         
-        const content = document.createElement('div');
-        content.className = 'message-content';
+        const content = document.createElement("div");
+        content.className = "message-content";
         
         // Create content container
-        const messageContent = document.createElement('div');
+        const messageContent = document.createElement("div");
         
-        if (sender === 'assistant') {
+        if (sender === "assistant") {
             // Parse markdown for assistant messages
-            messageContent.className = 'markdown-content';
+            messageContent.className = "markdown-content";
             try {
                 // Configure marked options for better parsing
                 marked.setOptions({
@@ -334,55 +334,55 @@ class StudentAssistant {
                 // Sanitize the HTML to prevent XSS attacks
                 const cleanHtml = DOMPurify.sanitize(rawHtml, {
                     ALLOWED_TAGS: [
-                        'p', 'br', 'strong', 'em', 'u', 'b', 'i',
-                        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-                        'ul', 'ol', 'li',
-                        'blockquote', 'code', 'pre',
-                        'table', 'thead', 'tbody', 'tr', 'th', 'td',
-                        'a', 'hr'
+                        "p", "br", "strong", "em", "u", "b", "i",
+                        "h1", "h2", "h3", "h4", "h5", "h6",
+                        "ul", "ol", "li",
+                        "blockquote", "code", "pre",
+                        "table", "thead", "tbody", "tr", "th", "td",
+                        "a", "hr"
                     ],
-                    ALLOWED_ATTR: ['href', 'target', 'rel']
+                    ALLOWED_ATTR: ["href", "target", "rel"]
                 });
                 messageContent.innerHTML = cleanHtml;
                 
                 // Make external links open in new tab
-                const links = messageContent.querySelectorAll('a[href^="http"]');
+                const links = messageContent.querySelectorAll("a[href^='http']");
                 links.forEach(link => {
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
                 });
                 
                 // Add copy buttons to code blocks
-                const codeBlocks = messageContent.querySelectorAll('pre code');
+                const codeBlocks = messageContent.querySelectorAll("pre code");
                 codeBlocks.forEach(codeBlock => {
                     const pre = codeBlock.parentElement;
-                    const copyBtn = document.createElement('button');
-                    copyBtn.className = 'copy-code-btn';
-                    copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
-                    copyBtn.title = 'Copy code';
+                    const copyBtn = document.createElement("button");
+                    copyBtn.className = "copy-code-btn";
+                    copyBtn.innerHTML = "<i class='fas fa-copy'></i>";
+                    copyBtn.title = "Copy code";
                     copyBtn.onclick = () => this.copyToClipboard(codeBlock.textContent, copyBtn);
                     
-                    pre.style.position = 'relative';
+                    pre.style.position = "relative";
                     pre.appendChild(copyBtn);
                 });
                 
             } catch (error) {
-                console.error('Markdown parsing error:', error);
+                console.error("Markdown parsing error:", error);
                 // Fallback to plain text if markdown parsing fails
-                messageContent.className = '';
-                const fallbackP = document.createElement('p');
+                messageContent.className = "";
+                const fallbackP = document.createElement("p");
                 fallbackP.textContent = text;
                 messageContent.appendChild(fallbackP);
             }
         } else {
             // For user messages, use plain text
-            const messageText = document.createElement('p');
+            const messageText = document.createElement("p");
             messageText.textContent = text;
             messageContent.appendChild(messageText);
         }
         
-        const timestamp = document.createElement('span');
-        timestamp.className = 'message-time';
+        const timestamp = document.createElement("span");
+        timestamp.className = "message-time";
         timestamp.textContent = this.getCurrentTime();
         
         content.appendChild(messageContent);
@@ -395,16 +395,16 @@ class StudentAssistant {
     }
     
     addErrorMessage(text) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
         errorDiv.textContent = text;
         this.chatMessages.appendChild(errorDiv);
         this.scrollToBottom();
     }
     
     showTypingIndicator() {
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'message assistant-message typing-message';
+        const typingDiv = document.createElement("div");
+        typingDiv.className = "message assistant-message typing-message";
         typingDiv.innerHTML = `
             <div class="message-avatar">
                 <i class="fas fa-robot"></i>
@@ -435,20 +435,20 @@ class StudentAssistant {
     
     getCurrentTime() {
         const now = new Date();
-        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     }
     
     hideQuickSuggestions() {
-        this.quickSuggestions.style.display = 'none';
+        this.quickSuggestions.style.display = "none";
     }
     
     showQuickSuggestions() {
-        this.quickSuggestions.style.display = 'flex';
+        this.quickSuggestions.style.display = "flex";
     }
     
     clearChat() {
         // Keep only the initial welcome message
-        const messages = this.chatMessages.querySelectorAll('.message, .error-message');
+        const messages = this.chatMessages.querySelectorAll(".message, .error-message");
         messages.forEach((message, index) => {
             if (index > 0) { // Keep the first message (welcome message)
                 message.remove();
@@ -461,30 +461,30 @@ class StudentAssistant {
         navigator.clipboard.writeText(text).then(() => {
             // Show success feedback
             const originalHtml = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i>';
-            button.style.color = '#4CAF50';
+            button.innerHTML = "<i class='fas fa-check'></i>";
+            button.style.color = "#4CAF50";
             
             setTimeout(() => {
                 button.innerHTML = originalHtml;
-                button.style.color = '';
+                button.style.color = "";
             }, 2000);
         }).catch(err => {
-            console.error('Failed to copy text: ', err);
+            console.error("Failed to copy text: ", err);
             // Fallback for older browsers
-            const textArea = document.createElement('textarea');
+            const textArea = document.createElement("textarea");
             textArea.value = text;
             document.body.appendChild(textArea);
             textArea.select();
             try {
-                document.execCommand('copy');
-                button.innerHTML = '<i class="fas fa-check"></i>';
-                button.style.color = '#4CAF50';
+                document.execCommand("copy");
+                button.innerHTML = "<i class='fas fa-check'></i>";
+                button.style.color = "#4CAF50";
                 setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-copy"></i>';
-                    button.style.color = '';
+                    button.innerHTML = "<i class='fas fa-copy'></i>";
+                    button.style.color = "";
                 }, 2000);
             } catch (err) {
-                console.error('Fallback copy failed: ', err);
+                console.error("Fallback copy failed: ", err);
             }
             document.body.removeChild(textArea);
         });
@@ -505,24 +505,24 @@ function sendQuickMessage(message) {
 }
 
 function handleKeyPress(event) {
-    if (event.key === 'Enter' && !event.shiftKey) {
+    if (event.key === "Enter" && !event.shiftKey) {
         event.preventDefault();
         sendMessage();
     }
 }
 
 function saveApiKey() {
-    const apiKeyInput = document.getElementById('apiKeyInput');
+    const apiKeyInput = document.getElementById("apiKeyInput");
     const apiKey = apiKeyInput.value.trim();
     
     if (apiKey) {
-        localStorage.setItem('gemini_api_key', apiKey);
+        localStorage.setItem("gemini_api_key", apiKey);
         window.assistant.config.apiKey = apiKey;
         window.assistant.checkConfiguration();
-        apiKeyInput.value = '';
+        apiKeyInput.value = "";
         
         // Show success message
-        const successDiv = document.createElement('div');
+        const successDiv = document.createElement("div");
         successDiv.style.cssText = `
             position: fixed;
             top: 20px;
@@ -534,20 +534,20 @@ function saveApiKey() {
             z-index: 1000;
             animation: slideIn 0.3s ease;
         `;
-        successDiv.textContent = 'API Key saved successfully!';
+        successDiv.textContent = "API Key saved successfully!";
         document.body.appendChild(successDiv);
         
         setTimeout(() => {
             successDiv.remove();
         }, 3000);
     } else {
-        alert('Please enter a valid API key');
+        alert("Please enter a valid API key");
     }
 }
 
 function clearChat() {
     if (window.assistant) {
-        if (confirm('Are you sure you want to clear the chat history?')) {
+        if (confirm("Are you sure you want to clear the chat history?")) {
             window.assistant.clearChat();
         }
     }
@@ -566,12 +566,12 @@ function showConfiguration() {
 }
 
 // Initialize the assistant when the page loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     window.assistant = new StudentAssistant();
 });
 
 // Add CSS animation for success message
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
     @keyframes slideIn {
         from {
