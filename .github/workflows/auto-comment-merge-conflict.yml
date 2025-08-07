@@ -1,0 +1,100 @@
+name: Auto Comment on Merge Conflict
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  comment-on-merge-conflict:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for merge conflict and auto-comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) return;
+
+            // Fetch latest PR data (mergeable state can be null at first, so try multiple times if needed)
+            let tries = 0;
+            let data = null;
+            while (tries < 3) {
+              const result = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number
+              });
+              data = result.data;
+              if (data.mergeable !== null) break;
+              await new Promise(r => setTimeout(r, 3000));
+              tries++;
+            }
+
+            if (data.mergeable === false) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: `
+⚠️ **Merge Conflict Detected!**
+
+Hi @${pr.user.login}, your pull request currently has a merge conflict with the base branch. Please resolve the conflict so your PR can be merged.
+
+**Mentor Assistance:**  
+@meetarora10, @camren88, @Withvansh — please help guide the contributor if needed!
+
+---
+
+## **How to Resolve a Merge Conflict (Step-by-Step)**
+
+1. **Checkout your PR branch:**
+   \`\`\`bash
+   git checkout ${pr.head.ref}
+   \`\`\`
+
+2. **Fetch the latest changes from the main branch:**
+   \`\`\`bash
+   git fetch origin
+   git pull origin ${pr.base.ref}
+   \`\`\`
+
+3. **Git will show conflict markers in files with conflicts. Open those files, and manually edit them to resolve the differences. Conflict sections look like:**
+   \`\`\`
+   <<<<<<< HEAD
+   Your changes
+   =======
+   Changes from base branch
+   >>>>>>> ${pr.base.ref}
+   \`\`\`
+
+4. **After resolving the conflicts, mark them as resolved:**
+   \`\`\`bash
+   git add <file(s)-you-resolved>
+   \`\`\`
+
+5. **Commit the resolution:**
+   \`\`\`bash
+   git commit -m "Resolve merge conflict"
+   \`\`\`
+
+6. **Push your updated branch:**
+   \`\`\`bash
+   git push origin ${pr.head.ref}
+   \`\`\`
+
+---
+
+🔗 [GitHub Docs: Resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
+
+If you need any help, please ask your mentors by replying here!
+
+---
+
+*This is an automated message to help you resolve merge conflicts and get your PR ready for review. Thank you!*
+                `
+              });
+            }
