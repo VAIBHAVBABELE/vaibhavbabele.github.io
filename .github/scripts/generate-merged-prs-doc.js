@@ -74,7 +74,7 @@ async function fetchFilesChanged(prNumber) {
   return files.map(file => file.filename);
 }
 
-function trimDescription(text, maxWords = 100) {
+function trimDescription(text, maxWords = 10) {
   if (!text) return '_No description provided._';
   const words = text.split(/\s+/);
   if (words.length <= maxWords) return text;
@@ -94,7 +94,7 @@ async function generateMergedPRsDoc() {
 
     let doc = `# 📋 Merged Pull Requests Documentation
 
-This document lists all merged PRs with details: author, title, description (max 100 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
+This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
 *Last updated: ${new Date().toISOString().split('T')[0]}*
 
@@ -135,7 +135,7 @@ This document lists all merged PRs with details: author, title, description (max
       const commitCount = prDetails.commits || '-';
 
       // Description
-      const description = trimDescription(pr.body, 100);
+      const description = trimDescription(pr.body, 10);
 
       // Table row
       doc += `| [#${pr.number}](https://github.com/${REPO_OWNER}/${REPO_NAME}/pull/${pr.number}) | ${pr.title.replace(/\|/g, '\\|')} | [@${pr.user.login}](https://github.com/${pr.user.login}) | ${description.replace(/\|/g, '\\|')} | ${filesChanged.length} | ${labels.join(', ')} | [@${mergedBy}](https://github.com/${mergedBy}) | ${pr.merged_at ? pr.merged_at.split('T')[0] : '-'} | ${linesUpdated} | ${commitCount} | [PR Link](https://github.com/${REPO_OWNER}/${REPO_NAME}/pull/${pr.number}) |\n`;
