@@ -10,9 +10,9 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@Nikita-Mishraa](https://github.com/Nikita-Mishraa) | 3 | 3 | 0 | 6 |
 | [@Shailee6464](https://github.com/Shailee6464) | 0 | 4 | 0 | 4 |
 | [@thilak-r](https://github.com/thilak-r) | 0 | 0 | 3 | 3 |
+| [@kunnal-singhh](https://github.com/kunnal-singhh) | 1 | 1 | 0 | 2 |
 | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | 0 | 0 | 2 | 2 |
 | [@Prabathvsv](https://github.com/Prabathvsv) | 0 | 2 | 0 | 2 |
-| [@kunnal-singhh](https://github.com/kunnal-singhh) | 0 | 1 | 0 | 1 |
 | [@piyushhvarma](https://github.com/piyushhvarma) | 1 | 0 | 0 | 1 |
 | [@snehaburma270](https://github.com/snehaburma270) | 1 | 0 | 0 | 1 |
 | [@singharyan006](https://github.com/singharyan006) | 0 | 1 | 0 | 1 |
