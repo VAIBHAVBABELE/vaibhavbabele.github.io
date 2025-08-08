@@ -1,0 +1,28 @@
+name: Auto Close Inactive Issues
+
+on:
+  schedule:
+    # Runs every day at 2 AM UTC
+    - cron: '0 2 * * *'
+
+permissions:
+  issues: write
+
+jobs:
+  close-inactive-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run close-inactive-issues script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: node .github/scripts/close-inactive-issues.js
