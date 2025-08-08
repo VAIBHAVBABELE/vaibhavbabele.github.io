@@ -1,4 +1,12 @@
-/* Enhanced Focus Mode Styles - Comprehensive Theme-Aligned Distraction-Free Experience */
+/* ...existing code... */
+
+/* Only change navbar background in focus mode */
+body.focus-mode nav {
+    background: #f5ffc6 !important; /* Or any color you prefer */
+    transition: background 0.3s;
+}
+
+/* ...existing code... *//* Enhanced Focus Mode Styles - Comprehensive Theme-Aligned Distraction-Free Experience */
 
 /* Disable animations in focus mode for distraction-free experience */
 .focus-mode * {
