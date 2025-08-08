@@ -86,18 +86,23 @@
     border-color: var(--primary-text-color) !important;
 }
 
-/* Focus Toggle Button Styles */
+/* Enhanced Focus Toggle Button Styles */
 #focusToggle {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px 16px;
-    background-color: #333;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%);
     color: #fff;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid var(--accent-color-dark);
+    border-radius: 25px;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
     z-index: 1000;
     font-family: 'Poppins', sans-serif;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -105,9 +110,16 @@
 }
 
 #focusToggle:hover {
-    background-color: #555;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border-color: var(--accent-color);
+}
+
+/* Enhanced Focus Mode Styles - Theme-Aligned Distraction-Free Experience */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
 }
 
 /* Smooth transitions for body */
@@ -131,59 +143,855 @@ body.focus-mode {
     }
 }
 
-/* Focus Mode Styles */
-.focus-mode * {
-    animation: none !important;
-    transition: none !important;
-}
-
+/* Enhanced Focus Mode Styles - Theme-Aligned */
 .focus-mode body {
-    background: #ffffff !important;
-    color: #111111 !important;
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+    color: var(--primary-text-color) !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .focus-mode .main {
-    background: #ffffff !important;
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
 }
 
+/* Enhanced Navigation Background - Attractive Gradient */
 .focus-mode nav {
-    background: #f8f9fa !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: linear-gradient(135deg, var(--nav-bgcolor) 0%, var(--accent-color) 50%, var(--nav-bgcolor) 100%) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+    border-bottom: 2px solid var(--accent-color) !important;
+    backdrop-filter: blur(10px) !important;
+    position: relative !important;
 }
 
+.focus-mode nav::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%) !important;
+    pointer-events: none !important;
+}
+
+.focus-mode nav .logo a {
+    color: var(--main-color) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode nav ul li a {
+    color: var(--primary-text-color) !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: var(--main-color) !important;
+    background: linear-gradient(135deg, var(--bg-shade) 0%, rgba(255,255,255,0.2) 100%) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Enhanced Card Styles - Attractive Gradients and Shadows */
 .focus-mode .card {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
 }
 
 .focus-mode .card:hover {
-    transform: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
 }
 
+/* Enhanced Facility Cards */
 .focus-mode .facility-card {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .facility-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
 }
 
 .focus-mode .facility-card:hover {
-    transform: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
 }
 
+/* Enhanced About Cards */
 .focus-mode .About-card {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .About-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
 }
 
 .focus-mode .About-card:hover {
-    transform: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
 }
 
+/* Enhanced Team Showcase Cards */
+.focus-mode .team-showcase-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .team-showcase-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .team-showcase-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Summary Cards */
+.focus-mode .summary-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .summary-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .summary-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contact Form Cards */
+.focus-mode .contact-form-container,
+.focus-mode .contact-info-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .contact-form-container::before,
+.focus-mode .contact-info-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .contact-form-container:hover,
+.focus-mode .contact-info-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Team Cards */
+.focus-mode .team-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .team-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .team-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced FAQ Items */
+.focus-mode .faq-item {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .faq-question:hover {
+    background: var(--bg-shade) !important;
+    transform: none !important;
+}
+
+/* Enhanced Buttons - Theme-Aligned */
+.focus-mode .primary-button {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .primary-button:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.focus-mode .btn {
+    background: var(--accent-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: var(--bg-shade) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer */
+.focus-mode footer {
+    background: var(--footer-bgColor) !important;
+    border-top: 1px solid var(--accent-color) !important;
+}
+
+.focus-mode .footer-links a {
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: var(--main-color) !important;
+}
+
+/* Enhanced Form Controls */
+.focus-mode .form-control {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .form-control:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.1) !important;
+    transform: none !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Text Colors for Better Readability */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: var(--main-color) !important;
+}
+
+.focus-mode p {
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .service-heading {
+    color: var(--main-color) !important;
+}
+
+.focus-mode .para {
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .para span {
+    color: var(--main-color) !important;
+    font-weight: 600 !important;
+}
+
+/* Enhanced Section Backgrounds */
+.focus-mode .service {
+    background: var(--bg-color) !important;
+}
+
+.focus-mode .about {
+    background: var(--bg-color) !important;
+}
+
+.focus-mode .team-showcase {
+    background: var(--bg-color) !important;
+    border-top: 1px solid var(--accent-color) !important;
+}
+
+/* Enhanced Contact Section */
+.focus-mode .contact-hero {
+    background: var(--bg-shade) !important;
+    border-bottom: 1px solid var(--accent-color) !important;
+}
+
+.focus-mode .contact-form-section {
+    background: var(--bg-color) !important;
+}
+
+/* Enhanced Summary Section */
+.focus-mode .summary-container {
+    background: var(--bg-color) !important;
+}
+
+.focus-mode .result-container {
+    background: var(--bg-shade) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+}
+
+.focus-mode .file-upload-area {
+    background: var(--bg-shade) !important;
+    border: 2px dashed var(--accent-color) !important;
+    box-shadow: none !important;
+}
+
+.focus-mode .file-upload-area:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+}
+
+/* Enhanced Action Buttons */
+.focus-mode .action-btn {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .action-btn:hover:not(:disabled) {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.focus-mode .secondary-btn {
+    background: var(--accent-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .secondary-btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Input Areas */
+.focus-mode .input-area {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .input-area:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.1) !important;
+    transform: none !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Enhancement Select */
+.focus-mode .enhancement-select {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .enhancement-select:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.1) !important;
+    transform: none !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Tab Container */
+.focus-mode .tab-container {
+    background: var(--bg-shade) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+/* Enhanced Tab Buttons */
+.focus-mode .tab-btn {
+    background: var(--bg-shade) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .tab-btn.active {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    box-shadow: none !important;
+}
+
+.focus-mode .tab-btn:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+}
+
+/* Enhanced Copy, Download, and Clear Buttons */
+.focus-mode .copy-btn,
+.focus-mode .download-btn,
+.focus-mode .clear-btn {
+    background: var(--accent-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .copy-btn:hover,
+.focus-mode .download-btn:hover,
+.focus-mode .clear-btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Assistant Chat Container */
+.focus-mode .chat-container {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .chat-container:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Chat Messages */
+.focus-mode .message {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .message.user {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+}
+
+.focus-mode .message.assistant {
+    background: var(--bg-shade) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+}
+
+/* Enhanced Input Area */
+.focus-mode .input-area {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .input-area:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.1) !important;
+    transform: none !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Send Button */
+.focus-mode .send-btn {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .send-btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Clear Button */
+.focus-mode .clear-btn {
+    background: var(--accent-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .clear-btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Settings Panel */
+.focus-mode .settings-panel {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .settings-panel:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Paper Content Sections */
+.focus-mode .paper-content {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .paper-content:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Certificate Container */
+.focus-mode .certificate-container {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .certificate-container:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Certificate Card */
+.focus-mode .certificate-card {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .certificate-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Privacy Content Container */
+.focus-mode .privacy-container {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .privacy-container:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Privacy Section Cards */
+.focus-mode .privacy-section {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .privacy-section:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Footer Section */
+.focus-mode .footer-section {
+    background: var(--footer-bgColor) !important;
+    border-top: 1px solid var(--accent-color) !important;
+}
+
+/* Enhanced Contact Grid */
+.focus-mode .contact-grid {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .contact-grid:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contact Items */
+.focus-mode .contact-item {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .contact-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: var(--bg-shade) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer Links */
+.focus-mode .footer-links a {
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: var(--main-color) !important;
+}
+
+/* Enhanced Floating Button */
+.focus-mode .floating-btn {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .floating-btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Game Cards */
+.focus-mode .game-container {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .game-container:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contributor Cards */
+.focus-mode .contributor-card {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .contributor-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Stats Cards */
+.focus-mode .stats-card {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .stats-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Social Links */
+.focus-mode .social-links a {
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-links a:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hide distracting elements */
 .focus-mode .floating-btn {
     display: none !important;
 }
@@ -197,63 +1005,6 @@ body.focus-mode {
 .focus-mode .glow,
 .focus-mode .particle-effect {
     display: none !important;
-}
-
-.focus-mode .primary-button {
-    background: #007bff !important;
-    color: #ffffff !important;
-    border: 1px solid #007bff !important;
-}
-
-.focus-mode .primary-button:hover {
-    background: #0056b3 !important;
-    transform: none !important;
-}
-
-.focus-mode .btn {
-    background: #007bff !important;
-    color: #ffffff !important;
-    border: 1px solid #007bff !important;
-}
-
-.focus-mode .btn:hover {
-    background: #0056b3 !important;
-    transform: none !important;
-}
-
-.focus-mode .social-media a {
-    background: #f8f9fa !important;
-    color: #6c757d !important;
-    border: 1px solid #e9ecef !important;
-}
-
-.focus-mode .social-media a:hover {
-    background: #e9ecef !important;
-    transform: none !important;
-}
-
-.focus-mode .contact-link {
-    background: #f8f9fa !important;
-    color: #6c757d !important;
-    border: 1px solid #e9ecef !important;
-}
-
-.focus-mode .contact-link:hover {
-    background: #e9ecef !important;
-    transform: none !important;
-}
-
-.focus-mode footer {
-    background: #f8f9fa !important;
-    color: #6c757d !important;
-}
-
-.focus-mode .footer-links a {
-    color: #6c757d !important;
-}
-
-.focus-mode .footer-links a:hover {
-    color: #495057 !important;
 }
 
 /* Responsive adjustments for team section */

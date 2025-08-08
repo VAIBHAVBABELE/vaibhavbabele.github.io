@@ -1465,3 +1465,235 @@ footer {
         margin-bottom: 120px;
     }
 }
+
+/* Enhanced Focus Mode Styles - Theme-Aligned Distraction-Free Experience */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
+}
+
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+/* Enhanced Focus Mode Styles - Theme-Aligned */
+.focus-mode body {
+    background: var(--bg-color) !important;
+    color: var(--primary-text-color) !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.focus-mode .main {
+    background: var(--bg-color) !important;
+}
+
+/* Enhanced Navigation Background - Theme-Aligned */
+.focus-mode nav {
+    background: var(--nav-bgcolor) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid var(--accent-color) !important;
+}
+
+.focus-mode nav .logo a {
+    color: var(--main-color) !important;
+    font-weight: 600 !important;
+}
+
+.focus-mode nav ul li a {
+    color: var(--primary-text-color) !important;
+    font-weight: 500 !important;
+}
+
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: var(--main-color) !important;
+    background: var(--bg-shade) !important;
+    border-radius: 4px !important;
+}
+
+/* Enhanced Contributor Cards */
+.focus-mode .card {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contributor Profile Cards */
+.focus-mode .contributor-card {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .contributor-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Stats Cards */
+.focus-mode .stats-card {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .stats-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Buttons */
+.focus-mode .btn {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Form Controls */
+.focus-mode .form-control {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .form-control:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.1) !important;
+    transform: none !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Social Links */
+.focus-mode .social-links a {
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-links a:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer */
+.focus-mode footer {
+    background: var(--footer-bgColor) !important;
+    border-top: 1px solid var(--accent-color) !important;
+}
+
+.focus-mode .footer-links a {
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: var(--main-color) !important;
+}
+
+/* Enhanced Text Colors for Better Readability */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: var(--main-color) !important;
+}
+
+.focus-mode p {
+    color: var(--primary-text-color) !important;
+}
+
+/* Enhanced Section Backgrounds */
+.focus-mode .contributor-section {
+    background: var(--bg-color) !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: var(--bg-shade) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hide distracting elements */
+.focus-mode .floating-btn {
+    display: none !important;
+}
+
+.focus-mode #container {
+    display: none !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    display: none !important;
+}

@@ -1,63 +1,280 @@
 body {
-      background-color:#fdf6ec;
-      font-family: 'Poppins', sans-serif;
-      padding: 50px 20px;
-    }
+    background-color:#fdf6ec;
+    font-family: 'Poppins', sans-serif;
+    padding: 50px 20px;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 50px;
-      font-family: 'Comic Neue', cursive;
-      font-size: 2.5rem;
-      color: #333;
-    }
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.5rem;
+    color: #333;
+}
 
-    .card {
-      border-radius: 20px;
-      background-color: #fff0f5;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-      width: 18rem;
-    }
+.card {
+    border-radius: 20px;
+    background-color: #fff0f5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    width: 18rem;
+}
 
-    .card:hover {
-      transform: scale(1.03);
-    }
+.card:hover {
+    transform: scale(1.03);
+}
 
-    .card-title {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1.3rem;
-    }
+.card-title {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.3rem;
+}
 
-    .card-text {
-      font-size: 0.95rem;
-      color: #444;
-    }
+.card-text {
+    font-size: 0.95rem;
+    color: #444;
+}
 
-    .game-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
 
-    .card-img-top {
-      height: 180px;
-      object-fit: cover;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-    }
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
 
-    .btn-primary {
-      background-color: #ff7ca8;
-      border: none;
-    }
+.btn-primary {
+    background-color: #ff7ca8;
+    border: none;
+}
 
-    .btn-primary:hover {
-      background-color: lch(62.97% 65 4.01);
-    }
+.btn-primary:hover {
+    background-color: lch(62.97% 65 4.01);
+}
 
-      /* Prevent service-heading overlap with navbar */
-    #about {
-      margin-top: 80px;
+/* Prevent service-heading overlap with navbar */
+#about {
+    margin-top: 80px;
+}
+
+/* Enhanced Focus Mode Styles - Distraction-Free Reading Experience */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
+}
+
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
     }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+/* Enhanced Focus Mode Styles */
+.focus-mode body {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.focus-mode .main {
+    background: #ffffff !important;
+}
+
+/* Enhanced Navigation Background - Clean & Minimal */
+.focus-mode nav {
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.focus-mode nav .logo a {
+    color: #1a1a1a !important;
+    font-weight: 600 !important;
+}
+
+.focus-mode nav ul li a {
+    color: #333333 !important;
+    font-weight: 500 !important;
+}
+
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: #1a1a1a !important;
+    background: #f5f5f5 !important;
+    border-radius: 4px !important;
+}
+
+/* Enhanced Game Cards */
+.focus-mode .card {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border: 1px solid #d0d0d0 !important;
+}
+
+/* Enhanced Game Containers */
+.focus-mode .game-container {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .game-container:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border: 1px solid #d0d0d0 !important;
+}
+
+/* Enhanced Buttons */
+.focus-mode .btn {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #1a1a1a !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .btn:hover {
+    background: #333333 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Form Controls */
+.focus-mode .form-control {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .form-control:focus {
+    border-color: #1a1a1a !important;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1) !important;
+    transform: none !important;
+    background: #ffffff !important;
+}
+
+/* Enhanced Social Links */
+.focus-mode .social-links a {
+    background: #f5f5f5 !important;
+    color: #666666 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-links a:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer */
+.focus-mode footer {
+    background: #f8f8f8 !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.focus-mode .footer-links a {
+    color: #333333 !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: #1a1a1a !important;
+}
+
+/* Enhanced Text Colors for Better Readability */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: #1a1a1a !important;
+}
+
+.focus-mode p {
+    color: #333333 !important;
+}
+
+/* Enhanced Section Backgrounds */
+.focus-mode .games-section {
+    background: #ffffff !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: #f5f5f5 !important;
+    color: #666666 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: #f5f5f5 !important;
+    color: #333333 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hide distracting elements */
+.focus-mode .floating-btn {
+    display: none !important;
+}
+
+.focus-mode #container {
+    display: none !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    display: none !important;
+}

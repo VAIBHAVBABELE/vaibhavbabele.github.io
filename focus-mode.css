@@ -1,0 +1,560 @@
+/* Enhanced Focus Mode Styles - Comprehensive Theme-Aligned Distraction-Free Experience */
+
+/* Disable animations in focus mode for distraction-free experience */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
+}
+
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+/* Enhanced Focus Mode Body and Main */
+.focus-mode body {
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+    color: var(--primary-text-color) !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.focus-mode .main {
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+}
+
+/* Enhanced Navigation Background - Attractive Gradient */
+.focus-mode nav {
+    background: linear-gradient(135deg, var(--nav-bgcolor) 0%, var(--accent-color) 50%, var(--nav-bgcolor) 100%) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+    border-bottom: 2px solid var(--accent-color) !important;
+    backdrop-filter: blur(10px) !important;
+    position: relative !important;
+}
+
+.focus-mode nav::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%) !important;
+    pointer-events: none !important;
+}
+
+.focus-mode nav .logo a {
+    color: var(--main-color) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode nav ul li a {
+    color: var(--primary-text-color) !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: var(--main-color) !important;
+    background: linear-gradient(135deg, var(--bg-shade) 0%, rgba(255,255,255,0.2) 100%) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Enhanced Card Styles - Attractive Gradients and Shadows */
+.focus-mode .card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Facility Cards */
+.focus-mode .facility-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .facility-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .facility-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced About Cards */
+.focus-mode .About-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .About-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .About-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Team Showcase Cards */
+.focus-mode .team-showcase-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .team-showcase-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .team-showcase-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Summary Cards */
+.focus-mode .summary-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .summary-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .summary-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contact Form Cards */
+.focus-mode .contact-form-container,
+.focus-mode .contact-info-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .contact-form-container::before,
+.focus-mode .contact-info-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .contact-form-container:hover,
+.focus-mode .contact-info-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Team Cards */
+.focus-mode .team-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.focus-mode .team-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-dark) 50%, var(--accent-color) 100%) !important;
+}
+
+.focus-mode .team-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Focus Toggle Button */
+#focusToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%);
+    color: #fff;
+    border: 2px solid var(--accent-color-dark);
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    font-family: 'Poppins', sans-serif;
+}
+
+#focusToggle:hover {
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border-color: var(--accent-color);
+}
+
+/* Enhanced Text and Typography */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: var(--primary-text-color) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+}
+
+.focus-mode p {
+    color: var(--secondary-text-color) !important;
+    line-height: 1.6 !important;
+}
+
+.focus-mode .service-heading {
+    color: var(--main-color) !important;
+    font-weight: 700 !important;
+}
+
+.focus-mode .para {
+    color: var(--secondary-text-color) !important;
+}
+
+.focus-mode .para span {
+    color: var(--main-color) !important;
+    font-weight: 600 !important;
+}
+
+/* Enhanced Sections */
+.focus-mode .service {
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+}
+
+.focus-mode .about {
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+}
+
+.focus-mode .team-showcase {
+    background: linear-gradient(135deg, var(--bg-shade) 0%, var(--bg-color) 100%) !important;
+}
+
+.focus-mode .contact-hero {
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+}
+
+.focus-mode .contact-form-section {
+    background: linear-gradient(135deg, var(--bg-shade) 0%, var(--bg-color) 100%) !important;
+}
+
+/* Enhanced Footer */
+.focus-mode footer {
+    background: linear-gradient(135deg, var(--footer-bgColor) 0%, var(--accent-color) 100%) !important;
+    border-top: 2px solid var(--accent-color) !important;
+}
+
+.focus-mode .footer-links a {
+    color: var(--primary-text-color) !important;
+    font-weight: 500 !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: var(--main-color) !important;
+    text-decoration: underline !important;
+}
+
+/* Enhanced Form Elements */
+.focus-mode .form-control {
+    background: var(--white-4345) !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 8px !important;
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .form-control:focus {
+    border-color: var(--accent-color-dark) !important;
+    box-shadow: 0 0 0 3px rgba(205, 162, 116, 0.2) !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Buttons */
+.focus-mode .primary-button {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+.focus-mode .primary-button:hover {
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+.focus-mode .btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+}
+
+.focus-mode .btn:hover {
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15) !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%) !important;
+    transform: translateY(-2px) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    transition: all 0.3s ease !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-color: var(--accent-color-dark) !important;
+}
+
+/* Enhanced FAQ Items */
+.focus-mode .faq-item {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+}
+
+.focus-mode .faq-question:hover {
+    background: linear-gradient(135deg, var(--bg-shade) 0%, var(--white-4345) 100%) !important;
+    color: var(--main-color) !important;
+}
+
+/* Enhanced Game Containers */
+.focus-mode .game-container {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+}
+
+.focus-mode .game-container:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border-color: var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contributor Cards */
+.focus-mode .contributor-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+}
+
+.focus-mode .contributor-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border-color: var(--accent-color-dark) !important;
+}
+
+/* Enhanced Stats Cards */
+.focus-mode .stats-card {
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-shade) 100%) !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+}
+
+.focus-mode .stats-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--white-4345) 100%) !important;
+    border-color: var(--accent-color-dark) !important;
+}
+
+/* Enhanced Social Links */
+.focus-mode .social-links a {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.focus-mode .social-links a:hover {
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%) !important;
+    transform: translateY(-2px) scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* Enhanced Floating Button */
+.focus-mode .floating-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%) !important;
+    border: 2px solid var(--accent-color-dark) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    border-radius: 50% !important;
+}
+
+.focus-mode .floating-btn:hover {
+    background: linear-gradient(135deg, var(--accent-color-dark) 0%, var(--accent-color) 100%) !important;
+    transform: translateY(-2px) scale(1.1) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+}
+
+/* Enhanced Container and Background Effects */
+.focus-mode #container {
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-shade) 100%) !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    opacity: 0.3 !important;
+    filter: blur(2px) !important;
+}
+
+/* Responsive Design for Focus Mode */
+@media (max-width: 768px) {
+    #focusToggle {
+        padding: 10px 16px;
+        font-size: 12px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #focusToggle {
+        padding: 8px 12px;
+        font-size: 11px;
+        bottom: 10px;
+        right: 10px;
+    }
+}

@@ -578,7 +578,7 @@
     box-shadow: 0 4px 12px rgba(90, 62, 43, 0.4);
 }
 
-/* Focus Mode Styles */
+/* Enhanced Focus Mode Styles - Theme-Aligned Distraction-Free Experience */
 .focus-mode * {
     animation: none !important;
     transition: none !important;
@@ -605,101 +605,253 @@ body.focus-mode {
     }
 }
 
+/* Enhanced Focus Mode Styles - Theme-Aligned */
 .focus-mode body {
-    background: #ffffff !important;
-    color: #111111 !important;
+    background: var(--bg-color) !important;
+    color: var(--primary-text-color) !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .focus-mode .main {
-    background: #ffffff !important;
+    background: var(--bg-color) !important;
 }
 
+/* Enhanced Navigation Background - Theme-Aligned */
 .focus-mode nav {
-    background: #f8f9fa !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: var(--nav-bgcolor) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid var(--accent-color) !important;
 }
 
+.focus-mode nav .logo a {
+    color: var(--main-color) !important;
+    font-weight: 600 !important;
+}
+
+.focus-mode nav ul li a {
+    color: var(--primary-text-color) !important;
+    font-weight: 500 !important;
+}
+
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: var(--main-color) !important;
+    background: var(--bg-shade) !important;
+    border-radius: 4px !important;
+}
+
+/* Enhanced Contact Hero Section */
 .focus-mode .contact-hero {
-    background: #f8f9fa !important;
-    border-bottom: 1px solid #e9ecef !important;
+    background: var(--bg-shade) !important;
+    border-bottom: 1px solid var(--accent-color) !important;
 }
 
+/* Enhanced Contact Form Section */
 .focus-mode .contact-form-section {
-    background: #ffffff !important;
+    background: var(--bg-color) !important;
 }
 
+/* Enhanced Contact Form Container */
 .focus-mode .contact-form-container {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
 }
 
+.focus-mode .contact-form-container:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
+}
+
+/* Enhanced Contact Info Cards */
 .focus-mode .contact-info-card {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
 }
 
 .focus-mode .contact-info-card:hover {
     transform: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
 }
 
+/* Enhanced Team Cards */
 .focus-mode .team-card {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
 }
 
 .focus-mode .team-card:hover {
     transform: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    box-shadow: none !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color-dark) !important;
 }
 
+/* Enhanced FAQ Items */
 .focus-mode .faq-item {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
 }
 
 .focus-mode .faq-question:hover {
-    background: #f8f9fa !important;
+    background: var(--bg-shade) !important;
     transform: none !important;
 }
 
+/* Enhanced Submit Button */
 .focus-mode .submit-btn {
-    background: #007bff !important;
-    color: #ffffff !important;
-    border: 1px solid #007bff !important;
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
 }
 
 .focus-mode .submit-btn:hover {
-    background: #0056b3 !important;
+    background: var(--accent-color-dark) !important;
     transform: none !important;
-}
-
-.focus-mode .form-control {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    color: #111111 !important;
     box-shadow: none !important;
 }
 
-.focus-mode .form-control:focus {
-    border-color: #007bff !important;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25) !important;
-    transform: none !important;
+/* Enhanced Form Controls */
+.focus-mode .form-control {
+    background: var(--card-bg-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-text-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
 }
 
+.focus-mode .form-control:focus {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.1) !important;
+    transform: none !important;
+    background: var(--card-bg-color) !important;
+}
+
+/* Enhanced Social Links */
 .focus-mode .social-links a {
-    background: #f8f9fa !important;
-    color: #6c757d !important;
-    border: 1px solid #e9ecef !important;
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
 }
 
 .focus-mode .social-links a:hover {
-    background: #e9ecef !important;
+    background: var(--accent-color) !important;
     transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer */
+.focus-mode footer {
+    background: var(--footer-bgColor) !important;
+    border-top: 1px solid var(--accent-color) !important;
+}
+
+.focus-mode .footer-links a {
+    color: var(--primary-text-color) !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: var(--main-color) !important;
+}
+
+/* Enhanced Buttons */
+.focus-mode .btn {
+    background: var(--main-color) !important;
+    color: var(--white-4345) !important;
+    border: 1px solid var(--main-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .btn:hover {
+    background: var(--accent-color-dark) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: var(--bg-shade) !important;
+    color: var(--secondary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: var(--bg-shade) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: var(--accent-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Text Colors for Better Readability */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: var(--main-color) !important;
+}
+
+.focus-mode p {
+    color: var(--primary-text-color) !important;
+}
+
+/* Enhanced Section Backgrounds */
+.focus-mode .contact-hero {
+    background: var(--bg-shade) !important;
+    border-bottom: 1px solid var(--accent-color) !important;
+}
+
+.focus-mode .contact-form-section {
+    background: var(--bg-color) !important;
+}
+
+/* Hide distracting elements */
+.focus-mode .floating-btn {
+    display: none !important;
+}
+
+.focus-mode #container {
+    display: none !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    display: none !important;
 }
 
 /* Responsive design for Focus Toggle Button */
