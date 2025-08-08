@@ -2,7 +2,7 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-07*
+*Last updated: 2025-08-08*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
@@ -68,7 +68,7 @@ This document lists all merged PRs with details: author, title, description (max
 | [#5](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/5) | add discription in imgaes of gallery | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | _No description provided._ | 14 | enhancement, nitra-mitra | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-02-08 | 388 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/5) |
 | [#4](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/4) | 404 error page | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | _No description provided._ | 7 | enhancement, nitra-mitra | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-02-08 | 217 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/4) |
 | [#3](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/3) | update dark mode | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | now dark mode apply on all pages at same time | 13 | enhancement, nitra-mitra | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-02-03 | 43 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/3) |
-| [#2](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/2) | Add space | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | ![Uploading Screenshot 2025-02-01 142326.png��]()
+| [#2](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/2) | Add space | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | ![Uploading Screenshot 2025-02-01 142326.png…]()
  | 6 | enhancement, good first issue | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-02-01 | 464 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/2) |
 | [#1](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/1) | Update and dark mode | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | ![Screenshot 2025-01-31 193918](https://github.com/user-attachments/assets/51f376ce-e776-4ba3-a579-e19faae1544f) ![Screenshot 2025-01-31 201948](https://github.com/user-attachments/assets/84f78526-95c9-4f69-8a23-50a9583393f3) ![Screenshot 2025-01-31 202006](https://github.com/user-attachments/assets/3a80ff1a-8935-4c12-9e8d-487f83bf3a12) ![Screenshot ... | 29 | enhancement, good first issue | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-01-31 | 1246 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/1) |
 
@@ -1381,7 +1381,7 @@ now dark mode apply on all pages at same time
 
 - **Author:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
 - **Description:**  
-![Uploading Screenshot 2025-02-01 142326.png��]()
+![Uploading Screenshot 2025-02-01 142326.png…]()
 
 - **Files Changed (6):**
     - `game/game.html`
