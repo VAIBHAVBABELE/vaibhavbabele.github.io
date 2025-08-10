@@ -145,7 +145,7 @@ git rebase upstream/main
 ```
 ---
 
-## Project Structure 
+## 📁 Project Structure 
 
 ```
 ├── .github/                      # GitHub workflows and automation
