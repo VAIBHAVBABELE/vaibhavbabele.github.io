@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, or `level3` labels **and** are part of `gssoc25`.
 
-*Last updated: 2025-08-09*
+*Last updated: 2025-08-10*
 
 | Username | Email | Level 1 | Level 2 | Level 3 | PRs Merged | Total Points |
 |----------|-------|---------|---------|---------|------------|--------------|
@@ -14,6 +14,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
 | [@kunnal-singhh](https://github.com/kunnal-singhh) | - | 1 | 1 | 0 | 2 | 10 |
 | [@PrathmeshTatar](https://github.com/PrathmeshTatar) | prathmeshtatar05@gmail.com | 0 | 0 | 1 | 1 | 10 |
+| [@divyaHAVES00256](https://github.com/divyaHAVES00256) | - | 0 | 1 | 0 | 1 | 7 |
 | [@singharyan006](https://github.com/singharyan006) | aryanraisingh2006@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@harikareddy312](https://github.com/harikareddy312) | - | 0 | 1 | 0 | 1 | 7 |
 | [@devajuw](https://github.com/devajuw) | - | 0 | 1 | 0 | 1 | 7 |
