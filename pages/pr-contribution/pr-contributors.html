@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PR Contributors - Nitra Mitra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pr-contributor.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+    <!-- NAVBAR DESIGNING -->
+    <nav>
+        <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="index.html" id="active">Home</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#about">About </a></li>
+            <li><a href="#Feedback">Feedback</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+
+        </ul>
+        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <script src="index.js"></script>
+
+    </nav>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="service-heading">🏆 PR Contributors</h1>
+                <p class="para">Welcome to the <span>PR Contributors</span> section! This page tracks and celebrates all the amazing contributors who have helped improve <span>Nitra Mitra</span> through their pull requests. Here you can view contributor rankings, track merged PRs, and see the impact each contributor has made to our platform. Thank you to all our <span>contributors</span> for making Nitra Mitra better for the entire <span>NITRA Technical Campus</span> community!</p>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="pr-container">
+                    <div class="pr-header">
+                        <h2>Our Contributors</h2>
+                        <p>Celebrating excellence in open source contributions</p>
+                    </div>
+                    <div id="content" class="main-content-area">
+                        <div class="loading">🔄 Loading contributors...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+                <h1 class="contact-heading">Contact Us</h1>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Whatsapp Community</span>
+                            <p>Nitra Mitra</p>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                            <p>nitramitra@gmail.com</p>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                            class="contact-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Address</span>
+                            <p>Sanjay Nagar, Ghaziabad, India</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a> |
+                    <a href="./terms.html">Terms & Conditions</a> |
+                    <a href="./contact.html">Contact</a> |
+                    <a href="pr-contributors.html">Contributors</a>
+                </div>
+
+                <p class="copyright">
+                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+                </p>
+            </div>
+
+            </div>
+
+        </section>
+    </footer>
+
+    <script>
+    let allPRs = [];
+let contributors = new Map();
+const API_TOKEN = '';
+let useApiToken = false;
+
+// Cache configuration - extended for comprehensive data
+const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds (since we're fetching all contributor data)
+const CACHE_KEYS = {
+    PRS: 'github_prs_cache',
+    CONTRIBUTORS: 'github_contributors_cache',
+    TIMESTAMP: 'cache_timestamp'
+};
+
+// Dark mode toggle functionality
+const modeToggle = document.getElementById('mode');
+const body = document.body;
+
+if (modeToggle) {
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        modeToggle.src = isDarkMode ? 'images/sun.png' : 'images/moon.png';
+    });
+}
+
+// Cache management functions
+function saveToCache(key, data) {
+    try {
+        sessionStorage.setItem(key, JSON.stringify(data));
+        sessionStorage.setItem(CACHE_KEYS.TIMESTAMP, Date.now().toString());
+        console.log(`✅ Data cached for key: ${key}`);
+    } catch (error) {
+        console.warn('Cache save failed:', error);
+    }
+}
+
+function getFromCache(key) {
+    try {
+        const timestamp = sessionStorage.getItem(CACHE_KEYS.TIMESTAMP);
+        if (!timestamp) return null;
+        
+        const age = Date.now() - parseInt(timestamp);
+        if (age > CACHE_DURATION) {
+            clearCache();
+            return null;
+        }
+        
+        const data = sessionStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    } catch (error) {
+        console.warn('Cache read failed:', error);
+        return null;
+    }
+}
+
+function clearCache() {
+    try {
+        Object.values(CACHE_KEYS).forEach(key => {
+            sessionStorage.removeItem(key);
+        });
+        console.log('🗑️ Cache cleared');
+    } catch (error) {
+        console.warn('Cache clear failed:', error);
+    }
+}
+
+function isCacheValid() {
+    const timestamp = sessionStorage.getItem(CACHE_KEYS.TIMESTAMP);
+    if (!timestamp) return false;
+    
+    const age = Date.now() - parseInt(timestamp);
+    return age < CACHE_DURATION;
+}
+
+function displayCacheStatus() {
+    const timestamp = sessionStorage.getItem(CACHE_KEYS.TIMESTAMP);
+    if (timestamp) {
+        const age = Date.now() - parseInt(timestamp);
+        const remainingTime = Math.max(0, CACHE_DURATION - age);
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = Math.floor((remainingTime % 60000) / 1000);
+        
+        console.log(`💾 Cache valid for: ${minutes}m ${seconds}s`);
+        
+        // Show cache status on page
+        const statusDiv = document.createElement('div');
+        statusDiv.className = 'cache-status';
+        statusDiv.style.cssText = `
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 128, 0, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            z-index: 1000;
+        `;
+        statusDiv.innerHTML = `💾 Cache: ${minutes}m ${seconds}s left`;
+        document.body.appendChild(statusDiv);
+        
+        setTimeout(() => statusDiv.remove(), 5000);
+    }
+}
+
+function getRepoDetails() {
+    const hostname = window.location.hostname;
+    const pathParts = window.location.pathname.split('/').filter(p => p && !p.endsWith('.html'));
+
+    if (!hostname.endsWith('github.io')) {
+        console.warn("Not running on a GitHub Pages site. Using fallback repository.");
+        return 'VAIBHAVBABELE/vaibhavbabele.github.io';
+    }
+
+    const owner = hostname.split('.')[0];
+    const repoName = pathParts.length > 0 ? pathParts[0] : `${owner}.github.io`;
+
+    return `${owner}/${repoName}`;
+}
+
+function checkRateLimitFromHeaders(response) {
+    const rateLimitInfo = {
+        limit: response.headers.get('X-RateLimit-Limit'),
+        remaining: response.headers.get('X-RateLimit-Remaining'),
+        reset: response.headers.get('X-RateLimit-Reset'),
+        used: response.headers.get('X-RateLimit-Used'),
+        resource: response.headers.get('X-RateLimit-Resource')
+    };
+    
+    if (rateLimitInfo.reset) {
+        const resetDate = new Date(parseInt(rateLimitInfo.reset) * 1000);
+        rateLimitInfo.resetDate = resetDate.toLocaleString();
+    }
+    
+    return rateLimitInfo;
+}
+
+function displayRateLimitInfo(rateLimitInfo) {
+    console.log('📊 GitHub API Rate Limit Status:');
+    console.log(`   Remaining: ${rateLimitInfo.remaining || 'N/A'}/${rateLimitInfo.limit || 'N/A'}`);
+    console.log(`   Resets at: ${rateLimitInfo.resetDate || 'N/A'}`);
+    
+    if (rateLimitInfo.remaining && rateLimitInfo.remaining < 50) {
+        console.warn('⚠️  Warning: Low API rate limit remaining!');
+    }
+    
+    return rateLimitInfo;
+}
+
+function displayRateLimitOnPage(rateLimitInfo) {
+    const existingRateLimit = document.querySelector('.rate-limit-info');
+    if (existingRateLimit) {
+        existingRateLimit.remove();
+    }
+    
+    const rateLimitDiv = document.createElement('div');
+    rateLimitDiv.className = 'rate-limit-info';
+    rateLimitDiv.style.cssText = `
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        z-index: 1000;
+        max-width: 200px;
+    `;
+    
+    const remaining = rateLimitInfo.remaining || 'N/A';
+    const limit = rateLimitInfo.limit || 'N/A';
+    
+    rateLimitDiv.innerHTML = `
+        <strong>GitHub API</strong><br>
+        Remaining: ${remaining}/${limit}
+    `;
+    
+    if (rateLimitInfo.remaining && rateLimitInfo.remaining < 50) {
+        rateLimitDiv.style.background = 'rgba(255, 165, 0, 0.8)';
+    }
+    
+    document.body.appendChild(rateLimitDiv);
+    
+    setTimeout(() => {
+        if (rateLimitDiv.parentNode) {
+            rateLimitDiv.remove();
+        }
+    }, 8000);
+}
+
+// Main fetch function with aggressive caching
+async function fetchPRs() {
+    const contentDiv = document.getElementById('content');
+    const repo = getRepoDetails();
+
+    if (!repo) {
+        showError("Could not determine the GitHub repository.");
+        return;
+    }
+
+    // Check cache first
+    const cachedPRs = getFromCache(CACHE_KEYS.PRS);
+    const cachedContributors = getFromCache(CACHE_KEYS.CONTRIBUTORS);
+    
+    if (cachedPRs && cachedContributors && isCacheValid()) {
+        
+        allPRs = cachedPRs;
+        contributors = new Map(cachedContributors);
+        displayResults(allPRs);
+        displayCacheStatus();
+        return;
+    }
+
+    // If no cache, fetch from API
+    contentDiv.innerHTML = `<div class="loading">🔄 Fetching fresh data from ${repo}... br><small>Getting all contributor details - this may take a moment</small></div>`;
+
+    try {
+        const headers = {
+            'Accept': 'application/vnd.github.v3+json',
+        };
+
+        if (useApiToken && API_TOKEN) {
+            headers['Authorization'] = `token ${API_TOKEN}`;
+        }
+
+        // Single API call for PRs
+        const response = await fetch(
+            `https://api.github.com/repos/${repo}/pulls?state=closed&per_page=100&sort=updated&direction=desc`, {
+                headers
+            }
+        );
+
+        const rateLimitInfo = checkRateLimitFromHeaders(response);
+        displayRateLimitInfo(rateLimitInfo);
+        displayRateLimitOnPage(rateLimitInfo);
+
+        if (!response.ok) {
+            if (response.status === 403 && !useApiToken && API_TOKEN) {
+                console.log('');
+                useApiToken = true;
+                return await fetchPRs();
+            } else if (response.status === 403) {
+                throw new Error(`GitHub API rate limit exceeded.`);
+            }
+            throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+        }
+
+        const prs = await response.json();
+        const mergedPRs = prs.filter(pr => pr.merged_at);
+
+        allPRs = mergedPRs;
+        
+        // Process contributors with batched user data fetching
+        await processContributorsOptimized(mergedPRs);
+        
+        // Cache the results
+        saveToCache(CACHE_KEYS.PRS, allPRs);
+        saveToCache(CACHE_KEYS.CONTRIBUTORS, Array.from(contributors.entries()));
+        
+        displayResults(mergedPRs);
+        console.log('✅ Data fetched and cached successfully!');
+
+    } catch (error) {
+        showError(`Error: ${error.message}`);
+    }
+}
+
+// Optimized contributor processing with minimal API calls
+async function processContributorsOptimized(prs) {
+    contributors.clear();
+    
+    // First pass: collect basic contributor info from PR data
+    prs.forEach(pr => {
+        const username = pr.user.login;
+        if (!contributors.has(username)) {
+            contributors.set(username, {
+                name: username,
+                avatar: pr.user.avatar_url,
+                profileUrl: pr.user.html_url,
+                prs: [],
+                totalPRs: 0,
+                maxLevel: 1,
+                levelPRs: { 1: 0, 2: 0, 3: 0 },
+                score: 0,
+                bio: '',
+                company: '',
+                location: '',
+                linkedinUrl: '',
+                twitterUrl: '',
+                websiteUrl: ''
+            });
+        }
+        const contributor = contributors.get(username);
+        contributor.prs.push(pr);
+        contributor.totalPRs++;
+        const prLevel = extractLevelFromLabels(pr.labels || []);
+        if (prLevel > 0) {
+            contributor.levelPRs[prLevel]++;
+            if (prLevel > contributor.maxLevel) {
+                contributor.maxLevel = prLevel;
+            }
+        }
+    });
+
+    // Second pass: fetch user details for ALL contributors (with smart batching)
+    const allContributors = Array.from(contributors.keys());
+    const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
+    const contributorsToFetch = allContributors.filter(username => !excludedUsers.includes(username));
+
+    console.log(`🎯 Fetching detailed info for all ${contributorsToFetch.length} contributors`);
+
+    // Batch fetch with increased delay and error handling
+    const batchSize = 10; // Process in batches to avoid overwhelming the API
+    
+    for (let i = 0; i < contributorsToFetch.length; i += batchSize) {
+        const batch = contributorsToFetch.slice(i, i + batchSize);
+        console.log(`📦 Processing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(contributorsToFetch.length/batchSize)}`);
+        
+        // Process batch with Promise.all for parallel requests (but limited batch size)
+        const batchPromises = batch.map(async (username, batchIndex) => {
+            try {
+                // Add staggered delay within batch
+                await new Promise(resolve => setTimeout(resolve, batchIndex * 200));
+                
+                const headers = { 'Accept': 'application/vnd.github.v3+json' };
+                if (useApiToken && API_TOKEN) {
+                    headers['Authorization'] = `token ${API_TOKEN}`;
+                }
+                
+                const response = await fetch(`https://api.github.com/users/${username}`, { headers });
+                
+                if (response.ok) {
+                    const userData = await response.json();
+                    const contributor = contributors.get(username);
+                    
+                    contributor.bio = userData.bio || '';
+                    contributor.company = userData.company || '';
+                    contributor.location = userData.location || '';
+                    contributor.websiteUrl = userData.blog || '';
+                    contributor.twitterUrl = userData.twitter_username ? `https://twitter.com/${userData.twitter_username}` : '';
+                    
+                    const bioText = (userData.bio || '').toLowerCase();
+                    const linkedinMatch = bioText.match(/linkedin\.com\/in\/([a-zA-Z0-9-]+)/);
+                    if (linkedinMatch) {
+                        contributor.linkedinUrl = `https://linkedin.com/in/${linkedinMatch[1]}`;
+                    }
+                    
+                    console.log(`✅ Fetched info for ${username}`);
+                } else if (response.status === 403) {
+                    console.warn(`⚠️ Rate limited while fetching ${username}, skipping detailed info`);
+                    return; // Skip this user but continue with others
+                } else {
+                    console.warn(`❌ Failed to fetch ${username}: ${response.status}`);
+                }
+                
+            } catch (error) {
+                console.warn(`Failed to fetch profile for ${username}:`, error.message);
+            }
+        });
+        
+        // Wait for current batch to complete
+        await Promise.all(batchPromises);
+        
+        // Add delay between batches to be respectful to API
+        if (i + batchSize < contributorsToFetch.length) {
+            console.log('⏳ Waiting between batches...');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+
+    // Calculate scores for all contributorss
+    contributors.forEach(contributor => {
+        contributor.level = contributor.maxLevel;
+        contributor.score = (contributor.levelPRs[1] * 3) + 
+                           (contributor.levelPRs[2] * 7) + 
+                           (contributor.levelPRs[3] * 10);
+    });
+}
+
+function extractLevelFromLabels(labels) {
+    for (const label of labels) {
+        const labelName = label.name.toLowerCase();
+        if (labelName.includes('level 3') || labelName.includes('level3') || labelName.includes('hard')) return 3;
+        if (labelName.includes('level 2') || labelName.includes('level2') || labelName.includes('medium')) return 2;
+        if (labelName.includes('level 1') || labelName.includes('level1') || labelName.includes('easy')) return 1;
+    }
+    return 1;
+}
+
+function displayResults(prs) {
+    const contentDiv = document.getElementById('content');
+    const statsHTML = `
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">${prs.length}</div>
+                <div class="stat-label">Merged PRs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${contributors.size}</div>
+                <div class="stat-label">Contributors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 3).length}</div>
+                <div class="stat-label">Level 3 Contributors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">${Array.from(contributors.values()).filter(c => c.level === 2).length}</div>
+                <div class="stat-label">Level 2 Contributors</div>
+            </div>
+        </div>
+    `;
+    const contributorsHTML = displayContributors();
+    const prsHTML = displayPRs(prs);
+    contentDiv.innerHTML = statsHTML + contributorsHTML + prsHTML;
+}
+
+function displayContributors() {
+    const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
+    const sortedContributors = Array.from(contributors.values())
+        .filter(c => !excludedUsers.includes(c.name))
+        .sort((a, b) => {
+            if (a.score !== b.score) return b.score - a.score;
+            return b.totalPRs - a.totalPRs;
+        });
+
+    const topThree = sortedContributors.slice(0, 3);
+    const restContributors = sortedContributors.slice(3);
+
+    const podiumHTML = `
+        <div class="ranking-podium">
+            ${topThree.length > 1 ? `
+                <div class="podium-item position-2">
+                    <div class="podium-avatar">
+                        <img src="${topThree[1].avatar}" alt="${topThree[1].name}">
+                        <div class="crown silver">🥈</div>
+                    </div>
+                    <div class="podium-name">${topThree[1].name}</div>
+                    <div class="podium-score">⭐ ${topThree[1].score}</div>
+                    <div class="podium-level">Level ${topThree[1].level}</div>
+                    <div class="podium-prs">📊 ${topThree[1].totalPRs} PRs</div>
+                    <div class="podium-links">
+                        <a href="${topThree[1].profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${topThree[1].linkedinUrl ? `<a href="${topThree[1].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
+                    <div class="download-certificate">
+                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
+                            class="download-link"
+" target="_blank" title="Download Certificate">
+                            <p>Download Certificate</p>
+                            
+                        </a>
+                    </div>
+                </div>
+            ` : ''}
+            
+            ${topThree.length > 0 ? `
+                <div class="podium-item position-1">
+                    <div class="podium-avatar">
+                        <img src="${topThree[0].avatar}" alt="${topThree[0].name}">
+                        <div class="crown gold">👑</div>
+                    </div>
+                    <div class="podium-name">${topThree[0].name}</div>
+                    <div class="podium-score">⭐ ${topThree[0].score}</div>
+                    <div class="podium-level">Level ${topThree[0].level}</div>
+                    <div class="podium-prs">📊 ${topThree[0].totalPRs} PRs</div>
+                    <div class="podium-links">
+                        <a href="${topThree[0].profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${topThree[0].linkedinUrl ? `<a href="${topThree[0].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
+                    <div class="download-certificate">
+                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
+                            class="download-link"
+" target="_blank" title="Download Certificate">
+                            <p>Download Certificate</p>
+                            
+                        </a>
+                    </div>
+                </div>
+            ` : ''}
+            
+            ${topThree.length > 2 ? `
+                <div class="podium-item position-3">
+                    <div class="podium-avatar">
+                        <img src="${topThree[2].avatar}" alt="${topThree[2].name}">
+                        <div class="crown bronze">🥉</div>
+                    </div>
+                    <div class="podium-name">${topThree[2].name}</div>
+                    <div class="podium-score">⭐ ${topThree[2].score}</div>
+                    <div class="podium-level">Level ${topThree[2].level}</div>
+                    <div class="podium-prs">📊 ${topThree[2].totalPRs} PRs</div>
+                    <div class="podium-links">
+                        <a href="${topThree[2].profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${topThree[2].linkedinUrl ? `<a href="${topThree[2].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
+                    <div class="download-certificate">
+                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
+                            class="download-link"
+" target="_blank" title="Download Certificate">
+                            <p>Download Certificate</p>
+                            
+                        </a>
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+    `;
+
+    const listHTML = restContributors.map((contributor, index) => {
+        const rank = index + 4;
+        const levelClass = `level-${contributor.level}`;
+        const levelBadgeClass = `level-${contributor.level}-badge`;
+        const levelText = ['Beginner', 'Intermediate', 'Advanced'][contributor.level - 1];
+        
+        return `
+            <div class="contributor-rank-item ${levelClass}">
+                <div class="rank-number">${rank}</div>
+                <div class="contributor-avatar">
+                    <img src="${contributor.avatar}" alt="${contributor.name}">
+                </div>
+                <div class="contributor-details">
+                    <div class="contributor-name">${contributor.name}</div>
+                    <div class="contributor-level ${levelBadgeClass}">
+                        Level ${contributor.level} - ${levelText}
+                    </div>
+                    ${contributor.bio ? `<div class="contributor-bio">${contributor.bio.substring(0, 100)}${contributor.bio.length > 100 ? '...' : ''}</div>` : ''}
+                </div>
+                <div class="contributor-stats">
+                    <div class="score">⭐ ${contributor.score}</div>
+                    <div class="pr-count">📊 ${contributor.totalPRs} PRs</div>
+                </div>
+                <div class="contributor-actions">
+                    <div class="social-links">
+                        <a href="${contributor.profileUrl}" target="_blank" title="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        ${contributor.linkedinUrl ? `<a href="${contributor.linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                    </div>
+                    <div class="download-certificate">
+                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
+                            class="download-link"
+" target="_blank" title="Download Certificate">
+                            <p>Download Certificate</p>
+                            
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="contributors-section">
+            <h2 class="section-title">🏆 Top Contributors Ranking</h2>
+            ${podiumHTML}
+            <div class="contributors-ranking-list">
+                ${listHTML}
+            </div>
+        </div>
+    `;
+}
+
+function displayPRs(prs) {
+    const prsHTML = prs.slice(0, 10).map(pr => {
+        const labels = pr.labels?.map(label =>
+            `<span class="label" style="background-color: #${label.color}; color: ${getContrastColor(label.color)}">${label.name}</span>`
+        ).join('') || '';
+        const mergedDate = new Date(pr.merged_at).toLocaleDateString();
+        const prLevel = extractLevelFromLabels(pr.labels || []);
+        const levelEmoji = ['🔰', '⭐', '💎'][prLevel - 1] || '🔰';
+        return `
+            <div class="pr-item">
+                <div class="pr-header-item">
+                    <div class="pr-title">${levelEmoji} ${pr.title}</div>
+                    <a href="${pr.html_url}" target="_blank" class="pr-number">#${pr.number}</a>
+                </div>
+                <div class="pr-meta">
+                    <span>👤 ${pr.user.login}</span>
+                    <span>📅 Merged: ${mergedDate}</span>
+                </div>
+                ${labels ? `<div class="pr-labels">${labels}</div>` : ''}
+            </div>`;
+    }).join('');
+    return `
+        <div class="prs-section">
+            <h2 class="section-title">📋 Recent Merged Pull Requests</h2>
+            <div class="prs-list">
+                ${prsHTML}
+            </div>
+        </div>`;
+}
+
+function getContrastColor(hexColor) {
+    if (hexColor.startsWith('#')) {
+        hexColor = hexColor.slice(1);
+    }
+    const r = parseInt(hexColor.substr(0, 2), 16);
+    const g = parseInt(hexColor.substr(2, 2), 16);
+    const b = parseInt(hexColor.substr(4, 2), 16);
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance > 0.5 ? '#000000' : '#ffffff';
+}
+
+function showError(message) {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
+}
+
+
+
+
+// Initialize the app
+window.addEventListener('load', () => {
+    fetchPRs();
+    addRefreshButton();
+});
+</script>
+  </body>
+</html>
