@@ -1,4 +1,22 @@
 /* Summary Tool specific styles using existing theme variables */
+:root {
+  --white-4345: #ffffff;
+  --accent-color: #d2bf80;
+  --accent-color-dark: #bfa85c;
+  --bg-shade: #f9f9f9;
+  --primary-text-color: #333333;
+  --secondary-text-color: #777777;
+  --placeholder-color: #aaaaaa;
+}
+.dark-mode {
+  --white-4345: #222222;
+  --accent-color: #d2bf80;
+  --accent-color-dark: #bfa85c;
+  --bg-shade: #1a1a1a;
+  --primary-text-color: #eeeeee;
+  --secondary-text-color: #cccccc;
+  --placeholder-color: #888888;
+}
 .summary-container {
   max-width: 1200px;
   margin: 2rem auto;
