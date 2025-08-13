@@ -2,6 +2,7 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
+
 *Last updated: 2025-08-11*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
@@ -78,6 +79,7 @@ This document lists all merged PRs with details: author, title, description (max
 
 ## 📝 Detailed Merged PRs
 
+
 ### [#232 Readme update](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232)
 
 - **Author:** [@Sejal-collection](https://github.com/Sejal-collection)
@@ -124,7 +126,7 @@ This document lists all merged PRs with details: author, title, description (max
   - `pages/terms.html`
   - `pages/test.html`
   - `pages/user-experience-table.html`
-- **Labels:** None
+
 - **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
 - **Merged At:** 2025-08-10 08:06:18
 - **Lines Updated:** 5191
@@ -132,6 +134,7 @@ This document lists all merged PRs with details: author, title, description (max
 - **PR Link:** [PR #232](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232)
 
 ---
+
 
 ### [#216 Added certificate styling and made it responsive](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216)
 
