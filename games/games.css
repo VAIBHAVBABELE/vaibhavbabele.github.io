@@ -61,3 +61,15 @@ body {
     #about {
       margin-top: 80px;
     }
+    .back-link {
+  text-decoration: none;
+  color: rgb(87, 4, 4);
+  font-weight: 600;
+  position: absolute;
+  top: 85px;
+  left: 20px;
+}
+
+.back-link:hover {
+  text-decoration: underline ;
+}
