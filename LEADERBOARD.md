@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, or `level3` labels **and** are part of `gssoc25`.
 
-*Last updated: 2025-08-10*
+*Last updated: 2025-08-13*
 
 | Username | Email | Level 1 | Level 2 | Level 3 | PRs Merged | Total Points |
 |----------|-------|---------|---------|---------|------------|--------------|
@@ -14,6 +14,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
 | [@kunnal-singhh](https://github.com/kunnal-singhh) | - | 1 | 1 | 0 | 2 | 10 |
 | [@PrathmeshTatar](https://github.com/PrathmeshTatar) | prathmeshtatar05@gmail.com | 0 | 0 | 1 | 1 | 10 |
+| [@Sushilnautiyal07](https://github.com/Sushilnautiyal07) | - | 0 | 1 | 0 | 1 | 7 |
 | [@divyaHAVES00256](https://github.com/divyaHAVES00256) | - | 0 | 1 | 0 | 1 | 7 |
 | [@singharyan006](https://github.com/singharyan006) | aryanraisingh2006@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@harikareddy312](https://github.com/harikareddy312) | - | 0 | 1 | 0 | 1 | 7 |
@@ -21,6 +22,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@sabaaa01](https://github.com/sabaaa01) | xsabafatima01@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@Tanvi0710](https://github.com/Tanvi0710) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Triveni-Balekundri](https://github.com/Triveni-Balekundri) | balekundritriveni05@gmail.com | 0 | 1 | 0 | 1 | 7 |
+| [@Sejal-collection](https://github.com/Sejal-collection) | ksejal630@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@piyushhvarma](https://github.com/piyushhvarma) | pytworks@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@snehaburma270](https://github.com/snehaburma270) | - | 1 | 0 | 0 | 1 | 3 |
 | [@pratiks2905](https://github.com/pratiks2905) | - | 1 | 0 | 0 | 1 | 3 |
