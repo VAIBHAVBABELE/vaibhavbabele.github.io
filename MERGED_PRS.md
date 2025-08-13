@@ -1,3 +1,16 @@
+
+# 📋 Merged Pull Requests Documentation
+
+This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
+
+*Last updated: 2025-08-12*
+
+| # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
+|---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+
+
+## 📝 Detailed Merged PRs
+=======
 # 📋 Merged Pull Requests Documentation
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
@@ -1518,4 +1531,3 @@ now dark mode apply on all pages at same time
 - **Commits:** 2
 - **PR Link:** [PR #1](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/1)
 
----
