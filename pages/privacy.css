@@ -56,7 +56,9 @@
       margin-top: 60px;
       /* Updated to match new navbar */
     }
-
+    h1{
+      margin-top: 25px;
+    }
     /* Mobile responsive fix for main content */
     @media (max-width: 1000px) {
       .main:not(.dark-mode) {

@@ -27,26 +27,65 @@ document.getElementById('click').addEventListener('click', function() {
 });
 
 
-mode.onclick=function(){
-    const wasDarkmode = localStorage.getItem('mode') === 'true';
-    localStorage.setItem('mode', !wasDarkmode);
-    document.body.classList.toggle("dark-mode",!wasDarkmode);
+window.onload = function() {
+    const isDark = localStorage.getItem('mode') === 'true';
+    document.body.classList.toggle('dark-mode', isDark);
+
+    const path = window.location.pathname;
+
+    // Check if path contains any of the special subfolders inside /pages
+    const isDeepPage = ['/summary', '/assistant', '/pr-contribution', '/certificate'].some(subpath => 
+        path.includes('/pages' + subpath)
+    );
+
+    let imgPathPrefix = '';
+    if (isDeepPage) {
+        imgPathPrefix = '../../images/';
+    } else if (path.includes('/pages')|| path.includes('/games')) {
+        imgPathPrefix = '../images/';
+    } else {
+        imgPathPrefix = 'images/';
+    }
+
     if(document.body.classList.contains("dark-mode")){
-        mode.src="images/sun.png";
-    }else{
-        mode.src="images/moon.png";
+        mode.src = imgPathPrefix + "sun.png";
+        console.log("Dark mode is enabled");
+    } else {
+        mode.src = imgPathPrefix + "moon.png";
+        console.log("Dark mode is disabled");
     }
 }
 
-load.onload=function(){
-    document.body.classList.toggle('dark-mode', localStorage.getItem('mode') === 'true');
-    // Set correct icon on page load
+mode.onclick = function() {
+    const wasDarkmode = localStorage.getItem('mode') === 'true';
+    const newMode = !wasDarkmode;
+    localStorage.setItem('mode', newMode);
+    document.body.classList.toggle("dark-mode", newMode);
+
+    const path = window.location.pathname;
+    const isDeepPage = ['/summary', '/assistant', '/pr-contribution', '/certificate'].some(subpath => 
+        path.includes('/pages' + subpath)
+    );
+
+    let imgPathPrefix = '';
+    if (isDeepPage) {
+        imgPathPrefix = '../../images/';
+    } else if (path.includes('/pages') || path.includes('/games')) {
+        imgPathPrefix = '../images/';
+    } else {
+        imgPathPrefix = 'images/';
+    }
+
     if(document.body.classList.contains("dark-mode")){
-        mode.src="images/sun.png";
-    }else{
-        mode.src="images/moon.png";
+        mode.src = imgPathPrefix + "sun.png";
+    } else {
+        mode.src = imgPathPrefix + "moon.png";
     }
 }
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {

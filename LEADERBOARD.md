@@ -2,7 +2,9 @@
 
 This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, or `level3` labels **and** are part of `gssoc25`.
 
-*Last updated: 2025-08-13*
+
+*Last updated: 2025-08-11*
+
 
 | Username | Email | Level 1 | Level 2 | Level 3 | PRs Merged | Total Points |
 |----------|-------|---------|---------|---------|------------|--------------|
