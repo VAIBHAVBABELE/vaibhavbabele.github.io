@@ -3,7 +3,42 @@
 > **Nitra Mitra** is an **open-source student initiative** from NITRA Technical Campus, Ghaziabad aimed at **simplifying academic and non-academic life** for students.  
 From **syllabus tracking** to **AI-powered study tools**, and from **event management** to **career guidance**, everything resides under one open, collaborative platform.
 
----
+</div>
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+**📊 Project Insights**
+<table align="center">
+    <thead align="center">
+        <tr>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Closed PRs</b></td>
+            <td><b>🛠️ Languages</b></td>
+            <td><b>👥 Contributors</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&logo=github"/></td>
+            <td><img alt="Open PRs" src="https://img.shields.io/github/issues-pr/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&logo=github"/></td>
+            <td><img alt="Closed PRs" src="https://img.shields.io/github/issues-pr-closed/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&color=critical&logo=github"/></td>
+            <td><img alt="Languages Count" src="https://img.shields.io/github/languages/count/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&color=green&logo=github"></td>
+            <td><img alt="Contributors Count" src="https://img.shields.io/github/contributors/VAIBHAVBABELE/vaibhavbabele.github.io?style=flat&color=blue&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+<h1 align="center">Supported By <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands%20Light%20Skin%20Tone.png" alt="Folded Hands Light Skin Tone" width="25" height="25" /></h1>
+
+</div>
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 📚 Table of Contents
 
@@ -17,7 +52,9 @@ From **syllabus tracking** to **AI-powered study tools**, and from **event manag
 - [Contributors](#-contributors)
 - [License](#-license)
 
----
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00C853&center=true&vCenter=true&width=700&lines=Thanks+for+visiting+NitraMitra!+🙌;Start+the+repo+✅;Share+it+with+others+🌍;Contribute+and+grow+🛠️;Happy+Coding+✨!" alt="Thanks Banner Typing SVG" />
+</div>
 
 ## 👨🏫 About
 
@@ -79,6 +116,34 @@ It is **built by students, for students**, and welcomes open-source contribution
 
 ---
 
+<h2 align="center">🎯 Open Source Programmes ⭐</h2>
+
+<p align="center">
+  <b>This project is now OFFICIALLY accepted for:</b>
+</p>
+
+<div align="center">
+  <img src="vaibhavbabele.github.io/images/gssoc%20logo.png" alt="GSSOC" width="80%">
+</div>
+
+🌟 **Exciting News...**
+
+🚀 This project is now an official part of GirlScript Summer of Code – GSSoC 2025! 💃🎉💻 We’re thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow with DevElevate. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+
+👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
+
+🌈 With **mentorship, community support**, and **collaborative coding**, it's the perfect platform for developers to:
+
+✨ Improve their skills
+🤝 Contribute to impactful projects
+🏆 Get recognized for their work
+📜 Receive certificates and swag!
+
+🎉 **I can’t wait to welcome new contributors** from GSSoC 2025 to this DevElevate project family!
+Let’s build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
 ## 🖼 Screenshots
 
 ### 🏠 Home Page
@@ -138,12 +203,16 @@ Move project to htdocs or www and visit:
 http://localhost/nitra-mitra/
 
 5. Add upstream for updates
-```
+
+```bash 
 git remote add upstream https://github.com/<original-owner>/nitra-mitra.git
 git fetch upstream
 git rebase upstream/main
 ```
----
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
+</div>
 
 ## 📁 Project Structure 
 
@@ -209,24 +278,99 @@ git rebase upstream/main
 
 
 ```
----
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
+</div>
+
+**⭐ Stargazers**
+
+<div align="center">
+  <a href="https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/stargazers">
+    <img src="https://reporoster.com/stars/VAIBHAVBABELE/vaibhavbabele.github.io?type=svg&limit=200&names=false" alt="Stargazers" />
+  </a>
+</div>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
+</div>
+
+**🍴 Forkers**
+
+<div align="center">
+  <a href="https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/network/members">
+    <img src="https://reporoster.com/forks/abhisek2004/Dev-Elevate?type=svg&limit=200&names=false" alt="Forkers" />
+  </a>
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
+</div>
 
 ## 🤝 Contribution Guidelines
 We welcome **frontend, backend, AI, and design** contributions.  
 See [CONTRIBUTION.md](CONTRIBUTION.md) for details.
 
----
+**🙌 👤 Contributors**
+
+> Thank you once again to all our contributors who has contributed to Nitra Mitra! Your efforts are truly appreciated. 💖👏
+
+<!-- Contributors badge (auto-updating) -->
+[![Contributors](https://img.shields.io/github/contributors/VAIBHAVBABELE/vaibhavbabele.github.io?style=for-the-badge)](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/graphs/contributors)
+
+<!-- Contributors avatars (auto-updating) -->
+<p align="left">
+  <a href="https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=VAIBHAVBABELE/vaibhavbabele.github.io" alt="Contributors" />
+  </a>
+</p>
+
+See the full list of contributors and their contributions on the [`GitHub Contributors Graph`](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/graphs/contributors).
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 📜 License
 Licensed under the [MIT License](LICENSE).
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
 ## ⭐ Support
 
 If you find this project helpful, please give it a star! ⭐
 
----
-
-<div align="center" >
-  " Made with ❤️ by NITra MITra "
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
 </div>
+
+### 👥 Project Admin & 👨‍🏫 Mentors – Nitra Mitra (GSSoC'25)**
+| Role          | Name               | GitHub Profile                                      | LinkedIn Profile                                                        |
+| ------------- | ------------------ | --------------------------------------------------- | ----------------------------------------------------------------------- |
+| Project Admin | Vaibhav Babele    | [vaibhavbabele.github.io](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io)    | [vaibhavbabele](https://in.linkedin.com/in/vaibhavbabele)       |
+| Mentor 1   | Anupriya yadav | [camren88](https://github.com/camren88)           | [anupriya-yadav](https://www.linkedin.com/in/anupriya-yadav-96845b274/)           |
+| Mentor 2   | meet arora     | [meetarora10](https://github.com/meetarora10)     | [meet-arora](https://www.linkedin.com/in/meet-arora-603682296/)                   |
+| Mentor 3   | Harsh Saini    | [Harshsaini001](https://github.com/Harshsaini001) | [harsh-saini](https://www.linkedin.com/in/harsh-saini-734ab6264/)                 |
+| Mentor 4   | KIRUTHIGA C M  | [kiruthigacm](https://github.com/kiruthigacm)     | [kiruthiga-c-m](https://www.linkedin.com/in/kiruthiga-c-m-b34aa9328/)             |
+| Mentor 5   | Shashank Gupta | [ShashankScript](https://github.com/ShashankScript)  | [shashank-gupta](https://www.linkedin.com/in/shashank-gupta-abb76030b)   |
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+<h2>Project Admin:</h2>
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io"><img src="https://avatars.githubusercontent.com/u/144267863?v=4" height="140px" width="140px" alt="VAIBHAV BABELE"></a><br><sub><b>VAIBHAV BABELE</b><br><a href="https://www.linkedin.com/in/vaibhavbabele/"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/278833250-adb040ea-e3ef-446e-bcd4-3e8d7d4c0176.png" width="45px" height="45px"></a></sub>
+</td>
+</tr>
+</table>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+<p align="center">
+
+**Made with ❤️ by NITra MITra**
+
+[Report Bug](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/issues) • [Request Feature](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/issues) • [Documentation](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io)
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+</p>
+
+> [🔝 Back to Top](#top)
