@@ -1,5 +1,4 @@
 # 🏆 GSSoC '25 Contributors Leaderboard
-# 🏆 GSSoC '25 Contributors Leaderboard
 
 This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, or `level3` labels **and** are part of `gssoc25`.
 
