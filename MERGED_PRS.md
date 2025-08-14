@@ -2,12 +2,16 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-
-*Last updated: 2025-08-11*
+*Last updated: 2025-08-14*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
-| [#232](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232) | Readme update | [@Sejal-collection](https://github.com/Sejal-collection) | # 🔖 PR Title: Project Structure Refactor & README Enhancement ... | 40 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-10 | 5191 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232) |
+| [#249](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249) | added go back button for all games pages | [@pavigupta21](https://github.com/pavigupta21) | ## Summary Added a "Go Back" link with a left ... | 5 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-13 | 43 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249) |
+| [#248](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248) | Recovered pr 06ad052f43bebb0dc288fda72b8f876183f75b05 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | recover 06ad052f43bebb0dc288fda72b8f876183f75b05 this pr 
+ | 32 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-13 | 3839 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248) |
+| [#247](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247) | Revert "Fixed resource page link and CSS path issue (#238)" | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | This reverts commit 06ad052f43bebb0dc288fda72b8f876183f75b05. ## 🔖 PR Title: <!-- A ... | 0 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-13 | 0 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247) |
+| [#232](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232) | Readme update | [@Sejal-collection](https://github.com/Sejal-collection) | # 🔖 PR Title: Project Structure Refactor & README Enhancement ... | 40 | documentation, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-10 | 5191 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232) |
+| [#238](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238) | Fixed resource page link and CSS path issue | [@Sushilnautiyal07](https://github.com/Sushilnautiyal07) | ## 🔖 PR Title: Fixed resource page link and CSS ... | 30 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-11 | 737 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238) |
 | [#216](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216) | Added certificate styling and made it responsive | [@divyaHAVES00256](https://github.com/divyaHAVES00256) | ## 🔖 PR Title: <!-- "Fixed certificate page UI/UX" --> ... | 4 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-03 | 285 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216) |
 | [#219](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/219) | Corrected hover zoom issue and title overlap on all cards | [@kunnal-singhh](https://github.com/kunnal-singhh) | ## 🔖 PR Title: Fixed AI summarizer card rendering, card ... | 2 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-08 | 12 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/219) |
 | [#202](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/202) | added cgpa/sgpa calculator page and included infrastructure page  | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: Added SGPA/CGPA Calculator Page and adjusted ... | 5 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-31 | 726 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/202) |
@@ -79,6 +83,89 @@ This document lists all merged PRs with details: author, title, description (max
 
 ## 📝 Detailed Merged PRs
 
+### [#249 added go back button for all games pages](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249)
+
+- **Author:** [@pavigupta21](https://github.com/pavigupta21)
+- **Description:**  
+## Summary Added a "Go Back" link with a left ...
+- **Files Changed (5):**
+    - `games/games.css`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-13 17:22:06
+- **Lines Updated:** 43
+- **Commits:** 2
+- **PR Link:** [PR #249](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249)
+
+---
+
+### [#248 Recovered pr 06ad052f43bebb0dc288fda72b8f876183f75b05](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248)
+
+- **Author:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Description:**  
+recover 06ad052f43bebb0dc288fda72b8f876183f75b05 this pr 
+
+- **Files Changed (32):**
+    - `LEADERBOARD.md`
+  - `MERGED_PRS.md`
+  - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+  - `index.html`
+  - `index.js`
+  - `pages/404.html`
+  - `pages/announcement-table.html`
+  - `pages/assistant/assistant.css`
+  - `pages/assistant/assistant.html`
+  - `pages/certificate/certificate.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/contact.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/infrastructure.html`
+  - `pages/paper.html`
+  - `pages/pr-contribution/pr-contributors.html`
+  - `pages/privacy.css`
+  - `pages/privacy.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/subject.html`
+  - `pages/summary/summary.css`
+  - `pages/summary/summary.html`
+  - `pages/summary/summary.js`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-13 14:42:49
+- **Lines Updated:** 3839
+- **Commits:** 5
+- **PR Link:** [PR #248](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248)
+
+---
+
+### [#247 Revert "Fixed resource page link and CSS path issue (#238)"](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247)
+
+- **Author:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Description:**  
+This reverts commit 06ad052f43bebb0dc288fda72b8f876183f75b05. ## 🔖 PR Title: <!-- A ...
+- **Files Changed (0):**
+  None
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-13 14:00:40
+- **Lines Updated:** 0
+- **Commits:** 1
+- **PR Link:** [PR #247](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247)
+
+---
 
 ### [#232 Readme update](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232)
 
@@ -126,7 +213,7 @@ This document lists all merged PRs with details: author, title, description (max
   - `pages/terms.html`
   - `pages/test.html`
   - `pages/user-experience-table.html`
-
+- **Labels:** `documentation`, `gssoc25`, `level 1`
 - **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
 - **Merged At:** 2025-08-10 08:06:18
 - **Lines Updated:** 5191
@@ -135,6 +222,50 @@ This document lists all merged PRs with details: author, title, description (max
 
 ---
 
+### [#238 Fixed resource page link and CSS path issue](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238)
+
+- **Author:** [@Sushilnautiyal07](https://github.com/Sushilnautiyal07)
+- **Description:**  
+## 🔖 PR Title: Fixed resource page link and CSS ...
+- **Files Changed (30):**
+    - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+  - `index.html`
+  - `index.js`
+  - `pages/404.html`
+  - `pages/announcement-table.html`
+  - `pages/assistant/assistant.css`
+  - `pages/assistant/assistant.html`
+  - `pages/certificate/certificate.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/contact.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/infrastructure.html`
+  - `pages/paper.html`
+  - `pages/pr-contribution/pr-contributors.html`
+  - `pages/privacy.css`
+  - `pages/privacy.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/subject.html`
+  - `pages/summary/summary.css`
+  - `pages/summary/summary.html`
+  - `pages/summary/summary.js`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+- **Labels:** `enhancement`, `gssoc25`, `LEVEL 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-11 07:08:33
+- **Lines Updated:** 737
+- **Commits:** 1
+- **PR Link:** [PR #238](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238)
+
+---
 
 ### [#216 Added certificate styling and made it responsive](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216)
 
