@@ -1935,4 +1935,7 @@ footer .copyright {
 body {
     top: 0px !important;
 }
+#lang-toggle{
+  padding:5px 10px; cursor:pointer; border:none; background:#333; color:#fff; border-radius:5px;
+}
 
