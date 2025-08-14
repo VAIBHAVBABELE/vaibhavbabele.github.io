@@ -1923,4 +1923,19 @@ footer .copyright {
     padding: 8px;
   }
 }
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+.goog-te-menu-value span,
+#google_translate_element {
+    display: none !important;
+  }
+  #lang-toggle{
+    margin-right: 1vh;
+  }
+body {
+    top: 0px !important;
+}
+#lang-toggle{
+  padding:5px 10px; cursor:pointer; border:none; background:#333; color:#fff; border-radius:5px;
+}
 
