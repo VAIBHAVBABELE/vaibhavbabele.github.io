@@ -48,8 +48,11 @@
             <li><a href="#about">About </a></li>
             <li><a href="#Feedback">Feedback</a></li>
             <li><a href="pages/contact.html">Contact us</a></li>
+             <button id="lang-toggle" style="padding:5px 10px; cursor:pointer; border:none; background:#333; color:#fff; border-radius:5px;">
+    हिंदी
+  </button>
 
-        </ul>
+        </ul>   
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
         <script src="index.js"></script>
 
@@ -704,6 +707,42 @@
             });
         });
     </script>
+
+<!-- Google Translate -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: 'en' },
+    'google_translate_element'
+  );
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  let currentLang = 'en'; // default
+
+  // Wait until Google Translate's dropdown exists
+  const checkDropdown = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      clearInterval(checkDropdown);
+
+      document.getElementById("lang-toggle").addEventListener("click", function () {
+        currentLang = (currentLang === 'en') ? 'hi' : 'en';
+        select.value = currentLang;
+        select.dispatchEvent(new Event("change"));
+
+        // Change button label
+        this.textContent = (currentLang === 'en') ? "हिंदी" : "English";
+      });
+    }
+  }, 500); // check every 0.5 sec
+});
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
 </body>

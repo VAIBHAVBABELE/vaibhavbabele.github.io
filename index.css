@@ -1923,4 +1923,16 @@ footer .copyright {
     padding: 8px;
   }
 }
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+.goog-te-menu-value span,
+#google_translate_element {
+    display: none !important;
+  }
+  #lang-toggle{
+    margin-right: 1vh;
+  }
+body {
+    top: 0px !important;
+}
 
