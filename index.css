@@ -33,7 +33,7 @@
     --primary-text-color: #4e342e; /* Slightly darker warm brown */
     --secondary-text-color: #926f57; /* Light brown for secondary elements */
     --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
-    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
+    --accent-color: #a86824ff; /* Tan - for buttons, links, highlights */
     --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
     --padding-inline-section: 10px;
     --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
@@ -48,7 +48,7 @@
   --bg-color: #1c1a17; /* Warm charcoal background */
   --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
   --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
-  --primary-text-color: #fdf0d5; /* Warm light beige text */
+  --primary-text-color: #9d834fff; /* Warm light beige text */
   --secondary-text-color: #b5a08a; /* Light beige for secondary text */
   --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
   --footer-bgColor: #a58672; /* Warm clay brown */
@@ -276,6 +276,64 @@ iframe{
 .form select:focus {
   outline: none;
   box-shadow: 0 0 1.5rem var(--accent-color-dark);
+}
+/* Navbar enhancement */
+.nav-btns a {
+  position: relative;
+  border: 2px solid #9d834f;
+  background-color: #ddb161c1;
+  color: #b23325;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease, font-size 0.3s ease;
+  text-decoration: none;
+}
+
+/* Hover: only text zooms, no gradient or background change */
+.nav-btns a:hover {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+/* Underline animation */
+.nav-btns a::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  bottom: 6px;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, #ee4e26, #c6d757);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.nav-btns a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Dark Mode Styling */
+.dark-mode .nav-btns a {
+  background-color: #5d430fff;
+  color: #f0f0f0;
+  border: 2px solid #f0f0f0;
+}
+
+.dark-mode .nav-btns a:hover {
+  color: #a75b1cdf;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(12, 36, 15, 0.4);
+}
+
+.dark-mode .nav-btns a::after {
+  background: inline;
 }
 
 
@@ -574,7 +632,7 @@ nav {
 
 nav ul {
     margin: 0;
-    padding: 0;
+    padding: 10 ;
     color: var(--primary-text-color);
     list-style: none;
     display: flex;
@@ -1570,7 +1628,7 @@ footer .copyright {
   nav ul li a.active,
   nav ul li a#active {
     background-color: var(--accent-color);
-    color: var(--white-4345);
+    color: #b23325ff;
     border: 1px solid var(--accent-color-dark);
   }
 
