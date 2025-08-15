@@ -122,9 +122,7 @@ It is **built by students, for students**, and welcomes open-source contribution
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-<div align="center">
-  <img src="vaibhavbabele.github.io/images/gssoc%20logo.png" alt="GSSOC" width="80%">
-</div>
+  ![GSSoC Logo](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/blob/main/gssoc25-logo.jpg)
 
 🌟 **Exciting News...**
 
