@@ -9,10 +9,20 @@
     <title>nitra mitra </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pages/team.css">
+    <link rel="stylesheet" href="pages/summary/summary.css">
+    <link rel="stylesheet" href="pages/assistant/assistant.css">
+    <link rel="stylesheet" href="pages/cursor.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="team.css">
-    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="pages/team.css">
+    <link rel="stylesheet" href="pages/summary/summary.css">
+    <link rel="stylesheet" href="pages/assistant/assistant.css">
+    <link rel="stylesheet" href="pages/cursor.css">
     <link rel="stylesheet" href="focus-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -46,7 +56,10 @@
             <li><a href="#Services">Services</a></li>
             <li><a href="#about">About </a></li>
             <li><a href="#Feedback">Feedback</a></li>
-            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="pages/contact.html">Contact us</a></li>
+            <button id="lang-toggle">
+                हिंदी
+            </button>
 
         </ul>
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
@@ -100,16 +113,16 @@
             <p class="para call-to-action-line">Browse our comprehensive offerings below:</p>
             <div class="container1">
 
-                <div class="card" >
+                <div class="card">
                     <img src="images/resorce.jpg" class="card-img-top"
                         alt="Illustration representing academic resources">
                     <div class="card-body">
                         <h4 class="card-title">Resources</h4>
                         <p class="card-text"><b>Get all resources for BTECH Students.</b></p>
-                        <a href="resorces.html" class="primary-button" id="btn">Open </a>
+                        <a href="pages/resorces.html" class="primary-button" id="btn">Open </a>
                     </div>
                 </div>
-                <div class="card" >
+                <div class="card">
                     <img src="images/meeting.webp" class="card-img-top" alt="Game section">
                     <div class="card-body">
                         <h4 class="card-title">Games</h4>
@@ -118,20 +131,20 @@
                     </div>
                 </div>
 
-                <div class="card" >
+                <div class="card">
                     <img src="images/gall.jpg" class="card-img-top" alt="gallery">
                     <div class="card-body">
                         <h4 class="card-title">Gallery</h4>
                         <p class="card-text"><b>View all events memories here.</b></p>
-                        <a href="gallery.html" class="primary-button" id="btn">Open</a>
+                        <a href="pages/gallery.html" class="primary-button" id="btn">Open</a>
                     </div>
                 </div>
- <div class="card" style="width: 25%;">
+                <div class="card" style="width: 25%;">
                     <img src="images/5121453.jpg" class="card-img-top" alt="infrastructure">
                     <div class="card-body">
                         <h4 class="card-title">Infrastructure</h4>
                         <p class="card-text"><b>View all events memories here.</b></p>
-                        <a href="infrastructure.html" class="primary-button" id="btn">Open</a>
+                        <a href="pages/infrastructure.html" class="primary-button" id="btn">Open</a>
                     </div>
                 </div>
 
@@ -140,32 +153,32 @@
                     <div class="card-body">
                         <h4 class="card-title">CGPA/SGPA Calculator</h4>
                         <p class="card-text"><b>Calculate your semester SGPA & overall CGPA.</b></p>
-                        <a href="cgpa-calculator.html" class="primary-button" id="btn">Calculate Now</a>
+                        <a href="pages/cgpa-calculator.html" class="primary-button" id="btn">Calculate Now</a>
                     </div>
                 </div>
 
-                <div class="card" >
+                <div class="card">
 
                     <img src="images/qna.webp" class="card-img-top" alt="student assistant">
                     <div class="card-body">
                         <h4 class="card-title">Student Assistant</h4>
                         <p class="card-text"><b>AI-powered chatbot for academic help.</b></p>
-                        <a href="assistant.html" class="primary-button" id="btn">Chat Now</a>
+                        <a href="pages/assistant/assistant.html" class="primary-button" id="btn">Chat Now</a>
                     </div>
                 </div>
 
 
-                <div class="card"  id="card" >
+                <div class="card" id="card">
                     <img src="images/qna.webp" class="card-img-top" alt="ai summary tool">
                     <div class="card-body">
                         <h4 class="card-title">AI Summary Tool</h4>
                         <p class="card-text"><b>Smart text & file summarization with notes enhancement.</b></p>
-                        <a href="summary.html" class="primary-button" id="btn">Summarize Now</a>
+                        <a href="pages/summary/summary.html" class="primary-button" id="btn">Summarize Now</a>
 
 
                     </div>
                 </div>
-            
+
         </section>
         <section>
             <h1 class="service-heading" id="announcement-heading">Announcement Section</h1>
@@ -207,7 +220,7 @@
 
             <div class="embed">
                 <!-- Source file: announcement-table.html has been added to the iframe -->
-                <iframe src="announcement-table.html" height="90%" width="100%" scrolling="auto"
+                <iframe src="./pages/announcement-table.html" height="90%" width="100%" scrolling="auto"
                     style="overflow: auto;"></iframe>
             </div>
         </section>
@@ -235,7 +248,7 @@
                 Technical Campus, offering a streamlined and user-friendly experience.
             </p>
             <div class="embed">
-                <iframe src="user-experience-table.html" height="90%" width="100%" scrolling="auto"
+                <iframe src="./pages/user-experience-table.html" height="90%" width="100%" scrolling="auto"
                     style="overflow: auto;"></iframe>
             </div>
 
@@ -315,7 +328,7 @@
                 providing
                 tailored resources and updates to support their educational journey.
             </p>
-            
+
 
         </section>
 
@@ -612,11 +625,12 @@
                 </div>
 
                 <div class="footer-links">
-                    <a href="./privacy.html">Privacy Policy</a> |
-                    <a href="./terms.html">Terms & Conditions</a> |
-                    <a href="./contact.html">Contact</a> |
-                    <a href="pr-contributors.html">Contributors</a>
+                    <a href="pages/privacy.html">Privacy Policy</a> |
+                    <a href="pages/terms.html">Terms & Conditions</a> |
+                    <a href="pages/contact.html">Contact</a> |
+                    <a href="pages/pr-contribution/pr-contributors.html">Contributors</a>
                 </div>
+
 
                 <p class="copyright">
                     &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
@@ -704,7 +718,9 @@
         });
     </script>
 
-
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="language.js"></script>
 </body>
 
 </html>

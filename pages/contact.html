@@ -7,15 +7,15 @@
     <title>Contact Us - Nitra Mitra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
 
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="focus-mode.css">
@@ -30,14 +30,22 @@
             <i class="fa-sharp fa-solid fa-bars"></i>
         </label>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#Services">Services</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#Feedback">Feedback</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#Services">Services</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#Feedback">Feedback</a></li>
             <li><a href="contact.html" id="active">Contact us</a></li>
+                         <button id="lang-toggle">
+    हिंदी
+  </button>
+
         </ul>
+
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
         <button id="focusToggle" title="Toggle Focus Mode" style="background: linear-gradient(135deg, #cda274 0%, #856113 100%); color: white; border: 2px solid #856113; border-radius: 25px; padding: 8px 16px; font-weight: 600; font-size: 12px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">🧘 Focus Mode</button>
+
+        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+
     </nav>
 
     <div class="main">
@@ -170,7 +178,7 @@
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="team-avatar">
-                            <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
+                            <img src="../images/vaibhav.jpg" alt="Vaibhav Babele">
                         </div>
                         <h3>Vaibhav Babele</h3>
                         <p><strong>Lead Developer & Founder</strong></p>
@@ -185,7 +193,7 @@
 
                     <div class="team-card">
                         <div class="team-avatar">
-                            <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati"
+                            <img src="../images/ghanshyam.jpeg" alt="Ghanshyam Prajapati"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <h3>Ghanshyam Prajapati</h3>
@@ -345,7 +353,7 @@
                     <a href="./privacy.html">Privacy Policy</a> |
                     <a href="./terms.html">Terms & Conditions</a> |
                     <a href="./contact.html">Contact</a> |
-                    <a href="pr-contributors.html">Contributors</a>
+                    <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
                 </div>
 
                 <p class="copyright">
@@ -371,7 +379,8 @@
         </div>
     </div>
 
-    <script src="index.js"></script>
+    
+    <!-- <script src="mode2.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // Form validation and submission
@@ -649,6 +658,11 @@
             }
         });
     </script>
+    <script src="../index.js"></script>
+    <!-- Google Translate -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script src="../language.js"></script>
 </body>
 
 </html>

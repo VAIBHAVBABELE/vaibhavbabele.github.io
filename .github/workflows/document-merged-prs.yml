@@ -1,14 +1,9 @@
 name: Document Merged PRs
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    types: [closed]
-    branches: ["main"]
   schedule:
-    # Run every 12 hours
-    - cron: '0 */12 * * *'
+    # Run every day at 12 AM UTC (adjust if you want IST)
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -47,5 +42,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Auto-update MERGED_PRS.md [skip ci]"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi

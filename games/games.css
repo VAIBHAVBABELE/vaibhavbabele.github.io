@@ -1,5 +1,5 @@
 body {
-    background-color:#fdf6ec;
+    background-color: #fdf6ec;
     font-family: 'Poppins', sans-serif;
     padding: 50px 20px;
 }
@@ -60,6 +60,20 @@ h1 {
 /* Prevent service-heading overlap with navbar */
 #about {
     margin-top: 80px;
+}
+
+/* Back link styling */
+.back-link {
+    text-decoration: none;
+    color: rgb(87, 4, 4);
+    font-weight: 600;
+    position: absolute;
+    top: 85px;
+    left: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
 }
 
 /* Enhanced Focus Mode Styles - Distraction-Free Reading Experience */

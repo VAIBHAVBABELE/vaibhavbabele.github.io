@@ -2,15 +2,24 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-08*
+*Last updated: 2025-08-15*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#253](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253) | Added multilingual feature! | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: Added multilingual feature across all the ... | 13 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 395 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253) |
+| [#255](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/255) | update readme with gssoc logo | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | ## 🔖 PR Title: <!-- A clear and concise title ... | 2 | documentation, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 303 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/255) |
+| [#251](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/251) | Add CODE_OF_CONDUCT.md \| GSSoC'25 Documentation | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | ## 🔖 PR Title: Added Comprehensive Code of Conduct for ... | 1 | documentation, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 137 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/251) |
+| [#249](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249) | added go back button for all games pages | [@pavigupta21](https://github.com/pavigupta21) | ## Summary Added a "Go Back" link with a left ... | 5 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-13 | 43 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249) |
+| [#248](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248) | Recovered pr 06ad052f43bebb0dc288fda72b8f876183f75b05 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | recover 06ad052f43bebb0dc288fda72b8f876183f75b05 this pr 
+ | 32 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-13 | 3839 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248) |
+| [#247](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247) | Revert "Fixed resource page link and CSS path issue (#238)" | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | This reverts commit 06ad052f43bebb0dc288fda72b8f876183f75b05. ## 🔖 PR Title: <!-- A ... | 0 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-13 | 0 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247) |
+| [#232](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232) | Readme update | [@Sejal-collection](https://github.com/Sejal-collection) | # 🔖 PR Title: Project Structure Refactor & README Enhancement ... | 40 | documentation, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-10 | 5191 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232) |
+| [#238](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238) | Fixed resource page link and CSS path issue | [@Sushilnautiyal07](https://github.com/Sushilnautiyal07) | ## 🔖 PR Title: Fixed resource page link and CSS ... | 30 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-11 | 737 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238) |
+| [#216](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216) | Added certificate styling and made it responsive | [@divyaHAVES00256](https://github.com/divyaHAVES00256) | ## 🔖 PR Title: <!-- "Fixed certificate page UI/UX" --> ... | 4 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-03 | 285 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216) |
 | [#219](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/219) | Corrected hover zoom issue and title overlap on all cards | [@kunnal-singhh](https://github.com/kunnal-singhh) | ## 🔖 PR Title: Fixed AI summarizer card rendering, card ... | 2 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-08 | 12 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/219) |
 | [#202](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/202) | added cgpa/sgpa calculator page and included infrastructure page  | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: Added SGPA/CGPA Calculator Page and adjusted ... | 5 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-31 | 726 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/202) |
 | [#218](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/218) | Fix: Updated footer styling for better UI and responsiveness | [@kunnal-singhh](https://github.com/kunnal-singhh) | ## 🔖 PR Title: Improved Footer Design for NITRA MITRA ... | 7 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-04 | 151 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/218) |
 | [#215](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/215) | Updated Readme for the AI features | [@shoaib2000857](https://github.com/shoaib2000857) | ## 🔖 PR Title: <!-- A clear and concise title ... | 3 | documentation, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-02 | 31 | 24 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/215) |
-| [#216](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216) | Added certificate styling and made it responsive | [@divyaHAVES00256](https://github.com/divyaHAVES00256) | ## 🔖 PR Title: <!-- "Fixed certificate page UI/UX" --> ... | 4 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-03 | 285 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216) |
 | [#204](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/204) | Revert "moved internal css into external css for games" | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | Reverts VAIBHAVBABELE/vaibhavbabele.github.io#203 | 5 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-31 | 995 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/204) |
 | [#203](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/203) | moved internal css into external css for games | [@Shivani-pandey04](https://github.com/Shivani-pandey04) | Moved internal CSS from gamess.html and all the games into ... | 5 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-31 | 995 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/203) |
 | [#146](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/146) | FIX : Poor Visibility of Headings in Services Section (Dark Mode) #133 | [@piyushhvarma](https://github.com/piyushhvarma) | ## 🔖 PR Title: Fix (Issue no. 133) : Improve ... | 1 | enhancement, gssoc25, frontend, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-29 | 29 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/146) |
@@ -76,6 +85,270 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#253 Added multilingual feature!](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253)
+
+- **Author:** [@vaishaligoyal05](https://github.com/vaishaligoyal05)
+- **Description:**  
+## 🔖 PR Title: Added multilingual feature across all the ...
+- **Files Changed (13):**
+    - `games/gamess.html`
+  - `index.css`
+  - `index.html`
+  - `index.js`
+  - `language.js`
+  - `pages/assistant/assistant.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/contact.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/infrastructure.html`
+  - `pages/resorces.html`
+  - `pages/summary/summary.html`
+- **Labels:** `gssoc25`, `feature`, `level 3`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-14 17:45:42
+- **Lines Updated:** 395
+- **Commits:** 5
+- **PR Link:** [PR #253](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253)
+
+---
+
+### [#255 update readme with gssoc logo](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/255)
+
+- **Author:** [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst)
+- **Description:**  
+## 🔖 PR Title: <!-- A clear and concise title ...
+- **Files Changed (2):**
+    - `CODE_OF_CONDUCT.md`
+  - `README.md`
+- **Labels:** `documentation`, `gssoc25`, `LEVEL 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-14 16:11:15
+- **Lines Updated:** 303
+- **Commits:** 3
+- **PR Link:** [PR #255](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/255)
+
+---
+
+### [#251 Add CODE_OF_CONDUCT.md | GSSoC'25 Documentation](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/251)
+
+- **Author:** [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst)
+- **Description:**  
+## 🔖 PR Title: Added Comprehensive Code of Conduct for ...
+- **Files Changed (1):**
+    - `CODE_OF_CONDUCT.md`
+- **Labels:** `documentation`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-14 07:54:38
+- **Lines Updated:** 137
+- **Commits:** 1
+- **PR Link:** [PR #251](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/251)
+
+---
+
+### [#249 added go back button for all games pages](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249)
+
+- **Author:** [@pavigupta21](https://github.com/pavigupta21)
+- **Description:**  
+## Summary Added a "Go Back" link with a left ...
+- **Files Changed (5):**
+    - `games/games.css`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-13 17:22:06
+- **Lines Updated:** 43
+- **Commits:** 2
+- **PR Link:** [PR #249](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/249)
+
+---
+
+### [#248 Recovered pr 06ad052f43bebb0dc288fda72b8f876183f75b05](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248)
+
+- **Author:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Description:**  
+recover 06ad052f43bebb0dc288fda72b8f876183f75b05 this pr 
+
+- **Files Changed (32):**
+    - `LEADERBOARD.md`
+  - `MERGED_PRS.md`
+  - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+  - `index.html`
+  - `index.js`
+  - `pages/404.html`
+  - `pages/announcement-table.html`
+  - `pages/assistant/assistant.css`
+  - `pages/assistant/assistant.html`
+  - `pages/certificate/certificate.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/contact.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/infrastructure.html`
+  - `pages/paper.html`
+  - `pages/pr-contribution/pr-contributors.html`
+  - `pages/privacy.css`
+  - `pages/privacy.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/subject.html`
+  - `pages/summary/summary.css`
+  - `pages/summary/summary.html`
+  - `pages/summary/summary.js`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-13 14:42:49
+- **Lines Updated:** 3839
+- **Commits:** 5
+- **PR Link:** [PR #248](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/248)
+
+---
+
+### [#247 Revert "Fixed resource page link and CSS path issue (#238)"](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247)
+
+- **Author:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Description:**  
+This reverts commit 06ad052f43bebb0dc288fda72b8f876183f75b05. ## 🔖 PR Title: <!-- A ...
+- **Files Changed (0):**
+  None
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-13 14:00:40
+- **Lines Updated:** 0
+- **Commits:** 1
+- **PR Link:** [PR #247](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/247)
+
+---
+
+### [#232 Readme update](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232)
+
+- **Author:** [@Sejal-collection](https://github.com/Sejal-collection)
+- **Description:**  
+# 🔖 PR Title: Project Structure Refactor & README Enhancement ...
+- **Files Changed (40):**
+    - `README.md`
+  - `pages/404.html`
+  - `pages/SECURITY_IMPROVEMENTS.md`
+  - `pages/announcement-table.html`
+  - `pages/assistant/ASSISTANT_GUIDE.md`
+  - `pages/assistant/ASSISTANT_SETUP.md`
+  - `pages/assistant/assistant.css`
+  - `pages/assistant/assistant.html`
+  - `pages/assistant/assistant.js`
+  - `pages/certificate/certificate.css`
+  - `pages/certificate/certificate.html`
+  - `pages/certificate/certificate.js`
+  - `pages/cgpa-calculator.html`
+  - `pages/contact.css`
+  - `pages/contact.html`
+  - `pages/cursor.css`
+  - `pages/cursor.js`
+  - `pages/floating-button.css`
+  - `pages/floating-button.js`
+  - `pages/footer.css`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/infrastructure.html`
+  - `pages/paper.css`
+  - `pages/paper.html`
+  - `pages/pr-contribution/PR_DESCRIPTION_FINAL.md`
+  - `pages/pr-contribution/pr-contributor.css`
+  - `pages/pr-contribution/pr-contributors.html`
+  - `pages/privacy.css`
+  - `pages/privacy.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/subject.html`
+  - `pages/summary/summary.css`
+  - `pages/summary/summary.html`
+  - `pages/summary/summary.js`
+  - `pages/team.css`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+- **Labels:** `documentation`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-10 08:06:18
+- **Lines Updated:** 5191
+- **Commits:** 2
+- **PR Link:** [PR #232](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/232)
+
+---
+
+### [#238 Fixed resource page link and CSS path issue](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238)
+
+- **Author:** [@Sushilnautiyal07](https://github.com/Sushilnautiyal07)
+- **Description:**  
+## 🔖 PR Title: Fixed resource page link and CSS ...
+- **Files Changed (30):**
+    - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+  - `index.html`
+  - `index.js`
+  - `pages/404.html`
+  - `pages/announcement-table.html`
+  - `pages/assistant/assistant.css`
+  - `pages/assistant/assistant.html`
+  - `pages/certificate/certificate.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/contact.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/infrastructure.html`
+  - `pages/paper.html`
+  - `pages/pr-contribution/pr-contributors.html`
+  - `pages/privacy.css`
+  - `pages/privacy.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/subject.html`
+  - `pages/summary/summary.css`
+  - `pages/summary/summary.html`
+  - `pages/summary/summary.js`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+- **Labels:** `enhancement`, `gssoc25`, `LEVEL 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-11 07:08:33
+- **Lines Updated:** 737
+- **Commits:** 1
+- **PR Link:** [PR #238](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/238)
+
+---
+
+### [#216 Added certificate styling and made it responsive](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216)
+
+- **Author:** [@divyaHAVES00256](https://github.com/divyaHAVES00256)
+- **Description:**  
+## 🔖 PR Title: <!-- "Fixed certificate page UI/UX" --> ...
+- **Files Changed (4):**
+    - `certificate.css`
+  - `certificate.html`
+  - `gssoc25-logo.jpg`
+  - `nitra-mitra-logo.png`
+- **Labels:** `enhancement`, `gssoc25`, `LEVEL 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-03 04:03:08
+- **Lines Updated:** 285
+- **Commits:** 1
+- **PR Link:** [PR #216](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216)
+
+---
 
 ### [#219 Corrected hover zoom issue and title overlap on all cards](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/219)
 
@@ -151,25 +424,6 @@ This document lists all merged PRs with details: author, title, description (max
 - **Lines Updated:** 31
 - **Commits:** 24
 - **PR Link:** [PR #215](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/215)
-
----
-
-### [#216 Added certificate styling and made it responsive](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216)
-
-- **Author:** [@divyaHAVES00256](https://github.com/divyaHAVES00256)
-- **Description:**  
-## 🔖 PR Title: <!-- "Fixed certificate page UI/UX" --> ...
-- **Files Changed (4):**
-    - `certificate.css`
-  - `certificate.html`
-  - `gssoc25-logo.jpg`
-  - `nitra-mitra-logo.png`
-- **Labels:** None
-- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
-- **Merged At:** 2025-08-03 04:03:08
-- **Lines Updated:** 285
-- **Commits:** 1
-- **PR Link:** [PR #216](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/216)
 
 ---
 
