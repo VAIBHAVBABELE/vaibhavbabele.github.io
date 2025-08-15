@@ -3,7 +3,6 @@
 > **Nitra Mitra** is an **open-source student initiative** from NITRA Technical Campus, Ghaziabad aimed at **simplifying academic and non-academic life** for students.  
 From **syllabus tracking** to **AI-powered study tools**, and from **event management** to **career guidance**, everything resides under one open, collaborative platform.
 
-</div>
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 **📊 Project Insights**
@@ -37,7 +36,6 @@ From **syllabus tracking** to **AI-powered study tools**, and from **event manag
 
 <h1 align="center">Supported By <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands%20Light%20Skin%20Tone.png" alt="Folded Hands Light Skin Tone" width="25" height="25" /></h1>
 
-</div>
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 📚 Table of Contents
@@ -122,11 +120,13 @@ It is **built by students, for students**, and welcomes open-source contribution
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-  ![GSSoC Logo](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/blob/main/gssoc25-logo.jpg)
+<div align="center">
+  <img src="vaibhavbabele.github.io/images/gssoc%20logo.png" alt="GSSOC" width="80%">
+</div>
 
 🌟 **Exciting News...**
 
-🚀 This project is now an official part of GirlScript Summer of Code – GSSoC 2025! 💃🎉💻 We’re thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow with DevElevate. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+🚀 This project is now an official part of GirlScript Summer of Code – GSSoC 2025! 💃🎉💻 We’re thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow with Nitra Mitra. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
 
 👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
 
