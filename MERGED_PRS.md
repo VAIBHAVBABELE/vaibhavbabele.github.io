@@ -2,10 +2,12 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-15*
+*Last updated: 2025-08-16*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#259](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/259) | dont need to add points | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | sorry div problem create kr rha tha last merge, then ... | 1 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-15 | 8 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/259) |
+| [#258](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/258) | Added gssoc logo | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | for readme gssoc logo | 1 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-15 | 4 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/258) |
 | [#253](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253) | Added multilingual feature! | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: Added multilingual feature across all the ... | 13 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 395 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253) |
 | [#255](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/255) | update readme with gssoc logo | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | ## 🔖 PR Title: <!-- A clear and concise title ... | 2 | documentation, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 303 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/255) |
 | [#251](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/251) | Add CODE_OF_CONDUCT.md \| GSSoC'25 Documentation | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | ## 🔖 PR Title: Added Comprehensive Code of Conduct for ... | 1 | documentation, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 137 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/251) |
@@ -85,6 +87,38 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#259 dont need to add points](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/259)
+
+- **Author:** [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst)
+- **Description:**  
+sorry div problem create kr rha tha last merge, then ...
+- **Files Changed (1):**
+    - `README.md`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-15 10:15:37
+- **Lines Updated:** 8
+- **Commits:** 1
+- **PR Link:** [PR #259](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/259)
+
+---
+
+### [#258 Added gssoc logo](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/258)
+
+- **Author:** [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst)
+- **Description:**  
+for readme gssoc logo
+- **Files Changed (1):**
+    - `README.md`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-15 06:04:26
+- **Lines Updated:** 4
+- **Commits:** 1
+- **PR Link:** [PR #258](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/258)
+
+---
 
 ### [#253 Added multilingual feature!](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253)
 
