@@ -44,19 +44,21 @@
 
     <div class="main">
         <!-- HERO SECTION -->
+        
         <section class="contact-hero">
             <div class="container">
-                <h1>Get In Touch</h1>
+                <h1>Get In Touch  👨‍💼</h1>
                 <p>We're here to help! Reach out to us for any questions, support, or feedback about Nitra Mitra
                     platform.</p>
             </div>
         </section>
+        
 
         <!-- CONTACT FORM SECTION -->
         <section class="contact-form-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Send Us a Message</h2>
+                    <h1 style="font-weight: bold;">Send Us a Message  💬</h1>
                     <p>Fill out the form below and we'll get back to you as soon as possible</p>
                 </div>
 
@@ -100,6 +102,13 @@
                             <div class="form-validation" id="subjectError">Please select a subject</div>
                         </div>
 
+                        <!--Adding input field when other for subject is selected-->
+                        <div class="form-group" id = "other" style="display: none;">
+                            <label for="other">Subject</label>
+                            <input type="text" name="other" class="form-control"
+                                placeholder="Enter your subject :)">
+                        </div>
+
                         <div class="form-group">
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" class="form-control" rows="6"
@@ -121,42 +130,74 @@
         <section class="contact-info-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Contact Information</h2>
+                    <h2>Contact Information  🗪</h2>
                     <p>Multiple ways to reach us and get the support you need</p>
                 </div>
 
                 <div class="contact-info-grid">
-                    <div class="contact-info-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p><strong>General:</strong> nitramitra@gmail.com</p>
-                        <p><strong>Support:</strong> support@nitramitra.com</p>
-                        <p><strong>Response Time:</strong> 24-48 hours</p>
+                    <div class="flip-card">
+                        <div class="contact-card">
+                            <div class="contact-card-front">
+                                <i class="fas fa-envelope"></i>
+                                <h3>Email Us</h3>
+                            </div>
+                            <div class="contact-card-back">
+                                <p><strong>General:</strong> nitramitra@gmail.com</p>
+                                <p><strong>Support:</strong> support@nitramitra.com</p>
+                                <p><strong>Response Time:</strong> 24-48 hours</p>
+                            </div>                    
+                        </div>
                     </div>
 
-                    <div class="contact-info-card">
-                        <i class="fas fa-phone"></i>
-                        <h3>Call Us</h3>
-                        <p><strong>Main Office:</strong> +91-120-XXXXXXX</p>
-                        <p><strong>Student Support:</strong> +91-120-XXXXXXX</p>
-                        <p><strong>Hours:</strong> Mon-Fri, 9 AM - 6 PM</p>
+
+
+                    <div class="flip-card">
+                        <div class="contact-card">
+                            <div class="contact-card-front">
+                                <i class="fas fa-phone"></i>
+                                <h3>Call Us</h3>
+                            </div>
+                            <div class="contact-card-back">
+                                <p><strong>Main Office:</strong> +91-120-XXXXXXX</p>
+                                <p><strong>Student Support:</strong> +91-120-XXXXXXX</p>
+                                <p><strong>Hours:</strong> Mon-Fri, 9 AM - 6 PM</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="contact-info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Visit Us</h3>
-                        <p><strong>NITRA Technical Campus</strong></p>
-                        <p>Sanjay Nagar, Ghaziabad</p>
-                        <p>Uttar Pradesh, India - 201001</p>
+
+
+                    <div class="flip-card">
+                        <div class="contact-card">
+                            <div class="contact-card-front">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>Visit Us</h3>
+                            </div>
+                            <div class="contact-card-back">
+                                <p><strong>NITRA Technical Campus</strong></p>
+                                <p>Sanjay Nagar, Ghaziabad</p>
+                                <p>Uttar Pradesh, India - 201001</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="contact-info-card">
-                        <i class="fab fa-whatsapp"></i>
-                        <h3>WhatsApp</h3>
-                        <p><strong>Community Group</strong></p>
-                        <p>Join our WhatsApp community for quick updates and support</p>
-                        <p><strong>Active:</strong> 24/7</p>
+
+
+                    <div class="flip-card">
+                        <div class="contact-card">
+                            <div class="contact-card-front">
+                                <i class="fab fa-whatsapp"></i>
+                                <h3>Whatsapp</h3>
+                            </div>
+                            <div class="contact-card-back">
+                                <p><strong>Community Group</strong></p>
+                                <p>Join our WhatsApp community for quick updates and support</p>
+                                <p><strong>Active:</strong> 24/7</p>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
         </section>
@@ -165,7 +206,7 @@
         <section class="team-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Meet Our Team</h2>
+                    <h2>Meet Our Team  👥</h2>
                     <p>The dedicated team behind Nitra Mitra platform</p>
                 </div>
 
@@ -237,7 +278,7 @@
         <section class="faq-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2>Frequently Asked Questions  🤔</h2>
                     <p>Quick answers to common questions about Nitra Mitra</p>
                 </div>
 
@@ -377,6 +418,15 @@
     <!-- <script src="mode2.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // adding input field when other for subject is selected
+        document.getElementById('subject').addEventListener('change', function() {
+            const otherGroup = document.getElementById('other');
+            if (this.value === 'other') {
+                otherGroup.style.display = 'block';
+            } else {
+                otherGroup.style.display = 'none';
+            }
+        });
         // Form validation and submission
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
