@@ -6,7 +6,10 @@
 }
 
 .dark-mode .contact-hero {
-    background: linear-gradient(135deg, var(--bg-shade) 0%, var(--nav-bgcolor) 100%);
+    background: var(--primary-text-color);
+}
+.dark-mode .contact-hero .container h1{
+    color: var(--main-color);
 }
 
 .contact-hero h1 {
