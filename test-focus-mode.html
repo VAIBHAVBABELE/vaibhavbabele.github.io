@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Mode Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            transition: all 0.3s ease;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+        
+        /* Focus Mode Styles */
+        .focus-mode * {
+            animation: none !important;
+            transition: none !important;
+        }
+        
+        .focus-mode body {
+            background: #ffffff !important;
+            color: #111111 !important;
+        }
+        
+        .focus-mode .card {
+            background: #ffffff !important;
+            border: 1px solid #e9ecef !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        
+        .focus-mode .card:hover {
+            transform: none !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        
+        .focus-mode .floating-btn {
+            display: none !important;
+        }
+        
+        /* Focus Toggle Button */
+        #focusToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 16px;
+            background-color: #5a3e2b;
+            color: #fdf6ec;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 2px 8px rgba(90, 62, 43, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        #focusToggle:hover {
+            background-color: #856113;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 62, 43, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Focus Mode Test</h1>
+    
+    <div class="card">
+        <h2>Test Card 1</h2>
+        <p>This card has hover effects and transitions. In focus mode, these should be disabled.</p>
+    </div>
+    
+    <div class="card">
+        <h2>Test Card 2</h2>
+        <p>Another card with animations. Focus mode should remove all visual distractions.</p>
+    </div>
+    
+    <div class="card">
+        <h2>Test Card 3</h2>
+        <p>This card demonstrates the clean, distraction-free reading experience.</p>
+    </div>
+    
+    <button class="floating-btn">🔔</button>
+    
+    <button id="focusToggle" title="Toggle Focus Mode">🧘 Focus Mode</button>
+    
+    <script>
+        const toggleBtn = document.getElementById("focusToggle");
+        
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("focus-mode");
+            
+            if (document.body.classList.contains("focus-mode")) {
+                toggleBtn.textContent = "🔊 Normal Mode";
+                localStorage.setItem("focus-mode", "enabled");
+            } else {
+                toggleBtn.textContent = "🧘 Focus Mode";
+                localStorage.setItem("focus-mode", "disabled");
+            }
+        });
+        
+        // Retain user preference on page load
+        window.addEventListener("DOMContentLoaded", () => {
+            const saved = localStorage.getItem("focus-mode");
+            if (saved === "enabled") {
+                document.body.classList.add("focus-mode");
+                toggleBtn.textContent = "🔊 Normal Mode";
+            }
+        });
+    </script>
+</body>
+</html> 

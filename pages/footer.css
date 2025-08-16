@@ -285,3 +285,237 @@ footer .copyright {
      }
  }
  
+/* Enhanced Focus Mode Styles - Distraction-Free Reading Experience */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
+}
+
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+/* Enhanced Focus Mode Styles - Distraction-Free Reading Experience */
+.focus-mode body {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.focus-mode .main {
+    background: #ffffff !important;
+}
+
+/* Enhanced Navigation Background - Clean & Minimal */
+.focus-mode nav {
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.focus-mode nav .logo a {
+    color: #1a1a1a !important;
+    font-weight: 600 !important;
+}
+
+.focus-mode nav ul li a {
+    color: #333333 !important;
+    font-weight: 500 !important;
+}
+
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: #1a1a1a !important;
+    background: #f5f5f5 !important;
+    border-radius: 4px !important;
+}
+
+/* Enhanced Footer Section */
+.focus-mode .footer-section {
+    background: #f8f8f8 !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+/* Enhanced Contact Grid */
+.focus-mode .contact-grid {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .contact-grid:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border: 1px solid #d0d0d0 !important;
+}
+
+/* Enhanced Contact Items */
+.focus-mode .contact-item {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.focus-mode .contact-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border: 1px solid #d0d0d0 !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: #f5f5f5 !important;
+    color: #333333 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: #f5f5f5 !important;
+    color: #666666 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer Links */
+.focus-mode .footer-links a {
+    color: #333333 !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: #1a1a1a !important;
+}
+
+/* Enhanced Buttons */
+.focus-mode .btn {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #1a1a1a !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .btn:hover {
+    background: #333333 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Form Controls */
+.focus-mode .form-control {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .form-control:focus {
+    border-color: #1a1a1a !important;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1) !important;
+    transform: none !important;
+    background: #ffffff !important;
+}
+
+/* Enhanced Text Colors for Better Readability */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: #1a1a1a !important;
+}
+
+.focus-mode p {
+    color: #333333 !important;
+}
+
+/* Enhanced Section Backgrounds */
+.focus-mode .footer-section {
+    background: #f8f8f8 !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+/* Enhanced Social Links */
+.focus-mode .social-links a {
+    background: #f5f5f5 !important;
+    color: #666666 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-links a:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: #f5f5f5 !important;
+    color: #333333 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hide distracting elements */
+.focus-mode .floating-btn {
+    display: none !important;
+}
+
+.focus-mode #container {
+    display: none !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    display: none !important;
+}
+ 

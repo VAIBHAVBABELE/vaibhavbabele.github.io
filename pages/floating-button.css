@@ -1,158 +1,186 @@
-/* 
-.floating-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 40px;
-    width: 100px;
-    height: 70px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 5px;
-    border-radius:50%;
-    font-size: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
+/* Enhanced Focus Mode Styles - Distraction-Free Reading Experience */
+.focus-mode * {
+    animation: none !important;
+    transition: none !important;
 }
 
-.floating-btn:hover {
-    background-color: #0056b3;
-}
-.floating-btn:active {
-    height: 55px;
-    width: 95px;
+/* Smooth transitions for body */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.hidden {
-    display: none;
+/* Focus Mode Animation */
+body.focus-mode {
+    animation: fadeInFocus 0.3s ease;
 }
 
-#container {
-    position: fixed;
-    bottom: 120px;
-    right: 20px;
-    background-color: rgb(222, 78, 22);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 450px;
-    width: 270px;
-    /* display: flex;
-    flex-direction: column; */
-/* }
-
-#container button {
-    background-color: #ecf1f6;
-    color: rgb(10, 6, 6);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    /* display: block; */
-    /* margin: 10px 0;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+@keyframes fadeInFocus {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1);
+    }
 }
 
-#container button:hover {
-    background-color: #0056b3;
+/* Enhanced Focus Mode Styles */
+.focus-mode body {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
-#joinMeetingDiv {
-    margin-top: 20px;
+.focus-mode .main {
+    background: #ffffff !important;
 }
 
-input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-/* } */  
-.floating-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 40px;
-    width: 100px;
-    height: 70px;
-    background-color: #cf8133; /* warm brown */
-    color: #fff0e5; /* beige text */
-    border: none;
-    padding: 5px;
-    border-radius: 50%;
-    font-size: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(207, 129, 51, 0.4);
-    transition: background-color 0.3s;
+/* Enhanced Navigation Background - Clean & Minimal */
+.focus-mode nav {
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid #e0e0e0 !important;
 }
 
-.floating-btn:hover {
-    background-color: #a55f20; /* darker brown */
+.focus-mode nav .logo a {
+    color: #1a1a1a !important;
+    font-weight: 600 !important;
 }
 
-.floating-btn:active {
-    height: 55px;
-    width: 95px;
+.focus-mode nav ul li a {
+    color: #333333 !important;
+    font-weight: 500 !important;
 }
 
-.hidden {
-    display: none;
+.focus-mode nav ul li a:hover,
+.focus-mode nav ul li a#active {
+    color: #1a1a1a !important;
+    background: #f5f5f5 !important;
+    border-radius: 4px !important;
 }
 
-#container {
-    position: fixed;
-    bottom: 120px;
-    right: 20px;
-    background-color: #fff5e1; /* light beige */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(165, 95, 32, 0.2);
-    height: 450px;
-    width: 270px;
+/* Enhanced Floating Button */
+.focus-mode .floating-btn {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #1a1a1a !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
 }
 
-/* Buttons inside container: Create, Join, Confirm Join */
-#container button {
-    background-color: #cf8133;
-    color: #fff0e5;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 10px 0;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-    font-family: "Raleway", sans-serif;
+.focus-mode .floating-btn:hover {
+    background: #333333 !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
-#container button:hover {
-    background-color: #a55f20;
+/* Enhanced Buttons */
+.focus-mode .btn {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #1a1a1a !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
 }
 
-/* Join input area */
-#joinMeetingDiv {
-    margin-top: 20px;
+.focus-mode .btn:hover {
+    background: #333333 !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
-input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-    border: 1.5px solid #cf8133;
-    border-radius: 6px;
-    background-color: #fffaf4;
-    color: #5a3b1d;
-    font-family: "Raleway", sans-serif;
+/* Enhanced Social Links */
+.focus-mode .social-links a {
+    background: #f5f5f5 !important;
+    color: #666666 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
 }
 
-input[type="text"]::placeholder {
-    color: #a55f20;
+.focus-mode .social-links a:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Footer */
+.focus-mode footer {
+    background: #f8f8f8 !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.focus-mode .footer-links a {
+    color: #333333 !important;
+}
+
+.focus-mode .footer-links a:hover {
+    color: #1a1a1a !important;
+}
+
+/* Enhanced Text Colors for Better Readability */
+.focus-mode h1,
+.focus-mode h2,
+.focus-mode h3,
+.focus-mode h4,
+.focus-mode h5,
+.focus-mode h6 {
+    color: #1a1a1a !important;
+}
+
+.focus-mode p {
+    color: #333333 !important;
+}
+
+/* Enhanced Section Backgrounds */
+.focus-mode .floating-section {
+    background: #ffffff !important;
+}
+
+/* Enhanced Social Media Links */
+.focus-mode .social-media a {
+    background: #f5f5f5 !important;
+    color: #666666 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .social-media a:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Enhanced Contact Links */
+.focus-mode .contact-link {
+    background: #f5f5f5 !important;
+    color: #333333 !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+.focus-mode .contact-link:hover {
+    background: #e8e8e8 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Hide distracting elements */
+.focus-mode .floating-btn {
+    display: none !important;
+}
+
+.focus-mode #container {
+    display: none !important;
+}
+
+.focus-mode .parallax-bg,
+.focus-mode .background-effect,
+.focus-mode .glow,
+.focus-mode .particle-effect {
+    display: none !important;
 }
 
