@@ -1,11 +1,10 @@
-// Ensure the DOM exists before binding anything
+
 document.addEventListener("DOMContentLoaded", () => {
-  // ============ LocalStorage keys ============
-  const LS_UPDATES = "nm_placement_updates_v1";
-  const LS_BOOKMARKS = "nm_placement_bookmarks_v1"; // (kept for future use)
+  // ----- LocalStorage keys -----
+  const LS_UPDATES   = "nm_placement_updates_v1";
   const LS_SUBSCRIBE = "nm_placement_subscribed_v1";
 
-  // ============ Seed (now 9 items) ============
+  // ----- Seed data -----
   const seed = [
     { id: 1, title: "Google SDE Online Assessment", company: "Google", tag: "drive", date: "2025-08-18", urgent: true,  pinned: true,  branches:["CSE","ECE"], desc:"OA on 20 Aug, HackerRank link via email. Bring college ID." },
     { id: 2, title: "Infosys Shortlist (Round 1)",   company: "Infosys", tag: "shortlist", date: "2025-08-17", urgent: false, pinned: false, branches:["CSE","ECE","ME"], desc:"Shortlist for Round 2 is out on portal Notice Board." },
@@ -13,24 +12,27 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 4, title: "Wipro HR Round Reschedule",      company: "Wipro",  tag: "notice",    date: "2025-08-16", urgent: true,  pinned: false, branches:["CSE"], desc:"HR round moved to 22 Aug due to venue conflict." },
     { id: 5, title: "HCL Drive Registration",         company: "HCL",    tag: "drive",     date: "2025-08-27", urgent: false, pinned: false, branches:["CSE","ECE","ME"], desc:"Register before 24 Aug. Eligibility: 7.0+ CGPA." },
     { id: 6, title: "Accenture Interview Results",    company: "Accenture", tag: "shortlist", date: "2025-08-14", urgent: false, pinned: false, branches:["CSE","ECE","CE"], desc:"Stage 1 results announced. Log in to placement portal." },
-    { id: 7, title: "LTIMindtree Tech Interview",     company: "LTIMindtree", tag: "interview", date:"2025-08-23", urgent:false, pinned:false, branches:["CSE","ECE"], desc:"Panels 1-4 in Seminar Hall. Dress code formal." },
+    { id: 7, title: "LTIMindtree Tech Interview",      company: "LTIMindtree", tag: "interview", date:"2025-08-23", urgent:false, pinned:false, branches:["CSE","ECE"], desc:"Panels 1-4 in Seminar Hall. Dress code formal." },
     { id: 8, title: "Capgemini Aptitude Drive",       company: "Capgemini", tag: "drive", date:"2025-08-29", urgent:false, pinned:false, branches:["CSE","ECE","ME","CE"], desc:"Aptitude + Communication Test. Venue: Main Auditorium." },
     { id: 9, title: "google: Google SDE",             company: "google", tag: "drive", date:"2025-08-05", urgent:false, pinned:false, branches:["CSE"], desc:"Off-campus practice drive (sample item)." }
   ];
 
-  // ============ Storage helpers ============
+  // Storage helpers
   const getUpdates = () => {
     const raw = localStorage.getItem(LS_UPDATES);
     return raw ? JSON.parse(raw) : seed.slice();
   };
   const setUpdates = (arr) => localStorage.setItem(LS_UPDATES, JSON.stringify(arr));
+
+  // Seed once
   if (!localStorage.getItem(LS_UPDATES)) setUpdates(seed);
 
-  // Optional bookmarks (not shown in UI now)
-  const getBookmarks = () => new Set(JSON.parse(localStorage.getItem(LS_BOOKMARKS) || "[]"));
-  const setBookmarks = (set) => localStorage.setItem(LS_BOOKMARKS, JSON.stringify([...set]));
+  // ----- State -----
+  let updates = getUpdates();
+  let page = 1;
+  const PER_PAGE = 6;
 
-  // ============ DOM refs ============
+  // ----- DOM refs -----
   const cardsEl = document.getElementById("cards");
   const pageInfoEl = document.getElementById("pageInfo");
   const timelineEl = document.getElementById("timeline");
@@ -52,369 +54,333 @@ document.addEventListener("DOMContentLoaded", () => {
   const statDrives = document.getElementById("statDrives");
   const statShortlists = document.getElementById("statShortlists");
 
-  const drawer = document.getElementById("drawer");
-  const drawerBody = document.getElementById("drawerBody");
-  const drawerClose = document.getElementById("drawerClose");
-
   const btnSubscribe = document.getElementById("btnSubscribe");
   const btnExportCsv = document.getElementById("btnExportCsv");
   const btnOpenAdmin = document.getElementById("btnOpenAdmin");
-  const adminModal = document.getElementById("adminModal");
-  const adminClose = document.getElementById("adminClose");
-  const adminForm = document.getElementById("adminForm");
-  const adminReset = document.getElementById("adminReset");
 
-  // ============ State ============
-  let state = {
-    page: 1,
-    perPage: 6,
-    q: "",
-    company: "",
-    tag: "",
-    branch: "",
-    from: "",
-    to: "",
-    sort: "newest",
-  };
-
-  // ============ Utils ============
-  const parseDate = (d) => new Date(d + "T00:00:00");
-  const fmt = (d) =>
-    parseDate(d).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-  const todayYMD = () => {
-    const t = new Date();
-    const m = String(t.getMonth() + 1).padStart(2, "0");
-    const d = String(t.getDate()).padStart(2, "0");
-    return `${t.getFullYear()}-${m}-${d}`;
-  };
-
-  const unique = (arr) => [...new Set(arr)];
-  const inRange = (d, from, to) => {
-    const x = parseDate(d).getTime();
-    if (from && x < parseDate(from).getTime()) return false;
-    if (to && x > parseDate(to).getTime()) return false;
-    return true;
-  };
-
-  // ============ Init helpers ============
-  function buildCompanyFilter() {
-    const companies = unique(getUpdates().map((u) => u.company)).sort((a,b)=>a.localeCompare(b));
-    fCompanyEl.innerHTML =
-      '<option value="">Company (All)</option>' +
-      companies.map((c) => `<option value="${c}">${c}</option>`).join("");
+  // ----- Drawer (View) -----
+  let drawer = document.getElementById("drawer");
+  if (!drawer){
+    drawer = document.createElement("div");
+    drawer.id = "drawer";
+    drawer.innerHTML = `
+      <div class="drawer-head">
+        <h4 class="drawer-title">Update Details</h4>
+        <button class="drawer-close" id="drawerClose" title="Close">&times;</button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+    `;
+    document.body.appendChild(drawer);
   }
-  buildCompanyFilter();
+  const drawerBody = document.getElementById("drawerBody");
+  const closeDrawer = () => drawer.classList.remove("open");
+  document.addEventListener("click",(e)=>{
+    if(e.target.id === "drawerClose") closeDrawer();
+  });
 
-  function syncSubscribeLabel() {
-    const sub = localStorage.getItem(LS_SUBSCRIBE) === "1";
-    btnSubscribe.textContent = sub ? "🔕 Subscribed" : "🔔 Subscribe";
-    btnSubscribe.classList.toggle("btn-dark", !sub);
-    btnSubscribe.classList.toggle("btn-outline-dark", sub);
-  }
-  syncSubscribeLabel();
-
-  // ============ Filtering / Sorting / Paging ============
-  function filterAndSort(data) {
-    return data
-      .filter(
-        (u) =>
-          (!state.q ||
-            (u.title + " " + u.company).toLowerCase().includes(state.q.toLowerCase())) &&
-          (!state.company || u.company === state.company) &&
-          (!state.tag || u.tag === state.tag) &&
-          (!state.branch || (u.branches || []).includes(state.branch)) &&
-          inRange(u.date, state.from, state.to)
-      )
-      .sort((a, b) => {
-        // pinned always first
-        if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
-        const da = parseDate(a.date).getTime();
-        const db = parseDate(b.date).getTime();
-        return state.sort === "newest" ? db - da : da - db;
-      });
-  }
-
-  function paginate(arr) {
-    const start = (state.page - 1) * state.perPage;
-    return arr.slice(start, start + state.perPage);
-  }
-
-  // ============ Renderers ============
-  function renderStats(all) {
-    statTotal.textContent = all.length;
-    statInterviews.textContent = all.filter((u) => u.tag === "interview").length;
-    statDrives.textContent = all.filter((u) => u.tag === "drive").length;
-    statShortlists.textContent = all.filter((u) => u.tag === "shortlist").length;
-  }
-
-  function renderTimeline(all) {
-    const items = all.slice().sort((a, b) => parseDate(b.date) - parseDate(a.date));
-    timelineEl.innerHTML = items
-      .map(
-        (u) =>
-          `<li class="mb-2"><span class="me-2">•</span><strong>${fmt(u.date)}</strong> — ${u.company}: ${u.title}</li>`
-      )
-      .join("");
-  }
-
-  function tagPill(tag) {
-    const T = tag?.toLowerCase() || "";
-    const label = T ? T[0].toUpperCase() + T.slice(1) : "";
-    return `<span class="badge rounded-pill px-3 tag ${T}">${label}</span>`;
-  }
-
-  function renderCards(view) {
-    if (!view.length) {
-      cardsEl.innerHTML = `<div class="col-12">
-        <div class="p-4 rounded-3 text-center" style="border:1px dashed var(--border-color, #ddd); color: var(--secondary-text-color, #6c757d)">
-          No updates match your filters.
-        </div></div>`;
-      return;
-    }
-
-    cardsEl.innerHTML = view
-      .map(
-        (u) => `
-      <div class="col-md-6 col-lg-4">
-        <div class="p-3 placement-card h-100 d-flex flex-column" data-id="${u.id}">
-          <div class="d-flex justify-content-between align-items-start mb-2">
-            ${tagPill(u.tag)}
-            <div class="d-flex gap-2">
-              ${u.urgent ? `<span class="badge badge-urgent rounded-pill px-3 py-2">Urgent</span>` : ""}
-              ${u.pinned ? `<span class="badge badge-pinned rounded-pill px-3 py-2">Pinned</span>` : ""}
+  // ----- Modal (Add Update) -----
+  let adminModal = document.getElementById("adminModal");
+  if (!adminModal){
+    adminModal = document.createElement("div");
+    adminModal.id = "adminModal";
+    adminModal.innerHTML = `
+      <div class="modal-panel">
+        <div class="modal-head">
+          <h4 class="modal-title">Add Placement Update</h4>
+          <button class="modal-close" id="adminClose" title="Close">&times;</button>
+        </div>
+        <form id="adminForm">
+          <div class="form-grid">
+            <div class="col-6">
+              <label class="form-label">Title</label>
+              <input class="form-control" name="title" required placeholder="e.g. Google SDE Online Assessment" />
+            </div>
+            <div class="col-6">
+              <label class="form-label">Company</label>
+              <input class="form-control" name="company" required placeholder="e.g. Google" />
+            </div>
+            <div class="col-4">
+              <label class="form-label">Tag</label>
+              <select class="form-select" name="tag" required>
+                <option value="drive">Drive</option>
+                <option value="interview">Interview</option>
+                <option value="shortlist">Shortlist</option>
+                <option value="notice">Notice</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label class="form-label">Branches (comma)</label>
+              <input class="form-control" name="branches" placeholder="CSE,ECE" />
+            </div>
+            <div class="col-4">
+              <label class="form-label">Date</label>
+              <input class="form-control" name="date" type="date" required />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" name="desc" placeholder="Key info, venue, instructions…"></textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-row">
+                <label><input type="checkbox" name="urgent" /> Urgent</label>
+                <label><input type="checkbox" name="pinned" /> Pinned</label>
+              </div>
+            </div>
+            <div class="col-12 modal-actions">
+              <button type="button" class="btn-ghost" id="adminReset">Reset</button>
+              <button class="btn-primary" type="submit">Save</button>
             </div>
           </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(adminModal);
+  }
+  const openModal = () => adminModal.classList.add("active");
+  const closeModal = () => adminModal.classList.remove("active");
+  document.addEventListener("click",(e)=>{
+    if (e.target.id === "adminClose") closeModal();
+  });
+  const adminForm = document.getElementById("adminForm");
+  const adminReset = document.getElementById("adminReset");
+  if (btnOpenAdmin) btnOpenAdmin.addEventListener("click", openModal);
+  if (adminReset) adminReset.addEventListener("click", () => adminForm.reset());
+  if (adminForm){
+    adminForm.addEventListener("submit",(e)=>{
+      e.preventDefault();
+      const fd = new FormData(adminForm);
+      const nextId = Math.max(...updates.map(u=>u.id)) + 1;
+      const newItem = {
+        id: nextId,
+        title: (fd.get("title") || "").trim(),
+        company: (fd.get("company") || "").trim(),
+        tag: fd.get("tag"),
+        date: fd.get("date"),
+        branches: (fd.get("branches") || "").split(",").map(s=>s.trim()).filter(Boolean),
+        urgent: !!fd.get("urgent"),
+        pinned: !!fd.get("pinned"),
+        desc: (fd.get("desc") || "").trim()
+      };
+      updates.push(newItem);
+      setUpdates(updates);
+      closeModal();
+      page = 1;
+      hydrateCompanyFilter();
+      render();
+    });
+  }
 
-          <h4 class="mb-2" style="line-height:1.25">${u.title}</h4>
-          <p class="mb-1"><b>Company:</b> ${u.company}</p>
-          <p class="mb-1">📅 <b>${fmt(u.date)}</b></p>
-          ${
-            u.branches?.length
-              ? `<p class="mb-1">🎓 Branches: ${u.branches.join(", ")}</p>`
-              : ""
-          }
-          <p class="mb-2 small text-muted" style="flex:1 0 auto">${u.desc || ""}</p>
+  // ----- Subscribe / Export -----
+  const updateSubBtn = () => {
+    const isSub = localStorage.getItem(LS_SUBSCRIBE) === "1";
+    if (btnSubscribe) btnSubscribe.textContent = isSub ? "🔕 Unsubscribe" : "🔔 Subscribe";
+  };
+  if (btnSubscribe){
+    updateSubBtn();
+    btnSubscribe.addEventListener("click", ()=>{
+      const isSub = localStorage.getItem(LS_SUBSCRIBE) === "1";
+      localStorage.setItem(LS_SUBSCRIBE, isSub ? "0" : "1");
+      updateSubBtn();
+      alert(isSub ? "Unsubscribed." : "Subscribed to placement updates!");
+    });
+  }
+  if (btnExportCsv){
+    btnExportCsv.addEventListener("click", ()=>{
+      const csv = [
+        ["ID","Title","Company","Tag","Date","Urgent","Pinned","Branches","Description"].join(",")
+      ];
+      updates.forEach(u=>{
+        const row = [
+          u.id,
+          quote(u.title),
+          quote(u.company),
+          u.tag,
+          u.date,
+          u.urgent ? "Yes":"No",
+          u.pinned ? "Yes":"No",
+          quote((u.branches||[]).join(" / ")),
+          quote(u.desc || "")
+        ].join(",");
+        csv.push(row);
+      });
+      const blob = new Blob([csv.join("\n")], {type:"text/csv;charset=utf-8;"});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "placement-updates.csv";
+      a.click();
+    });
+  }
+  function quote(s){ return `"${String(s).replace(/"/g,'""')}"`; }
 
-          <div class="mt-auto d-flex justify-content-end">
-            <button class="btn btn-warning btn-sm" data-view="${u.id}">View</button>
+  // ----- Filters -----
+  function hydrateCompanyFilter(){
+    const cur = fCompanyEl.value;
+    const uniq = [...new Set(getUpdates().map(u=>u.company))].sort((a,b)=>a.localeCompare(b));
+    fCompanyEl.innerHTML = `<option value="">Company (All)</option>` + uniq.map(c=>`<option value="${c}">${c}</option>`).join("");
+    if (uniq.includes(cur)) fCompanyEl.value = cur;
+  }
+  hydrateCompanyFilter();
+
+  [qEl,fCompanyEl,fTagEl,fBranchEl,fFromEl,fToEl,fSortEl].forEach(el=>{
+    if(!el) return;
+    el.addEventListener("input", ()=>{ page = 1; render(); });
+    el.addEventListener("change", ()=>{ page = 1; render(); });
+  });
+  if (fResetEl){
+    fResetEl.addEventListener("click", ()=>{
+      qEl.value = "";
+      fCompanyEl.value = "";
+      fTagEl.value = "";
+      fBranchEl.value = "";
+      fFromEl.value = "";
+      fToEl.value = "";
+      fSortEl.value = "newest";
+      page = 1;
+      render();
+    });
+  }
+
+  // ----- Pagination -----
+  if (btnPrev) btnPrev.addEventListener("click", ()=>{ if(page>1){ page--; render(); }});
+  if (btnNext) btnNext.addEventListener("click", ()=>{ const total = getFiltered().length; const pages = Math.max(1, Math.ceil(total/PER_PAGE)); if(page<pages){ page++; render(); }});
+
+  // ----- Rendering helpers -----
+  function getFiltered(){
+    const q = qEl.value.trim().toLowerCase();
+    const cmp = fCompanyEl.value;
+    const tag = fTagEl.value;
+    const br = fBranchEl.value;
+    const from = fFromEl.value ? new Date(fFromEl.value) : null;
+    const to   = fToEl.value   ? new Date(fToEl.value)   : null;
+
+    let arr = getUpdates().slice();
+
+    // search
+    if (q){
+      arr = arr.filter(u =>
+        u.title.toLowerCase().includes(q) ||
+        u.company.toLowerCase().includes(q)
+      );
+    }
+    if (cmp) arr = arr.filter(u => u.company === cmp);
+    if (tag) arr = arr.filter(u => u.tag === tag);
+    if (br)  arr = arr.filter(u => (u.branches||[]).includes(br));
+    if (from) arr = arr.filter(u => new Date(u.date) >= from);
+    if (to)   arr = arr.filter(u => new Date(u.date) <= to);
+
+    // sort
+    const sort = fSortEl.value || "newest";
+    arr.sort((a,b)=>{
+      const da = new Date(a.date).getTime();
+      const db = new Date(b.date).getTime();
+      return sort==="newest" ? db-da : da-db;
+    });
+
+    // pin urgent/pinned near top but keep within date sorting by adding small bias
+    arr = arr.sort((a,b)=>{
+      const ap = (a.pinned?2:0) + (a.urgent?1:0);
+      const bp = (b.pinned?2:0) + (b.urgent?1:0);
+      return bp - ap;
+    });
+
+    return arr;
+  }
+
+  function render(){
+    updates = getUpdates();
+    const filtered = getFiltered();
+
+    // cards
+    const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+    if (page > totalPages) page = totalPages;
+    const start = (page-1)*PER_PAGE;
+    const slice = filtered.slice(start, start+PER_PAGE);
+
+    cardsEl.innerHTML = slice.map(cardHTML).join("") || `<div class="placement-card"><div class="card-title">No updates found</div><div class="card-company">Try adjusting filters.</div></div>`;
+    pageInfoEl.textContent = `Page ${page} / ${totalPages}`;
+    btnPrev.disabled = page<=1;
+    btnNext.disabled = page>=totalPages;
+
+    // stats
+    statTotal.textContent = updates.length;
+    const today = new Date(); today.setHours(0,0,0,0);
+    const interviewsUpcoming = updates.filter(u => u.tag==="interview" && new Date(u.date)>=today).length;
+    const drivesActive = updates.filter(u => u.tag==="drive" && new Date(u.date)>=today).length;
+    const shortlistsCount = updates.filter(u => u.tag==="shortlist").length;
+    statInterviews.textContent = interviewsUpcoming;
+    statDrives.textContent = drivesActive;
+    statShortlists.textContent = shortlistsCount;
+
+    // timeline (past announcements)
+    const past = updates
+      .filter(u => new Date(u.date) < today)
+      .sort((a,b)=> new Date(b.date)-new Date(a.date));
+    timelineEl.innerHTML = past.length
+      ? past.map(u=>`<li><strong>${fmtDate(u.date)}</strong> — ${escapeHTML(u.company)}: ${escapeHTML(u.title)}</li>`).join("")
+      : `<li>No past announcements yet.</li>`;
+  }
+
+  function cardHTML(u){
+    return `
+      <div class="placement-card" data-id="${u.id}">
+        <div class="card-header">
+          <span class="card-chip ${u.tag}">${cap(u.tag)}</span>
+          ${u.urgent ? `<span class="badge badge-urgent">Urgent</span>` : ``}
+          ${u.pinned ? `<span class="badge badge-pinned">Pinned</span>` : ``}
+        </div>
+        <div class="card-title">${escapeHTML(u.title)}</div>
+        <div class="card-company">Company: <strong>${escapeHTML(u.company)}</strong></div>
+        <div class="card-date">${fmtDate(u.date)}</div>
+        <div class="chips">
+          ${(u.branches||[]).map(b=>`<span class="chip">${escapeHTML(b)}</span>`).join("")}
+        </div>
+        <div class="card-actions">
+          <button class="card-btn btn-view" data-id="${u.id}">View</button>
+          <div style="display:flex;gap:8px;">
+            <span class="chip ${u.tag}">${cap(u.tag)}</span>
           </div>
         </div>
-      </div>`
-      )
-      .join("");
-  }
-
-  function renderPage() {
-    const all = filterAndSort(getUpdates());
-    const pages = Math.max(1, Math.ceil(all.length / state.perPage));
-    if (state.page > pages) state.page = pages;
-
-    const view = paginate(all);
-    renderCards(view);
-    renderStats(all);
-    renderTimeline(all);
-
-    pageInfoEl.textContent = `Page ${state.page} / ${pages}`;
-    btnPrev.disabled = state.page <= 1;
-    btnNext.disabled = state.page >= pages;
-  }
-
-  // ============ Drawer ============
-  function openDrawer(item) {
-    if (!item) return;
-    // Fill body
-    drawerBody.innerHTML = `
-      <div class="mb-2"><small class="text-muted">Title</small><div class="fw-semibold">${item.title}</div></div>
-      <div class="mb-2"><small class="text-muted">Company</small><div>${item.company}</div></div>
-      <div class="mb-2"><small class="text-muted">Date</small><div>${fmt(item.date)}</div></div>
-      <div class="mb-2"><small class="text-muted">Tag</small><div class="text-capitalize">${item.tag}</div></div>
-      <div class="mb-2"><small class="text-muted">Branches</small><div>${(item.branches || []).join(", ") || "-"}</div></div>
-      <div class="mb-2"><small class="text-muted">Urgent</small><div>${item.urgent ? "Yes" : "No"}</div></div>
-      <div class="mb-2"><small class="text-muted">Pinned</small><div>${item.pinned ? "Yes" : "No"}</div></div>
-      <hr>
-      <div style="white-space:pre-wrap">${item.desc || ""}</div>
+      </div>
     `;
+  }
 
-    // Make sure it becomes visible regardless of CSS approach
+  // View (drawer) — event delegation
+  cardsEl.addEventListener("click",(e)=>{
+    const btn = e.target.closest(".btn-view");
+    if(!btn) return;
+    const id = Number(btn.dataset.id);
+    const u = updates.find(x=>x.id===id);
+    if(!u) return;
+
+    drawerBody.innerHTML = `
+      <div class="drawer-meta">
+        <span class="chip ${u.tag}">${cap(u.tag)}</span>
+        ${u.urgent ? `<span class="chip urgent">Urgent</span>`:``}
+        ${u.pinned ? `<span class="chip pinned">Pinned</span>`:``}
+      </div>
+      <h3 style="margin:0 0 6px 0;">${escapeHTML(u.title)}</h3>
+      <div class="kv"><span class="k">Company</span><span class="v">${escapeHTML(u.company)}</span></div>
+      <div class="kv"><span class="k">Date</span><span class="v">${fmtDate(u.date)}</span></div>
+      <div class="kv"><span class="k">Branches</span>
+        <div class="chips" style="margin-top:6px;">${(u.branches||[]).map(b=>`<span class="chip">${escapeHTML(b)}</span>`).join("") || "-"}</div>
+      </div>
+      <div class="kv"><span class="k">Description</span><div class="v" style="margin-top:6px; line-height:1.55;">${escapeHTML(u.desc || "-")}</div></div>
+    `;
+    drawer.querySelector(".drawer-title").textContent = "Update Details";
     drawer.classList.add("open");
-    drawer.style.display = "block";
-    drawer.style.right = "0";
-    drawer.style.transform = "translateX(0)";
+  });
+
+  // ----- Utils -----
+  function fmtDate(s){
+    // Expect YYYY-MM-DD
+    const d = new Date(s);
+    if (isNaN(d)) return s;
+    const opts = { month:"short", day:"numeric", year:"numeric" };
+    return d.toLocaleDateString(undefined, opts);
   }
+  function cap(s){ return s ? (s[0].toUpperCase()+s.slice(1)) : s; }
+  function escapeHTML(s){ return String(s).replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[m])); }
 
-  function closeDrawer() {
-    drawer.classList.remove("open");
-    drawer.style.transform = "";
-    drawer.style.right = "";
-    drawer.style.display = "";
-  }
-
-  // ============ Event wiring ============
-
-  // Filters
-  qEl.addEventListener("input", (e) => {
-    state.q = e.target.value.trim();
-    state.page = 1;
-    renderPage();
-  });
-  fCompanyEl.addEventListener("change", (e) => {
-    state.company = e.target.value;
-    state.page = 1;
-    renderPage();
-  });
-  fTagEl.addEventListener("change", (e) => {
-    state.tag = e.target.value;
-    state.page = 1;
-    renderPage();
-  });
-  fBranchEl.addEventListener("change", (e) => {
-    state.branch = e.target.value;
-    state.page = 1;
-    renderPage();
-  });
-  fFromEl.addEventListener("change", (e) => {
-    state.from = e.target.value;
-    state.page = 1;
-    renderPage();
-  });
-  fToEl.addEventListener("change", (e) => {
-    state.to = e.target.value;
-    state.page = 1;
-    renderPage();
-  });
-  fSortEl.addEventListener("change", (e) => {
-    state.sort = e.target.value;
-    state.page = 1;
-    renderPage();
-  });
-
-  fResetEl.addEventListener("click", () => {
-    state = { ...state, page: 1, q: "", company: "", tag: "", branch: "", from: "", to: "", sort: "newest" };
-    qEl.value = "";
-    fCompanyEl.value = "";
-    fTagEl.value = "";
-    fBranchEl.value = "";
-    fFromEl.value = "";
-    fToEl.value = "";
-    fSortEl.value = "newest";
-    renderPage();
-  });
-
-  // Pagination
-  btnPrev.addEventListener("click", () => {
-    state.page = Math.max(1, state.page - 1);
-    renderPage();
-  });
-  btnNext.addEventListener("click", () => {
-    state.page = state.page + 1;
-    renderPage();
-  });
-
-  // Card delegation (View)
-  cardsEl.addEventListener("click", (e) => {
-    const viewBtn = e.target.closest("[data-view]");
-    const card = e.target.closest(".placement-card");
-    if (!viewBtn && !card) return;
-
-    const id = +(viewBtn?.getAttribute("data-view") || card?.getAttribute("data-id"));
-    const item = getUpdates().find((u) => u.id === id);
-    if (item) openDrawer(item);
-  });
-
-  // Drawer close
-  drawerClose.addEventListener("click", closeDrawer);
-  // optional: close by hitting Esc
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDrawer();
-  });
-
-  // Subscribe toggle
-  btnSubscribe.addEventListener("click", () => {
-    const now = localStorage.getItem(LS_SUBSCRIBE) === "1";
-    localStorage.setItem(LS_SUBSCRIBE, now ? "0" : "1");
-    syncSubscribeLabel();
-    if (!now) alert("✅ Subscribed to Placement Updates (demo).");
-  });
-
-  // CSV export
-  btnExportCsv.addEventListener("click", () => {
-    const visible = filterAndSort(getUpdates());
-    const rows = [
-      ["Title", "Company", "Tag", "Date", "Branches", "Urgent", "Pinned", "Description"],
-    ];
-    visible.forEach((u) => {
-      rows.push([
-        u.title,
-        u.company,
-        u.tag,
-        u.date,
-        (u.branches || []).join(";"),
-        u.urgent ? "Yes" : "No",
-        u.pinned ? "Yes" : "No",
-        (u.desc || "").replace(/\n/g, " "),
-      ]);
-    });
-    const csv = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "placement_updates.csv";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-  });
-
-  // Admin Modal (open/close)
-  function openAdmin() {
-    adminModal.classList.add("open");
-    adminModal.style.display = "block";
-  }
-  function closeAdmin() {
-    adminModal.classList.remove("open");
-    adminModal.style.display = "none";
-  }
-
-  btnOpenAdmin.addEventListener("click", openAdmin);
-  adminClose.addEventListener("click", closeAdmin);
-  adminModal.addEventListener("click", (e) => {
-    if (e.target === adminModal) closeAdmin();
-  });
-  adminReset?.addEventListener("click", () => adminForm.reset());
-
-  // Admin form submit
-  adminForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const fd = new FormData(adminForm);
-    const arr = getUpdates();
-    const nextId = (arr.reduce((m, u) => Math.max(m, u.id), 0) || 0) + 1;
-    const branches = (fd.get("branches") || "")
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-
-    const item = {
-      id: nextId,
-      title: (fd.get("title") || "").toString().trim(),
-      company: (fd.get("company") || "").toString().trim(),
-      tag: fd.get("tag"),
-      date: fd.get("date"),
-      branches,
-      urgent: fd.get("urgent") === "on",
-      pinned: fd.get("pinned") === "on",
-      desc: (fd.get("desc") || "").toString().trim(),
-    };
-
-    arr.push(item);
-    setUpdates(arr);
-    buildCompanyFilter();
-    adminForm.reset();
-    closeAdmin();
-    state.page = 1;
-    renderPage();
-  });
-
-  // First render
-  renderPage();
+  // Initial render
+  render();
 });

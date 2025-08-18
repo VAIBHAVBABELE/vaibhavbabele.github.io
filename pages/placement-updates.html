@@ -47,168 +47,96 @@
   <div class="container">
 
     <!-- Header + Actions -->
-    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+    <div class="placement-header">
       <div>
-        <h2 class="mb-1" style="color: var(--main-color)">🚀 Placement Cell Updates</h2>
-        <p class="mb-0" style="color: var(--secondary-text-color)">
+        <h2 class="heading-main">🚀 Placement Cell Updates</h2>
+        <p class="heading-sub">
           Latest drives, interviews, shortlists & notices — never miss an update.
         </p>
       </div>
-      <div class="d-flex align-items-center gap-2">
-        <button id="btnSubscribe" class="btn btn-outline-dark">🔔 Subscribe</button>
-        <button id="btnExportCsv" class="btn btn-outline-dark">⬇️ Export CSV</button>
-        <button id="btnOpenAdmin" class="btn btn-dark">➕ Add Update</button>
+      <div class="actions">
+        <button id="btnSubscribe" class="btn-outline">🔔 Subscribe</button>
+        <button id="btnExportCsv" class="btn-outline">⬇️ Export CSV</button>
+        <button id="btnOpenAdmin" class="btn-dark">➕ Add Update</button>
       </div>
     </div>
 
     <!-- Quick Stats -->
-    <div class="row g-3 mb-4">
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3 stat-card">
-          <div class="small text-muted">Total Updates</div>
-          <div class="h4 mb-0" id="statTotal">—</div>
-        </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Updates</div>
+        <div class="stat-value" id="statTotal">—</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3 stat-card">
-          <div class="small text-muted">Upcoming Interviews</div>
-          <div class="h4 mb-0" id="statInterviews">—</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">Upcoming Interviews</div>
+        <div class="stat-value" id="statInterviews">—</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3 stat-card">
-          <div class="small text-muted">Active Drives</div>
-          <div class="h4 mb-0" id="statDrives">—</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Drives</div>
+        <div class="stat-value" id="statDrives">—</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3 stat-card">
-          <div class="small text-muted">Shortlists Released</div>
-          <div class="h4 mb-0" id="statShortlists">—</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">Shortlists Released</div>
+        <div class="stat-value" id="statShortlists">—</div>
       </div>
     </div>
 
     <!-- Filters -->
-    <div class="filters d-flex flex-wrap gap-2 gap-md-3 mb-4">
-      <input id="q" type="text" class="form-control" placeholder="Search by company or title…" style="max-width: 260px;" />
-      <select id="fCompany" class="form-select w-auto">
+    <div class="filters">
+      <input id="q" type="text" class="filter-input" placeholder="Search by company or title…" />
+      <select id="fCompany" class="filter-select">
         <option value="">Company (All)</option>
       </select>
-      <select id="fTag" class="form-select w-auto">
+      <select id="fTag" class="filter-select">
         <option value="">Tag (All)</option>
         <option value="drive">Drive</option>
         <option value="interview">Interview</option>
         <option value="shortlist">Shortlist</option>
         <option value="notice">Notice</option>
       </select>
-      <select id="fBranch" class="form-select w-auto">
+      <select id="fBranch" class="filter-select">
         <option value="">Branch (All)</option>
         <option value="CSE">CSE</option>
         <option value="ECE">ECE</option>
         <option value="ME">ME</option>
         <option value="CE">CE</option>
       </select>
-      <input id="fFrom" type="date" class="form-control w-auto" />
-      <input id="fTo" type="date" class="form-control w-auto" />
-      <select id="fSort" class="form-select w-auto">
+      <input id="fFrom" type="date" class="filter-input" />
+      <input id="fTo" type="date" class="filter-input" />
+      <select id="fSort" class="filter-select">
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>
       </select>
-      <button id="fReset" class="btn btn-outline-dark">Reset</button>
+      <button id="fReset" class="btn-outline">Reset</button>
     </div>
 
     <!-- Tag legend -->
-    <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
-      <span class="small me-2 text-muted">Legend:</span>
-      <span class="badge rounded-pill px-3 tag drive">Drive</span>
-      <span class="badge rounded-pill px-3 tag interview">Interview</span>
-      <span class="badge rounded-pill px-3 tag shortlist">Shortlist</span>
-      <span class="badge rounded-pill px-3 tag notice">Notice</span>
-      <span class="badge rounded-pill px-3 badge-urgent">Urgent</span>
-      <span class="badge rounded-pill px-3 badge-pinned">Pinned</span>
+    <div class="tag-legend">
+      <span class="legend-label">Legend:</span>
+      <span class="badge tag drive">Drive</span>
+      <span class="badge tag interview">Interview</span>
+      <span class="badge tag shortlist">Shortlist</span>
+      <span class="badge tag notice">Notice</span>
+      <span class="badge badge-urgent">Urgent</span>
+      <span class="badge badge-pinned">Pinned</span>
     </div>
 
     <!-- Cards -->
-    <div id="cards" class="row g-4"></div>
+    <div id="cards" class="cards-grid"></div>
 
     <!-- Pagination -->
-    <div class="d-flex justify-content-between align-items-center mt-4">
-      <div class="small text-muted"><span id="pageInfo">Page 1</span></div>
-      <div class="d-flex gap-2">
-        <button id="btnPrev" class="btn btn-outline-dark">Prev</button>
-        <button id="btnNext" class="btn btn-outline-dark">Next</button>
+    <div class="pagination">
+      <span id="pageInfo">Page 1</span>
+      <div class="pagination-controls">
+        <button id="btnPrev" class="btn-outline">Prev</button>
+        <button id="btnNext" class="btn-outline">Next</button>
       </div>
     </div>
 
     <!-- Timeline / History -->
-    <div class="history-section mt-5">
-      <h3 class="mb-3 section-subtitle">📜 Past Announcements</h3>
-      <ul id="timeline" class="list-unstyled m-0"></ul>
-    </div>
-  </div>
-
-  <!-- Detail Drawer -->
-  <div id="drawer" class="placement-drawer">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h5 class="m-0">Update Details</h5>
-      <button id="drawerClose" class="btn btn-sm btn-outline-dark">✖</button>
-    </div>
-    <div id="drawerBody" class="small"></div>
-  </div>
-
-  <!-- Admin Modal (Demo) -->
-  <div id="adminModal" class="placement-modal">
-    <div class="modal-panel">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 class="m-0">Add Placement Update (Demo)</h5>
-        <button id="adminClose" class="btn btn-sm btn-outline-dark">✖</button>
-      </div>
-      <form id="adminForm" class="row g-3">
-        <div class="col-md-6">
-          <label class="form-label">Title</label>
-          <input required class="form-control" name="title" placeholder="e.g. Google SDE Online Assessment">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Company</label>
-          <input required class="form-control" name="company" placeholder="e.g. Google">
-        </div>
-        <div class="col-md-4">
-          <label class="form-label">Tag</label>
-          <select class="form-select" name="tag" required>
-            <option value="drive">Drive</option>
-            <option value="interview">Interview</option>
-            <option value="shortlist">Shortlist</option>
-            <option value="notice">Notice</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label class="form-label">Branch (comma)</label>
-          <input class="form-control" name="branches" placeholder="CSE,ECE">
-        </div>
-        <div class="col-md-4">
-          <label class="form-label">Date</label>
-          <input type="date" class="form-control" name="date" required>
-        </div>
-        <div class="col-12">
-          <label class="form-label">Description</label>
-          <textarea class="form-control" rows="3" name="desc" placeholder="Key info, venue, instructions…"></textarea>
-        </div>
-        <div class="col-12 d-flex gap-3">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="urgent" id="iUrgent">
-            <label class="form-check-label" for="iUrgent">Urgent</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="pinned" id="iPinned">
-            <label class="form-check-label" for="iPinned">Pinned</label>
-          </div>
-        </div>
-        <div class="col-12 d-flex justify-content-end gap-2">
-          <button type="button" id="adminReset" class="btn btn-outline-dark">Reset</button>
-          <button class="btn btn-dark" type="submit">Save</button>
-        </div>
-      </form>
+    <div class="history-section">
+      <h3 class="section-subtitle">📜 Past Announcements</h3>
+      <ul id="timeline" class="timeline"></ul>
     </div>
   </div>
 </section>
