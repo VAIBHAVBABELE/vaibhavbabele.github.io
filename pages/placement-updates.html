@@ -18,79 +18,7 @@
   <link rel="manifest" href="../favicon/site.webmanifest">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="team.css">
-  <style>
-  :root {
-    --border-color: rgba(0,0,0,.08);
-    --box-shadow: rgba(0,0,0,.05);
-  }
-  .dark-mode {
-    --border-color: rgba(255,255,255,.12);
-    --box-shadow: rgba(0,0,0,.4);
-    --color:white;
-  }
-
-  /* Cards */
-  .update-card {
-    background: var(--card-bg-color, #fff);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 16px;
-    height: 100%;
-    box-shadow: 0 6px 20px var(--box-shadow);
-    transition: transform .15s ease, box-shadow .15s ease;
-    cursor: pointer;
-  }
-  .update-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px var(--box-shadow); }
-  .update-card h4 { color: var(--primary-text-color); margin: 6px 0 10px; }
-  .update-card p { margin: 0 0 6px; color: var(--text-color); }
-
-  .tag {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 999px;
-    margin-bottom: 8px;
-  }
-  .tag.drive { background:#e9fbe7; color:#1b6b1b; }
-  .tag.interview { background:#e7f3ff; color:#0b4b91; }
-  .tag.shortlist { background:#fff5e5; color:#8a5300; }
-  .tag.notice { background:#f2e9ff; color:#5b2d90; }
-
-  .badge-urgent { background:#ffe3e3; color:#8a1c1c; }
-  .badge-pinned { background:#e7f3ff; color:#0b4b91; }
-
-  /* Drawer */
-  #drawer { border-left:1px solid var(--border-color); }
-  #drawer .kv { display:flex; gap:8px; margin-bottom:6px; }
-  #drawer .kv .k { width:92px; color: var(--secondary-text-color); }
-  #drawer .kv .v { flex:1; color: var(--primary-text-color); }
-
-  /* Timeline */
-  #timeline li {
-    position: relative;
-    padding-left: 28px;
-    margin: 10px 0;
-    color: var(--text-color);
-  }
-  #timeline li::before {
-    content: "";
-    position: absolute;
-    left: 8px; top: 7px;
-    width: 10px; height: 10px;
-    background: var(--accent-color); border-radius: 50%;
-  }
-
-  /* Bookmark button on card */
-  .bookmark-btn {
-    border: 1px solid var(--border-color);
-    background: transparent;
-    border-radius: 10px;
-    padding: 6px 10px;
-    font-size: 13px;
-  }
-  .bookmark-btn.active { background: var(--bg-shade); }
-</style>
+  <link rel="stylesheet" href="placement.css">
 
 </head>
 
@@ -114,172 +42,101 @@
     <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
   </nav>
 
-  <section class="placement-section py-5" id="placement">
+<!-- ===== Placement Cell (section-only) ===== -->
+<section class="placement-section py-5" id="placement">
   <div class="container">
-    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+
+    <!-- Header + Actions -->
+    <div class="placement-header">
       <div>
-        <h2 class="mb-1" style="color: var(--main-color)">🚀 Placement Cell Updates</h2>
-        <p class="mb-0" style="color: var(--secondary-text-color)">
+        <h2 class="heading-main">🚀 Placement Cell Updates</h2>
+        <p class="heading-sub">
           Latest drives, interviews, shortlists & notices — never miss an update.
         </p>
       </div>
-      <div class="d-flex align-items-center gap-2">
-        <button id="btnSubscribe" class="btn btn-outline-dark">🔔 Subscribe</button>
-        <button id="btnExportCsv" class="btn btn-outline-dark">⬇️ Export CSV</button>
-        <button id="btnOpenAdmin" class="btn btn-dark">➕ Add Update</button>
+      <div class="actions">
+        <button id="btnSubscribe" class="btn-outline">🔔 Subscribe</button>
+        <button id="btnExportCsv" class="btn-outline">⬇️ Export CSV</button>
+        <button id="btnOpenAdmin" class="btn-dark">➕ Add Update</button>
       </div>
     </div>
 
     <!-- Quick Stats -->
-    <div class="row g-3 mb-4">
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3" style="background: var(--bg-shade)">
-          <div class="small text-muted">Total Updates</div>
-          <div class="h4 mb-0" id="statTotal">—</div>
-        </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Updates</div>
+        <div class="stat-value" id="statTotal">—</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3" style="background: var(--bg-shade)">
-          <div class="small text-muted">Upcoming Interviews</div>
-          <div class="h4 mb-0" id="statInterviews">—</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">Upcoming Interviews</div>
+        <div class="stat-value" id="statInterviews">—</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3" style="background: var(--bg-shade)">
-          <div class="small text-muted">Active Drives</div>
-          <div class="h4 mb-0" id="statDrives">—</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Drives</div>
+        <div class="stat-value" id="statDrives">—</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="p-3 rounded-3" style="background: var(--bg-shade)">
-          <div class="small text-muted">Shortlists Released</div>
-          <div class="h4 mb-0" id="statShortlists">—</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">Shortlists Released</div>
+        <div class="stat-value" id="statShortlists">—</div>
       </div>
     </div>
 
     <!-- Filters -->
-    <div class="filters d-flex flex-wrap gap-2 gap-md-3 mb-4">
-      <input id="q" type="text" class="form-control" placeholder="Search by company or title…" style="max-width: 260px; background: var(--input-bg-color); color: var(--text-color);" />
-      <select id="fCompany" class="form-select w-auto" style="background: var(--input-bg-color); color: var(--text-color);">
+    <div class="filters">
+      <input id="q" type="text" class="filter-input" placeholder="Search by company or title…" />
+      <select id="fCompany" class="filter-select">
         <option value="">Company (All)</option>
       </select>
-      <select id="fTag" class="form-select w-auto" style="background: var(--input-bg-color); color: var(--text-color);">
+      <select id="fTag" class="filter-select">
         <option value="">Tag (All)</option>
         <option value="drive">Drive</option>
         <option value="interview">Interview</option>
         <option value="shortlist">Shortlist</option>
         <option value="notice">Notice</option>
       </select>
-      <select id="fBranch" class="form-select w-auto" style="background: var(--input-bg-color); color: var(--text-color);">
+      <select id="fBranch" class="filter-select">
         <option value="">Branch (All)</option>
         <option value="CSE">CSE</option>
         <option value="ECE">ECE</option>
         <option value="ME">ME</option>
         <option value="CE">CE</option>
       </select>
-      <input id="fFrom" type="date" class="form-control w-auto" style="background: var(--input-bg-color); color: var(--text-color);" />
-      <input id="fTo" type="date" class="form-control w-auto" style="background: var(--input-bg-color); color: var(--text-color);" />
-      <select id="fSort" class="form-select w-auto" style="background: var(--input-bg-color); color: var(--text-color);">
+      <input id="fFrom" type="date" class="filter-input" />
+      <input id="fTo" type="date" class="filter-input" />
+      <select id="fSort" class="filter-select">
         <option value="newest">Newest first</option>
         <option value="oldest">Oldest first</option>
       </select>
-      <button id="fReset" class="btn btn-outline-dark">Reset</button>
+      <button id="fReset" class="btn-outline">Reset</button>
     </div>
 
     <!-- Tag legend -->
-    <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
-      <span class="small me-2 text-muted">Legend:</span>
-      <span class="badge rounded-pill px-3 tag drive">Drive</span>
-      <span class="badge rounded-pill px-3 tag interview">Interview</span>
-      <span class="badge rounded-pill px-3 tag shortlist">Shortlist</span>
-      <span class="badge rounded-pill px-3 tag notice">Notice</span>
-      <span class="badge rounded-pill px-3 badge-urgent">Urgent</span>
-      <span class="badge rounded-pill px-3 badge-pinned">Pinned</span>
+    <div class="tag-legend">
+      <span class="legend-label">Legend:</span>
+      <span class="badge tag drive">Drive</span>
+      <span class="badge tag interview">Interview</span>
+      <span class="badge tag shortlist">Shortlist</span>
+      <span class="badge tag notice">Notice</span>
+      <span class="badge badge-urgent">Urgent</span>
+      <span class="badge badge-pinned">Pinned</span>
     </div>
 
     <!-- Cards -->
-    <div id="cards" class="row g-4"></div>
+    <div id="cards" class="cards-grid"></div>
 
     <!-- Pagination -->
-    <div class="d-flex justify-content-between align-items-center mt-4">
-      <div class="small text-muted"><span id="pageInfo">Page 1</span></div>
-      <div class="d-flex gap-2">
-        <button id="btnPrev" class="btn btn-outline-dark">Prev</button>
-        <button id="btnNext" class="btn btn-outline-dark">Next</button>
+    <div class="pagination">
+      <span id="pageInfo">Page 1</span>
+      <div class="pagination-controls">
+        <button id="btnPrev" class="btn-outline">Prev</button>
+        <button id="btnNext" class="btn-outline">Next</button>
       </div>
     </div>
 
     <!-- Timeline / History -->
-    <div class="history-section mt-5">
-      <h3 class="mb-3" style="color: var(--secondary-text-color)">📜 Past Announcements</h3>
-      <ul id="timeline" class="list-unstyled m-0"></ul>
-    </div>
-  </div>
-
-  <!-- Detail Drawer -->
-  <div id="drawer" class="position-fixed top-0 end-0 h-100 p-4" style="width: 380px; background: var(--card-bg-color); box-shadow: 0 0 28px var(--box-shadow); transform: translateX(100%); transition: transform .3s; z-index: 1050;">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h5 class="m-0">Update Details</h5>
-      <button id="drawerClose" class="btn btn-sm btn-outline-dark">✖</button>
-    </div>
-    <div id="drawerBody" class="small"></div>
-  </div>
-
-  <!-- Admin Modal (Demo) -->
-  <div id="adminModal" class="position-fixed top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,.35); display:none; z-index:1051;">
-    <div class="position-absolute top-50 start-50 translate-middle w-100" style="max-width:720px;">
-      <div class="p-4 rounded-3" style="background: var(--card-bg-color); border:1px solid var(--border-color); box-shadow: 0 0 28px var(--box-shadow);">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h5 class="m-0">Add Placement Update (Demo)</h5>
-          <button id="adminClose" class="btn btn-sm btn-outline-dark">✖</button>
-        </div>
-        <form id="adminForm" class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Title</label>
-            <input required class="form-control" name="title" placeholder="e.g. Google SDE Online Assessment">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Company</label>
-            <input required class="form-control" name="company" placeholder="e.g. Google">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Tag</label>
-            <select class="form-select" name="tag" required>
-              <option value="drive">Drive</option>
-              <option value="interview">Interview</option>
-              <option value="shortlist">Shortlist</option>
-              <option value="notice">Notice</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Branch (comma)</label>
-            <input class="form-control" name="branches" placeholder="CSE,ECE">
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Date</label>
-            <input type="date" class="form-control" name="date" required>
-          </div>
-          <div class="col-12">
-            <label class="form-label">Description</label>
-            <textarea class="form-control" rows="3" name="desc" placeholder="Key info, venue, instructions…"></textarea>
-          </div>
-          <div class="col-12 d-flex gap-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="urgent" id="iUrgent">
-              <label class="form-check-label" for="iUrgent">Urgent</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="pinned" id="iPinned">
-              <label class="form-check-label" for="iPinned">Pinned</label>
-            </div>
-          </div>
-          <div class="col-12 d-flex justify-content-end gap-2">
-            <button type="button" id="adminReset" class="btn btn-outline-dark">Reset</button>
-            <button class="btn btn-dark" type="submit">Save</button>
-          </div>
-        </form>
-      </div>
+    <div class="history-section">
+      <h3 class="section-subtitle">📜 Past Announcements</h3>
+      <ul id="timeline" class="timeline"></ul>
     </div>
   </div>
 </section>
@@ -400,336 +257,11 @@
       }
     });
   </script>
-<script>
-(() => {
-  // ============ Data & Storage ============
-  const LS_UPDATES = "nm_placement_updates_v1";
-  const LS_BOOKMARKS = "nm_placement_bookmarks_v1";
-  const LS_SUBSCRIBE = "nm_placement_subscribed_v1";
 
-  const seed = [
-    { id: 1, title: "Google SDE Online Assessment", company: "Google", tag: "drive", date: "2025-08-18", urgent: true, pinned: true, branches:["CSE","ECE"], desc:"OA on 20 Aug, HackerRank link via email. Bring college ID." },
-    { id: 2, title: "Infosys Shortlist (Round 1)", company: "Infosys", tag: "shortlist", date: "2025-08-17", urgent: false, pinned: false, branches:["CSE","ECE","ME"], desc:"Shortlist for Round 2 is out on portal Notice Board." },
-    { id: 3, title: "TCS Technical Interviews", company: "TCS", tag: "interview", date: "2025-08-20", urgent: false, pinned: true, branches:["CSE","ECE","CE"], desc:"Slots published. Venue: Lab Block L-2. Reach 15 mins early." },
-    { id: 4, title: "Wipro HR Round Reschedule", company: "Wipro", tag: "notice", date: "2025-08-16", urgent: true, pinned: false, branches:["CSE"], desc:"HR round moved to 22 Aug due to venue conflict." },
-    { id: 5, title: "HCL Drive Registration", company: "HCL", tag: "drive", date: "2025-08-27", urgent: false, pinned: false, branches:["CSE","ECE","ME"], desc:"Register before 24 Aug. Eligibility: 7.0+ CGPA." },
-    { id: 6, title: "Accenture Interview Results", company: "Accenture", tag: "shortlist", date: "2025-08-14", urgent: false, pinned: false, branches:["CSE","ECE","CE"], desc:"Stage 1 results announced. Log in to placement portal." },
-    { id: 7, title: "LTIMindtree Tech Interview", company: "LTIMindtree", tag: "interview", date: "2025-08-23", urgent: false, pinned: false, branches:["CSE","ECE"], desc:"Panels 1-4 in Seminar Hall. Dress code formal." },
-    { id: 8, title: "Capgemini Aptitude Drive", company: "Capgemini", tag: "drive", date: "2025-08-29", urgent: false, pinned: false, branches:["CSE","ECE","ME","CE"], desc:"Aptitude + Communication Test. Venue: Main Auditorium." }
-  ];
-
-  const getUpdates = () => {
-    const raw = localStorage.getItem(LS_UPDATES);
-    return raw ? JSON.parse(raw) : seed.slice();
-  };
-  const setUpdates = (arr) => localStorage.setItem(LS_UPDATES, JSON.stringify(arr));
-
-  const getBookmarks = () => new Set(JSON.parse(localStorage.getItem(LS_BOOKMARKS) || "[]"));
-  const setBookmarks = (set) => localStorage.setItem(LS_BOOKMARKS, JSON.stringify([...set]));
-
-  // ============ DOM Refs ============
-  const cardsEl = document.getElementById("cards");
-  const pageInfoEl = document.getElementById("pageInfo");
-  const timelineEl = document.getElementById("timeline");
-
-  const qEl = document.getElementById("q");
-  const fCompanyEl = document.getElementById("fCompany");
-  const fTagEl = document.getElementById("fTag");
-  const fBranchEl = document.getElementById("fBranch");
-  const fFromEl = document.getElementById("fFrom");
-  const fToEl = document.getElementById("fTo");
-  const fSortEl = document.getElementById("fSort");
-  const fResetEl = document.getElementById("fReset");
-
-  const btnPrev = document.getElementById("btnPrev");
-  const btnNext = document.getElementById("btnNext");
-
-  const statTotal = document.getElementById("statTotal");
-  const statInterviews = document.getElementById("statInterviews");
-  const statDrives = document.getElementById("statDrives");
-  const statShortlists = document.getElementById("statShortlists");
-
-  const drawer = document.getElementById("drawer");
-  const drawerBody = document.getElementById("drawerBody");
-  const drawerClose = document.getElementById("drawerClose");
-
-  const btnSubscribe = document.getElementById("btnSubscribe");
-  const btnExportCsv = document.getElementById("btnExportCsv");
-  const btnOpenAdmin = document.getElementById("btnOpenAdmin");
-  const adminModal = document.getElementById("adminModal");
-  const adminClose = document.getElementById("adminClose");
-  const adminForm = document.getElementById("adminForm");
-  const adminReset = document.getElementById("adminReset");
-
-  // ============ State ============
-  let state = {
-    page: 1,
-    perPage: 6,
-    q: "",
-    company: "",
-    tag: "",
-    branch: "",
-    from: "",
-    to: "",
-    sort: "newest",
-  };
-
-  // ============ Utils ============
-  const parseDate = (d) => new Date(d + "T00:00:00");
-  const fmt = (d) => parseDate(d).toLocaleDateString(undefined, { year:"numeric", month:"short", day:"numeric" });
-
-  const unique = (arr) => [...new Set(arr)];
-  const inRange = (d, from, to) => {
-    const x = parseDate(d).getTime();
-    if (from && x < parseDate(from).getTime()) return false;
-    if (to && x > parseDate(to).getTime()) return false;
-    return true;
-  };
-
-  // ============ Init ============
-
-  // Seed LS on first load
-  if (!localStorage.getItem(LS_UPDATES)) setUpdates(seed);
-
-  // Build company filter from data
-  function buildCompanyFilter() {
-    const companies = unique(getUpdates().map(u => u.company)).sort();
-    fCompanyEl.innerHTML = '<option value="">Company (All)</option>' +
-      companies.map(c => `<option value="${c}">${c}</option>`).join("");
-  }
-  buildCompanyFilter();
-
-  // Subscribe toggle
-  function syncSubscribeLabel() {
-    const sub = localStorage.getItem(LS_SUBSCRIBE) === "1";
-    btnSubscribe.textContent = sub ? "🔕 Subscribed" : "🔔 Subscribe";
-    btnSubscribe.classList.toggle("btn-dark", !sub);
-    btnSubscribe.classList.toggle("btn-outline-dark", sub);
-  }
-  syncSubscribeLabel();
-
-  // ============ Filtering / Sorting / Paging ============
-  function filterAndSort(data) {
-    return data
-      .filter(u =>
-        (!state.q || (u.title + " " + u.company).toLowerCase().includes(state.q.toLowerCase())) &&
-        (!state.company || u.company === state.company) &&
-        (!state.tag || u.tag === state.tag) &&
-        (!state.branch || (u.branches || []).includes(state.branch)) &&
-        inRange(u.date, state.from, state.to)
-      )
-      .sort((a,b) => {
-        // Pinned first always
-        if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
-        const da = parseDate(a.date).getTime();
-        const db = parseDate(b.date).getTime();
-        return state.sort === "newest" ? db - da : da - db;
-      });
-  }
-
-  function paginate(arr) {
-    const start = (state.page - 1) * state.perPage;
-    return arr.slice(start, start + state.perPage);
-  }
-
-  // ============ Renderers ============
-  function renderStats(all) {
-    statTotal.textContent = all.length;
-    statInterviews.textContent = all.filter(u => u.tag === "interview").length;
-    statDrives.textContent = all.filter(u => u.tag === "drive").length;
-    statShortlists.textContent = all.filter(u => u.tag === "shortlist").length;
-  }
-
-  function renderTimeline(all) {
-    timelineEl.innerHTML = all
-      .slice() // clone
-      .sort((a,b) => parseDate(b.date) - parseDate(a.date))
-      .map(u => `<li><strong>${fmt(u.date)}</strong> — ${u.company}: ${u.title}</li>`)
-      .join("");
-  }
-
-  function cardTagClass(tag) {
-    return `tag ${tag}`;
-  }
-
-  function renderCards(view) {
-    const bookmarks = getBookmarks();
-    if (!view.length) {
-      cardsEl.innerHTML = `<div class="col-12"><div class="p-4 rounded-3 text-center" style="border:1px dashed var(--border-color); color: var(--secondary-text-color)">No updates match your filters.</div></div>`;
-      return;
-    }
-
-    cardsEl.innerHTML = view.map(u => `
-      <div class="col-md-6 col-lg-4">
-        <div class="update-card" data-id="${u.id}">
-          <div class="d-flex justify-content-between align-items-start">
-            <span class="${cardTagClass(u.tag)}">${u.tag[0].toUpperCase()+u.tag.slice(1)}</span>
-            <div class="d-flex gap-2">
-              ${u.urgent ? `<span class="badge badge-urgent rounded-pill px-3 py-2">Urgent</span>` : ""}
-              ${u.pinned ? `<span class="badge badge-pinned rounded-pill px-3 py-2">Pinned</span>` : ""}
-            </div>
-          </div>
-
-          <h4>${u.title}</h4>
-          <p><b>Company:</b> ${u.company}</p>
-          <p>📅 <b>${fmt(u.date)}</b></p>
-          ${u.branches?.length ? `<p>🎓 Branches: ${u.branches.join(", ")}</p>` : ""}
-          <p class="status">📝 ${u.desc || ""}</p>
-
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <button class="bookmark-btn ${bookmarks.has(u.id) ? "active": ""}" data-bookmark="${u.id}">
-              ${bookmarks.has(u.id) ? "★ Bookmarked" : "☆ Bookmark"}
-            </button>
-            <button class="btn btn-sm btn-outline-dark" data-view="${u.id}">View</button>
-          </div>
-        </div>
-      </div>
-    `).join("");
-  }
-
-  function renderPage() {
-    const all = filterAndSort(getUpdates());
-    const pages = Math.max(1, Math.ceil(all.length / state.perPage));
-    if (state.page > pages) state.page = pages;
-
-    const view = paginate(all);
-    renderCards(view);
-    renderStats(all);
-    renderTimeline(all);
-
-    pageInfoEl.textContent = `Page ${state.page} / ${pages}`;
-    btnPrev.disabled = state.page <= 1;
-    btnNext.disabled = state.page >= pages;
-  }
-
-  // ============ Event wiring ============
-  qEl.addEventListener("input", (e) => { state.q = e.target.value.trim(); state.page=1; renderPage(); });
-  fCompanyEl.addEventListener("change", (e) => { state.company = e.target.value; state.page=1; renderPage(); });
-  fTagEl.addEventListener("change", (e) => { state.tag = e.target.value; state.page=1; renderPage(); });
-  fBranchEl.addEventListener("change", (e) => { state.branch = e.target.value; state.page=1; renderPage(); });
-  fFromEl.addEventListener("change", (e) => { state.from = e.target.value; state.page=1; renderPage(); });
-  fToEl.addEventListener("change", (e) => { state.to = e.target.value; state.page=1; renderPage(); });
-  fSortEl.addEventListener("change", (e) => { state.sort = e.target.value; state.page=1; renderPage(); });
-
-  fResetEl.addEventListener("click", () => {
-    state = { ...state, page:1, q:"", company:"", tag:"", branch:"", from:"", to:"", sort:"newest" };
-    qEl.value=""; fCompanyEl.value=""; fTagEl.value=""; fBranchEl.value=""; fFromEl.value=""; fToEl.value=""; fSortEl.value="newest";
-    renderPage();
-  });
-
-  btnPrev.addEventListener("click", () => { state.page = Math.max(1, state.page - 1); renderPage(); });
-  btnNext.addEventListener("click", () => { state.page = state.page + 1; renderPage(); });
-
-  // Card delegation (bookmark + view)
-  cardsEl.addEventListener("click", (e) => {
-    const bm = e.target.closest("[data-bookmark]");
-    if (bm) {
-      const id = +bm.getAttribute("data-bookmark");
-      const set = getBookmarks();
-      if (set.has(id)) set.delete(id); else set.add(id);
-      setBookmarks(set);
-      renderPage();
-      return;
-    }
-    const view = e.target.closest("[data-view]");
-    const card = e.target.closest(".update-card");
-    if (view || card) {
-      const id = +(view?.getAttribute("data-view") || card?.getAttribute("data-id"));
-      openDrawer(getUpdates().find(u => u.id === id));
-    }
-  });
-
-  // Drawer
-  function openDrawer(item) {
-    if (!item) return;
-    drawerBody.innerHTML = `
-      <div class="kv"><div class="k">Title</div><div class="v">${item.title}</div></div>
-      <div class="kv"><div class="k">Company</div><div class="v">${item.company}</div></div>
-      <div class="kv"><div class="k">Date</div><div class="v">${fmt(item.date)}</div></div>
-      <div class="kv"><div class="k">Tag</div><div class="v">${item.tag}</div></div>
-      <div class="kv"><div class="k">Branches</div><div class="v">${(item.branches||[]).join(", ") || "-"}</div></div>
-      <div class="kv"><div class="k">Urgent</div><div class="v">${item.urgent ? "Yes" : "No"}</div></div>
-      <div class="kv"><div class="k">Pinned</div><div class="v">${item.pinned ? "Yes" : "No"}</div></div>
-      <hr>
-      <div style="white-space:pre-wrap;">${item.desc || ""}</div>
-    `;
-    drawer.style.transform = "translateX(0)";
-  }
-  drawerClose.addEventListener("click", () => drawer.style.transform = "translateX(100%)");
-  drawer.addEventListener("click", (e) => {
-    if (e.target === drawer) drawer.style.transform = "translateX(100%)";
-  });
-
-  // Subscribe mock
-  btnSubscribe.addEventListener("click", () => {
-    const now = localStorage.getItem(LS_SUBSCRIBE) === "1";
-    localStorage.setItem(LS_SUBSCRIBE, now ? "0" : "1");
-    syncSubscribeLabel();
-    if (!now) alert("✅ Subscribed to Placement Updates (demo).");
-  });
-
-  // CSV export
-  btnExportCsv.addEventListener("click", () => {
-    const visible = filterAndSort(getUpdates());
-    const rows = [["Title","Company","Tag","Date","Branches","Urgent","Pinned","Description"]];
-    visible.forEach(u => {
-      rows.push([
-        u.title, u.company, u.tag, u.date,
-        (u.branches||[]).join(";"),
-        u.urgent ? "Yes":"No",
-        u.pinned ? "Yes":"No",
-        (u.desc||"").replace(/\n/g," ")
-      ]);
-    });
-    const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
-    const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url; a.download = "placement_updates.csv";
-    document.body.appendChild(a); a.click(); a.remove();
-    URL.revokeObjectURL(url);
-  });
-
-  // Admin Modal (demo)
-  btnOpenAdmin.addEventListener("click", () => adminModal.style.display = "block");
-  adminClose.addEventListener("click", () => adminModal.style.display = "none");
-  adminModal.addEventListener("click", (e) => { if (e.target === adminModal) adminModal.style.display = "none"; });
-  adminReset.addEventListener("click", () => adminForm.reset());
-
-  adminForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const fd = new FormData(adminForm);
-    const arr = getUpdates();
-    const nextId = (arr.reduce((m,u)=>Math.max(m,u.id), 0) || 0) + 1;
-    const branches = (fd.get("branches") || "").split(",").map(s=>s.trim()).filter(Boolean);
-
-    const item = {
-      id: nextId,
-      title: fd.get("title").trim(),
-      company: fd.get("company").trim(),
-      tag: fd.get("tag"),
-      date: fd.get("date"),
-      branches,
-      urgent: fd.get("urgent") === "on",
-      pinned: fd.get("pinned") === "on",
-      desc: (fd.get("desc") || "").trim()
-    };
-    arr.push(item);
-    setUpdates(arr);
-    buildCompanyFilter();
-    adminModal.style.display = "none";
-    adminForm.reset();
-    state.page = 1;
-    renderPage();
-  });
-
-  // First render
-  renderPage();
-})();
-</script>
 
   <!-- Google Translate -->
   <div id="google_translate_element" style="display:none;"></div>
   <script src="../language.js"></script>
+  <script src="placement.js"></script>
 </body>
 </html>
