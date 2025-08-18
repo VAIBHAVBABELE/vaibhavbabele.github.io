@@ -215,7 +215,9 @@ iframe {
   width: 100%;
   height: 100%;
 }
-
+.emoji h4{
+  margin-top: 20px;
+}
 .emoji input {
   display: none;
 }
@@ -323,7 +325,7 @@ iframe {
   padding: 10px 15px;
   margin: 10px 0;
   border: 3px solid var(--main-color);
-  border-radius: 15px;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   box-shadow: 0 0 1.2rem var(--main-color);
@@ -356,6 +358,20 @@ iframe {
   color: var(--placeholder-color);
   opacity: 1; /* BETTER OPACITY */
   font-weight: bold;
+}
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.form-left,
+.form-right {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* For select dropdown placeholder */
@@ -395,10 +411,10 @@ iframe {
   width: 90%;
   background-color: var(--input-bg-color);
   margin: 0.5%;
-  text-align: center;
+  text-align: start;
   height: 50%;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 3px solid rgb(107, 7, 7);
   box-shadow: 0 0 2rem var(--main-color);
   color: var(--primary-text-color);
@@ -412,6 +428,7 @@ iframe {
 .form-card {
   width: 100%;
   max-width: 50rem;
+  padding:  4rem 3rem;
   margin: 1rem auto;
   background-color: var(--white-4345);
   border-radius: 20px;
@@ -422,7 +439,7 @@ iframe {
 }
 
 .form-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow: 0 0 1.2rem var(--accent-color-dark);
 }
 

@@ -589,139 +589,79 @@
             <div class="form-card">
               <h2 id="Feedback" class="form-heading">Feedback</h2>
               <form name="submit-to-google-sheet">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  name="Name"
-                  aria-label="Your name"
-                  required
-                /><br /><br />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  name="Email"
-                  required
-                /><br /><br />
-                <input
-                  type="text"
-                  placeholder="College Name "
-                  name="College"
-                  required
-                /><br /><br />
-                <input
-                  type="text"
-                  placeholder="Branch"
-                  name="Branch"
-                  required
-                /><br /><br />
-                <input
-                  type="number"
-                  id="passingYear"
-                  placeholder="Passing Year"
-                  name="passingYear"
-                  required
-                />
-                <br /><br />
-                <select name="Year" required>
-                  <optgroup label="1st Year">
-                    <option value="" disabled selected hidden>
-                      Select Semester
-                    </option>
-                    <option value="1 Year,1 Sem">1 Sem</option>
-                    <option value="1 Year,2 Sem">2 Sem</option>
-                  </optgroup>
-                  <optgroup label="2nd Year">
-                    <option value="2 Year,3 Sem">3 Sem</option>
-                    <option value="2 Year,4 Sem">4 Sem</option>
-                  </optgroup>
-                  <optgroup label="3rd Year">
-                    <option value="3 Year,5 Sem">5 Sem</option>
-                    <option value="3 Year,6 Sem">6 Sem</option>
-                  </optgroup>
-                  <optgroup label="4th Year">
-                    <option value="4 Year,7 Sem">7 Sem</option>
-                    <option value="4 Year,8 Sem">8 Sem</option>
-                  </optgroup></select
-                ><br /><br />
-                <select name="Approve" required>
-                  Your Approval
-                  <option value="yes">Allow</option>
-                  <option value="no">Not Allow</option></select
-                ><br /><br />
-
-                <textarea name="Message" placeholder="Message"></textarea
-                ><br /><br />
-
+                <div class="form-row">
+                  <!-- Left Column -->
+                  <div class="form-left">
+                    <input type="text" placeholder="Name" name="Name" aria-label="Your name" required />
+                    <input type="email" placeholder="Email Address" name="Email" required />
+                    <input type="text" placeholder="College Name" name="College" required />
+                    <input type="text" placeholder="Branch" name="Branch" required />
+                  </div>
+        
+                  <!-- Right Column -->
+                  <div class="form-right">
+                    <input type="number" id="passingYear" placeholder="Passing Year" name="passingYear" required />
+        
+                    <select name="Year" required>
+                      <optgroup label="1st Year">
+                        <option value="" disabled selected hidden>Select Semester</option>
+                        <option value="1 Year,1 Sem">1 Sem</option>
+                        <option value="1 Year,2 Sem">2 Sem</option>
+                      </optgroup>
+                      <optgroup label="2nd Year">
+                        <option value="2 Year,3 Sem">3 Sem</option>
+                        <option value="2 Year,4 Sem">4 Sem</option>
+                      </optgroup>
+                      <optgroup label="3rd Year">
+                        <option value="3 Year,5 Sem">5 Sem</option>
+                        <option value="3 Year,6 Sem">6 Sem</option>
+                      </optgroup>
+                      <optgroup label="4th Year">
+                        <option value="4 Year,7 Sem">7 Sem</option>
+                        <option value="4 Year,8 Sem">8 Sem</option>
+                      </optgroup>
+                    </select>
+        
+                    <select name="Approve" required>
+                      <option value="" disabled selected hidden>Your Approval</option>
+                      <option value="yes">Allow</option>
+                      <option value="no">Not Allow</option>
+                    </select>
+        
+                    <textarea name="Message" placeholder="Message"></textarea>
+                  </div>
+                </div>
+        
+                <!-- Bottom Emoji -->
                 <div class="emoji">
-                  <h6>Rate The Website</h6>
-
-                  <input
-                    type="radio"
-                    value="5 star"
-                    name="Feedback"
-                    id="five"
-                    aria-label="Rate 5 stars"
-                  />
-                  <label for="five">
-                    <img
-                      src="images/grinning.png"
-                      alt="Grinning face for 5-star rating"
-                  /></label>
-
-                  <input
-                    type="radio"
-                    value="4 star"
-                    name="Feedback"
-                    id="four"
-                  />
-                  <label for="four">
-                    <img src="images/smiling.png" alt="4 star" />
-                  </label>
-
-                  <input
-                    type="radio"
-                    value="3 star"
-                    name="Feedback"
-                    id="three"
-                  />
-                  <label for="three">
-                    <img src="images/diagonal-mouth.png" alt="3 star" />
-                  </label>
-
+                  <h4>Rate The Website</h4>
+        
+                  <input type="radio" value="5 star" name="Feedback" id="five" aria-label="Rate 5 stars" />
+                  <label for="five"><img src="images/grinning.png" alt="Grinning face for 5-star rating" /></label>
+        
+                  <input type="radio" value="4 star" name="Feedback" id="four" />
+                  <label for="four"><img src="images/smiling.png" alt="4 star" /></label>
+        
+                  <input type="radio" value="3 star" name="Feedback" id="three" />
+                  <label for="three"><img src="images/diagonal-mouth.png" alt="3 star" /></label>
+        
                   <input type="radio" value="2 star" name="Feedback" id="two" />
-                  <label for="two">
-                    <img src="images/steam.png" alt="2 star" />
-                  </label>
-
+                  <label for="two"><img src="images/steam.png" alt="2 star" /></label>
+        
                   <input type="radio" value="1 star" name="Feedback" id="one" />
-                  <label for="one">
-                    <img src="images/pouting.png" alt="1 star" />
-                  </label>
+                  <label for="one"><img src="images/pouting.png" alt="1 star" /></label>
                 </div>
-
+        
                 <div>
-                  <br />
-
-                  <input
-                    class="primary-button get-started-btn"
-                    id="btn"
-                    type="submit"
-                    value="submit"
-                    name="submit"
-                  /><br /><br />
+                  <input class="primary-button get-started-btn w-full" id="btn" type="submit" value="submit" name="submit" />
                 </div>
-
+        
                 <span id="success"></span>
               </form>
             </div>
           </div>
-          <h4 class="pt-4" color="white">Total Visitors</h4>
-          <script type="text/javascript"></script>
-          <script
-            type="text/javascript"
-            src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"
-          ></script>
         </div>
+        
       </section>
 
       <!--    google form     end-->
