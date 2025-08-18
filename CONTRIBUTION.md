@@ -31,17 +31,19 @@ Before starting, make sure you have the following installed:
 2. **Clone** your forked repo  
    `git clone https://github.com/<your-username>/repo-name.git`
 3. Set local repo  `cd repo-name`
-4. Add original repo as remote to keep your fork updated `git remote add upstream https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io.git` 
-5. Create a new branch  
+4. **Install dependencies**   `npm install`
+   
+5. Add original repo as remote to keep your fork updated `git remote add upstream https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io.git` 
+6. Create a new branch  
    `git checkout -b feature/your-feature-name`
-6. After all update add it `git add .`
-7. Make changes and commit  
+7. After all update add it `git add .`
+8. Make changes and commit  
    `git commit -m "Added: your feature name"`
-8. Push to your fork  
+9. Push to your fork  
    `git push origin feature/your-feature-name`
-9. Open a **Pull Request** with a clear description (on github account)
+10. Open a **Pull Request** with a clear description (on github account)
 
-10. for php and mysql use xampp.
+11. for php and mysql use xampp.
 
 ---
 
