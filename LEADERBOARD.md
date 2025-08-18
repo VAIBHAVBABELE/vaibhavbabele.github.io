@@ -12,6 +12,7 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@thilak-r](https://github.com/thilak-r) | thilak22005@gmail.com | 0 | 0 | 3 | 3 | 30 |
 | [@Shailee6464](https://github.com/Shailee6464) | - | 0 | 4 | 0 | 4 | 28 |
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
+| [@mavishsethi](https://github.com/mavishsethi) | mavishsethi@gmail.com | 0 | 0 | 1 | 1 | 10 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
 | [@kunnal-singhh](https://github.com/kunnal-singhh) | - | 1 | 1 | 0 | 2 | 10 |
 | [@PrathmeshTatar](https://github.com/PrathmeshTatar) | prathmeshtatar05@gmail.com | 0 | 0 | 1 | 1 | 10 |
@@ -38,7 +39,6 @@ This leaderboard tracks contributors whose merged PRs have `level1`, `level2`, o
 | [@abdullahlko](https://github.com/abdullahlko) | - | 1 | 0 | 0 | 1 | 3 |
 | [@madhujammm](https://github.com/madhujammm) | - | 1 | 0 | 0 | 1 | 3 |
 | [@Sanyam2511](https://github.com/Sanyam2511) | - | 1 | 0 | 0 | 1 | 3 |
-| [@mavishsethi](https://github.com/mavishsethi) | mavishsethi@gmail.com | 0 | 0 | 0 | 1 | 0 |
 
 ---
 
