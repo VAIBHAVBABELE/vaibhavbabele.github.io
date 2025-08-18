@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Notes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="paper.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="team.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body id="onload">
+
+    <!-- NAVBAR DESIGNING -->
+    <nav>
+        <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="../index.html" id="active">Home</a></li>
+            <li><a href="./resorces.html">Resources</a></li>
+            <li><a href="../index.html#about">About </a></li>
+            <li><a href="../index.html#Feedback">Feedback</a></li>
+            <li><a href="../pages/contact.html">Contact us</a></li>
+               
+
+
+        </ul>
+        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <script src="../index.js"></script>
+
+    </nav>
+    <div class="main">
+<!-- ============ TECH NOTES ============ -->
+<section class="notes-section">
+  <div class="notes-header text-center mb-4">
+    <h2 class="mb-2">Tech Notes</h2>
+    <p class="text-muted">Choose a track → open a topic → preview or download PDFs</p>
+
+    <!-- Search -->
+    <div class="notes-search mx-auto">
+      <input id="notesSearch" type="text" class="form-control form-control-lg" placeholder="Search topics or files… (e.g., html, docker, react)" />
+    </div>
+  </div>
+
+  <div class="row g-4" id="notesGrid">
+    <!-- Web Development -->
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="category-card">
+        <div class="category-head">
+          <div class="icon-wrap"><i class="fa-solid fa-code"></i></div>
+          <div>
+            <h3>Web Development</h3>
+            <p class="m-0">HTML, CSS, JavaScript, React</p>
+          </div>
+        </div>
+
+        <div class="topics">
+          <!-- Topic: HTML -->
+          <details class="topic" data-topic="html">
+            <summary><span >HTML</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="HTML Basics">
+                <span><i class="fa-regular fa-file-pdf"></i> HTML Basics</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/13HidQ8c3_M2BK1Q6PqdRSbHXzlHLsADy/view?usp=drive_link">
+                    Preview
+                  </button>
+                  <a class="btn btn-sm btn-primary"
+                     href="https://drive.google.com/file/d/13HidQ8c3_M2BK1Q6PqdRSbHXzlHLsADy/view?usp=drive_link"
+                     target="_blank" rel="noopener">
+                    Download
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </details>
+
+          <!-- Topic: CSS -->
+          <details class="topic" data-topic="css">
+            <summary><span>CSS</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="CSS Flexbox Cheatsheet">
+                <span><i class="fa-regular fa-file-pdf"></i> CSS Basics </span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1RuQuueZF0R3xkYsrPJZ48h90HKe4KxQu/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1RuQuueZF0R3xkYsrPJZ48h90HKe4KxQu/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              <li class="note-item" data-title="CSS Grid Quickstart">
+                <span><i class="fa-regular fa-file-pdf"></i> CSS Cheatsheet</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/ANOTHER_ID/view?usp=sharing">Preview</button>
+                  <a class="btn btn-sm btn-primary"
+                     href="https://drive.google.com/uc?export=download&id=ANOTHER_ID" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+
+          <!-- Topic: JavaScript -->
+          <details class="topic" data-topic="javascript">
+            <summary><span>JavaScript</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="JS Essentials">
+                <span><i class="fa-regular fa-file-pdf"></i> JS Essentials</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="  https://drive.google.com/file/d/1MDJf_U0nKrHbDp3KIGcs7h9btaXTEVgf/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1MDJf_U0nKrHbDp3KIGcs7h9btaXTEVgf/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gen AI / ML -->
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="category-card">
+        <div class="category-head">
+          <div class="icon-wrap"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h3>Gen AI / ML</h3>
+            <p class="m-0">Prompting, NLP, Vision, MLOps</p>
+          </div>
+        </div>
+
+        <div class="topics">
+          <details class="topic" data-topic="prompting">
+            <summary><span>Prompt Engineering</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="Prompt Basics">
+                <span><i class="https://drive.google.com/file/d/1Bcd7lZseLqVX0siJu_tUcOdoFEytrzwr/view?usp=drive_link"></i> Prompt Basics</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="notes/ai/prompting/basics.pdf">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1Bcd7lZseLqVX0siJu_tUcOdoFEytrzwr/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+
+          <details class="topic" data-topic="mlops">
+            <summary><span>MLOps</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="MLOps Intro">
+                <span><i class="fa-regular fa-file-pdf"></i> MLOps Intro</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1gDizt38t1KS76GBpKAynAN2q4OE8ZDSx/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1gDizt38t1KS76GBpKAynAN2q4OE8ZDSx/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+          <details class="topic" data-topic="mlops">
+            <summary><span>Fine Tuning</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="MLOps Intro">
+                <span><i class="fa-regular fa-file-pdf"></i> Instructions</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1mR-JXMsBhxkjUtYW-daLd0s0hsXZqtC_/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1mR-JXMsBhxkjUtYW-daLd0s0hsXZqtC_/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              <li class="note-item" data-title="MLOps Intro">
+                <span><i class="fa-regular fa-file-pdf"></i> Parameter efficient</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1uZVgt5nYazv8zsx2SMvyCymo9NvAOVs0/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1uZVgt5nYazv8zsx2SMvyCymo9NvAOVs0/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Android Development -->
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="category-card">
+        <div class="category-head">
+          <div class="icon-wrap"><i class="fa-brands fa-android"></i></div>
+          <div>
+            <h3>Android Development</h3>
+            <p class="m-0">Kotlin, Jetpack, UI, Networking</p>
+          </div>
+        </div>
+
+        <div class="topics">
+        <details class="topic" data-topic="css">
+            <summary><span>Introduction</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="CSS Flexbox Cheatsheet">
+                <span><i class="fa-regular fa-file-pdf"></i> Android Intro </span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1YrSGEF7A9-HsrJG6Q6rwrMQz-Nt0AMQM/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1YrSGEF7A9-HsrJG6Q6rwrMQz-Nt0AMQM/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+             
+            </ul>
+          </details>
+          <details class="topic" data-topic="css">
+            <summary><span>Activities/Layouts</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="CSS Flexbox Cheatsheet">
+                <span><i class="fa-regular fa-file-pdf"></i> Java Refresher </span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/14OXd7KFOXKaa2j4-8k-FZ7u6Y6QTLbgC/view?usp=sharing">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/14OXd7KFOXKaa2j4-8k-FZ7u6Y6QTLbgC/view?usp=sharing" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              <li class="note-item" data-title="CSS Grid Quickstart">
+                <span><i class="fa-regular fa-file-pdf"></i> Activities</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/17NcZFB3DW0rXKX6L3ZL9gFikp7Jk007N/view?usp=sharing">Preview</button>
+                  <a class="btn btn-sm btn-primary"
+                     href="https://drive.google.com/file/d/17NcZFB3DW0rXKX6L3ZL9gFikp7Jk007N/view?usp=sharing" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+          <details class="topic" data-topic="css">
+            <summary><span> MultiScreen/Listviews</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="CSS Flexbox Cheatsheet">
+                <span><i class="fa-regular fa-file-pdf"></i> MultiScreen </span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1CdHqVivN6bMftJH2jhn-cMIbROU_SZBp/view?usp=sharing">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1CdHqVivN6bMftJH2jhn-cMIbROU_SZBp/view?usp=sharing" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              <li class="note-item" data-title="CSS Grid Quickstart">
+                <span><i class="fa-regular fa-file-pdf"></i>ListViews</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1nKX4zWl4W3m96Yd3o07ysNXnjkE2o5Fa/view?usp=sharing">Preview</button>
+                  <a class="btn btn-sm btn-primary"
+                     href="https://drive.google.com/file/d/1nKX4zWl4W3m96Yd3o07ysNXnjkE2o5Fa/view?usp=sharing" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blockchain -->
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="category-card">
+        <div class="category-head">
+          <div class="icon-wrap"><i class="fa-solid fa-link"></i></div>
+          <div>
+            <h3>Blockchain</h3>
+            <p class="m-0">Solidity, Web3, Contracts</p>
+          </div>
+        </div>
+
+        <div class="topics">
+          <details class="topic" data-topic="solidity">
+            <summary><span>Blockchain Introduction</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="Solidity 101">
+                <span><i class="fa-regular fa-file-pdf"></i>  introduction</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1MhqUZr8s684QiRX4GHF38JPaXep0J_c8/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1MhqUZr8s684QiRX4GHF38JPaXep0J_c8/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              <li class="note-item" data-title="Solidity 101">
+                <span><i class="fa-regular fa-file-pdf"></i> Technologies</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1l1W941Fa6p17aQ652Urwt3tmE7qUaclY/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1l1W941Fa6p17aQ652Urwt3tmE7qUaclY/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+
+          <details class="topic" data-topic="solidity">
+            <summary><span>Programming in Blockchain</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="Solidity 101">
+                <span><i class="fa-regular fa-file-pdf"></i> programming</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1mSnh9fQouZ9raCC5g4JiNLgIJ_9UzyAT/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1mSnh9fQouZ9raCC5g4JiNLgIJ_9UzyAT/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+          <details class="topic" data-topic="solidity">
+            <summary><span>Public/Private</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="Solidity 101">
+                <span><i class="fa-regular fa-file-pdf"></i> Public Blockchain </span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1zqqIHoeAhFkNoQkJxfsW76KOUx3tKUPF/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1zqqIHoeAhFkNoQkJxfsW76KOUx3tKUPF/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+              <li class="note-item" data-title="Solidity 101">
+                <span><i class="fa-regular fa-file-pdf"></i> Private Blockchain </span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/11zGh3fmLWT3PZuNE9gavj9yZxpxGyxyD/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/11zGh3fmLWT3PZuNE9gavj9yZxpxGyxyD/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- DevOps -->
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="category-card">
+        <div class="category-head">
+          <div class="icon-wrap"><i class="fa-solid fa-gears"></i></div>
+          <div>
+            <h3>DevOps</h3>
+            <p class="m-0">Linux, Git, Docker, CI/CD</p>
+          </div>
+        </div>
+
+        <div class="topics">
+          <details class="topic" data-topic="docker">
+            <summary><span>Docker</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="Docker Essentials">
+                <span><i class="fa-regular fa-file-pdf"></i> Docker Essentials</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1yoG1yeDfPF8ODFhaQnUhr74YoKC1TyEg/view?usp=drive_link">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1yoG1yeDfPF8ODFhaQnUhr74YoKC1TyEg/view?usp=drive_link" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Development -->
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="category-card">
+        <div class="category-head">
+          <div class="icon-wrap"><i class="fa-solid fa-gamepad"></i></div>
+          <div>
+            <h3>Game Development</h3>
+            <p class="m-0">Unity, Unreal, 2D/3D</p>
+          </div>
+        </div>
+
+        <div class="topics">
+          <details class="topic" data-topic="unity">
+            <summary><span>Unity</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <ul class="notes-list">
+              <li class="note-item" data-title="Unity Basics">
+                <span><i class="fa-regular fa-file-pdf"></i> Unity Basics</span>
+                <div class="actions">
+                  <button class="btn btn-sm btn-outline-primary preview-btn"
+                          data-preview="https://drive.google.com/file/d/1gecf84ybtrsPdWUOKaYV6RVtKsiJnWPT/view?usp=sharing">Preview</button>
+                  <a class="btn btn-sm btn-primary" href="https://drive.google.com/file/d/1gecf84ybtrsPdWUOKaYV6RVtKsiJnWPT/view?usp=sharing" target="_blank" rel="noopener">Download</a>
+                </div>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    </div>
+
+    <!-- TEAM SECTION (Before Footer) -->
+    <section class="team-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>
+                    Dedicated developers working together to create the best educational platform for NITRA
+                    students.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Vaibhav Babele Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar">
+                        <img src="../images/vaibhav.jpg" alt="Vaibhav Babele">
+                    </div>
+                    <h3>Vaibhav
+                        Babele</h3>
+                    <p>
+                        Lead Developer & Founder</p>
+                    <p>
+                        Computer Science Engineering student passionate about creating educational platforms for
+                        students.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/vaibhavbabele" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ghanshyam Prajapati Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar">
+                        <img src="../images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
+                    </div>
+                    <h3>Ghanshyam
+                        Prajapati</h3>
+                    <p>
+                        Co-Developer</p>
+                    <p>
+                        Dedicated developer contributing to the platform's growth and student experience
+                        enhancement.
+                    </p>
+                    <div class.social-links>
+                        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                            target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Development Team Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar placeholder">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>
+                        Development Team</h3>
+                    <p>
+                        Contributors & Maintainers</p>
+                    <p>
+                        A growing community of student developers working together to improve the platform.
+                    </p>
+                    <div class="social-links">
+                        <a href="pr-contributors.html">
+                            <i class="fas fa-users"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a> |
+                <a href="./terms.html">Terms & Conditions</a> |
+                <a href="./contact.html">Contact</a> |
+                <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
+            </div>
+
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
+
+
+    </footer>
+<!-- WEBSITE DESIGNING END -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+
+    var Typed = new Typed(".greeting", {
+
+        strings: ["Welcome!! nitra students"],
+        typeSpeed: 150,
+        backspeed: 150,
+        loop: true,
+        showCursor: false
+    })
+
+
+</script>
+<script src="../index.js">
+</script>
+<!-- Google Translate -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<script src="../language.js"></script>
+<!-- PDF Preview Modal -->
+<div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fa-regular fa-file-pdf me-2"></i>Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <!-- Default iframe; will swap src dynamically -->
+        <iframe id="pdfFrame" src="" style="width:100%; height:80vh; border:0;" allow="autoplay"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="tech.js"></script>
+</body>
+
+</html>
