@@ -2,10 +2,11 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-17*
+*Last updated: 2025-08-18*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#270](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/270) | Added placement page | [@mavishsethi](https://github.com/mavishsethi) | ## 🔖 PR Title: I have added placement cell updates ... | 3 | gssoc25, feature | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-17 | 745 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/270) |
 | [#267](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/267) | Added downloadable tech notes | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: Added downloadable tech notes --- ## ... | 4 | enhancement, gssoc25, feature, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-16 | 982 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/267) |
 | [#264](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/264) | Enhanced contact page | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | ## 🔖 PR Title: Enhanced contact page. --- ## 📄 ... | 2 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-16 | 227 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/264) |
 | [#253](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253) | Added multilingual feature! | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: Added multilingual feature across all the ... | 13 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-14 | 395 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/253) |
@@ -89,6 +90,24 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#270 Added placement page](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/270)
+
+- **Author:** [@mavishsethi](https://github.com/mavishsethi)
+- **Description:**  
+## 🔖 PR Title: I have added placement cell updates ...
+- **Files Changed (3):**
+    - `images/undraw_developer.png`
+  - `index.html`
+  - `pages/placement-updates.html`
+- **Labels:** `gssoc25`, `feature`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-17 13:21:35
+- **Lines Updated:** 745
+- **Commits:** 1
+- **PR Link:** [PR #270](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/270)
+
+---
 
 ### [#267 Added downloadable tech notes](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/267)
 
