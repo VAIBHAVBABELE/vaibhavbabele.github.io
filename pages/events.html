@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f5f0;
+      color: #333;
+    }
+    header {
+      background: #762f09;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      color: #fff;
+      margin: 0;}
+    
+/* Events Grid */
+    .events-grid {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .event-card {
+      background: #f3e5d8;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .event-content {
+      padding: 15px;
+    }
+    .event-content h3 {
+      margin: 0;
+      color: #2e7d32;
+    }
+    .event-date {
+      font-size: 14px;
+      color: rgb(239, 97, 26);
+      margin-bottom: 10px;
+    }
+ /* Buttons */
+    .event-buttons {
+      margin-top: 10px;
+    }
+    .event-buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .guidelines-btn {
+      background: #762f09;
+      color: #e59076;
+    }
+    .register-btn {
+      background: #2e7d32;
+      color: #fff;
+    }
+    .event-buttons button:hover {
+      transform: scale(1.05);
+    }
+
+    
+
+    
+    /* News Section */
+    .news-grid {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .news-card {
+      background: #fafafa;
+      padding: 15px;
+      border-left: 5px solid #762f09;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .news-card:hover {
+      background: #f3e5d8;
+    }
+    .news-card h4 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+    .news-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background: #762f09;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #ffd9a0;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <!-- Header -->
+  <header>
+    <h1>Campus Events & News</h1>
+  </header>
+<!-- Events Section -->
+  <h3 style="text-align:center; margin:30px; color:#762f09;">Upcoming Events</h3>
+  <div class="events-grid">
+    <div class="event-card">
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Event Poster">
+      <div class="event-content">
+        <h3>Nitra Mitra Inauguration</h3>
+        <p class="event-date">📅 April 11th, 2025</p>
+        <p>Launch of the official Entrepreneurship and Startup Club to foster innovation and problem-solving among students.</p>
+        <div class="event-buttons">
+          <a href="guidelines.pdf" download><button class="guidelines-btn"><i class="fa fa-download"></i> Guidelines</button></a>
+          <button class="register-btn" onclick="openForm('Nitra Mitra Inauguration')"><i class="fa fa-edit"></i> Register</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Event Poster">
+      <div class="event-content">
+        <h3>PitchSpark '25</h3>
+        <p class="event-date">📅 June 9th, 2025</p>
+        <p>Mini-event where students pitch their startup ideas to expert judges, building ideation and pitching skills.</p>
+        <div class="event-buttons">
+          <a href="guidelines.pdf" download><button class="guidelines-btn"><i class="fa fa-download"></i> Guidelines</button></a>
+          <button class="register-btn" onclick="openForm('PitchSpark 25')"><i class="fa fa-edit"></i> Register</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <img src="https://tiec.gov.eg/English/Programs/Ideation-Marathon/PublishingImages/Pages/default/Ideathon-Challenge-logo-menu.png" alt="Event Poster">
+      <div class="event-content">
+        <h3>IDEATHONeX Challenge</h3>
+        <p class="event-date">📅 July 15th, 2025</p>
+        <p>Students collaborate to solve real-world problems through design thinking and innovation challenges.</p>
+        <div class="event-buttons">
+          <a href="guidelines.pdf" download><button class="guidelines-btn"><i class="fa fa-download"></i> Guidelines</button></a>
+          <button class="register-btn" onclick="openForm('IDEATHONeX Challenge')"><i class="fa fa-edit"></i> Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>Kindly register...👨🏻‍💻</h2>
+      <style>
+        /* Modal Form */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: #f3e5d8ca;
+      margin: 8% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      color: #762f09;
+    }
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 6px;
+      margin: 8px 0;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+    }
+    .modal-content button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #1a5d1d;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .modal-content button:hover {
+      background: #256628;
+    }
+      </style>
+      <form>
+        <input type="text" id="eventName" name="eventName" readonly>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+          <option value="">Select Year</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openForm(eventTitle) {
+      document.getElementById("registerModal").style.display = "block";
+      document.getElementById("eventName").value = eventTitle;
+    }
+    function closeForm() {
+      document.getElementById("registerModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      let modal = document.getElementById("registerModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  <!-- News -->
+  <h3 class="section-title">Latest Campus News</h3>
+  <div class="news-grid">
+    <div class="news-card">
+      <h4>Library Extends Hours</h4>
+      <p>Our campus library will now be open until 10 PM on weekdays to support late-night study sessions.</p>
+    </div>
+    <div class="news-card">
+      <h4>Sports Fest 2025 Announced</h4>
+      <p>The annual inter-college sports fest is scheduled for August 2025. Registrations open soon!</p>
+    </div>
+    <div class="news-card">
+      <h4>Placement Drive Success</h4>
+      <p>Over 200 students secured jobs during the 2025 placement drive with top companies visiting our campus.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+  <p>&copy; 2025 Manasa_Yedidha</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</footer>
+<style>
+  footer {
+    background: #762f09;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  .social-icons {
+    margin-top: 10px;
+  }
+  .social-icons a {
+    color: #ffd9a0;
+    font-size: 22px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+  }
+  .social-icons a:hover {
+    color: #fff;
+    transform: scale(1.2);
+  }
+</style>
+
+</body>
+</html>
+
+ 
+</body>
+</html>
