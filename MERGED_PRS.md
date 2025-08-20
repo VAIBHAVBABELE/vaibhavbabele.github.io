@@ -2,7 +2,7 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-19*
+*Last updated: 2025-08-20*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
@@ -77,7 +77,7 @@ This document lists all merged PRs with details: author, title, description (max
 | [#32](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/32) | Fix: Improve placeholder visibility in dark mode | [@madhujammm](https://github.com/madhujammm) | ## 🔖 PR Title: This PR resolves the issue of ... | 1 | good first issue, gssoc25, frontend, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 55 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/32) |
 | [#33](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/33) | Fix: aligned card button labels on homepage | [@Sanyam2511](https://github.com/Sanyam2511) | ## 🔖 PR Title: Aligned card button labels on homepage ... | 2 | good first issue, gssoc25, frontend, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 39 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/33) |
 | [#20](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/20) | Update README.md | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | ## 🔖 PR Title: <!-- A clear and concise title ... | 1 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-22 | 2 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/20) |
-| [#11](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/11) | Create SECURITY.md | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | ## ��� PR Title: <!-- A clear and concise title ... | 1 | enhancement | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-22 | 41 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/11) |
+| [#11](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/11) | Create SECURITY.md | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | ## 🔖 PR Title: <!-- A clear and concise title ... | 1 | enhancement | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-22 | 41 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/11) |
 | [#10](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/10) | student | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | _No description provided._ | 1 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-06-17 | 2 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/10) |
 | [#9](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/9) | Add2 | [@omkarpandey006](https://github.com/omkarpandey006) | add material in subject | 2 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-05-24 | 51 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/9) |
 | [#8](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/8) | remove broken links | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | _No description provided._ | 8 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-02-12 | 125 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/8) |
@@ -3211,7 +3211,7 @@ This PR implements comprehensive content updates and structural enhancements acr
 
 - **Author:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
 - **Description:**  
-## ��� PR Title: <!-- A clear and concise title ...
+## 🔖 PR Title: <!-- A clear and concise title ...
 - **Files Changed (1):**
     - `.github/SECURITY.md`
 - **Labels:** `enhancement`
