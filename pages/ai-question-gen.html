@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Question Generation</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav><a href="../index.html">Home</a> | <a href="ai-question-gen.html">AI Question Generation</a></nav>
+  <h1>AI Question Generation</h1>
+  <form id="qg-form">
+    <textarea id="qg-text" placeholder="Paste text to generate questions..." required></textarea>
+    <button type="submit">Generate</button>
+  </form>
+  <div id="qg-result"></div>
+  <script>
+    document.getElementById('qg-form').onsubmit = function(e) {
+      e.preventDefault();
+      const text = document.getElementById('qg-text').value;
+      fetch('http://localhost:5000/ai/question-gen', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({text})
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('qg-result').innerHTML = data.questions.map(q => `<div>${q}</div>`).join('');
+      });
+    };
+  </script>
+</body>
+</html>

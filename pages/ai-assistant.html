@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Study Assistant</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav><a href="../index.html">Home</a> | <a href="ai-assistant.html">AI Assistant</a></nav>
+  <h1>AI Study Assistant</h1>
+  <form id="chat-form">
+    <input type="text" id="user-msg" placeholder="Ask a question..." required>
+    <button type="submit">Send</button>
+  </form>
+  <div id="chat-log"></div>
+  <script>
+    document.getElementById('chat-form').onsubmit = function(e) {
+      e.preventDefault();
+      const msg = document.getElementById('user-msg').value;
+      fetch('http://localhost:5000/ai/assistant', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg})
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('chat-log').innerHTML += `<div><b>You:</b> ${msg}</div><div><b>AI:</b> ${data.answer}</div>`;
+        document.getElementById('user-msg').value = '';
+      });
+    };
+  </script>
+</body>
+</html>

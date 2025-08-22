@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Push Notifications</title>
+  <link rel="stylesheet" href="../index.css">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="async"></script>
+</head>
+<body>
+  <nav><a href="../index.html">Home</a> | <a href="notifications.html">Notifications</a></nav>
+  <h1>Push Notifications</h1>
+  <button onclick="subscribe()">Subscribe to Notifications</button>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "YOUR_ONESIGNAL_APP_ID"
+      });
+    });
+    function subscribe() {
+      OneSignal.push(function() {
+        OneSignal.showSlidedownPrompt();
+      });
+    }
+  </script>
+  <p>Note: Replace <code>YOUR_ONESIGNAL_APP_ID</code> with your actual OneSignal App ID.</p>
+</body>
+</html>

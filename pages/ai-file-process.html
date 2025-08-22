@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI File Processing</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav><a href="../index.html">Home</a> | <a href="ai-file-process.html">AI File Processing</a></nav>
+  <h1>AI File Processing</h1>
+  <form id="file-form" enctype="multipart/form-data">
+    <input type="file" id="file-input" name="file" required>
+    <button type="submit">Process</button>
+  </form>
+  <div id="file-result"></div>
+  <script>
+    document.getElementById('file-form').onsubmit = function(e) {
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append('file', document.getElementById('file-input').files[0]);
+      fetch('http://localhost:5000/ai/file-process', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('file-result').textContent = data.summary || data.error;
+      });
+    };
+  </script>
+</body>
+</html>
