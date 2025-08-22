@@ -1,67 +1,81 @@
 body {
-      background-color:#fdf6ec;
-      font-family: 'Poppins', sans-serif;
-      padding: 50px 20px;
-    }
+  background-color: #fdf6ec;
+  font-family: 'Poppins', sans-serif;
+  padding: 50px 20px;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 50px;
-      font-family: 'Comic Neue', cursive;
-      font-size: 2.5rem;
-      color: #333;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: 'Comic Neue', cursive;
+  font-size: 2.5rem;
+  color: #333;
+}
 
-    .card {
-      border-radius: 20px;
-      background-color: #fff0f5;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-      width: 18rem;
-    }
+body.dark-mode .service-heading {
+  color: var(--bs-heading-color);
+}
 
-    .card:hover {
-      transform: scale(1.03);
-    }
 
-    .card-title {
-      font-family: 'Comic Neue', cursive;
-      font-size: 1.3rem;
-    }
+.card {
+  border-radius: 20px;
+  background-color: #fff0f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  width: 18rem;
+}
 
-    .card-text {
-      font-size: 0.95rem;
-      color: #444;
-    }
+.card:hover {
+  transform: scale(1.03);
+}
 
-    .game-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
+.card-title {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.3rem;
+}
 
-    .card-img-top {
-      height: 180px;
-      object-fit: cover;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-    }
+body.dark-mode .card-title {
+  font-size: 1.5rem;         
+  font-weight: bold;         
+  color: #1a120b;            
+}
 
-    .btn-primary {
-      background-color: #ff7ca8;
-      border: none;
-    }
 
-    .btn-primary:hover {
-      background-color: lch(62.97% 65 4.01);
-    }
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+}
 
-      /* Prevent service-heading overlap with navbar */
-    #about {
-      margin-top: 80px;
-    }
-    .back-link {
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.btn-primary {
+  background-color: #ff7ca8;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: lch(62.97% 65 4.01);
+}
+
+/* Prevent service-heading overlap with navbar */
+#about {
+  margin-top: 80px;
+}
+
+.back-link {
   text-decoration: none;
   color: rgb(87, 4, 4);
   font-weight: 600;
@@ -71,5 +85,5 @@ body {
 }
 
 .back-link:hover {
-  text-decoration: underline ;
+  text-decoration: underline;
 }
