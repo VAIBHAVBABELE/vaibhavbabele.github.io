@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PG Locator Map</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        .hero-map {
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: #fff;
+            padding: 60px 0 40px 0;
+            border-radius: 0 0 40px 40px;
+        }
+        #map {
+            height: 500px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(67,206,162,0.10);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <section class="hero-map text-center mb-5">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3"><i class="bi bi-geo-alt"></i> PG Locator Map</h1>
+            <p class="lead mb-4">Find nearby PGs and hostels on the interactive map. Click markers for details!</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var map = L.map('map').setView([28.6139, 77.2090], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        // Example PG locations
+        var pgs = [
+            { name: "Sunrise PG", lat: 28.6145, lng: 77.2080 },
+            { name: "Moonlight Hostel", lat: 28.6120, lng: 77.2105 },
+            { name: "Star PG", lat: 28.6152, lng: 77.2112 }
+        ];
+        pgs.forEach(function(pg) {
+            L.marker([pg.lat, pg.lng]).addTo(map)
+                .bindPopup('<b>' + pg.name + '</b>');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

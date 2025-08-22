@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PYQs</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a>
+  </nav>
+  <h1>Previous Year Questions</h1>
+  <div id="pyqs-list"></div>
+  <script>
+    fetch('../backend/php/get_pyqs.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('pyqs-list').innerHTML = data.data.map(pyq =>
+            `<div><b>${pyq.subject} (${pyq.year})</b>: <a href="${pyq.url}" target="_blank">${pyq.title}</a></div>`
+          ).join('');
+        } else {
+          document.getElementById('pyqs-list').textContent = 'Error loading PYQs.';
+        }
+      });
+  </script>
+</body>
+</html>

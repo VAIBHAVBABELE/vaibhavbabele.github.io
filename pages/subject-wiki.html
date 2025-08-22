@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subject Wiki</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="subject-wiki.html">Subject Wiki</a> |
+    <a href="syllabus.html">Syllabus</a> |
+    <a href="attendance.html">Attendance</a>
+  </nav>
+  <h1>Subject Wiki</h1>
+  <div id="wiki-list"></div>
+  <script>
+    fetch('../backend/php/get_subject_wiki.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('wiki-list').innerHTML = data.data.map(w =>
+            `<div><b>${w.subject}</b> (by ${w.author})<br>${w.content}<br>Last updated: ${w.updated_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('wiki-list').textContent = 'Error loading wiki.';
+        }
+      });
+  </script>
+</body>
+</html>

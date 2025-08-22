@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation Templates</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="documentation-templates.html">Documentation Templates</a>
+  </nav>
+  <h1>Documentation Templates</h1>
+  <button onclick="download('README.md')">Download README</button>
+  <button onclick="download('LICENSE')">Download LICENSE</button>
+  <script>
+    function download(type) {
+      let content = '';
+      if(type === 'README.md') {
+        content = '# Project Title\n\nA brief description of the project.\n\n## Features\n- Feature 1\n- Feature 2\n\n## Installation\n\n## Usage\n';
+      } else {
+        content = 'MIT License\n\nCopyright (c) 2025';
+      }
+      const blob = new Blob([content], {type: 'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = type;
+      a.click();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus Tracker</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="syllabus.html">Syllabus</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a>
+  </nav>
+  <h1>Syllabus Tracker</h1>
+  <form id="syllabus-upload" enctype="multipart/form-data">
+    <input type="text" name="subject" placeholder="Subject" required>
+    <input type="text" name="uploaded_by" placeholder="Your Name" required>
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+  </form>
+  <div id="syllabus-list"></div>
+  <script>
+    function loadSyllabus() {
+      fetch('../backend/php/get_syllabus.php')
+        .then(res => res.json())
+        .then(data => {
+          if(data.success) {
+            document.getElementById('syllabus-list').innerHTML = data.data.map(s =>
+              `<div><b>${s.subject}</b> - Uploaded by: ${s.uploaded_by} <a href="../uploads/syllabus/${s.file_path}" target="_blank">Download</a></div>`
+            ).join('');
+          } else {
+            document.getElementById('syllabus-list').textContent = 'Error loading syllabus.';
+          }
+        });
+    }
+    loadSyllabus();
+    document.getElementById('syllabus-upload').onsubmit = function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      fetch('../backend/php/add_syllabus.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          loadSyllabus();
+          this.reset();
+        } else {
+          alert('Upload failed: ' + data.error);
+        }
+      });
+    };
+  </script>
+</body>
+</html>

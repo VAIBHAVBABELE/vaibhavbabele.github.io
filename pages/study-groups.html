@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Groups</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a> |
+    <a href="study-groups.html">Study Groups</a>
+  </nav>
+  <h1>Study Groups</h1>
+  <div id="groups-list"></div>
+  <script>
+    fetch('../backend/php/get_study_groups.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('groups-list').innerHTML = data.data.map(g =>
+            `<div><b>${g.group_name}</b> (${g.subject})<br>Members: ${g.members}<br>Created: ${g.created_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('groups-list').textContent = 'Error loading study groups.';
+        }
+      });
+  </script>
+</body>
+</html>

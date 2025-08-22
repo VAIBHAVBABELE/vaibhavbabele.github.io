@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roommate Finder</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a> |
+    <a href="study-groups.html">Study Groups</a> |
+    <a href="pg-reviews.html">PG Reviews</a> |
+    <a href="roommate-finder.html">Roommate Finder</a>
+  </nav>
+  <h1>Roommate Finder</h1>
+  <div id="roommate-list"></div>
+  <script>
+    fetch('../backend/php/get_roommate_finder.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('roommate-list').innerHTML = data.data.map(r =>
+            `<div><b>${r.name}</b> - ${r.contact}<br>Requirements: ${r.requirements}<br>Posted: ${r.posted_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('roommate-list').textContent = 'Error loading entries.';
+        }
+      });
+  </script>
+</body>
+</html>

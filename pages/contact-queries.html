@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Queries</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a> |
+    <a href="study-groups.html">Study Groups</a> |
+    <a href="pg-reviews.html">PG Reviews</a> |
+    <a href="roommate-finder.html">Roommate Finder</a> |
+    <a href="complaints.html">Complaints</a> |
+    <a href="issue-tracker.html">Issue Tracker</a> |
+    <a href="feedback.html">Feedback</a> |
+    <a href="suggestions.html">Suggestions</a> |
+    <a href="contact-queries.html">Contact Queries</a>
+  </nav>
+  <h1>Contact Queries</h1>
+  <div id="queries-list"></div>
+  <script>
+    fetch('../backend/php/get_contact_queries.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('queries-list').innerHTML = data.data.map(q =>
+            `<div><b>${q.name}</b> (${q.email})<br>${q.message}<br>Status: ${q.status || 'Pending'}<br>Submitted: ${q.submitted_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('queries-list').textContent = 'Error loading queries.';
+        }
+      });
+  </script>
+</body>
+</html>

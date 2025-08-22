@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Ratings</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="service-ratings.html">Service Ratings</a> |
+    <a href="marketplace.html">Marketplace</a> |
+    <a href="syllabus.html">Syllabus</a>
+  </nav>
+  <h1>Service Ratings</h1>
+  <div id="ratings-list"></div>
+  <script>
+    fetch('../backend/php/get_service_ratings.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('ratings-list').innerHTML = data.data.map(r =>
+            `<div><b>${r.service_type} - ${r.service_name}</b><br>Rating: ${r.rating} | Reviewer: ${r.reviewer}<br>Comments: ${r.comments || ''}<br>Submitted: ${r.submitted_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('ratings-list').textContent = 'Error loading ratings.';
+        }
+      });
+  </script>
+</body>
+</html>

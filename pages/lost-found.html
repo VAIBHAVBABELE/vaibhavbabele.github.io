@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost & Found Portal</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="lost-found.html">Lost & Found</a> |
+    <a href="service-ratings.html">Service Ratings</a> |
+    <a href="marketplace.html">Marketplace</a>
+  </nav>
+  <h1>Lost & Found Portal</h1>
+  <div id="lostfound-list"></div>
+  <script>
+    fetch('../backend/php/get_lost_found.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('lostfound-list').innerHTML = data.data.map(i =>
+            `<div><b>${i.item_name}</b> - ${i.description}<br>Status: ${i.status} | Reporter: ${i.reporter} | Reported: ${i.reported_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('lostfound-list').textContent = 'Error loading items.';
+        }
+      });
+  </script>
+</body>
+</html>

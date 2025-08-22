@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Source Opportunities</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="open-source-opportunities.html">Open Source Opportunities</a>
+  </nav>
+  <h1>Open Source Opportunities</h1>
+  <form id="gh-search">
+    <input type="text" id="gh-query" placeholder="Search GitHub topics or repos" required>
+    <button type="submit">Search</button>
+  </form>
+  <div id="gh-results"></div>
+  <script>
+    document.getElementById('gh-search').onsubmit = function(e) {
+      e.preventDefault();
+      const q = document.getElementById('gh-query').value;
+      fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc`)
+        .then(res => res.json())
+        .then(data => {
+          if(data.items) {
+            document.getElementById('gh-results').innerHTML = data.items.slice(0,10).map(r =>
+              `<div><a href="${r.html_url}" target="_blank">${r.full_name}</a>: ${r.description || ''}</div>`
+            ).join('');
+          } else {
+            document.getElementById('gh-results').textContent = 'No results.';
+          }
+        });
+    };
+  </script>
+</body>
+</html>

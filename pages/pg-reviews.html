@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PG Reviews</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a> |
+    <a href="study-groups.html">Study Groups</a> |
+    <a href="pg-reviews.html">PG Reviews</a>
+  </nav>
+  <h1>PG Reviews</h1>
+  <div id="reviews-list"></div>
+  <script>
+    fetch('../backend/php/get_pg_reviews.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('reviews-list').innerHTML = data.data.map(r =>
+            `<div><b>${r.pg_name}</b> - ${r.reviewer}<br>Rating: ${r.rating}<br>Comments: ${r.comments || ''}<br>Submitted: ${r.submitted_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('reviews-list').textContent = 'Error loading reviews.';
+        }
+      });
+  </script>
+</body>
+</html>

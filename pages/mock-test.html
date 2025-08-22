@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mock Test Section</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="mock-test.html">Mock Test</a>
+  </nav>
+  <h1>Mock Test Section</h1>
+  <div id="quiz">
+    <div id="question">What is 2 + 2?</div>
+    <button onclick="answer(4)">4</button>
+    <button onclick="answer(3)">3</button>
+    <button onclick="answer(5)">5</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    function answer(val) {
+      document.getElementById('result').textContent = val === 4 ? 'Correct!' : 'Try again.';
+    }
+  </script>
+</body>
+</html>

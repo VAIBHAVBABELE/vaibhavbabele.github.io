@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue Tracker</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a> |
+    <a href="study-groups.html">Study Groups</a> |
+    <a href="pg-reviews.html">PG Reviews</a> |
+    <a href="roommate-finder.html">Roommate Finder</a> |
+    <a href="complaints.html">Complaints</a> |
+    <a href="issue-tracker.html">Issue Tracker</a>
+  </nav>
+  <h1>Issue Tracker</h1>
+  <div id="issues-list"></div>
+  <script>
+    fetch('../backend/php/get_issue_tracker.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('issues-list').innerHTML = data.data.map(i =>
+            `<div><b>${i.title}</b> - Status: ${i.status || 'Open'}<br>${i.description}<br>Reported by: ${i.reported_by}<br>Created: ${i.created_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('issues-list').textContent = 'Error loading issues.';
+        }
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Report Templates</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="lab-reports.html">Lab Reports</a> |
+    <a href="subject-wiki.html">Subject Wiki</a> |
+    <a href="syllabus.html">Syllabus</a>
+  </nav>
+  <h1>Lab Report Templates</h1>
+  <form id="lab-upload" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="uploaded_by" placeholder="Your Name" required>
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+  </form>
+  <div id="lab-list"></div>
+  <script>
+    function loadLabs() {
+      fetch('../backend/php/get_lab_reports.php')
+        .then(res => res.json())
+        .then(data => {
+          if(data.success) {
+            document.getElementById('lab-list').innerHTML = data.data.map(l =>
+              `<div><b>${l.title}</b> - Uploaded by: ${l.uploaded_by} <a href="../uploads/lab_reports/${l.file_path}" target="_blank">Download</a></div>`
+            ).join('');
+          } else {
+            document.getElementById('lab-list').textContent = 'Error loading lab reports.';
+          }
+        });
+    }
+    loadLabs();
+    document.getElementById('lab-upload').onsubmit = function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      fetch('../backend/php/add_lab_report.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          loadLabs();
+          this.reset();
+        } else {
+          alert('Upload failed: ' + data.error);
+        }
+      });
+    };
+  </script>
+</body>
+</html>

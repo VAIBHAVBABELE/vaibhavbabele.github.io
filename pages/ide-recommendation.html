@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDE Recommendation</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="ide-recommendation.html">IDE Recommendation</a>
+  </nav>
+  <h1>IDE Recommendation</h1>
+  <form id="ide-form">
+    <select id="project-type">
+      <option value="web">Web Development</option>
+      <option value="python">Python/Data Science</option>
+      <option value="java">Java</option>
+      <option value="cpp">C/C++</option>
+      <option value="mobile">Mobile Apps</option>
+      <option value="other">Other</option>
+    </select>
+    <button type="submit">Suggest</button>
+  </form>
+  <div id="ide-result"></div>
+  <script>
+    const recommendations = {
+      web: 'VS Code, Sublime Text, Atom',
+      python: 'PyCharm, VS Code, JupyterLab',
+      java: 'IntelliJ IDEA, Eclipse, NetBeans',
+      cpp: 'CLion, VS Code, Code::Blocks',
+      mobile: 'Android Studio, Xcode, VS Code',
+      other: 'VS Code, Sublime Text, Atom'
+    };
+    document.getElementById('ide-form').onsubmit = function(e) {
+      e.preventDefault();
+      const type = document.getElementById('project-type').value;
+      document.getElementById('ide-result').textContent = recommendations[type];
+    };
+  </script>
+</body>
+</html>

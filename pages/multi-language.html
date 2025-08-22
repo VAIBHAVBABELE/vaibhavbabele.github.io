@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-language Support</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="multi-language.html">Multi-language</a>
+  </nav>
+  <h1 id="greeting">Hello!</h1>
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('hi')">Hindi</button>
+  <button onclick="setLang('es')">Spanish</button>
+  <script>
+    const greetings = { en: 'Hello!', hi: 'नमस्ते!', es: '¡Hola!' };
+    function setLang(lang) {
+      document.getElementById('greeting').textContent = greetings[lang];
+    }
+  </script>
+</body>
+</html>
