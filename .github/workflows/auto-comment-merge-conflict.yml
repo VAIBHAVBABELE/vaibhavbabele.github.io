@@ -67,7 +67,7 @@ jobs:
                   issue_number: pr.number,
                   body: `⚠️ **Merge Conflict Detected!**
                   Hi @${pr.user.login}, your pull request currently has a merge conflict with the base branch. Please resolve the conflict so your PR can be merged.
-                  **Mentor Assistance:**  @meetarora10, @camren88, @Withvansh — please help guide the contributor if needed!
+                  **Mentor Assistance:**  @meetarora10, @camren88  — please help guide the contributor if needed!
                   ---
                   ## **How to Resolve a Merge Conflict (Step-by-Step)**
                   1. **Checkout your PR branch:**
