@@ -2,10 +2,12 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-22*
+*Last updated: 2025-08-23*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#286](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286) | fix: corrected card alignment and improved Dark Mode text visibility | [@himanshitwri08](https://github.com/himanshitwri08) |  **📄Description**: This PR improves the overall readability and alignment ... | 2 | bug, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-22 | 155 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286) |
+| [#285](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285) | Issue new | [@Gupta-02](https://github.com/Gupta-02) | ## 🔖 PR Title: <!-- A clear and concise title ... | 160 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-22 | 6206 | 328 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285) |
 | [#277](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/277) | Remove node_modules, update .gitignore & contributor guide #260 | [@rashmibarodiya](https://github.com/rashmibarodiya) |  @VAIBHAVBABELE ## 🔖 PR Title: Remove node_modules, update .gitignore ... | 1616 | gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-18 | 241387 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/277) |
 | [#270](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/270) | Added placement page | [@mavishsethi](https://github.com/mavishsethi) | ## 🔖 PR Title: I have added placement cell updates ... | 3 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-17 | 745 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/270) |
 | [#276](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/276) | added external js and css | [@mavishsethi](https://github.com/mavishsethi) | ## 🔖 PR Title: added extrenal css and js files ... | 3 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-18 | 1188 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/276) |
@@ -92,6 +94,198 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#286 fix: corrected card alignment and improved Dark Mode text visibility](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286)
+
+- **Author:** [@himanshitwri08](https://github.com/himanshitwri08)
+- **Description:**  
+ **📄Description**: This PR improves the overall readability and alignment ...
+- **Files Changed (2):**
+    - `games/games.css`
+  - `index.css`
+- **Labels:** `bug`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-22 12:29:29
+- **Lines Updated:** 155
+- **Commits:** 1
+- **PR Link:** [PR #286](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286)
+
+---
+
+### [#285 Issue new](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285)
+
+- **Author:** [@Gupta-02](https://github.com/Gupta-02)
+- **Description:**  
+## 🔖 PR Title: <!-- A clear and concise title ...
+- **Files Changed (160):**
+    - `backend/ai/app.py`
+  - `backend/php/.gitignore`
+  - `backend/php/README.md`
+  - `backend/php/add_announcement.php`
+  - `backend/php/add_attendance.php`
+  - `backend/php/add_blog.php`
+  - `backend/php/add_complaint.php`
+  - `backend/php/add_contact_query.php`
+  - `backend/php/add_event.php`
+  - `backend/php/add_faculty_feedback.php`
+  - `backend/php/add_feedback.php`
+  - `backend/php/add_gallery_image.php`
+  - `backend/php/add_issue.php`
+  - `backend/php/add_lab_report.php`
+  - `backend/php/add_leaderboard.php`
+  - `backend/php/add_lecture.php`
+  - `backend/php/add_lost_found.php`
+  - `backend/php/add_marketplace.php`
+  - `backend/php/add_news.php`
+  - `backend/php/add_note.php`
+  - `backend/php/add_pg_review.php`
+  - `backend/php/add_pyq.php`
+  - `backend/php/add_roommate_finder.php`
+  - `backend/php/add_service_rating.php`
+  - `backend/php/add_study_group.php`
+  - `backend/php/add_subject_wiki.php`
+  - `backend/php/add_suggestion.php`
+  - `backend/php/add_syllabus.php`
+  - `backend/php/add_team.php`
+  - `backend/php/add_user.php`
+  - `backend/php/all_features_tables.sql`
+  - `backend/php/app.py`
+  - `backend/php/cloudinary_config.php`
+  - `backend/php/cloudinary_upload.php`
+  - `backend/php/complaint_notify.php`
+  - `backend/php/complaints.php`
+  - `backend/php/complaints_demo.php`
+  - `backend/php/config.php`
+  - `backend/php/dashboard.php`
+  - `backend/php/db_connect.php`
+  - `backend/php/delete_attendance.php`
+  - `backend/php/delete_complaint.php`
+  - `backend/php/delete_contact_query.php`
+  - `backend/php/delete_faculty_feedback.php`
+  - `backend/php/delete_feedback.php`
+  - `backend/php/delete_issue.php`
+  - `backend/php/delete_lab_report.php`
+  - `backend/php/delete_lecture.php`
+  - `backend/php/delete_lost_found.php`
+  - `backend/php/delete_marketplace.php`
+  - `backend/php/delete_note.php`
+  - `backend/php/delete_pg_review.php`
+  - `backend/php/delete_pyq.php`
+  - `backend/php/delete_roommate_finder.php`
+  - `backend/php/delete_service_rating.php`
+  - `backend/php/delete_study_group.php`
+  - `backend/php/delete_subject_wiki.php`
+  - `backend/php/delete_suggestion.php`
+  - `backend/php/delete_syllabus.php`
+  - `backend/php/demo_dashboard.php`
+  - `backend/php/events_calendar.php`
+  - `backend/php/faculty_feedback.php`
+  - `backend/php/firebase_pyqs.html`
+  - `backend/php/get_announcements.php`
+  - `backend/php/get_attendance.php`
+  - `backend/php/get_blogs.php`
+  - `backend/php/get_complaints.php`
+  - `backend/php/get_contact_queries.php`
+  - `backend/php/get_events.php`
+  - `backend/php/get_faculty_feedback.php`
+  - `backend/php/get_feedback.php`
+  - `backend/php/get_gallery_images.php`
+  - `backend/php/get_issue_tracker.php`
+  - `backend/php/get_lab_reports.php`
+  - `backend/php/get_leaderboard.php`
+  - `backend/php/get_lectures.php`
+  - `backend/php/get_lost_found.php`
+  - `backend/php/get_marketplace.php`
+  - `backend/php/get_news.php`
+  - `backend/php/get_notes.php`
+  - `backend/php/get_pg_reviews.php`
+  - `backend/php/get_pyqs.php`
+  - `backend/php/get_roommate_finder.php`
+  - `backend/php/get_service_ratings.php`
+  - `backend/php/get_study_groups.php`
+  - `backend/php/get_subject_wiki.php`
+  - `backend/php/get_suggestions.php`
+  - `backend/php/get_syllabus.php`
+  - `backend/php/get_teams.php`
+  - `backend/php/get_users.php`
+  - `backend/php/github_tracker.php`
+  - `backend/php/if0_38581364_gaming_website_db.sql`
+  - `backend/php/internship_alerts.php`
+  - `backend/php/lecture_scheduler.php`
+  - `backend/php/local_services.php`
+  - `backend/php/notes.php`
+  - `backend/php/package.json`
+  - `backend/php/peer_mentorship.php`
+  - `backend/php/pg_locator_map.html`
+  - `backend/php/pg_reviews.php`
+  - `backend/php/project_collab.php`
+  - `backend/php/project_showcase.php`
+  - `backend/php/pyqs.php`
+  - `backend/php/requirements.txt`
+  - `backend/php/resumes.php`
+  - `backend/php/roommate_finder.php`
+  - `backend/php/study_group_finder.php`
+  - `backend/php/suggestion_box.php`
+  - `backend/php/update_attendance.php`
+  - `backend/php/update_complaint.php`
+  - `backend/php/update_contact_query.php`
+  - `backend/php/update_faculty_feedback.php`
+  - `backend/php/update_feedback.php`
+  - `backend/php/update_issue.php`
+  - `backend/php/update_lecture.php`
+  - `backend/php/update_lost_found.php`
+  - `backend/php/update_marketplace.php`
+  - `backend/php/update_note.php`
+  - `backend/php/update_pg_review.php`
+  - `backend/php/update_pyq.php`
+  - `backend/php/update_roommate_finder.php`
+  - `backend/php/update_study_group.php`
+  - `backend/php/update_subject_wiki.php`
+  - `backend/php/update_suggestion.php`
+  - `backend/php/vercel.json`
+  - `pages/ai-assistant.html`
+  - `pages/ai-file-process.html`
+  - `pages/ai-question-gen.html`
+  - `pages/ai-summary.html`
+  - `pages/attendance.html`
+  - `pages/career-resource-library.html`
+  - `pages/complaints.html`
+  - `pages/contact-queries.html`
+  - `pages/dark-mode.html`
+  - `pages/documentation-templates.html`
+  - `pages/feedback.html`
+  - `pages/ide-recommendation.html`
+  - `pages/issue-tracker.html`
+  - `pages/job-board.html`
+  - `pages/lab-reports.html`
+  - `pages/lectures.html`
+  - `pages/live-sessions.html`
+  - `pages/lost-found.html`
+  - `pages/marketplace.html`
+  - `pages/mock-test.html`
+  - `pages/multi-language.html`
+  - `pages/notes.html`
+  - `pages/notifications.html`
+  - `pages/open-source-opportunities.html`
+  - `pages/pg-reviews.html`
+  - `pages/pyqs.html`
+  - `pages/roommate-finder.html`
+  - `pages/service-ratings.html`
+  - `pages/skill-tracker.html`
+  - `pages/student-dashboard.html`
+  - `pages/study-groups.html`
+  - `pages/subject-wiki.html`
+  - `pages/suggestions.html`
+  - `pages/syllabus.html`
+  - `pages/version-control-tips.html`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-22 10:01:04
+- **Lines Updated:** 6206
+- **Commits:** 328
+- **PR Link:** [PR #285](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285)
+
+---
 
 ### [#277 Remove node_modules, update .gitignore & contributor guide #260](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/277)
 
