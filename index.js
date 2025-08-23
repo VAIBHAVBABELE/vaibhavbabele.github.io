@@ -23,11 +23,21 @@ window.addEventListener('resize', checkWindowSize);
 /* ===== Mobile Menu Toggle ===== */
 function initNavbarEvents() {
     const clickBtn = document.getElementById('click');
+    const navLinks = document.querySelectorAll("nav ul li a"); // menu links
     if (clickBtn) {
         clickBtn.addEventListener('click', function () {
             if (element) element.style.display = 'block';
         });
     }
+
+     if (!clickBtn) return;
+
+    // Close nav when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            clickBtn.checked = false; // uncheck hamburger = menu closes
+        });
+    });
 }
 
 // Trigger when navbar dynamically loaded
@@ -132,3 +142,29 @@ function initLanguageToggle() {
 // Run on every page load
 document.addEventListener("DOMContentLoaded", initLanguageToggle);
 document.addEventListener("navbarLoaded", initLanguageToggle);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100; // adjust offset for header
+      const sectionHeight = section.clientHeight;
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+});
