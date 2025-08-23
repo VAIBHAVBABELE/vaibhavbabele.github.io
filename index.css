@@ -1948,3 +1948,61 @@ body {
   padding:5px 10px; cursor:pointer; border:none; background:#333; color:#fff; border-radius:5px;
 }
 
+/* Tabs container */
+body.dark-mode .nav-tabs {
+  border-bottom: 2px solid var(--accent-color) !important;
+  padding-left: 0.5rem; /* slight padding for tabs */
+}
+
+/* Tabs styling */
+body.dark-mode .nav-tabs .nav-link {
+  color: var(--white-4345) !important;
+  background-color: var(--bg-shade) !important;
+  border-radius: 12px 12px 0 0 !important;
+  margin-right: 6px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: none !important;
+}
+
+/* Active tab */
+body.dark-mode .nav-tabs .nav-link.active {
+  background-color: var(--accent-color) !important;
+  color: var(--main-color) !important;
+  font-weight: 700;
+  border-bottom: 2.5px solid var(--main-color) !important;
+  box-shadow: 0 4px 10px var(--accent-color-dark)40 !important; /* subtle shadow */
+}
+
+/* Hover and focus */
+body.dark-mode .nav-tabs .nav-link:hover,
+body.dark-mode .nav-tabs .nav-link:focus {
+  background-color: var(--accent-color-dark) !important;
+  color: var(--white-4345) !important;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Circular icon on right */
+body.dark-mode .reset-icon {
+  color: var(--accent-color) !important;
+  filter: drop-shadow(0 0 2px var(--main-color));
+  transition: color 0.3s;
+  opacity: 1;
+}
+
+body.dark-mode .reset-icon:hover {
+  color: var(--accent-color-dark) !important;
+  filter: drop-shadow(0 0 5px var(--accent-color-dark));
+  cursor: pointer;
+}
+/* SGPA Result box contrast fix for dark mode */
+body.dark-mode #result,
+body.dark-mode #cgpa-result {
+  background-color: #bb995c !important;   /* Use your gold accent for strong contrast */
+  color: #191717 !important;              /* Very dark brown/black for clear numbers */
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #85611333;
+}
