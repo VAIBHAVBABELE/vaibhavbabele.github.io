@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>💻 Guess the Output Game - Nitra Mitra</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../favicon/site.webmanifest">
+  <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="../games/games.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color:#fdf6ec;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .container { padding-top: 60px; }
+    h2 { color: #2c3e50; }
+    .game-box {
+      background-color: #060c29;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 2px solid #060c29;
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      color: white;
+      text-align: left;
+    }
+    select, button { margin-top: 15px; padding: 10px; border-radius: 8px; font-size: 1rem; }
+    .question { margin-top: 20px; background-color: #1a1f3a; padding: 15px; border-radius: 10px; }
+    .options button {
+      display: block; width: 100%; margin: 5px 0; background-color: #82ccdd; border: none; cursor: pointer; color: black;
+    }
+    .options button:hover { background-color: #6bb7c9; }
+    #score { margin-top: 20px; font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn"><i class="fa-sharp fa-solid fa-bars"></i></label>
+    <ul>
+      <li><a href="../index.html" id="active">Home</a></li>
+      <li><a href="../index.html#Services">Services</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#Feedback">Feedback</a></li>
+      <li><a href="../index.html#contact">Contact us</a></li>
+    </ul>
+    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+  </nav> 
+
+  <div style="height: 70px;"></div>
+  <a href="../games/gamess.html" class="back-link">&larr; Go Back</a>
+  
+  <h2>💻 Guess the Output Game</h2>
+  <div class="game-box">
+    <label for="language">Select Language:</label>
+    <select id="language">
+      <option value="cpp">C++</option>
+      <option value="java">Java</option>
+      <option value="python">Python</option>
+    </select>
+
+    <div id="question-container" class="question">
+      <p id="question-text">Select a language to start the game.</p>
+      <div class="options">
+        <button class="option-btn">Option 1</button>
+        <button class="option-btn">Option 2</button>
+        <button class="option-btn">Option 3</button>
+        <button class="option-btn">Option 4</button>
+      </div>
+    </div>
+
+    <button id="next-btn">Next Question</button>
+    <p id="score">Score: 0</p>
+  </div>
+</div>
+
+<script>
+  const questions = {
+    cpp: [
+      { q: "int a = 5; cout << a + 2;", options: ["5", "7", "52", "Error"], answer: 1 },
+      { q: "int arr[3] = {1,2,3}; cout << arr[1];", options: ["1","2","3","Error"], answer: 1 },
+      { q: "for(int i=0;i<2;i++) cout<<i;", options: ["0 1","1 2","0 1 2","Error"], answer: 0 },
+      { q: "int x=10; x++; cout<<x;", options: ["10","11","12","Error"], answer: 1 },
+      { q: "cout<< (5==5);", options: ["0","1","5","Error"], answer: 1 }
+    ],
+    java: [
+      { q: "int a = 5; System.out.println(a+2);", options: ["5","7","52","Error"], answer: 1 },
+      { q: "int[] arr = {1,2,3}; System.out.println(arr[1]);", options: ["1","2","3","Error"], answer: 1 },
+      { q: "for(int i=0;i<2;i++) System.out.print(i);", options: ["0 1","1 2","0 1 2","Error"], answer: 0 },
+      { q: "int x=10; x++; System.out.println(x);", options: ["10","11","12","Error"], answer: 1 },
+      { q: "System.out.println(5==5);", options: ["true","false","5","Error"], answer: 0 }
+    ],
+    python: [
+      { q: "a = 5\nprint(a+2)", options: ["5","7","52","Error"], answer: 1 },
+      { q: "arr = [1,2,3]\nprint(arr[1])", options: ["1","2","3","Error"], answer: 1 },
+      { q: "for i in range(2): print(i,end=' ')", options: ["0 1","1 2","0 1 2","Error"], answer: 0 },
+      { q: "x=10\nx+=1\nprint(x)", options: ["10","11","12","Error"], answer: 1 },
+      { q: "print(5==5)", options: ["True","False","5","Error"], answer: 0 }
+    ]
+  };
+
+  let currentLanguage = 'cpp';
+  let currentIndex = 0;
+  let score = 0;
+
+  const languageSelect = document.getElementById('language');
+  const questionText = document.getElementById('question-text');
+  const optionButtons = document.querySelectorAll('.option-btn');
+  const scoreText = document.getElementById('score');
+  const nextBtn = document.getElementById('next-btn');
+
+  languageSelect.addEventListener('change', () => {
+    currentLanguage = languageSelect.value;
+    currentIndex = 0;
+    score = 0;
+    scoreText.textContent = "Score: " + score;
+    loadQuestion();
+  });
+
+  optionButtons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      const correctAnswer = questions[currentLanguage][currentIndex].answer;
+      if (idx === correctAnswer) score++;
+      currentIndex++;
+      if(currentIndex < questions[currentLanguage].length){
+        loadQuestion();
+      } else {
+        questionText.textContent = `Game Over! Final Score: ${score}/${questions[currentLanguage].length}`;
+        optionButtons.forEach(b=>b.style.display='none');
+      }
+      scoreText.textContent = "Score: " + score;
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if(currentIndex < questions[currentLanguage].length){
+      loadQuestion();
+    }
+  });
+
+  function loadQuestion() {
+    const q = questions[currentLanguage][currentIndex];
+    questionText.textContent = q.q;
+    optionButtons.forEach((btn, idx) => {
+      btn.textContent = q.options[idx];
+      btn.style.display = 'block';
+    });
+  }
+</script>
+<script src="../index.js"></script>
+</body>
+</html>
