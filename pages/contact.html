@@ -1,218 +1,417 @@
-Of course. Here is the final version of your contact.html code.
-
-This version keeps all of the advanced validation we built (the specific email error and the general error message) and uses the pop-up success modal to confirm a successful submission.
-
-Simply replace the entire contents of your contact.html file with the code below.
-
-### Final Code for contact.html
-HTML
-
 <!DOCTYPE html>
+
 <html lang="en">
 
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Nitra Mitra</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="stylesheet" href="contact.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us - Nitra Mitra</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+
+        rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" href="contact.css">
+
 </head>
 
+
+
 <body id="onload">
-    <nav>
-        <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
-        </label>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#Services">Services</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#Feedback">Feedback</a></li>
-            <li><a href="contact.html" id="active">Contact us</a></li>
-            <button id="lang-toggle">
-                हिंदी
-            </button>
-        </ul>
-        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-    </nav>
 
-    <div class="main">
-        <section class="contact-hero">
-            <div class="container">
-                <h1>Get In Touch 👨‍💼</h1>
-                <p>We're here to help! Reach out to us for any questions, support, or feedback about Nitra Mitra
-                    platform.</p>
-            </div>
-        </section>
+    <nav>
 
-        <section class="contact-form-section">
-            <div class="container">
-                <div class="section-title">
-                    <h1 style="font-weight: bold;">Send Us a Message 💬</h1>
-                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
-                </div>
+        <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
 
-                <div class="contact-form-container">
-                    <form id="contactForm" novalidate>
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control"
-                                placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control"
-                                placeholder="Enter your email address" required>
-                            <div class="form-validation" id="emailError" style="display: none;">Please enter a valid email address (e.g., name@example.com).</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control"
-                                placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="technical">Technical Support</option>
-                                <option value="academic">Academic Resources</option>
-                                <option value="feedback">Feedback & Suggestions</option>
-                                <option value="collaboration">Collaboration</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="other" style="display: none;">
-                            <label for="other-subject">Other Subject</label>
-                            <input type="text" id="other-subject" name="other-subject" class="form-control"
-                                placeholder="Please specify your subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="6"
-                                placeholder="Enter your message here..." required></textarea>
-                        </div>
+        <input type="checkbox" id="click">
 
-                        <div class="form-validation" id="formError" style="text-align: center; display: none; margin-bottom: 15px;">
-                            Please fill out all required information.
-                        </div>
+        <label for="click" class="menu-btn">
 
-                        <div style="text-align: center;">
-                            <button type="submit" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <section class="map-section">
-            </section>
+            <i class="fa-sharp fa-solid fa-bars"></i>
 
-        <footer class="footer-section">
-            <div class="container">
-                <p class="copyright">
-                    © <span id="year"></span> Nitra Mitra. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
-    </div>
+        </label>
 
-    <div id="successModal" class="success-modal">
-        <div class="success-modal-content">
-            <span class="close-x" onclick="closeSuccessModal()">×</span>
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2>Message Sent Successfully!</h2>
-            <p>Thank you for reaching out to us. We will get back to you as soon as possible.</p>
-            <button class="modal-close-btn" onclick="closeSuccessModal()">Close</button>
-        </div>
-    </div>
+        <ul>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('year').textContent = new Date().getFullYear();
+            <li><a href="../index.html">Home</a></li>
 
-            document.getElementById('subject').addEventListener('change', function () {
-                document.getElementById('other').style.display = (this.value === 'other') ? 'block' : 'none';
-            });
+            <li><a href="../index.html#Services">Services</a></li>
 
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
+            <li><a href="../index.html#about">About</a></li>
 
-                const formError = document.getElementById('formError');
-                const emailError = document.getElementById('emailError');
-                
-                let isGenerallyInvalid = false;
-                let isEmailFormatInvalid = false;
-                
-                formError.style.display = 'none';
-                emailError.style.display = 'none';
+            <li><a href="../index.html#Feedback">Feedback</a></li>
 
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value.trim();
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (!name || !subject || !message || !email) {
-                    isGenerallyInvalid = true;
-                }
-                
-                if (email && !emailRegex.test(email)) {
-                    isEmailFormatInvalid = true;
-                }
+            <li><a href="contact.html" id="active">Contact us</a></li>
 
-                if (isEmailFormatInvalid) {
-                    emailError.style.display = 'block';
-                } else if (isGenerallyInvalid) {
-                    formError.style.display = 'block';
-                } else {
-                    // On success, show the pop-up modal
-                    showSuccessModal();
-                    contactForm.reset();
-                    document.getElementById('other').style.display = 'none';
-                }
-            });
-        });
+            <button id="lang-toggle">
 
-        // --- Functions to control the success modal ---
-        function showSuccessModal() {
-            document.getElementById('successModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+                हिंदी
 
-        function closeSuccessModal() {
-            document.getElementById('successModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+            </button>
 
-        window.onclick = function (event) {
-            const modal = document.getElementById('successModal');
-            if (event.target == modal) closeSuccessModal();
-        }
+        </ul>
 
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') closeSuccessModal();
-        });
-    </script>
-    
-    <script src="../index.js"></script>
-    <script src="../language.js"></script>
+        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+
+    </nav>
+
+
+
+    <div class="main">
+
+        <section class="contact-hero">
+
+            <div class="container">
+
+                <h1>Get In Touch 👨‍💼</h1>
+
+                <p>We're here to help! Reach out to us for any questions, support, or feedback about Nitra Mitra
+
+                    platform.</p>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="contact-form-section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h1 style="font-weight: bold;">Send Us a Message 💬</h1>
+
+                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
+
+                </div>
+
+
+
+                <div class="contact-form-container">
+
+                    <form id="contactForm" novalidate>
+
+                        <div class="form-group">
+
+                            <label for="name">Full Name *</label>
+
+                            <input type="text" id="name" name="name" class="form-control"
+
+                                placeholder="Enter your full name" required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="email">Email Address *</label>
+
+                            <input type="email" id="email" name="email" class="form-control"
+
+                                placeholder="Enter your email address" required>
+
+                            <div class="form-validation" id="emailError" style="display: none;">Please enter a valid email address (e.g., name@example.com).</div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="phone">Phone Number</label>
+
+                            <input type="tel" id="phone" name="phone" class="form-control"
+
+                                placeholder="Enter your phone number">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="subject">Subject *</label>
+
+                            <select id="subject" name="subject" class="form-control" required>
+
+                                <option value="">Select a subject</option>
+
+                                <option value="general">General Inquiry</option>
+
+                                <option value="technical">Technical Support</option>
+
+                                <option value="academic">Academic Resources</option>
+
+                                <option value="feedback">Feedback & Suggestions</option>
+
+                                <option value="collaboration">Collaboration</option>
+
+                                <option value="other">Other</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="form-group" id="other" style="display: none;">
+
+                            <label for="other-subject">Other Subject</label>
+
+                            <input type="text" id="other-subject" name="other-subject" class="form-control"
+
+                                placeholder="Please specify your subject">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="message">Message *</label>
+
+                            <textarea id="message" name="message" class="form-control" rows="6"
+
+                                placeholder="Enter your message here..." required></textarea>
+
+                        </div>
+
+
+
+                        <div class="form-validation" id="formError" style="text-align: center; display: none; margin-bottom: 15px;">
+
+                            Please fill out all required information.
+
+                        </div>
+
+
+
+                        <div style="text-align: center;">
+
+                            <button type="submit" class="submit-btn">
+
+                                <i class="fas fa-paper-plane"></i> Send Message
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+       
+
+        <section class="map-section">
+
+            </section>
+
+
+
+        <footer class="footer-section">
+
+            <div class="container">
+
+                <p class="copyright">
+
+                    © <span id="year"></span> Nitra Mitra. All Rights Reserved.
+
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+
+    <div id="successModal" class="success-modal">
+
+        <div class="success-modal-content">
+
+            <span class="close-x" onclick="closeSuccessModal()">×</span>
+
+            <div class="success-icon">
+
+                <i class="fas fa-check-circle"></i>
+
+            </div>
+
+            <h2>Message Sent Successfully!</h2>
+
+            <p>Thank you for reaching out to us. We will get back to you as soon as possible.</p>
+
+            <button class="modal-close-btn" onclick="closeSuccessModal()">Close</button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+
+
+            document.getElementById('subject').addEventListener('change', function () {
+
+                document.getElementById('other').style.display = (this.value === 'other') ? 'block' : 'none';
+
+            });
+
+
+
+            const contactForm = document.getElementById('contactForm');
+
+            contactForm.addEventListener('submit', function (e) {
+
+                e.preventDefault();
+
+
+
+                const formError = document.getElementById('formError');
+
+                const emailError = document.getElementById('emailError');
+
+               
+
+                let isGenerallyInvalid = false;
+
+                let isEmailFormatInvalid = false;
+
+               
+
+                formError.style.display = 'none';
+
+                emailError.style.display = 'none';
+
+
+
+                const name = document.getElementById('name').value.trim();
+
+                const email = document.getElementById('email').value.trim();
+
+                const subject = document.getElementById('subject').value;
+
+                const message = document.getElementById('message').value.trim();
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+               
+
+                if (!name || !subject || !message || !email) {
+
+                    isGenerallyInvalid = true;
+
+                }
+
+               
+
+                if (email && !emailRegex.test(email)) {
+
+                    isEmailFormatInvalid = true;
+
+                }
+
+
+
+                if (isEmailFormatInvalid) {
+
+                    emailError.style.display = 'block';
+
+                } else if (isGenerallyInvalid) {
+
+                    formError.style.display = 'block';
+
+                } else {
+
+                    // On success, show the pop-up modal
+
+                    showSuccessModal();
+
+                    contactForm.reset();
+
+                    document.getElementById('other').style.display = 'none';
+
+                }
+
+            });
+
+        });
+
+
+
+        // --- Functions to control the success modal ---
+
+        function showSuccessModal() {
+
+            document.getElementById('successModal').style.display = 'block';
+
+            document.body.style.overflow = 'hidden';
+
+        }
+
+
+
+        function closeSuccessModal() {
+
+            document.getElementById('successModal').style.display = 'none';
+
+            document.body.style.overflow = 'auto';
+
+        }
+
+
+
+        window.onclick = function (event) {
+
+            const modal = document.getElementById('successModal');
+
+            if (event.target == modal) closeSuccessModal();
+
+        }
+
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Escape') closeSuccessModal();
+
+        });
+
+    </script>
+
+   
+
+    <script src="../index.js"></script>
+
+    <script src="../language.js"></script>
+
+
 
 </body>
+
 </html>
