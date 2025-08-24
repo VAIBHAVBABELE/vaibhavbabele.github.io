@@ -1812,7 +1812,8 @@ footer .copyright {
 
   .greeting {
     position: relative;
-    right: 2rem;
+    right: 2px;
+    text-align: center;
   }
 
   .about-flex {
