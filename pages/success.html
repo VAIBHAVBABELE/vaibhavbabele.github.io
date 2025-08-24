@@ -1,12 +1,3 @@
-Of course. Here is the final version of your contact.html code.
-
-This version keeps all of the advanced validation we built (the specific email error and the general error message) and uses the pop-up success modal to confirm a successful submission.
-
-Simply replace the entire contents of your contact.html file with the code below.
-
-### Final Code for contact.html
-HTML
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,7 +110,20 @@ HTML
         </section>
         
         <section class="map-section">
-            </section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Find Us</h2>
+                    <p>NITRA Technical Campus Location</p>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="http://googleusercontent.com/maps.google.com/8"
+                        width="100%" height="400" style="border:0; border-radius: 15px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
 
         <footer class="footer-section">
             <div class="container">
@@ -182,7 +186,6 @@ HTML
                 } else if (isGenerallyInvalid) {
                     formError.style.display = 'block';
                 } else {
-                    // On success, show the pop-up modal
                     showSuccessModal();
                     contactForm.reset();
                     document.getElementById('other').style.display = 'none';
@@ -190,7 +193,6 @@ HTML
             });
         });
 
-        // --- Functions to control the success modal ---
         function showSuccessModal() {
             document.getElementById('successModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
