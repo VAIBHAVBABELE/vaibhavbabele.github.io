@@ -110,6 +110,17 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+.container h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.container img {
+  height: 40px;
+}
+
 .contact-info-section {
     padding: 80px 0;
     background: var(--footer-bgColor);
