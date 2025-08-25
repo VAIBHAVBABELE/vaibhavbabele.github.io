@@ -1076,7 +1076,25 @@ margin-bottom: 5%;
   transform: rotate(90deg);
   color: #2a1c10;
 }
+.form h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+}
 
+.form img {
+  height: 40px;
+}
+.service h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.service img {
+  height: 40px;
+}
 
 
 /* Gallery Image Hover Effect Styles */
@@ -1326,6 +1344,17 @@ body.dark-mode .facility-card p {
     background: #8c6723;
     color: #fff;
     box-shadow: 0 0 1rem var(--main-color);
+}
+
+#about h4{
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.about img {
+  height: 40px;
 }
 /*card width adjust on the small screen */
 @media  screen and (max-width : 768px){
