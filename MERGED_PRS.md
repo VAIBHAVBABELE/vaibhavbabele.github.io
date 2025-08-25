@@ -2,10 +2,12 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-24*
+*Last updated: 2025-08-25*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#301](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301) | Fix: Responsiveness of website sections on smaller screens | [@roniitpodder](https://github.com/roniitpodder) | ## 🔖 PR Title: Fixed Responsiveness of website sections on ... | 3 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-24 | 8 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301) |
+| [#294](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294) | fix: improve dark mode accessibility for calculator tabs and results | [@kanishka1804](https://github.com/kanishka1804) | ## 🔖 PR Title: <!-- A clear and concise title ... | 1 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-24 | 58 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294) |
 | [#286](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286) | fix: corrected card alignment and improved Dark Mode text visibility | [@himanshitwri08](https://github.com/himanshitwri08) |  **📄Description**: This PR improves the overall readability and alignment ... | 2 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-22 | 155 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286) |
 | [#292](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/292) | changed ui of subject.html and add new features to it | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | ## 🔖 PR Title: <!-- A clear and concise title ... | 3 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-23 | 3133 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/292) |
 | [#285](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285) | Issue new | [@Gupta-02](https://github.com/Gupta-02) | ## 🔖 PR Title: <!-- A clear and concise title ... | 160 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-22 | 6206 | 328 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/285) |
@@ -96,6 +98,40 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#301 Fix: Responsiveness of website sections on smaller screens](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301)
+
+- **Author:** [@roniitpodder](https://github.com/roniitpodder)
+- **Description:**  
+## 🔖 PR Title: Fixed Responsiveness of website sections on ...
+- **Files Changed (3):**
+    - `index.css`
+  - `pages/announcement-table.html`
+  - `pages/user-experience-table.html`
+- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-24 16:28:41
+- **Lines Updated:** 8
+- **Commits:** 1
+- **PR Link:** [PR #301](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301)
+
+---
+
+### [#294 fix: improve dark mode accessibility for calculator tabs and results](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294)
+
+- **Author:** [@kanishka1804](https://github.com/kanishka1804)
+- **Description:**  
+## 🔖 PR Title: <!-- A clear and concise title ...
+- **Files Changed (1):**
+    - `index.css`
+- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-24 02:16:32
+- **Lines Updated:** 58
+- **Commits:** 1
+- **PR Link:** [PR #294](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/294)
+
+---
 
 ### [#286 fix: corrected card alignment and improved Dark Mode text visibility](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/286)
 
