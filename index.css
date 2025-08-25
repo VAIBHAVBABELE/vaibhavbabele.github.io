@@ -2007,3 +2007,33 @@ body.dark-mode #cgpa-result {
   border-radius: 10px;
   box-shadow: 0 2px 8px #85611333;
 }
+
+
+.result-box {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.result-box h4 {
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+.result-box .h3 {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Dark mode support */
+body.dark-mode .result-box {
+    background-color: #2b2b2b;
+    border-color: #444;
+}
+
+body.dark-mode .result-box h4,
+body.dark-mode .result-box h5 {
+    color: #e0e0e0;
+}
