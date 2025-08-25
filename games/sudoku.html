@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="../games/games.css">
-  <link rel="stylesheet" href="./sudoku.css">
+  <link rel="stylesheet" href="./gamess.css">
 </head>
 <body>
 <div class="container">
@@ -39,15 +39,23 @@
   <a href="../games/gamess.html" class="back-link">&larr; Go Back</a>
   
   <h2>🧩 Sudoku Game</h2>
-  <div class="puzzle-box">
-    <div id="sudoku" class="sudoku-board"></div>
-    <button id="newGameBtn">🆕 New Game</button>
-    <p id="status" style="color: #ffffff;"> </p>
-    
-  </div>
+  <div class="puzzle-box" 
+  style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; background: #222; border-radius: 12px; width: fit-content; margin: auto;">
+ 
+ <div id="sudoku" class="sudoku-board" 
+      style="margin-bottom: 10px;"></div>
+ 
+ <button id="newGameBtn" 
+         style="padding: 8px 16px; border: none; border-radius: 8px; background: #ff5722; color: white; font-weight: bold; cursor: pointer;">
+     🆕 New Game
+ </button>
+ 
+ <p id="status" style="color: #ffffff; margin-top: 8px; font-size: 14px;"> </p>
 </div>
 
-<script src="./sudoku.js"></script>
+</div>
+
+<script src="./gamess.js"></script>
 
 <script src="../index.js"></script>
 </body>
