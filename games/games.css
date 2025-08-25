@@ -87,3 +87,67 @@ body.dark-mode .card-title {
 .back-link:hover {
   text-decoration: underline;
 }
+
+/* Consolidated styles for games */
+
+/* Color Recall */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color:#fdf6ec;
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center;
+}
+.container { padding-top: 60px; }
+@media (max-width: 1000px) { .container { padding-top: 55px; } }
+@media (max-width: 450px) { .container { padding-top: 50px; } }
+h2 { color: #2c3e50; }
+
+.game-box {
+  background-color: #060c29;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 2px solid #060c29;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+}
+
+.color-board { display: grid; grid-template-columns: repeat(2, 100px); grid-template-rows: repeat(2, 100px); gap: 20px; margin: 20px auto; }
+.color-btn { width: 100px; height: 100px; border-radius: 15px; cursor: pointer; opacity: 0.7; transition: opacity 0.2s, transform 0.2s; }
+.color-btn:active { opacity: 1; transform: scale(1.1); }
+#red { background-color: red; } #green { background-color: green; } #blue { background-color: blue; } #yellow { background-color: yellow; }
+
+button { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 8px; background: #82ccdd; font-size: 1rem; cursor: pointer; }
+
+#level { margin-top: 15px; font-size: 1.2rem; font-weight: bold; color: #ffffff; }
+
+/* Guess The Output */
+.question { margin-top: 20px; background-color: #1a1f3a; padding: 15px; border-radius: 10px; }
+.options button { display: block; width: 100%; margin: 5px 0; background-color: #82ccdd; border: none; cursor: pointer; color: black; }
+.options button:hover { background-color: #6bb7c9; }
+#score { margin-top: 20px; font-size: 1.2rem; }
+
+/* Lock Logic */
+.lock { display: flex; gap: 20px; justify-content: center; margin: 20px 0; }
+.dial { width: 60px; height: 80px; background: #fff; border: 3px solid #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; user-select: none; color: #000; }
+.clues { margin-top: 20px; font-size: 1.1rem; text-align: left; color: #fff; }
+.clues ul { padding-left: 20px; }
+.success { color: #4ade80; font-weight: bold; margin-top: 15px; }
+
+/* Sliding Tile */
+.puzzle-box { background-color: #2d3436; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px; max-width: 400px; margin: 0 auto; }
+.puzzle-board { display: grid; grid-template-columns: repeat(3, 100px); grid-template-rows: repeat(3, 100px); gap: 8px; margin: 20px auto; }
+.tile { display: flex; justify-content: center; align-items: center; background-color: #74b9ff; border-radius: 8px; font-size: 1.5rem; cursor: pointer; font-weight: bold; }
+.tile.empty { background: #eee; cursor: default; }
+#status { margin-top: 10px; font-size: 1.1rem; font-weight: bold; }
+
+/* Sudoku */
+.sudoku-board { display: grid; grid-template-columns: repeat(9, 40px); grid-template-rows: repeat(9, 40px); gap: 2px; margin: 20px auto; }
+.cell { border: 1px solid #999; text-align: center; font-size: 1.2rem; font-weight: bold; background: #ecf0f1; }
+.cell input { width: 100%; height: 100%; border: none; text-align: center; font-size: 1.2rem; background: none; }
+.cell input:focus { outline: 2px solid #74b9ff; background: #dfe6e9; }
+.cell:nth-child(3n+1) { border-left: 2px solid black; }
+.cell:nth-child(n+19):nth-child(-n+27), .cell:nth-child(n+46):nth-child(-n+54) { border-top: 2px solid black; }
+#newGameBtn { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 8px; background: #82ccdd; font-size: 1rem; cursor: pointer; }
