@@ -12,70 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="../games/games.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color:#fdf6ec;
-      margin: 0;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .container {
-      padding-top: 60px;
-    }
-    h2 {
-      color: #2c3e50;
-    }
-    .game-box {
-      background-color: #060c29;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border: 2px solid #060c29;
-      padding: 30px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .lock {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin: 20px 0;
-    }
-    .dial {
-      width: 60px;
-      height: 80px;
-      background: #fff;
-      border: 3px solid #333;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      cursor: pointer;
-      user-select: none;
-    }
-    .clues {
-      margin-top: 20px;
-      font-size: 1.1rem;
-      text-align: left;
-      color: #fff;
-    }
-    .clues ul { padding-left: 20px; }
-    .success {
-      color: #4ade80;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #82ccdd;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="./lock-logic.css">
 </head>
 <body>
 <div class="container">
@@ -113,68 +50,7 @@
   </div>
 </div>
 
-<script>
-  const levels = [
-    { clues: ["Dial 1 + Dial 2 = 7","Dial 2 × Dial 3 = 12","Dial 1 < Dial 3"],
-      check: ([d1,d2,d3]) => d1 + d2 === 7 && d2 * d3 === 12 && d1 < d3 },
-    { clues: ["Dial 1 × 2 = Dial 3","Dial 2 + Dial 3 = 9","Dial 1 ≠ Dial 2"],
-      check: ([d1,d2,d3]) => d1*2===d3 && d2+d3===9 && d1!==d2 },
-    { clues: ["Dial 1 + Dial 2 + Dial 3 = 15","Dial 3 - Dial 1 = 5","Dial 2 is even"],
-      check: ([d1,d2,d3]) => d1+d2+d3===15 && d3-d1===5 && d2%2===0 }
-  ];
-
-  let currentLevel = 0;
-  const dials = [document.getElementById('dial1'), document.getElementById('dial2'), document.getElementById('dial3')];
-  let values = [0,0,0];
-
-  const cluesDiv = document.getElementById('clues');
-  const resultDiv = document.getElementById('result');
-  const resetBtn = document.getElementById('resetBtn');
-  const checkBtn = document.getElementById('checkBtn');
-
-  function showClues() {
-    cluesDiv.innerHTML = "Clues:<ul>" + levels[currentLevel].clues.map(c => `<li>${c}</li>`).join('') + "</ul>";
-  }
-
-  function checkLock() {
-    if(levels[currentLevel].check(values)) {
-      resultDiv.innerHTML = "<span class='success'>Unlocked! 🎉</span>";
-      setTimeout(() => {
-        if(currentLevel < levels.length-1) {
-          currentLevel++;
-          values = [0,0,0];
-          dials.forEach((d,i)=>d.textContent=values[i]);
-          showClues();
-          resultDiv.textContent = "Next Level ➡️";
-        } else {
-          resultDiv.innerHTML = "<span class='success'>You cracked all the locks! 🏆</span>";
-        }
-      }, 500);
-    } else {
-      resultDiv.textContent = "Locked 🔒";
-    }
-  }
-
-  // Dial click increments value
-  dials.forEach((dial,index)=>{
-    dial.addEventListener("click", ()=>{
-      values[index] = (values[index]+1)%10;
-      dial.textContent = values[index];
-    });
-  });
-
-  checkBtn.addEventListener("click", checkLock);
-
-  resetBtn.addEventListener("click", ()=>{
-    currentLevel = 0;
-    values = [0,0,0];
-    dials.forEach((d,i)=>d.textContent=values[i]);
-    showClues();
-    resultDiv.textContent = "Locked 🔒";
-  });
-
-  showClues();
-</script>
+<script src="./lock-logic.js"></script>
 <script src="../index.js"></script>
 </body>
 </html>

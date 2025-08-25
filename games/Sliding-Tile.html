@@ -12,73 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="../games/games.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color:#fdf6ec;
-      margin: 0;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .container {
-      padding-top: 60px;
-    }
-    @media (max-width: 1000px) { .container { padding-top: 55px; } }
-    @media (max-width: 450px) { .container { padding-top: 50px; } }
-
-    h2 {
-      color: #2c3e50;
-    }
-
-    .puzzle-box {
-        background-color: #2d3436;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 30px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .puzzle-board {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      grid-template-rows: repeat(3, 100px);
-      gap: 8px;
-      margin: 20px auto;
-    }
-
-    .tile {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #74b9ff; 
-      border-radius: 8px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .tile.empty {
-      background: #eee;
-      cursor: default;
-    }
-
-    #shuffleBtn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #82ccdd;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    #status {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="./Sliding-Tile.css">
 </head>
 <body>
 <div class="container">
@@ -112,64 +46,7 @@
   </div>
 </div>
 
-<script>
-  const puzzleContainer = document.getElementById("puzzle");
-  const statusEl = document.getElementById("status");
-  const shuffleBtn = document.getElementById("shuffleBtn");
-
-  let tiles = [];
-
-  function init() {
-    tiles = [1,2,3,4,5,6,7,8,null];
-    render();
-  }
-
-  function render() {
-    puzzleContainer.innerHTML = "";
-    tiles.forEach((tile, index) => {
-      const div = document.createElement("div");
-      div.classList.add("tile");
-
-      if (tile) {
-        div.textContent = tile;
-        div.addEventListener("click", () => moveTile(index));
-      } else {
-        div.classList.add("empty");
-      }
-      puzzleContainer.appendChild(div);
-    });
-    checkWin();
-  }
-
-  function moveTile(index) {
-    const emptyIndex = tiles.indexOf(null);
-    const validMoves = [emptyIndex - 1, emptyIndex + 1, emptyIndex - 3, emptyIndex + 3];
-    if (validMoves.includes(index)) {
-      [tiles[emptyIndex], tiles[index]] = [tiles[index], tiles[emptyIndex]];
-      render();
-    }
-  }
-
-  function shuffle() {
-    for (let i = tiles.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
-    }
-    render();
-  }
-
-  function checkWin() {
-    const win = [1,2,3,4,5,6,7,8,null];
-    if (JSON.stringify(tiles) === JSON.stringify(win)) {
-      statusEl.textContent = "🎉 You solved it!";
-    } else {
-      statusEl.textContent = "";
-    }
-  }
-
-  shuffleBtn.addEventListener("click", shuffle);
-  init();
-</script>
+<script src="./Sliding-Tile.js"></script>
 
 <script src="../index.js"></script>
 </body>

@@ -1,0 +1,29 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color:#fdf6ec;
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center;
+}
+.container { padding-top: 60px; }
+h2 { color: #2c3e50; }
+.game-box {
+  background-color: #060c29;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 2px solid #060c29;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+  text-align: left;
+}
+select, button { margin-top: 15px; padding: 10px; border-radius: 8px; font-size: 1rem; }
+.question { margin-top: 20px; background-color: #1a1f3a; padding: 15px; border-radius: 10px; }
+.options button {
+  display: block; width: 100%; margin: 5px 0; background-color: #82ccdd; border: none; cursor: pointer; color: black;
+}
+.options button:hover { background-color: #6bb7c9; }
+#score { margin-top: 20px; font-size: 1.2rem; }
+
+
