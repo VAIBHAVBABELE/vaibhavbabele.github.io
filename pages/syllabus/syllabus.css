@@ -1,0 +1,81 @@
+:root {
+    --primary-color: #d2b676;
+    --secondary-color: #faf9f6; 
+    --text-color: #333333; 
+    --button-bg: #b89e5f;
+    --button-hover: #91742a;
+}
+
+body {
+    background: var(--secondary-color);
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text-color);
+}
+
+header {
+    background: var(--primary-color);
+    text-align: center;
+    padding: 2rem 1rem 1rem 1rem;
+}
+
+h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 8rem;
+}
+
+p{
+    font-size: 2rem;
+    margin: 0;
+}
+#pdf-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.pdf-item {
+    background: #f0e2c6;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(80,80,80,0.07);
+    padding: 1.2rem 1.5rem;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+}
+
+.pdf-title {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.open-btn {
+    background: var(--button-bg);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.open-btn:hover {
+    background: var(--button-hover);
+}
+
+@media (max-width: 800px) {
+    #pdf-list {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1rem;
+    }
+    .pdf-item {
+        min-width: 80vw;
+    }
+}
