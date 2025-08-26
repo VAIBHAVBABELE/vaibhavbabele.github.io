@@ -3,6 +3,38 @@ const element = document.getElementById('scroll-hide');
 const mode = document.getElementById("mode");
 const load = document.getElementById("onload");
 
+document.addEventListener('DOMContentLoaded', function() {
+        const cardRow = document.getElementById('cardRow');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        
+        // Calculate scroll amount (width of one card + gap)
+        const card = document.querySelector('.card');
+        const gap = 20; // px, same as CSS gap value
+        
+        const cardWidth = card.offsetWidth;
+        const scrollAmount = cardWidth + gap;
+        
+        // Number of cards per view
+        let cardsPerView = Math.floor(cardRow.offsetWidth / (cardWidth + gap));
+        
+        // Update on resize
+        window.addEventListener('resize', function() {
+            cardsPerView = Math.floor(cardRow.offsetWidth / (card.offsetWidth + gap));
+        });
+        
+        // Next button event
+        nextBtn.addEventListener('click', function() {
+            cardRow.scrollBy({ left: scrollAmount * cardsPerView, behavior: 'smooth' });;
+        });
+        
+        // Previous button event
+        prevBtn.addEventListener('click', function() {
+            cardRow.scrollBy({ left: -scrollAmount * cardsPerView, behavior: 'smooth' });
+            ;
+        });
+    });
+
 function checkWindowSize() {
     if (!element) return;
 
