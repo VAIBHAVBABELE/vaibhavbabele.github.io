@@ -8,13 +8,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
   <link rel="manifest" href="../favicon/site.webmanifest">
   <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../games/games.css">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -24,70 +25,51 @@
       text-align: center;
     }
     .container {
-      padding-top: 60px; /* Updated to match new navbar */
+      padding-top: 60px;
     }
-
-    /* Mobile responsive fixes */
-    @media (max-width: 1000px) {
-      .container {
-        padding-top: 55px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .container {
-        padding-top: 50px;
-      }
-    }
-
     h2 {
       color: #2c3e50;
     }
-
-    .quiz-box {
-      background: #926f57;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 30px;
+    .quiz-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      padding: 35px 30px;
       max-width: 600px;
       margin: 0 auto;
       transition: 0.3s;
-    }
-
-    .question {
-      font-size: 1.3rem;
-      margin: 20px 0;
       color: #34495e;
     }
-
-    .options button {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      background: #d1eaff;
-      font-size: 1rem;
-      transition: 0.2s;
-      cursor: pointer;
+    .quiz-card:hover {
+      box-shadow: 0 6px 26px rgba(0,0,0,0.19);
+      transform: translateY(-3px);
     }
-
-    .options button:hover {
-      background: #9ad5ff;
-    }
-
-    .result {
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
       font-size: 1.1rem;
-      margin-top: 10px;
+      font-weight: 600;
+      color: #2c3e50;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-
-    .quote {
-      font-style: italic;
-      color: #555;
-      margin-top: 15px;
+    .timer-box {
+      background: #f6e7d3;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #704f30;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+      min-width: 120px;
+      text-align: center;
     }
-
+    .score {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 10px 0;
+    }
     .progress {
       margin: 15px 0;
       height: 10px;
@@ -96,169 +78,203 @@
       border-radius: 5px;
       overflow: hidden;
     }
-
     .progress-bar {
       height: 10px;
       background: #7ed6df;
       width: 0%;
       transition: width 0.4s;
     }
-
-    .score {
-      font-size: 1rem;
-      margin: 10px 0;
+    .question {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      font-weight: 600;
+      color: #34495e;
     }
-
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 8px;
+      background: #d1eaff;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    .options button:hover {
+      background: #9ad5ff;
+      color: #1a2a3b;
+    }
+    .result {
+      font-size: 1.2rem;
+      margin-top: 14px;
+      font-weight: 600;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-top: 15px;
+    }
     #restart {
       margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
+      padding: 12px 24px;
+      font-size: 1.1rem;
       border: none;
       border-radius: 8px;
       background: #82ccdd;
       cursor: pointer;
+      transition: background 0.3s ease;
+      display:none;
+    }
+    #restart:hover {
+      background: #60b7cb;
     }
   </style>
 </head>
 <body>
+
 <div class="container">
   <nav>
-    <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+    <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
     <input type="checkbox" id="click">
-    <label for="click" class="menu-btn">
-      <i class="fa-sharp fa-solid fa-bars"></i>
-    </label>
+    <label for="click" class="menu-btn"><i class="fa-sharp fa-solid fa-bars"></i></label>
     <ul>
       <li><a href="../index.html" id="active">Home</a></li>
-      <li><a href="../index.html#Services" >Services</a></li>
-      <li><a href="../index.html#about">About </a></li>
+      <li><a href="../index.html#Services">Services</a></li>
+      <li><a href="../index.html#about">About</a></li>
       <li><a href="../index.html#Feedback">Feedback</a></li>
       <li><a href="../index.html#contact">Contact us</a></li>
     </ul>
     <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-  </nav> 
-  <!-- ADD SPACING AFTER NAVBAR -->
+  </nav>
+
   <div style="height: 70px;"></div>
-  <!--Add Go Back Navigation Button-->
-   <a href="../games/gamess.html"  
-  class="back-link">&larr; Go Back</a>
-  
+  <a href="../games/gamess.html" class="back-link">&larr; Go Back</a>
+
   <h2>🧪 Basic Coding Quiz</h2>
-  <div class="quiz-box">
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="score" id="score">Score: 0</div>
+      <div class="timer-box">⏳ Time Left: <span id="timer">15</span>s</div>
+    </div>
     <div class="progress"><div class="progress-bar" id="bar"></div></div>
-    <div class="score" id="score">Score: 0</div>
     <div class="question" id="question">Loading question...</div>
     <div class="options" id="options"></div>
     <div class="result" id="result"></div>
     <div class="quote" id="quote"></div>
-    <button id="restart" style="display:none" onclick="restartQuiz()">🔁 Restart Quiz</button>
+    <button id="restart" onclick="restartQuiz()">🔁 Restart Quiz</button>
   </div>
-  </div>
+</div>
 
-  <script>
-    const questions = [
-      {
-        q: "What does HTML stand for?",
-        o: ["HyperText Markup Language", "Hyper Transfer Markup Language", "HighText Machine Language"],
-        a: 0,
-        tip: "HTML is a markup language, not a programming language."
-      },
-      {
-        q: "Which language is used for styling web pages?",
-        o: ["HTML", "JQuery", "CSS"],
-        a: 2,
-        tip: "CSS = Cascading Style Sheets."
-      },
-      {
-        q: "Inside which HTML element do we put JavaScript?",
-        o: ["<script>", "<js>", "<javascript>"],
-        a: 0,
-        tip: "Always use <script> tags for JavaScript."
-      },
-      {
-        q: "Which data structure uses FIFO?",
-        o: ["Stack", "Queue", "Graph"],
-        a: 1,
-        tip: "FIFO stands for First In First Out."
-      },
-      {
-        q: "What does 'const' mean in JavaScript?",
-        o: ["A fixed loop", "An immutable variable", "A variable that can change"],
-        a: 1,
-        tip: "‘const’ creates a constant reference to a value."
+<script>
+  const questions = [
+    { q: "What does HTML stand for?", o: ["HyperText Markup Language", "Hyper Transfer Markup Language", "HighText Machine Language"], a: 0, tip: "HTML is a markup language, not a programming language." },
+    { q: "Which language is used for styling web pages?", o: ["HTML", "JQuery", "CSS"], a: 2, tip: "CSS = Cascading Style Sheets." },
+    { q: "Inside which HTML element do we put JavaScript?", o: ["<script>", "<js>", "<javascript>"], a: 0, tip: "Always use <script> tags for JavaScript." },
+    { q: "Which data structure uses FIFO?", o: ["Stack", "Queue", "Graph"], a: 1, tip: "FIFO stands for First In First Out." },
+    { q: "What does 'const' mean in JavaScript?", o: ["A fixed loop", "An immutable variable", "A variable that can change"], a: 1, tip: "‘const’ creates a constant reference to a value." },
+
+    // Added Python & other questions
+    { q: "Which keyword is used to define a function in Python?", o: ["func", "def", "function"], a: 1, tip: "Python uses 'def' to define functions." },
+    { q: "What is the output of: print(2 ** 3) in Python?", o: ["6", "8", "9"], a: 1, tip: "** is exponentiation; 2^3=8." },
+    { q: "Which data type is immutable in Python?", o: ["List", "Dictionary", "Tuple"], a: 2, tip: "Tuples are immutable sequences." },
+    { q: "Which operator is used for floor division in Python?", o: ["/", "//", "%"], a: 1, tip: "'//' operator floors division result." },
+    { q: "What does the len() function do in Python?", o: ["Returns length", "Returns value", "Returns type"], a: 0, tip: "len() returns the number of items in an object." },
+
+    { q: "Which symbol is used to start a comment in Python?", o: ["#", "//", "/*"], a: 0, tip: "The '#' symbol starts a comment in Python." },
+    { q: "What is the keyword for creating a loop in Python?", o: ["loop", "for", "repeat"], a: 1, tip: "'for' is used for loops in Python." },
+    { q: "Which of these is NOT a Python data type?", o: ["int", "float", "real"], a: 2, tip: "'real' is not a Python data type." },
+    { q: "How do you import modules in Python?", o: ["include", "using", "import"], a: 2, tip: "Python uses 'import' to include modules." },
+    { q: "What does 'pass' do in Python?", o: ["Skips execution", "Does nothing", "Breaks the loop"], a: 1, tip: "'pass' is a null operation statement." }
+  ];
+
+  let current = 0, score = 0, timerId, timeLeft = 15;
+
+  function startTimer() {
+    clearInterval(timerId);
+    timeLeft = 15;
+    document.getElementById("timer").textContent = timeLeft;
+
+    timerId = setInterval(() => {
+      timeLeft--;
+      document.getElementById("timer").textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timerId);
+        checkAnswer(-1);
       }
-    ];
+    }, 1000);
+  }
 
-    let current = 0, score = 0;
+  function loadQuestion() {
+    const q = questions[current];
+    document.getElementById("question").textContent = `Q${current + 1}. ${q.q}`;
+    const opts = document.getElementById("options");
+    opts.innerHTML = "";
 
-    function loadQuestion() {
-      const q = questions[current];
-      document.getElementById("question").textContent = `Q${current + 1}. ${q.q}`;
-      const opts = document.getElementById("options");
-      opts.innerHTML = "";
+    q.o.forEach((opt, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.onclick = () => checkAnswer(i);
+      opts.appendChild(btn);
+    });
 
-      q.o.forEach((opt, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = opt;
-        btn.onclick = () => checkAnswer(i);
-        opts.appendChild(btn);
-      });
+    document.getElementById("bar").style.width = `${(current / questions.length) * 100}%`;
+    startTimer();
+  }
 
-      document.getElementById("bar").style.width = `${((current) / questions.length) * 100}%`;
+  function checkAnswer(i) {
+    clearInterval(timerId);
+    const correct = i === questions[current].a;
+    if (i === -1) {
+      document.getElementById("result").textContent = "⏰ Time’s Up!";
+    } else if (correct) {
+      score++;
+      document.getElementById("result").textContent = "✅ Correct!";
+    } else {
+      document.getElementById("result").textContent = "❌ Wrong!";
     }
 
-    function checkAnswer(i) {
-      const correct = i === questions[current].a;
-      if (correct) {
-        score++;
-        document.getElementById("result").textContent = "✅ Correct!";
-      } else {
-        document.getElementById("result").textContent = "❌ Wrong!";
-      }
+    document.getElementById("score").textContent = `Score: ${score}`;
+    document.getElementById("quote").textContent = `"${questions[current].tip}"`;
 
-      document.getElementById("score").textContent = `Score: ${score}`;
-      document.getElementById("quote").textContent = `"${questions[current].tip}"`;
-
-      current++;
-      if (current < questions.length) {
-        setTimeout(() => {
-          document.getElementById("result").textContent = "";
-          document.getElementById("quote").textContent = "";
-          loadQuestion();
-        }, 1500);
-      } else {
-        endQuiz();
-      }
+    current++;
+    if (current < questions.length) {
+      setTimeout(() => {
+        document.getElementById("result").textContent = "";
+        document.getElementById("quote").textContent = "";
+        loadQuestion();
+      }, 1500);
+    } else {
+      endQuiz();
     }
+  }
 
-    function endQuiz() {
-      document.getElementById("question").textContent = `🎉 Quiz Over!`;
-      document.getElementById("options").innerHTML = "";
-      document.getElementById("result").textContent = `Your final score is ${score}/${questions.length}`;
-      document.getElementById("bar").style.width = `100%`;
-      document.getElementById("restart").style.display = "inline-block";
-    }
+  function endQuiz() {
+    document.getElementById("question").textContent = `🎉 Quiz Over!`;
+    document.getElementById("options").innerHTML = "";
+    document.getElementById("result").textContent = `Your final score is ${score}/${questions.length}`;
+    document.getElementById("bar").style.width = `100%`;
+    document.getElementById("restart").style.display = "inline-block";
+    document.getElementById("timer").textContent = "0";
+  }
 
-    function restartQuiz() {
-      current = 0;
-      score = 0;
-      document.getElementById("score").textContent = `Score: 0`;
-      document.getElementById("restart").style.display = "none";
-      document.getElementById("result").textContent = "";
-      document.getElementById("quote").textContent = "";
-      loadQuestion();
-    }
-
+  function restartQuiz() {
+    current = 0;
+    score = 0;
+    document.getElementById("score").textContent = `Score: 0`;
+    document.getElementById("restart").style.display = "none";
+    document.getElementById("result").textContent = "";
+    document.getElementById("quote").textContent = "";
     loadQuestion();
-  </script>
+  }
 
- <script src="../index.js"></script>
- <p></p>
- <div style="text-align: center;">
-    <h4 color="white">Total Visitors</h4>
-     <script type="text/javascript"></script>
-     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
-   </div>
-   <p></p>
+
+  loadQuestion();
+</script>
+
 </body>
 </html>
