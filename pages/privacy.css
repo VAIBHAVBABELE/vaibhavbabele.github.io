@@ -92,3 +92,215 @@
       padding: 20px;
       font-size: smaller;
     }
+
+    .privacy-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      background-color: var(--bg-shade);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .privacy-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
+    }
+
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .privacy-header h1 {
+      color: var(--main-color);
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .privacy-divider {
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
+      border: none;
+      margin: 25px auto;
+      width: 150px;
+      border-radius: 3px;
+    }
+
+    .privacy-section {
+      margin-bottom: 35px;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .privacy-section:hover {
+      transform: translateX(10px);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .privacy-section h4 {
+      color: var(--secondary-text-color);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .privacy-section h4::before {
+      content: '•';
+      color: var(--accent-color);
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+
+    .privacy-section p {
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: var(--primary-text-color);
+      font-size: 1.05rem;
+      padding-left: 25px;
+    }
+
+    .privacy-section a {
+      color: var(--accent-color-dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      font-weight: 500;
+    }
+
+    .privacy-section a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--accent-color);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .privacy-section a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .privacy-section a:hover {
+      color: var(--main-color);
+    }
+
+    @media (max-width: 768px) {
+      .privacy-container {
+        margin: 20px;
+        padding: 25px;
+      }
+
+      .privacy-header h1 {
+        font-size: 2rem;
+      }
+
+      .privacy-section {
+        padding: 15px;
+      }
+
+      .privacy-section h4 {
+        font-size: 1.2rem;
+      }
+
+      .privacy-section p {
+        font-size: 1rem;
+        padding-left: 15px;
+      }
+    }
+    
+    .visitor-counter {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    .visitor-counter h4 {
+        color: var(--secondary-text-color);
+        margin-bottom: 15px;
+    }
+    
+    .privacy-footer {
+        padding: 0 ;
+        border-top:0;
+    }
+    
+    .footer-content {
+        text-align: center;
+    }
+    
+    .footer-links {
+        margin-bottom: 20px;
+    }
+    
+    .footer-links a {
+        color: var(--secondary-text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        padding: 0 15px;
+    }
+    
+    .footer-links a:hover {
+        color: var(--accent-color-dark);
+    }
+    
+    .footer-links .divider {
+        color: var(--secondary-text-color);
+        opacity: 0.5;
+    }
+    
+    .essential-contact {
+        margin: 20px 0;
+    }
+    
+    .essential-contact .contact-link {
+        color: var(--primary-text-color);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.3s ease;
+    }
+    
+    .essential-contact .contact-link:hover {
+        color: var(--accent-color-dark);
+    }
+    
+    .essential-contact i {
+        font-size: 1.2rem;
+    }
+    
+    .copyright {
+        color: var(--secondary-text-color);
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .footer-links a {
+            display: block;
+            padding: 8px 0;
+        }
+        
+        .footer-links .divider {
+            display: none;
+        }
+    }
