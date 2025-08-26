@@ -11,9 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pr-contributor.css">
     <link rel="stylesheet" href="../../index.css">
+    <!-- scroll -->
+    <link rel="stylesheet" href="../../css/scroll-indicator.css">
   </head>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
     <!-- NAVBAR DESIGNING -->
     <nav>
+        <button onclick="goBack()" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </button>
         <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -738,5 +748,7 @@ window.addEventListener('load', () => {
     addRefreshButton();
 });
 </script>
+<!-- scroll -->
+<script src="../../js/scroll-indicator.js"></script>
   </body>
 </html>

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="pages/summary/summary.css">
     <link rel="stylesheet" href="pages/assistant/assistant.css">
     <link rel="stylesheet" href="pages/cursor.css">
+    <!-- scroll -->
+    <link rel="stylesheet" href="./css/scroll-indicator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,9 +36,13 @@
 </head>
 
 <body id="onload">
-
+    
+    
     <!-- NAVBAR DESIGNING -->
     <nav>
+        <button onclick="goBack()" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </button>
         <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -51,12 +57,14 @@
             <button id="lang-toggle">
                 हिंदी
             </button>
-
         </ul>
         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
         <script src="index.js"></script>
-
     </nav>
+    <!-- Scroll Progress Indicator just under the navbar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
 
     <div class="main">
 
@@ -726,6 +734,8 @@
     <!-- Google Translate -->
     <div id="google_translate_element" style="display:none;"></div>
     <script src="language.js"></script>
+    <!-- scroll -->
+    <script src="./js/scroll-indicator.js"></script>
 </body>
 
 </html>

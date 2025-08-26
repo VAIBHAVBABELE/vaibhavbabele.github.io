@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="summary.css">
     <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="../paper.css">
-
+    <link rel="stylesheet" href="../../css/scroll-indicator.css" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -39,8 +39,16 @@
 </head>
 <body id="onload">
 
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
     <!-- NAVBAR DESIGNING -->
     <nav>
+        <button onclick="goBack()" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </button>
         <div class="logo "><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -683,5 +691,6 @@ The AI will help you:
 <div id="google_translate_element" style="display:none;"></div>
 
 <script src="../../language.js"></script>
+<script src="../../js/scroll-indicator.js"></script>
 </body>
 </html>
