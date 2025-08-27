@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Complaints</title>
   <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
 </head>
 <body>
+  <!-- Scroll Progress Indicator -->
+
   <nav>
+    <button onclick="goBack()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+    </button>
     <a href="../index.html">Home</a> |
     <a href="notes.html">Notes</a> |
     <a href="pyqs.html">PYQs</a> |
@@ -17,6 +25,10 @@
     <a href="roommate-finder.html">Roommate Finder</a> |
     <a href="complaints.html">Complaints</a>
   </nav>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
   <h1>Complaints</h1>
   <div id="complaints-list"></div>
   <script>
@@ -39,5 +51,10 @@
      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
    </div>
    <p></p>
+
+  <!-- Scroll features -->
+
+  <!-- Scroll features -->
+  <script src="../js/scroll-indicator.js"></script>
 </body>
 </html>

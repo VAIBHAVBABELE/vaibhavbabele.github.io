@@ -22,12 +22,21 @@
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+     <!-- scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
 </head>
 
-<body id="onload">
+  <body id="onload">
+
+    <!-- Scroll Progress Indicator -->
 
     <!-- NAVBAR DESIGNING -->
     <nav>
+    <button onclick="goBack()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
         <div class="logo "><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -47,6 +56,10 @@
         <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
 
     </nav>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
 
 
     <!-- SERVICE DESIGNING -->
@@ -282,6 +295,9 @@
     <div id="google_translate_element" style="display:none;"></div>
 
     <script src="../language.js"></script>
+        <!-- scroll -->
+  <!-- Scroll features -->
+  <script src="../js/scroll-indicator.js"></script>
 </body>
 
 </html>

@@ -44,6 +44,7 @@ h1 {
 
 .logo {
   height: 6em;
+  margin-top: 1em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;

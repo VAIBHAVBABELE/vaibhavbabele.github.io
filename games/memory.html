@@ -88,9 +88,17 @@ body {font-family: 'IBM Plex Sans', sans-serif; text-align: center; padding: 60p
       h1 { font-size: 1.5em; } .card { width: 55px; height: 55px; font-size: 1.5em; } .grid-container { padding: 5px; gap: 5px; } select, button { padding: 8px 10px; font-size: 0.85em; } .modal-content { padding: 20px; }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
 </head>
 <body>
+  <!-- Scroll Progress Indicator -->
+
    <nav>
+    <button onclick="goBack()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+    </button>
     <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
     <input type="checkbox" id="click">
     <label for="click" class="menu-btn">
@@ -104,7 +112,11 @@ body {font-family: 'IBM Plex Sans', sans-serif; text-align: center; padding: 60p
       <li><a href="../index.html#contact">Contact us</a></li>
     </ul>
     <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-  </nav> 
+  </nav>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div> 
 <!-- ADD SPACING AFTER NAVBAR -->
   <div style="height: 70px;"></div>
   <!--Add Go Back Navigation Button-->
@@ -294,5 +306,10 @@ body {font-family: 'IBM Plex Sans', sans-serif; text-align: center; padding: 60p
      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
    </div>
    <p></p>
+
+  <!-- Scroll features -->
+
+  <!-- Scroll features -->
+  <script src="../js/scroll-indicator.js"></script>
 </body>
 </html>
