@@ -1624,10 +1624,12 @@ footer .copyright {
     content: "\f00d";
   }
   
-  #click:checked ~ ul {
+  #click:checked~ul {
     left: 0%;
+    height: 70%;
+    overflow-y: auto;
   }
-
+  
   nav #mode {
     width: 24px;
     height: 24px;
