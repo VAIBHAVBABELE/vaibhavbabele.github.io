@@ -1,0 +1,142 @@
+/* Floating Sidebar - Pill Style */
+.floating-sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 35px;
+    padding: 15px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    width: 70px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-item {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #666;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar-link:hover {
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar-link.active {
+    background: #007bff;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.sidebar-link.active:hover {
+    background: #0056b3;
+    color: white;
+}
+
+/* Tooltip */
+.sidebar-item:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 65px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1001;
+    opacity: 1;
+    animation: tooltipFade 0.3s ease;
+}
+
+.sidebar-item:hover::before {
+    content: '';
+    position: absolute;
+    left: 58px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid rgba(0, 0, 0, 0.8);
+    z-index: 1001;
+}
+
+@keyframes tooltipFade {
+    from { opacity: 0; transform: translateY(-50%) translateX(-10px); }
+    to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .floating-sidebar {
+        left: 10px;
+        width: 60px;
+    }
+    
+    .sidebar-item {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .sidebar-link {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .sidebar-item:hover::after {
+        display: none;
+    }
+    
+    .sidebar-item:hover::before {
+        display: none;
+    }
+}
+
+/* Dark mode support */
+body.dark-mode .floating-sidebar {
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .sidebar-link {
+    color: #ccc;
+}
+
+body.dark-mode .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}

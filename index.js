@@ -1,6 +1,5 @@
 // ===== Navbar & Scroll Handling =====
 const element = document.getElementById('scroll-hide');
-const mode = document.getElementById("mode");
 const load = document.getElementById("onload");
 
 function checkWindowSize() {
@@ -20,39 +19,53 @@ function checkWindowSize() {
 window.addEventListener('load', checkWindowSize);
 window.addEventListener('resize', checkWindowSize);
 
-/* ===== Mobile Menu Toggle ===== */
-function initNavbarEvents() {
-    const clickBtn = document.getElementById('click');
-    const navLinks = document.querySelectorAll("nav ul li a"); // menu links
-    if (clickBtn) {
-        clickBtn.addEventListener('click', function () {
-            if (element) element.style.display = 'block';
-        });
+// ===== Back Button Function =====
+function goBack() {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = '/';
     }
-
-     if (!clickBtn) return;
-
-    // Close nav when a link is clicked
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            clickBtn.checked = false; // uncheck hamburger = menu closes
-        });
-    });
 }
-
-// Trigger when navbar dynamically loaded
-document.addEventListener("navbarLoaded", initNavbarEvents);
-document.addEventListener("DOMContentLoaded", initNavbarEvents);
 
 // ===== Dark Mode Toggle =====
-window.onload = function () {
+let darkModeInitialized = false;
+
+function initDarkMode() {
+    // Prevent multiple initializations
+    if (darkModeInitialized) return;
+    
+    const mode = document.getElementById("mode");
+    
+    if (!mode) {
+        console.error('Mode element not found!');
+        return;
+    }
+    
+    // Initialize dark mode state
     const isDark = localStorage.getItem('mode') === 'true';
     document.body.classList.toggle('dark-mode', isDark);
-
-    updateModeIcon();
+    
+    updateModeIcon(mode);
+    
+    // Remove any existing event listeners
+    mode.onclick = null;
+    
+    // Add click event listener
+    mode.addEventListener('click', function () {
+        const wasDarkmode = localStorage.getItem('mode') === 'true';
+        const newMode = !wasDarkmode;
+        localStorage.setItem('mode', newMode);
+        document.body.classList.toggle("dark-mode", newMode);
+        updateModeIcon(mode);
+        console.log('Theme toggled to:', newMode ? 'dark' : 'light');
+    });
+    
+    darkModeInitialized = true;
+    console.log('Dark mode toggle initialized successfully');
 }
 
-function updateModeIcon() {
+function updateModeIcon(mode) {
     if (!mode) return;
 
     const path = window.location.pathname;
@@ -72,15 +85,32 @@ function updateModeIcon() {
     mode.src = document.body.classList.contains("dark-mode") ? imgPathPrefix + "sun.png" : imgPathPrefix + "moon.png";
 }
 
-if (mode) {
-    mode.onclick = function () {
-        const wasDarkmode = localStorage.getItem('mode') === 'true';
-        const newMode = !wasDarkmode;
-        localStorage.setItem('mode', newMode);
-        document.body.classList.toggle("dark-mode", newMode);
-        updateModeIcon();
+// Test function for debugging (can be called from browser console)
+function testThemeToggle() {
+    const mode = document.getElementById("mode");
+    console.log('Mode element:', mode);
+    console.log('Current dark mode state:', document.body.classList.contains('dark-mode'));
+    console.log('LocalStorage mode:', localStorage.getItem('mode'));
+    
+    if (mode) {
+        mode.click();
+    } else {
+        console.error('Mode element not found!');
     }
 }
+
+// Initialize dark mode when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure all elements are loaded
+    setTimeout(initDarkMode, 100);
+});
+
+// Also try on window load as backup
+window.addEventListener('load', function() {
+    if (!darkModeInitialized) {
+        initDarkMode();
+    }
+});
 
 // ===== Copyright Year =====
 document.addEventListener("DOMContentLoaded", function () {
@@ -139,9 +169,10 @@ function initLanguageToggle() {
     });
 }
 
-// Run on every page load
-document.addEventListener("DOMContentLoaded", initLanguageToggle);
-document.addEventListener("navbarLoaded", initLanguageToggle);
+// Run language toggle initialization
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(initLanguageToggle, 200);
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {
