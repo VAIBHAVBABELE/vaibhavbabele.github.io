@@ -1,0 +1,59 @@
+.custom-navbar {
+  background-color: #f5d7a1 !important;
+  border-bottom: 2px solid #ccb079 !important;
+}
+.custom-navbar .navbar-brand {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+}
+.policy-container {
+  background: linear-gradient(135deg, #fdf6ee 0%, #fbe7d1 100%);
+  border-radius: 18px;
+  margin: 40px auto;
+  max-width: 900px;
+  padding: 40px 32px 32px 32px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+.policy-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #5a3b1b;
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+.policy-divider {
+  height: 3px;
+  background-color: #ccb079;
+  border: none;
+  width: 80px;
+  margin: 0 auto 24px auto;
+  display: block;
+}
+.policy-intro {
+  font-size: 1.1rem;
+  color: #6d4c1c;
+  text-align: center;
+}
+.policy-list {
+  margin-top: 32px;
+  padding-left: 0;
+  list-style: none;
+}
+.policy-list-title {
+  font-weight: 600;
+  color: #5a3b1b;
+  font-size: 1.2rem;
+}
+.policy-list li {
+  margin-bottom: 28px;
+  color: #6d4c1c;
+}
+.policy-visitors {
+  text-align: center;
+  margin-top: 32px;
+}
+.policy-visitors h4 {
+  color: #5a3b1b;
+  font-weight: 600;
+}

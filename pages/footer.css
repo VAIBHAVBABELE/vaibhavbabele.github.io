@@ -136,6 +136,7 @@ body.dark-mode .contact-link i {
 .footer-links {
   text-align: center;
   margin-bottom: 15px;
+  font-size: larger;
 }
 
 .footer-links a {
@@ -228,6 +229,10 @@ footer .copyright {
      .social-media {
          flex-wrap: wrap;
          justify-content: center;
+     }
+
+     .footer-links{
+      font-size: medium;
      }
 
      .social-media a {

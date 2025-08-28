@@ -1,6 +1,6 @@
 name: Contribution Request
 description: Submit your contribution idea or bug report here.
-title: " "
+title: "write title here"
 labels: ["triage"]
 body:
   - type: dropdown

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PYQs Archive (Firebase)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+    <style>
+        .hero-pyq {
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: #fff;
+            padding: 60px 0 40px 0;
+            border-radius: 0 0 40px 40px;
+        }
+        .pyq-card {
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(67,206,162,0.10);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <section class="hero-pyq text-center mb-5">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3"><i class="bi bi-journal-text"></i> PYQs Archive (Firebase)</h1>
+            <p class="lead mb-4">Search and upload previous year question papers. Powered by Firebase for real-time access!</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-upload"></i> Upload PYQ</h5>
+                <form id="pyqForm" class="row g-3">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="year" placeholder="Year" required>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="title" placeholder="Title" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="url" placeholder="File URL" required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success"><i class="bi bi-cloud-arrow-up"></i> Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <h4 class="mb-3 text-center"><i class="bi bi-search"></i> Search PYQs</h4>
+        <input type="text" class="form-control mb-3" id="search" placeholder="Search by subject, year, or title">
+        <div class="row" id="pyqList"></div>
+    </div>
+    <script>
+        // TODO: Replace with your Firebase config
+        const firebaseConfig = {
+  apiKey: "AIzaSyAyGAnbPpPdTpd4afGnn8MqxKDf2hlwP5I",
+  authDomain: "wbf-dashboard.firebaseapp.com",
+  projectId: "wbf-dashboard",
+  storageBucket: "wbf-dashboard.firebasestorage.app",
+  messagingSenderId: "210511947582",
+  appId: "1:210511947582:web:b76bbed350baf3c07eae6f",
+  measurementId: "G-BQQG797HJX"
+};
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        document.getElementById('pyqForm').onsubmit = function(e) {
+            e.preventDefault();
+            const subject = document.getElementById('subject').value;
+            const year = document.getElementById('year').value;
+            const title = document.getElementById('title').value;
+            const url = document.getElementById('url').value;
+            db.ref('pyqs').push({ subject, year, title, url, uploaded_at: new Date().toISOString() });
+            alert('PYQ uploaded!');
+            this.reset();
+        };
+        function renderPYQs(pyqs) {
+            const list = document.getElementById('pyqList');
+            list.innerHTML = '';
+            (Array.isArray(pyqs) ? pyqs : Object.values(pyqs)).forEach(pyq => {
+                if (!pyq.title) return;
+                const card = document.createElement('div');
+                card.className = 'col-md-6 col-lg-4 mb-3';
+                card.innerHTML = `<div class='card pyq-card h-100 shadow-sm'><div class='card-body'><h5 class='card-title mb-1'><i class='bi bi-file-earmark-text'></i> ${pyq.title}</h5><p class='mb-1'><strong>Subject:</strong> ${pyq.subject}</p><p class='mb-1'><strong>Year:</strong> ${pyq.year}</p><a href='${pyq.url}' target='_blank' class='btn btn-info btn-sm text-white'><i class='bi bi-download'></i> Download</a></div><div class='card-footer text-muted small'>Uploaded: ${pyq.uploaded_at}</div></div>`;
+                list.appendChild(card);
+            });
+        }
+        db.ref('pyqs').on('value', snapshot => {
+            const pyqs = snapshot.val() || {};
+            renderPYQs(pyqs);
+        });
+        document.getElementById('search').oninput = function() {
+            const query = this.value.toLowerCase();
+            db.ref('pyqs').once('value').then(snapshot => {
+                const pyqs = snapshot.val() || {};
+                const filtered = (Array.isArray(pyqs) ? pyqs : Object.values(pyqs)).filter(pyq =>
+                    (pyq.subject && pyq.subject.toLowerCase().includes(query)) ||
+                    (pyq.year && pyq.year.toLowerCase().includes(query)) ||
+                    (pyq.title && pyq.title.toLowerCase().includes(query))
+                );
+                renderPYQs(filtered);
+            });
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -278,7 +278,15 @@ iframe{
   box-shadow: 0 0 1.5rem var(--accent-color-dark);
 }
 
+.form h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+}
 
+.form img {
+  height: 40px;
+}
 
 
 
@@ -681,7 +689,7 @@ nav #mode:hover {
 section{
     padding: 20px var(--padding-inline-section) 50px; /* Reduced top padding */
     background: var(--bg-shade);
-    
+
     
 }
 .main-page{
@@ -1115,7 +1123,25 @@ margin-bottom: 5%;
   transform: rotate(90deg);
   color: #2a1c10;
 }
+.form h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+}
 
+.form img {
+  height: 40px;
+}
+.service h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.service img {
+  height: auto;
+}
 
 
 /* Gallery Image Hover Effect Styles */
@@ -1167,12 +1193,21 @@ margin-bottom: 5%;
 .card .effect-text .inner p {
     color: var(--primary-text-color);
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.4;
     padding: 10px;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
+body.dark-mode .card .effect-text .inner p {
+    color: var(--primary-text-color);       
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 10px;                  
+    background: transparent;
+    text-shadow: 1px 1px 3px rgba(0,0,0,1); /* add shadow for readability */
+}
 
 .facility-container {
   display: flex;
@@ -1356,6 +1391,17 @@ body.dark-mode .facility-card p {
     background: #8c6723;
     color: #fff;
     box-shadow: 0 0 1rem var(--main-color);
+}
+
+#about h4{
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.about img {
+  height: 40px;
 }
 /*card width adjust on the small screen */
 @media  screen and (max-width : 768px){
@@ -1614,9 +1660,15 @@ footer .copyright {
   #click:checked ~ .menu-btn i:before {
     content: "\f00d";
   }
+
   #click:checked ~ ul {
+
+  
     left: 0%;
+    height: 70%;
+    overflow-y: auto;
   }
+
   nav #mode {
     width: 24px;
     height: 24px;
@@ -1834,7 +1886,8 @@ footer .copyright {
 
   .greeting {
     position: relative;
-    right: 2rem;
+    right: 2px;
+    text-align: center;
   }
 
   .about-flex {
@@ -2046,3 +2099,91 @@ body {
   
 }
 
+/* Tabs container */
+body.dark-mode .nav-tabs {
+  border-bottom: 2px solid var(--accent-color) !important;
+  padding-left: 0.5rem; /* slight padding for tabs */
+}
+
+/* Tabs styling */
+body.dark-mode .nav-tabs .nav-link {
+  color: var(--white-4345) !important;
+  background-color: var(--bg-shade) !important;
+  border-radius: 12px 12px 0 0 !important;
+  margin-right: 6px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: none !important;
+}
+
+/* Active tab */
+body.dark-mode .nav-tabs .nav-link.active {
+  background-color: var(--accent-color) !important;
+  color: var(--main-color) !important;
+  font-weight: 700;
+  border-bottom: 2.5px solid var(--main-color) !important;
+  box-shadow: 0 4px 10px var(--accent-color-dark)40 !important; /* subtle shadow */
+}
+
+/* Hover and focus */
+body.dark-mode .nav-tabs .nav-link:hover,
+body.dark-mode .nav-tabs .nav-link:focus {
+  background-color: var(--accent-color-dark) !important;
+  color: var(--white-4345) !important;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Circular icon on right */
+body.dark-mode .reset-icon {
+  color: var(--accent-color) !important;
+  filter: drop-shadow(0 0 2px var(--main-color));
+  transition: color 0.3s;
+  opacity: 1;
+}
+
+body.dark-mode .reset-icon:hover {
+  color: var(--accent-color-dark) !important;
+  filter: drop-shadow(0 0 5px var(--accent-color-dark));
+  cursor: pointer;
+}
+/* SGPA Result box contrast fix for dark mode */
+body.dark-mode #result,
+body.dark-mode #cgpa-result {
+  background-color: #bb995c !important;   /* Use your gold accent for strong contrast */
+  color: #191717 !important;              /* Very dark brown/black for clear numbers */
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #85611333;
+}
+
+
+.result-box {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.result-box h4 {
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+.result-box .h3 {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Dark mode support */
+body.dark-mode .result-box {
+    background-color: #2b2b2b;
+    border-color: #444;
+}
+
+body.dark-mode .result-box h4,
+body.dark-mode .result-box h5 {
+    color: #e0e0e0;
+}

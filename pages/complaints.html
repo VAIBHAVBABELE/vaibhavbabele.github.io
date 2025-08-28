@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaints</title>
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+
+  <nav>
+    <button onclick="goBack()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <a href="../index.html">Home</a> |
+    <a href="notes.html">Notes</a> |
+    <a href="pyqs.html">PYQs</a> |
+    <a href="lectures.html">Lectures</a> |
+    <a href="study-groups.html">Study Groups</a> |
+    <a href="pg-reviews.html">PG Reviews</a> |
+    <a href="roommate-finder.html">Roommate Finder</a> |
+    <a href="complaints.html">Complaints</a>
+  </nav>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+  <h1>Complaints</h1>
+  <div id="complaints-list"></div>
+  <script>
+    fetch('../backend/php/get_complaints.php')
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('complaints-list').innerHTML = data.data.map(c =>
+            `<div><b>${c.subject}</b> - Status: ${c.status || 'Pending'}<br>${c.description}<br>Submitted: ${c.submitted_at}</div><hr>`
+          ).join('');
+        } else {
+          document.getElementById('complaints-list').textContent = 'Error loading complaints.';
+        }
+      });
+  </script>
+  <p></p>
+  <div style="text-align: center;">
+    <h4 color="white">Total Visitors</h4>
+     <script type="text/javascript"></script>
+     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+   </div>
+   <p></p>
+
+  <!-- Scroll features -->
+
+  <!-- Scroll features -->
+  <script src="../js/scroll-indicator.js"></script>
+</body>
+</html>

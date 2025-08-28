@@ -87,3 +87,6 @@ dmypy.json
 
 # Other system files
 *.swp
+
+# Node.js
+node_modules/

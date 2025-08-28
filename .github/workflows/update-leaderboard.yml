@@ -1,11 +1,6 @@
 name: Update Leaderboard
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    types: [closed]
-    branches: ["main"]
   schedule:
     # Run every 12 am 
     - cron: '0 0 * * *'

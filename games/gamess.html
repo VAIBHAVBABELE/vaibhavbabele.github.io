@@ -18,12 +18,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="games.css">
+      <!-- scroll -->
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
 </head>
 <body id="onload">
-
-<!-- NAVBAR DESIGNING -->
+<!-- Scroll Progress Indicator -->
     <nav>
+    <button onclick="goBack()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+    </button>
         <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -45,6 +50,10 @@
         <script src="../index.js"></script>
 
     </nav>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
   <section class="about" id="about">
     <h1 class="service-heading">Games</h1>
     <p class="para">Welcome to the Games section of Nitra Mitra, where learning meets fun!
@@ -92,12 +101,70 @@ This space is crafted to help AKTU and Nitra Technical Campus students unwind wh
         <a href="hangman.html" class="btn btn-primary">Play Now</a>
       </div>
     </div>
+   
+    <div class="card" >
+      <img src="../images/8-tiles.jpeg" class="card-img-top" alt="sliding tile game";">
+      <div class="card-body">
+        <h5 class="card-title">Sliding Tile Game</h5>
+        <p class="card-text">Arrange the tiles in the correct order to win!</p>
+        <a href="Sliding-Tile.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+    <div class="card" >
+      <img src="../images/sudoku.png" class="card-img-top" alt="sudoku";">
+      <div class="card-body">
+        <h5 class="card-title">Sudoku</h5>
+        <p class="card-text">Solve the sudoku puzzle and test your brain!</p>
+        <a href="sudoku.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+    <div class="card" >
+      <img src="../images/Color-Recall.png" class="card-img-top" alt="Color-Recall";>
+      <div class="card-body">
+        <h5 class="card-title">Color-Recall</h5>
+        <p class="card-text">Remember the sequence and repeat it! Can you keep up as the patterns get longer and trickier?</p>
+        <a href="color-recall.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+      <div class="card" >
+      <img src="../images/guessTheoutput.png" class="card-img-top" alt="Guess-The-Output";>
+      <div class="card-body">
+        <h5 class="card-title">Guess The Output</h5>
+        <p class="card-text">Test your programming skills with our “Guess the Coding Output” challenge!</p>
+        <a href="guessTheoutput.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+    <div class="card" >
+      <img src="../images/logic-lock.webp" class="card-img-top" alt="Lock-Logic";>
+      <div class="card-body">
+        <h5 class="card-title">Lock-Logic</h5>
+        <p class="card-text">Use your brain to crack the code and unlock the challenge! Only the correct combination will set it free</p>
+        <a href="lock-logic.html" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+    </div>
+     
+  
+  
+
+
   </div>
 <!-- Google Translate -->
 <div id="google_translate_element" style="display:none;"></div>
 <script src="../language.js"></script>
 
+
+  <!-- Scroll features -->
+  <script src="../js/scroll-indicator.js"></script>
 </body>
 
 <script src="../index.js"></script>
+<p></p>
+<div style="text-align: center;">
+    <h4 color="white">Total Visitors</h4>
+     <script type="text/javascript"></script>
+     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+   </div>
+<p></p>
+        <!-- scroll -->
 </html>
