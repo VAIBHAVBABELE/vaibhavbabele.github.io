@@ -13,6 +13,11 @@
     rel="stylesheet">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="team.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
+  <link rel="stylesheet" href="terms.css">
+  <!-- Animation CSS (AOS) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -21,71 +26,79 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Terms and conditions for using Nitra Mitra.">
-  <link rel="stylesheet" href="team.css">
-  <style>
-
-
-
-    .main:not(.dark-mode) {
-      border: var(--primary-text-color) 5px solid;
-      margin-top: 60px;
-      /* Updated to match new navbar */
-    }
-
-    /* Mobile responsive fix for main content */
-    @media (max-width: 1000px) {
-      .main:not(.dark-mode) {
-        margin-top: 55px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .main:not(.dark-mode) {
-        margin-top: 50px;
-      }
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      color: var(--primary-text-color);
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/scroll-indicator.css" />
 </head>
 
 <body>
-  <!-- Scroll Progress Indicator -->
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="../index.html">
+        <i class="fas fa-arrow-left"></i> NITra MITra
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#feedback">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#contact">Contact us</a></li>
+        </ul>
+        <button class="btn" id="darkModeToggle" type="button">🌙</button>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Main Content Container -->
   <main>
-    <h1>Terms & Conditions</h1>
-    <hr style=" height: 3px; background-color: #ccb079; border: none; margin: 10px auto;">
-    <p>Welcome to our website. By accessing this site, you agree to the following terms and conditions:</p>
-
-    <h4>1. Use of Content</h4>
-    <p>All content on this website is for educational purposes only. Unauthorized use or duplication is prohibited.
-    </p>
-
-    <h4>2. User Conduct</h4>
-    <p>Users must not upload harmful content, spam, or infringe on intellectual property rights.</p>
-
-    <h4>3. Privacy</h4>
-    <p>We may collect limited information for functionality purposes. No personal data will be sold or shared.</p>
-
-    <h4>4. Liability</h4>
-    <p>We are not responsible for any damages resulting from the use of this site or its content.</p>
-    <p></p> 
-    <div style="text-align: center;">
-        <h4 color="white">Total Visitors</h4>
-        <script type="text/javascript"></script>
+    <div class="policy-container" data-aos="fade-up" data-aos-duration="900">
+      <h1 class="policy-title" data-aos="fade-down" data-aos-duration="900">
+        Terms & Conditions
+      </h1>
+      <hr class="policy-divider" data-aos="zoom-in" data-aos-duration="900">
+      <p class="policy-intro" data-aos="fade-right" data-aos-duration="900">
+        Welcome to Nitra Mitra. By accessing this site, you agree to the following terms and conditions:
+      </p>
+      <ul class="policy-list">
+        <li data-aos="fade-up" data-aos-delay="100">
+          <span class="policy-list-title">1. Use of Content</span>
+          <div>
+            All content on this website is for educational purposes only. Unauthorized use or duplication is
+            prohibited.
+          </div>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="200">
+          <span class="policy-list-title">2. User Conduct</span>
+          <div>
+            Users must not upload harmful content, spam, or infringe on intellectual property rights.
+          </div>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="300">
+          <span class="policy-list-title">3. Privacy</span>
+          <div>
+            We may collect limited information for functionality purposes. No personal data will be sold or
+            shared.
+          </div>
+        </li>
+        <li data-aos="fade-up" data-aos-delay="400">
+          <span class="policy-list-title">4. Liability</span>
+          <div>
+            We are not responsible for any damages resulting from the use of this site or its content.
+          </div>
+        </li>
+      </ul>
+      <div class="policy-visitors" data-aos="zoom-in" data-aos-delay="500">
+        <h4>Total Visitors</h4>
         <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
       </div>
-      <p></p>
+    </div>
   </main>
 
   <!-- TEAM SECTION (Before Footer) -->
-  <section class="team-showcase">
+  <section class="team-showcase" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
       <div class="section-header">
         <h2>Meet Our Team</h2>
@@ -97,7 +110,7 @@
 
       <div class="team-grid">
         <!-- Vaibhav Babele Card -->
-        <div class="team-showcase-card">
+        <div class="team-showcase-card" data-aos="fade-right" data-aos-delay="100">
           <div class="team-avatar">
             <img src="../images/vaibhav.jpg" alt="Vaibhav Babele">
           </div>
@@ -120,7 +133,7 @@
         </div>
 
         <!-- Ghanshyam Prajapati Card -->
-        <div class="team-showcase-card">
+        <div class="team-showcase-card" data-aos="fade-up" data-aos-delay="200">
           <div class="team-avatar">
             <img src="../images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
           </div>
@@ -141,7 +154,7 @@
         </div>
 
         <!-- Development Team Card -->
-        <div class="team-showcase-card">
+        <div class="team-showcase-card" data-aos="fade-left" data-aos-delay="300">
           <div class="team-avatar placeholder">
             <i class="fas fa-users"></i>
           </div>
@@ -212,9 +225,9 @@
     </div>
   </footer>
 
-  <!-- Scroll features -->
-
-  <!-- Scroll features -->
+  <!-- Animation JS (AOS) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="terms.js"></script>
   <script src="../js/scroll-indicator.js"></script>
 </body>
 

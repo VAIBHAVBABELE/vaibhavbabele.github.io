@@ -2,12 +2,14 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-27*
+*Last updated: 2025-08-28*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#308](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308) | Fix: Align 'Total Visitors' section and counter badge for visual consistency | [@ishanibasu](https://github.com/ishanibasu) | ## 🔖 PR Title: Fix: Aligned 'Total Visitors' section and ... | 60 | enhancement, OSCI25, hard | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-25 | 458 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308) |
+| [#321](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/321) | Added: TimeLimit/ProgressBar/UIFix | [@Adii0906](https://github.com/Adii0906) | ## 🔖 PR Title: Added: 15-question dynamic quiz with timer ... | 3 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-27 | 504 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/321) |
+| [#328](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/328) | Updated terms final[OSCI'25] | [@ShatadruDhar](https://github.com/ShatadruDhar) | 🔖 PR Title: Fixed missing navigation bar on Terms and ... | 3 | frontend, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-27 | 199 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/328) |
 | [#324](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/324) | feat/Navbar and back to top button updated | [@ManabBiswas](https://github.com/ManabBiswas) | ## 🔖 PR Title: <!-- A clear and concise title ... | 69 | feature, OSCI25, intermediate | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-26 | 1594 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/324) |
-| [#308](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308) | Fix: Align 'Total Visitors' section and counter badge for visual consistency | [@ishanibasu](https://github.com/ishanibasu) | ## 🔖 PR Title: Fix: Aligned 'Total Visitors' section and ... | 60 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-25 | 458 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308) |
 | [#320](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/320) | Privacy policy redesigned | [@Dhirajgithub813](https://github.com/Dhirajgithub813) | ## 🔖 PR Title: Privacy policy redesigned --- ## 📄 ... | 3 | frontend, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-26 | 421 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/320) |
 | [#318](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/318) | Build Syllabus View Service | [@Sundaram-Katare](https://github.com/Sundaram-Katare) | ## 🔖 PR Title: Build Syllabus section for the users ... | 5 | frontend, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-26 | 139 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/318) |
 | [#301](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301) | Fix: Responsiveness of website sections on smaller screens | [@roniitpodder](https://github.com/roniitpodder) | ## 🔖 PR Title: Fixed Responsiveness of website sections on ... | 3 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-24 | 8 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/301) |
@@ -105,6 +107,117 @@ This document lists all merged PRs with details: author, title, description (max
 
 ## 📝 Detailed Merged PRs
 
+### [#308 Fix: Align 'Total Visitors' section and counter badge for visual consistency](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308)
+
+- **Author:** [@ishanibasu](https://github.com/ishanibasu)
+- **Description:**  
+## 🔖 PR Title: Fix: Aligned 'Total Visitors' section and ...
+- **Files Changed (60):**
+    - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/typing.html`
+  - `index.css`
+  - `index.html`
+  - `pages/404.html`
+  - `pages/ai-assistant.html`
+  - `pages/ai-file-process.html`
+  - `pages/ai-question-gen.html`
+  - `pages/ai-summary.html`
+  - `pages/announcement-table.html`
+  - `pages/attendance.html`
+  - `pages/career-resource-library.html`
+  - `pages/cgpa-calculator.html`
+  - `pages/complaints.html`
+  - `pages/contact-queries.html`
+  - `pages/contact.css`
+  - `pages/contact.html`
+  - `pages/dark-mode.html`
+  - `pages/documentation-templates.html`
+  - `pages/feedback.html`
+  - `pages/gallery.html`
+  - `pages/gateway.html`
+  - `pages/ide-recommendation.html`
+  - `pages/infrastructure.html`
+  - `pages/issue-tracker.html`
+  - `pages/job-board.html`
+  - `pages/lab-reports.html`
+  - `pages/lectures.html`
+  - `pages/live-sessions.html`
+  - `pages/lost-found.html`
+  - `pages/marketplace.html`
+  - `pages/mock-test.html`
+  - `pages/multi-language.html`
+  - `pages/notes.html`
+  - `pages/notifications.html`
+  - `pages/open-source-opportunities.html`
+  - `pages/paper.html`
+  - `pages/pg-reviews.html`
+  - `pages/placement-updates.html`
+  - `pages/privacy.html`
+  - `pages/pyqs.html`
+  - `pages/quantum.html`
+  - `pages/resorces.html`
+  - `pages/roommate-finder.html`
+  - `pages/service-ratings.html`
+  - `pages/skill-tracker.html`
+  - `pages/student-dashboard.html`
+  - `pages/study-groups.html`
+  - `pages/subject-wiki.html`
+  - `pages/subject.html`
+  - `pages/suggestions.html`
+  - `pages/syllabus.html`
+  - `pages/tech.html`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+  - `pages/version-control-tips.html`
+- **Labels:** `enhancement`, `OSCI25`, `hard`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-25 17:20:36
+- **Lines Updated:** 458
+- **Commits:** 3
+- **PR Link:** [PR #308](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308)
+
+---
+
+### [#321 Added: TimeLimit/ProgressBar/UIFix](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/321)
+
+- **Author:** [@Adii0906](https://github.com/Adii0906)
+- **Description:**  
+## 🔖 PR Title: Added: 15-question dynamic quiz with timer ...
+- **Files Changed (3):**
+    - `games/games.css`
+  - `games/gamess.js`
+  - `games/quiz.html`
+- **Labels:** None
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-27 11:52:02
+- **Lines Updated:** 504
+- **Commits:** 3
+- **PR Link:** [PR #321](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/321)
+
+---
+
+### [#328 Updated terms final[OSCI'25]](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/328)
+
+- **Author:** [@ShatadruDhar](https://github.com/ShatadruDhar)
+- **Description:**  
+🔖 PR Title: Fixed missing navigation bar on Terms and ...
+- **Files Changed (3):**
+    - `pages/terms.css`
+  - `pages/terms.html`
+  - `pages/terms.js`
+- **Labels:** `frontend`, `OSCI25`, `Easy`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-27 16:42:30
+- **Lines Updated:** 199
+- **Commits:** 3
+- **PR Link:** [PR #328](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/328)
+
+---
+
 ### [#324 feat/Navbar and back to top button updated](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/324)
 
 - **Author:** [@ManabBiswas](https://github.com/ManabBiswas)
@@ -186,81 +299,6 @@ This document lists all merged PRs with details: author, title, description (max
 - **Lines Updated:** 1594
 - **Commits:** 1
 - **PR Link:** [PR #324](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/324)
-
----
-
-### [#308 Fix: Align 'Total Visitors' section and counter badge for visual consistency](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308)
-
-- **Author:** [@ishanibasu](https://github.com/ishanibasu)
-- **Description:**  
-## 🔖 PR Title: Fix: Aligned 'Total Visitors' section and ...
-- **Files Changed (60):**
-    - `games/gamess.html`
-  - `games/hangman.html`
-  - `games/memory.html`
-  - `games/quiz.html`
-  - `games/typing.html`
-  - `index.css`
-  - `index.html`
-  - `pages/404.html`
-  - `pages/ai-assistant.html`
-  - `pages/ai-file-process.html`
-  - `pages/ai-question-gen.html`
-  - `pages/ai-summary.html`
-  - `pages/announcement-table.html`
-  - `pages/attendance.html`
-  - `pages/career-resource-library.html`
-  - `pages/cgpa-calculator.html`
-  - `pages/complaints.html`
-  - `pages/contact-queries.html`
-  - `pages/contact.css`
-  - `pages/contact.html`
-  - `pages/dark-mode.html`
-  - `pages/documentation-templates.html`
-  - `pages/feedback.html`
-  - `pages/gallery.html`
-  - `pages/gateway.html`
-  - `pages/ide-recommendation.html`
-  - `pages/infrastructure.html`
-  - `pages/issue-tracker.html`
-  - `pages/job-board.html`
-  - `pages/lab-reports.html`
-  - `pages/lectures.html`
-  - `pages/live-sessions.html`
-  - `pages/lost-found.html`
-  - `pages/marketplace.html`
-  - `pages/mock-test.html`
-  - `pages/multi-language.html`
-  - `pages/notes.html`
-  - `pages/notifications.html`
-  - `pages/open-source-opportunities.html`
-  - `pages/paper.html`
-  - `pages/pg-reviews.html`
-  - `pages/placement-updates.html`
-  - `pages/privacy.html`
-  - `pages/pyqs.html`
-  - `pages/quantum.html`
-  - `pages/resorces.html`
-  - `pages/roommate-finder.html`
-  - `pages/service-ratings.html`
-  - `pages/skill-tracker.html`
-  - `pages/student-dashboard.html`
-  - `pages/study-groups.html`
-  - `pages/subject-wiki.html`
-  - `pages/subject.html`
-  - `pages/suggestions.html`
-  - `pages/syllabus.html`
-  - `pages/tech.html`
-  - `pages/terms.html`
-  - `pages/test.html`
-  - `pages/user-experience-table.html`
-  - `pages/version-control-tips.html`
-- **Labels:** None
-- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
-- **Merged At:** 2025-08-25 17:20:36
-- **Lines Updated:** 458
-- **Commits:** 3
-- **PR Link:** [PR #308](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/308)
 
 ---
 
