@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
+    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="../css/floating-sidebar.css">
 </head>
 
 <body id="onload">
@@ -35,24 +37,19 @@
 
 
     <!-- NAVBAR DESIGNING -->
-    <nav>
-    <button onclick="goBack()" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-        <div class="logo "><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
-        </label>
-        <ul id="scroll-hide">
-            <li><a href="../index.html" id="active">Home</a></li>
-            <li><a href="resorces.html">Resources</a></li>
-            <li><a href="#about">About </a></li>
-            <li><a href="../index.html#Feedback">Feedback</a></li>
-            <li><a href="contact.html">Contact us</a></li>
-
-        </ul>
-        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                à¤¹à¤¿à¤‚à¤¦à¥€
+            </button>
+            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
     </nav>
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress-container">
@@ -68,11 +65,11 @@
       <section class="notes-section">
   <div class="notes-header text-center mb-4">
     <h2 class="mb-2">Branch Notes</h2>
-    <p class="text-muted">Choose a branch → open a semester → preview or download PDFs</p>
+    <p class="text-muted">Choose a branch â†’ open a semester â†’ preview or download PDFs</p>
 
     <!-- Search -->
     <div class="notes-search mx-auto">
-      <input id="notesSearch" type="text" class="form-control form-control-lg" placeholder="Search branch or semester… (e.g., CSE, Semester 3)" />
+      <input id="notesSearch" type="text" class="form-control form-control-lg" placeholder="Search branch or semesterâ€¦ (e.g., CSE, Semester 3)" />
     </div>
   </div>
 
@@ -3028,6 +3025,9 @@
 
   <!-- Scroll features -->
   <script src="../js/scroll-indicator.js"></script>
+    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/sidebar.js"></script>
 </body>
 
 </html>
+

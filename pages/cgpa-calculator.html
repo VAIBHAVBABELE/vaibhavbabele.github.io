@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -34,34 +34,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
+    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="../css/floating-sidebar.css">
 </head>
 
 <body id="onload">
   <!-- Scroll Progress Indicator -->
 
-    <nav>
-    <button onclick="goBack()" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-        <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
-        </label>
-        <ul>
-            <li><a href="../index.html" id="active">Home</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#about">About </a></li>
-            <li><a href="../index.html#Feedback">Feedback</a></li>
-            <li><a href="./contact.html">Contact us</a></li>
-                         <button id="lang-toggle">
-    हिंदी
-  </button>
-
-
-        </ul>
-        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-
+        <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                à¤¹à¤¿à¤‚à¤¦à¥€
+            </button>
+            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
     </nav>
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress-container">
@@ -74,7 +66,7 @@
             <h1 class="display-4 ">Ultimate SGPA & CGPA Calculator</h1>
             <p class="lead">Easily calculate your SGPA (Semester Grade Point Average) and CGPA (Cumulative Grade
                 Point Average) with our student-friendly tool.
-                Switch between SGPA and CGPA tabs, enter your grades , and get instant, accurate results — tailored
+                Switch between SGPA and CGPA tabs, enter your grades , and get instant, accurate results â€” tailored
                 for Indian universities.</p>
 
             <div class="mt-4">
@@ -579,15 +571,15 @@
         switch(scale) {
             case 10:
                 percentage = (cgpa * 9.5).toFixed(2);
-                formula = "Percentage = CGPA × 9.5";
+                formula = "Percentage = CGPA Ã— 9.5";
                 break;
             case 4:
                 percentage = (cgpa * 25).toFixed(2);
-                formula = "Percentage = CGPA × 25";
+                formula = "Percentage = CGPA Ã— 25";
                 break;
             case 5:
                 percentage = (cgpa * 20).toFixed(2);
-                formula = "Percentage = CGPA × 20";
+                formula = "Percentage = CGPA Ã— 20";
                 break;
             default:
                 percentage = "N/A";
@@ -623,6 +615,9 @@
 
   <!-- Scroll features -->
   <script src="../js/scroll-indicator.js"></script>
+    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/sidebar.js"></script>
 </body>
 
 </html>
+

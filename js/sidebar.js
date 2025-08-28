@@ -1,56 +1,82 @@
 // Floating Sidebar Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Create floating sidebar
-    createFloatingSidebar();
+
+function getBasePath() {
+    // Determine if we're in a subdirectory and calculate the correct base path
+    const currentPath = window.location.pathname;
     
-    // Set active link based on current page
-    setActiveLink();
+    // Check if we're in the pages directory
+    if (currentPath.includes('/pages/')) {
+        // Count how deep we are in subdirectories
+        const pathParts = currentPath.split('/');
+        const pagesIndex = pathParts.indexOf('pages');
+        const depth = pathParts.length - pagesIndex - 2; // -2 for pages and filename
+        
+        if (depth > 0) {
+            // We're in a subdirectory of pages (like assistant/)
+            return '../'.repeat(depth + 1); // +1 to get out of pages directory
+        } else {
+            // We're directly in pages directory
+            return '../';
+        }
+    }
     
-    // Smooth scroll for anchor links
-    handleAnchorLinks();
-});
+    // We're in the root directory
+    return '';
+}
 
 function createFloatingSidebar() {
+    const basePath = getBasePath();
+    
     const sidebar = document.createElement('div');
     sidebar.className = 'floating-sidebar';
     sidebar.innerHTML = `
         <ul class="sidebar-menu">
-            <li class="sidebar-item" data-tooltip="Home">
-                <a href="index.html" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}index.html" class="sidebar-link">
                     <i class="fas fa-home"></i>
+                    <span class="sidebar-text">Home</span>
                 </a>
             </li>
-            <li class="sidebar-item" data-tooltip="Services">
-                <a href="#Services" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}index.html#Services" class="sidebar-link">
                     <i class="fas fa-th-large"></i>
+                    <span class="sidebar-text">Services</span>
                 </a>
             </li>
-            <li class="sidebar-item" data-tooltip="Resources">
-                <a href="pages/resorces.html" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}pages/resorces.html" class="sidebar-link">
                     <i class="fas fa-book"></i>
+                    <span class="sidebar-text">Resources</span>
                 </a>
             </li>
-            <li class="sidebar-item" data-tooltip="Games">
-                <a href="games/gamess.html" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}games/gamess.html" class="sidebar-link">
                     <i class="fas fa-gamepad"></i>
+                    <span class="sidebar-text">Games</span>
                 </a>
             </li>
-            <li class="sidebar-item" data-tooltip="Gallery">
-                <a href="pages/gallery.html" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}pages/gallery.html" class="sidebar-link">
                     <i class="fas fa-images"></i>
+                    <span class="sidebar-text">Gallery</span>
                 </a>
             </li>
-            <li class="sidebar-item" data-tooltip="AI Tools">
-                <a href="pages/assistant/assistant.html" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}pages/assistant/assistant.html" class="sidebar-link">
                     <i class="fas fa-robot"></i>
+                    <span class="sidebar-text">AI Tools</span>
                 </a>
             </li>
-            <li class="sidebar-item" data-tooltip="Contact">
-                <a href="pages/contact.html" class="sidebar-link">
+            <li class="sidebar-item">
+                <a href="${basePath}pages/contact.html" class="sidebar-link">
                     <i class="fas fa-envelope"></i>
+                    <span class="sidebar-text">Contact</span>
                 </a>
             </li>
         </ul>
+        <button class="sidebar-toggle-btn" onclick="toggleSidebar()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     `;
     
     document.body.appendChild(sidebar);
@@ -69,24 +95,71 @@ function setActiveLink() {
 }
 
 function handleAnchorLinks() {
-    const anchorLinks = document.querySelectorAll('.sidebar-link[href^="#"]');
+    const anchorLinks = document.querySelectorAll('.sidebar-link[href*="#"]');
     
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+            const href = this.getAttribute('href');
             
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            // Check if it's a link to a different page with an anchor
+            if (href.includes('.html#')) {
+                // Let the browser handle navigation to different page with anchor
+                return;
+            }
+            
+            // Handle same-page anchor links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
                 
-                // Update active state
-                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active state
+                    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
             }
         });
     });
 }
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.floating-sidebar');
+    if (sidebar) {
+        sidebar.classList.toggle('expanded');
+        
+        // Save state to localStorage
+        const isExpanded = sidebar.classList.contains('expanded');
+        localStorage.setItem('sidebarExpanded', isExpanded);
+    }
+}
+
+// Restore sidebar state on page load
+function restoreSidebarState() {
+    const sidebar = document.querySelector('.floating-sidebar');
+    const isExpanded = localStorage.getItem('sidebarExpanded') === 'true';
+    
+    if (sidebar && isExpanded) {
+        sidebar.classList.add('expanded');
+    }
+}
+
+// Initialize sidebar state after creation
+document.addEventListener('DOMContentLoaded', function() {
+    // Create floating sidebar
+    createFloatingSidebar();
+    
+    // Restore previous state
+    setTimeout(restoreSidebarState, 100);
+    
+    // Set active link based on current page
+    setActiveLink();
+    
+    // Smooth scroll for anchor links
+    handleAnchorLinks();
+});

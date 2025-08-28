@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
+    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="../css/floating-sidebar.css">
 </head>
 
 <body id="onload">
@@ -30,25 +32,20 @@
 
 
   <!-- Navbar -->
-  <nav>
-    <button onclick="goBack()" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-    <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-    <input type="checkbox" id="click">
-    <label for="click" class="menu-btn">
-      <i class="fa-sharp fa-solid fa-bars"></i>
-    </label>
-    <ul>
-      <li><a href="../index.html" id="active">Home</a></li>
-      <li><a href="../index.html#services">Services</a></li>
-      <li><a href="../index.html#about">About </a></li>
-      <li><a href="../index.html#Feedback">Feedback</a></li>
-      <li><a href="./contact.html">Contact us</a></li>
-      <button id="lang-toggle">हिंदी</button>
-    </ul>
-    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-  </nav>
+      <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                à¤¹à¤¿à¤‚à¤¦à¥€
+            </button>
+            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
+    </nav>
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress-container">
     <div class="scroll-progress-bar"></div>
@@ -61,15 +58,15 @@
     <!-- Header + Actions -->
     <div class="placement-header">
       <div>
-        <h2 class="heading-main">🚀 Placement Cell Updates</h2>
+        <h2 class="heading-main">ðŸš€ Placement Cell Updates</h2>
         <p class="heading-sub">
-          Latest drives, interviews, shortlists & notices — never miss an update.
+          Latest drives, interviews, shortlists & notices â€” never miss an update.
         </p>
       </div>
       <div class="actions">
-        <button id="btnSubscribe" class="btn-outline">🔔 Subscribe</button>
-        <button id="btnExportCsv" class="btn-outline">⬇️ Export CSV</button>
-        <button id="btnOpenAdmin" class="btn-dark">➕ Add Update</button>
+        <button id="btnSubscribe" class="btn-outline">ðŸ”” Subscribe</button>
+        <button id="btnExportCsv" class="btn-outline">â¬‡ï¸ Export CSV</button>
+        <button id="btnOpenAdmin" class="btn-dark">âž• Add Update</button>
       </div>
     </div>
 
@@ -77,25 +74,25 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-label">Total Updates</div>
-        <div class="stat-value" id="statTotal">—</div>
+        <div class="stat-value" id="statTotal">â€”</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Upcoming Interviews</div>
-        <div class="stat-value" id="statInterviews">—</div>
+        <div class="stat-value" id="statInterviews">â€”</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Active Drives</div>
-        <div class="stat-value" id="statDrives">—</div>
+        <div class="stat-value" id="statDrives">â€”</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Shortlists Released</div>
-        <div class="stat-value" id="statShortlists">—</div>
+        <div class="stat-value" id="statShortlists">â€”</div>
       </div>
     </div>
 
     <!-- Filters -->
     <div class="filters">
-      <input id="q" type="text" class="filter-input" placeholder="Search by company or title…" />
+      <input id="q" type="text" class="filter-input" placeholder="Search by company or titleâ€¦" />
       <select id="fCompany" class="filter-select">
         <option value="">Company (All)</option>
       </select>
@@ -147,7 +144,7 @@
 
     <!-- Timeline / History -->
     <div class="history-section">
-      <h3 class="section-subtitle">📜 Past Announcements</h3>
+      <h3 class="section-subtitle">ðŸ“œ Past Announcements</h3>
       <ul id="timeline" class="timeline"></ul>
     </div>
   </div>
@@ -286,5 +283,9 @@
 
   <!-- Scroll features -->
   <script src="../js/scroll-indicator.js"></script>
+    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/sidebar.js"></script>
 </body>
 </html>
+
+
