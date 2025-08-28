@@ -101,7 +101,9 @@
                     Mitra</span> now!
             </p>
             <p class="para call-to-action-line">Browse our comprehensive offerings below:</p>
-            <div class="container1">
+            <div class="container1-wrapper">
+               <button class="arrow left" onclick="scrollLeft()">&#10094;</button>
+               <div class="container1 " id="scrollContainer">
 
                 <div class="card">
                     <img src="images/resorce.jpg" class="card-img-top"
@@ -178,6 +180,11 @@
 
                     </div>
                 </div>
+                </div>
+                <button class="arrow right" onclick="scrollRight()">&#10095;</button>
+</div>
+
+
 
         </section>
         <section>
@@ -669,6 +676,35 @@
 
 
     <script>
+const scrollContainer = document.getElementById("scrollContainer");
+function scrollLeft() {
+  scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+}
+
+function scrollRight() {
+  scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+}
+// ✅ Auto scroll
+let autoScroll = setInterval(() => {
+  if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+    // If at end, go back to start
+    scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+  } else {
+    scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+  }
+}, 2000); // change speed (3000ms = 3s)
+
+// ✅ Pause auto-scroll on hover
+scrollContainer.addEventListener("mouseenter", () => clearInterval(autoScroll));
+scrollContainer.addEventListener("mouseleave", () => {
+  autoScroll = setInterval(() => {
+    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+      scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  }, 3000);
+});
         // 1. Validation Functions
         function validateEmail(email) {
             const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
