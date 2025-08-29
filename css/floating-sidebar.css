@@ -3,7 +3,7 @@
     position: fixed;
     left: 10px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-45%);
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(15px);
     border-radius: 35px;
@@ -93,7 +93,7 @@
 
 .floating-sidebar.expanded .sidebar-item {
     width: 100%;
-    height: 40px;
+    height: 42px;
 }
 
 .sidebar-link {

@@ -56,9 +56,15 @@ function createFloatingSidebar() {
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="${basePath}pages/gallery.html" class="sidebar-link">
-                    <i class="fas fa-images"></i>
-                    <span class="sidebar-text">Gallery</span>
+                <a href="${basePath}/#Feedback" class="sidebar-link">
+                    <i class="fas fa-comment-dots"></i>
+                    <span class="sidebar-text">Feedback</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="${basePath}/#about" class="sidebar-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span class="sidebar-text">About</span>
                 </a>
             </li>
             <li class="sidebar-item">
