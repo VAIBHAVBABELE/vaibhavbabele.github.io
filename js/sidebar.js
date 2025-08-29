@@ -20,6 +20,22 @@ function getBasePath() {
         }
     }
     
+    // Check if we're in the games directory
+    if (currentPath.includes('/games/')) {
+        // Count how deep we are in subdirectories
+        const pathParts = currentPath.split('/');
+        const gamesIndex = pathParts.indexOf('games');
+        const depth = pathParts.length - gamesIndex - 2; // -2 for games and filename
+        
+        if (depth > 0) {
+            // We're in a subdirectory of games
+            return '../'.repeat(depth + 1); // +1 to get out of games directory
+        } else {
+            // We're directly in games directory
+            return '../';
+        }
+    }
+    
     // We're in the root directory
     return '';
 }
@@ -56,13 +72,13 @@ function createFloatingSidebar() {
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="${basePath}/#Feedback" class="sidebar-link">
+                <a href="${basePath}index.html#Feedback" class="sidebar-link">
                     <i class="fas fa-comment-dots"></i>
                     <span class="sidebar-text">Feedback</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="${basePath}/#about" class="sidebar-link">
+                <a href="${basePath}index.html#about" class="sidebar-link">
                     <i class="fas fa-info-circle"></i>
                     <span class="sidebar-text">About</span>
                 </a>
@@ -89,13 +105,25 @@ function createFloatingSidebar() {
 }
 
 function setActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const links = document.querySelectorAll('.sidebar-link');
+    const currentUrl = new URL(window.location.href);
     
     links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
+        // Resolve the link href to an absolute URL then compare pathname and hash where appropriate
+        try {
+            const resolved = new URL(link.getAttribute('href'), window.location.href);
+            // Match either exact pathname (same page) or pathname+hash for index anchors
+            if (resolved.pathname === currentUrl.pathname && (!resolved.hash || resolved.hash === currentUrl.hash)) {
+                link.classList.add('active');
+            } else if (resolved.pathname === '/index.html' || resolved.pathname.endsWith('/index.html')) {
+                // If on index page and the link points to an index anchor, match by hash if present
+                if ((currentUrl.pathname.endsWith('/index.html') || currentUrl.pathname === '/' ) &&
+                    resolved.hash && resolved.hash === currentUrl.hash) {
+                    link.classList.add('active');
+                }
+            }
+        } catch (e) {
+            // ignore malformed hrefs
         }
     });
 }

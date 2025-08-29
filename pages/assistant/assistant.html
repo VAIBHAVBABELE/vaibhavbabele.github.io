@@ -27,12 +27,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../../index.css">
     <link rel="stylesheet" href="assistant.css">
     <link rel="stylesheet" href="../team.css">
     <link rel="stylesheet" href="../floating-button.css">
-     <link rel="stylesheet" href="../footer.css">
+    <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="../../css/floating-sidebar.css">
     <link rel="stylesheet" href="../../css/scroll-indicator.css" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
@@ -51,30 +52,21 @@
         <div class="scroll-progress-bar"></div>
     </div>
 
-    <!-- NAVBAR DESIGNING -->
+      <!-- NAVBAR DESIGNING -->
     <nav>
-        <button onclick="goBack()" class="back-button">
-            <i class="fas fa-arrow-left"></i>
-        </button>
-        <div class="logo "><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
-        </label>
-        <ul id="scroll-hide">
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="../../index.html#Services">Services</a></li>
-            <li><a href="../../index.html#about">About</a></li>
-            <li><a href="../../index.html#Feedback">Feedback</a></li>
-            <li><a href="../../index.html#contact">Contact us</a></li>
-                         <button id="lang-toggle" >
-    हिंदी
-  </button>
-
-        </ul>
-        <img src="../../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                हिंदी
+            </button>
+            <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
     </nav>
-
     
         <!-- STUDENT ASSISTANT SECTION -->
         <section class="assistant-section" id="assistant">
@@ -432,6 +424,8 @@
     <!-- Local scripts -->
     <script src="../floating-button.js"></script>
     <script src="../../index.js"></script>
+    <!-- Floating sidebar script (loaded after DOM and other scripts) -->
+    <script src="../../js/sidebar.js"></script>
     <script src="assistant.js"></script>
     <!-- Google Translate -->
 <div id="google_translate_element" style="display:none;"></div>
