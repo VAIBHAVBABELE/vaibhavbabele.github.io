@@ -1,3 +1,4 @@
+
 // ===== Navbar & Scroll Handling =====
 const element = document.getElementById('scroll-hide');
 const mode = document.getElementById("mode");
