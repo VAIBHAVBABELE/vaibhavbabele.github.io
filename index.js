@@ -3,6 +3,7 @@ const element = document.getElementById('scroll-hide');
 const mode = document.getElementById("mode");
 const load = document.getElementById("onload");
 
+
 function checkWindowSize() {
     if (!element) return;
 
