@@ -5,8 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syllabus List</title>
     <link rel="stylesheet" href="syllabus.css">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    rel="stylesheet"
+    />
 </head>
 <body>
+    <!-- NAVBAR DESIGNING -->
+    <nav>
+        <button onclick="goBack()" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fa-sharp fa-solid fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="../../index.html" id="active">Home</a></li>
+            <li><a href="../../index.html#Services">Services</a></li>
+            <li><a href="../../index.html#about">About </a></li>
+            <li><a href="../../index.html#Feedback">Feedback</a></li>
+            <li><a href="../contact.html">Contact us</a></li>
+
+        </ul>
+        <img src="../../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <script src="../../index.js"></script>
+
+    </nav>
+
     <header>
         <h1>Syllabus</h1>
         <p>Check Syllabus for different Courses</p>
@@ -14,7 +42,60 @@
     <main id="pdf-list">
         <!-- PDF list populated by syllabus.js -->
     </main>
+    
+<!-- ===== Footer Section Start ===== -->
+    <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
 
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy Policy</a> |
+                <a href="../terms.html">Terms & Conditions</a> |
+                <a href="../contact.html">Contact</a> |
+                <a href="../pr-contribution/pr-contributors.html">Contributors</a>
+            </div>
+
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
+
+        
+    </footer>
     <script src="syllabus.js"></script>
 </body>
 </html>

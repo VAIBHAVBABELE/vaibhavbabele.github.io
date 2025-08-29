@@ -25,3 +25,10 @@ syllabusPDFs.forEach(pdf => {
 function openPDF(url) {
     window.open(url, '_blank');
 }
+function goBack() {
+  if (document.referrer !== "") {
+    window.history.back();
+  } else {
+    window.location.href = "index.html"; // fallback to homepage
+  }
+}
