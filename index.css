@@ -405,6 +405,8 @@ iframe{
 body{
     font-family: "Raleway", sans-serif;
     color: var(--primary-text-color);
+    margin-left: 20px;
+    margin-right: 20px;
 }
 /* pop up   */ 
 
