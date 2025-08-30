@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,19 +8,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
+    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="../css/floating-sidebar.css">
 </head>
 <body>
   <!-- Scroll Progress Indicator -->
 
-  <nav>
-    <button onclick="goBack()" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-    <a href="../index.html">Home</a> |
-    <a href="syllabus.html">Syllabus</a> |
-    <a href="notes.html">Notes</a> |
-    <a href="pyqs.html">PYQs</a>
-  </nav>
+      <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                à¤¹à¤¿à¤‚à¤¦à¥€
+            </button>
+            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
+    </nav>
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress-container">
     <div class="scroll-progress-bar"></div>
@@ -78,5 +85,9 @@
 
   <!-- Scroll features -->
   <script src="../js/scroll-indicator.js"></script>
+    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/sidebar.js"></script>
 </body>
 </html>
+
+

@@ -1,0 +1,263 @@
+/* Floating Sidebar - Pill Style */
+.floating-sidebar {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-45%);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border-radius: 35px;
+    padding: 12px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-radius 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    min-height: 350px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.floating-sidebar.expanded {
+    width: 220px;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+        .floating-sidebar.expanded .sidebar-link.active {
+            background: #d2bf80;
+            transform: translateX(0);
+            box-shadow: 0 2px 10px rgba(210, 191, 128, 0.4);
+        }
+
+        /* FIXED: Sidebar text labels with proper transitions */
+        .sidebar-text {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            visibility: hidden;
+            white-space: nowrap;
+            /* Remove problematic absolute positioning */
+            transform: translateX(-10px);
+            transition: opacity 0.3s ease,
+                        visibility 0.3s ease,
+                        transform 0.3s ease;
+            /* Prevent text from taking space when collapsed */
+            width: 0;
+            overflow: hidden;
+        }
+
+        .floating-sidebar.expanded .sidebar-text {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            width: auto;
+            transition-delay: 0.2s;
+        }
+
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+    transition: align-items 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                justify-content 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                gap 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-sidebar.expanded .sidebar-menu {
+    align-items: stretch;
+    gap: 6px;
+    justify-content: flex-start;
+    padding-top: 0;
+}
+
+.sidebar-item {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-sidebar.expanded .sidebar-item {
+    width: 100%;
+    height: 42px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #666;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.floating-sidebar.expanded .sidebar-link {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    justify-content: flex-start;
+    padding: 0 15px;
+    gap: 15px;
+    min-width: auto;
+    min-height: auto;
+}
+
+.sidebar-link:hover {
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.floating-sidebar.expanded .sidebar-link:hover {
+    background: rgba(210, 191, 128, 0.2);
+    transform: translateX(3px);
+}
+
+.sidebar-link.active {
+    background: #d2bf80;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.sidebar-link.active:hover {
+    background: #eab420;
+    color: white;
+}
+
+.floating-sidebar.expanded .sidebar-link.active {
+    background: #d2bf80;
+    transform: translateX(0);
+    box-shadow: 0 2px 10px rgba(210, 191, 128, 0.4);
+}
+
+/* Expand/Collapse Button */
+.sidebar-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #d2bf80;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin: 10px auto 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.floating-sidebar.expanded .sidebar-toggle-btn {
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.sidebar-toggle-btn:hover {
+    background: #eab420;
+    transform: scale(1.1);
+}
+
+.sidebar-toggle-btn i {
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-sidebar.expanded .sidebar-toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .floating-sidebar {
+        left: 5px;
+        width: 45px;
+        min-height: 300px;
+    }
+    
+    .floating-sidebar.expanded {
+        width: 200px;
+    }
+    
+    .sidebar-item {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .sidebar-link {
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+        min-width: 35px;
+        min-height: 35px;
+    }
+    
+    .floating-sidebar.expanded .sidebar-link {
+        height: 40px;
+        font-size: 13px;
+        padding: 0 12px;
+        gap: 12px;
+        min-width: auto;
+        min-height: auto;
+    }
+    
+    .sidebar-toggle-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+    
+    .sidebar-text {
+        font-size: 13px;
+    }
+}
+
+/* Dark mode support */
+body.dark-mode .floating-sidebar {
+    background: rgba(64, 54, 37, 0.194);
+    border: 1px solid rgba(233, 165, 39, 0.687);
+}
+
+body.dark-mode .sidebar-link {
+    color: #ccc;
+}
+
+body.dark-mode .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+body.dark-mode .floating-sidebar.expanded .sidebar-link:hover {
+    background: rgba(210, 191, 128, 0.3);
+}
+
+body.dark-mode .sidebar-text {
+    color: #ccc;
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,31 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
+    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="../css/floating-sidebar.css">
 </head>
 <body>
   <!-- Scroll Progress Indicator -->
 
-  <nav>
-    <button onclick="goBack()" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-    <a href="../index.html">Home</a> |
-    <a href="version-control-tips.html">Version Control Tips</a>
-  </nav>
+      <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                à¤¹à¤¿à¤‚à¤¦à¥€
+            </button>
+            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
+    </nav>
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress-container">
     <div class="scroll-progress-bar"></div>
   </div>
   <h1>Version Control Tips</h1>
   <ul>
-    <li><b>git status</b> – See current changes</li>
-    <li><b>git add .</b> – Stage all changes</li>
-    <li><b>git commit -m "message"</b> – Commit changes</li>
-    <li><b>git push</b> – Push to remote</li>
-    <li><b>git pull</b> – Pull latest changes</li>
-    <li><b>git log</b> – View commit history</li>
-    <li><b>git checkout branch</b> – Switch branches</li>
-    <li><b>git merge branch</b> – Merge branches</li>
+    <li><b>git status</b> â€“ See current changes</li>
+    <li><b>git add .</b> â€“ Stage all changes</li>
+    <li><b>git commit -m "message"</b> â€“ Commit changes</li>
+    <li><b>git push</b> â€“ Push to remote</li>
+    <li><b>git pull</b> â€“ Pull latest changes</li>
+    <li><b>git log</b> â€“ View commit history</li>
+    <li><b>git checkout branch</b> â€“ Switch branches</li>
+    <li><b>git merge branch</b> â€“ Merge branches</li>
   </ul>
   <a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank">Download Git Cheat Sheet (PDF)</a>
   <div style="text-align: center;">
@@ -45,5 +54,9 @@
 
   <!-- Scroll features -->
   <script src="../js/scroll-indicator.js"></script>
+    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/sidebar.js"></script>
 </body>
 </html>
+
+

@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-08-29*
+*Last updated: 2025-08-30*
 
 ## 🌸 GSSoC '25 Leaderboard
 
@@ -27,7 +27,6 @@
 | [@sabaaa01](https://github.com/sabaaa01) | xsabafatima01@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@Tanvi0710](https://github.com/Tanvi0710) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Triveni-Balekundri](https://github.com/Triveni-Balekundri) | balekundritriveni05@gmail.com | 0 | 1 | 0 | 1 | 7 |
-| [@roniitpodder](https://github.com/roniitpodder) | - | 1 | 0 | 0 | 1 | 3 |
 | [@himanshitwri08](https://github.com/himanshitwri08) | himanshitiwari098@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@Anusha271815](https://github.com/Anusha271815) | - | 1 | 0 | 0 | 1 | 3 |
 | [@rashmibarodiya](https://github.com/rashmibarodiya) | - | 1 | 0 | 0 | 1 | 3 |
@@ -53,8 +52,9 @@
 
 | Username | Email | Easy | Intermediate | Hard | PRs Merged | Total Points |
 |----------|-------|------|--------------|------|------------|--------------|
-| [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 1 | 0 | 2 | 30 |
+| [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 1 | 1 | 3 | 60 |
 | [@ishanibasu](https://github.com/ishanibasu) | - | 0 | 0 | 1 | 1 | 30 |
+| [@roniitpodder](https://github.com/roniitpodder) | - | 1 | 0 | 0 | 1 | 10 |
 | [@kanishka1804](https://github.com/kanishka1804) | kanishkay1806@gmail.com | 1 | 0 | 0 | 1 | 10 |
 | [@ShatadruDhar](https://github.com/ShatadruDhar) | shatadrudhar10c@gmail.com | 1 | 0 | 0 | 1 | 10 |
 | [@Dhirajgithub813](https://github.com/Dhirajgithub813) | - | 1 | 0 | 0 | 1 | 10 |

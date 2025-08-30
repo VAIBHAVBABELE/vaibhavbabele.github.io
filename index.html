@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="pages/summary/summary.css">
     <link rel="stylesheet" href="pages/assistant/assistant.css">
     <link rel="stylesheet" href="pages/cursor.css">
+    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="css/floating-sidebar.css">
     <!-- scroll -->
     <link rel="stylesheet" href="./css/scroll-indicator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,36 +32,30 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-
+    <!-- Floating Sidebar JS -->
+    <script src="js/sidebar.js"></script>
 
 
 </head>
 
 <body id="onload">
-    
-    
+
+
     <!-- NAVBAR DESIGNING -->
+        <!-- NAVBAR DESIGNING -->
     <nav>
-        <button onclick="goBack()" class="back-button">
-            <i class="fas fa-arrow-left"></i>
-        </button>
-        <div class="logo "><a href="https://www.nitra.ac.in/ ">NITra <span id="mitra">MITra</span></a></div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
-        </label>
-        <ul>
-            <li><a href="index.html" id="active">Home</a></li>
-            <li><a href="#Services">Services</a></li>
-            <li><a href="#about">About </a></li>
-            <li><a href="#Feedback">Feedback</a></li>
-            <li><a href="pages/contact.html">Contact us</a></li>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
             <button id="lang-toggle">
                 हिंदी
             </button>
-        </ul>
-        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
-        <script src="index.js"></script>
+            <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
     </nav>
     <!-- Scroll Progress Indicator just under the navbar -->
     <div class="scroll-progress-container">
@@ -73,7 +69,8 @@
             <div class="container flex main-page">
                 <div class="header-left">
                     <h1 class="greeting">Welcome to Nitra Mitra</h1>
-                    <p class="hero-subtext">Your ultimate platform for academic resources, campus updates, and community
+                    <p class="hero-subtext">Your ultimate platform for academic resources, campus updates, and
+                        community
                         connection at NITRA Technical Campus.</p>
                     <a href="#Services" class="primary-button get-started-btn">My Services</a>
                 </div>
@@ -85,11 +82,6 @@
         </section>
 
         <!-- SERVICE DESIGNING -->
-
-
-
-        <!-- SERVICE DESIGNING -->
-
         <section class="service" id="Services">
             <h1 class="service-heading">Services</h1>
             <p class="para">Welcome to <span>Nitra Mitra</span>, your <b>ultimate platform</b> for <span>NITRA
@@ -159,7 +151,8 @@
                     <img src="images/undraw_developer.png" class="card-img-top" alt="Placement Updates">
                     <div class="card-body">
                         <h4 class="card-title">Placement Cell Updates</h4>
-                        <p class="card-text"><b>Stay updated with company drives, interviews, and shortlists.</b></p>
+                        <p class="card-text"><b>Stay updated with company drives, interviews, and shortlists.</b>
+                        </p>
                         <a href="pages/placement-updates.html" class="primary-button" id="btn">View Updates</a>
                     </div>
                 </div>
@@ -179,7 +172,7 @@
                 <div class="card" id="card">
                     <img src="images/qna.webp" class="card-img-top" alt="ai summary tool">
                     <div class="card-body">
-                        <h4 class="card-title">AI Summary Tool</h4> 
+                        <h4 class="card-title">AI Summary Tool</h4>
                         <p class="card-text"><b>Smart text & file summarization with notes enhancement.</b></p>
                         <a href="pages/summary/summary.html" class="primary-button" id="btn">Summarize Now</a>
                     </div>
@@ -188,7 +181,7 @@
                 <div class="card" id="card">
                     <img src="images/syllabus.avif" class="card-img-top" alt="Syllabus">
                     <div class="card-body">
-                        <h4 class="card-title">Syllabus</h4> 
+                        <h4 class="card-title">Syllabus</h4>
                         <p class="card-text"><b>Access the latest syllabus for your courses.</b></p>
                         <a href="pages/syllabus/syllabus.html" class="primary-button" id="btn">View Syllabus</a>
                     </div>
@@ -240,9 +233,9 @@
             </div>
         </section>
 
-        <section>
+        <section class="user-experience">
             <h1 class="service-heading">User Experience</h1>
-            <p class="para">The user experience on our platform has been overwhelmingly positive, with praise
+            <p class="">The user experience on our platform has been overwhelmingly positive, with praise
                 for:</p>
             <ul>
                 <li><b>Ease of Use & Comprehensive Resources:</b> Seamless access to <span>materials, including
@@ -371,8 +364,8 @@
                             <input type="email" placeholder="Email Address" name="Email" required><br><br>
                             <input type="text" placeholder="College Name " name="College" required><br><br>
                             <input type="text" placeholder="Branch" name="Branch" required><br><br>
-                            <input type="number" placeholder="Passing Year" name="Passing Year" min="2020" max="2030"
-                                required><br><br>
+                            <input type="number" placeholder="Passing Year" name="Passing Year" min="2020"
+                                max="2030" required><br><br>
                             <select name="Year" required>
                                 <optgroup label="1st Year">
                                     <option value="" disabled selected hidden>Select Semester</option>
@@ -530,7 +523,8 @@
                             Lead Developer & Founder</p>
 
                         <p>
-                            Computer Science Engineering student passionate about creating educational platforms for
+                            Computer Science Engineering student passionate about creating educational platforms
+                            for
 
                             students.
                         </p>
@@ -675,8 +669,6 @@
 
 
     </script>
-    <script src="index.js">
-    </script>
 
 
 
@@ -734,8 +726,10 @@
     <!-- Google Translate -->
     <div id="google_translate_element" style="display:none;"></div>
     <script src="language.js"></script>
+
     <!-- scroll -->
     <script src="./js/scroll-indicator.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

@@ -14,34 +14,30 @@
   <link rel="stylesheet" href="../games/games.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/floating-sidebar.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
 </head>
 <body>
   <!-- Scroll Progress Indicator -->
-
-<div class="container">
-  <nav>
-    <button onclick="goBack()" class="back-button">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-    <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-    <input type="checkbox" id="click">
-    <label for="click" class="menu-btn">
-      <i class="fa-sharp fa-solid fa-bars"></i>
-    </label>
-    <ul>
-      <li><a href="../index.html" id="active">Home</a></li>
-      <li><a href="../index.html#Services">Services</a></li>
-      <li><a href="../index.html#about">About </a></li>
-      <li><a href="../index.html#Feedback">Feedback</a></li>
-      <li><a href="../index.html#contact">Contact us</a></li>
-    </ul>
-    <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-  </nav>
-  <!-- Scroll Progress Indicator -->
   <div class="scroll-progress-container">
     <div class="scroll-progress-bar"></div>
-  </div> 
+  </div>
+
+     <!-- NAVBAR DESIGNING -->
+    <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                हिंदी
+            </button>
+            <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
+    </nav>
 
   <div style="height: 70px;"></div>
 
@@ -59,14 +55,13 @@
     <button id="checkBtn">Check</button>
     <button id="resetBtn">Restart Game</button>
   </div>
-</div>
 
 <script src="./gamess.js"></script>
 <script src="../index.js"></script>
-
-  <!-- Scroll features -->
-
-  <!-- Scroll features -->
-  <script src="../js/scroll-indicator.js"></script>
+<!-- Floating Sidebar JavaScript -->
+<script src="../js/sidebar.js"></script>
+<!-- Scroll features -->
+<script src="../js/scroll-indicator.js"></script>
 </body>
+</html>
 </html>
