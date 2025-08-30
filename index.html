@@ -39,7 +39,13 @@
 </head>
 
 <body id="onload">
-
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Building Bright Futures<span class="dots"></span></h2>
+        </div>
+    </div>
 
     <!-- NAVBAR DESIGNING -->
         <!-- NAVBAR DESIGNING -->
@@ -720,6 +726,15 @@
                     });
                 }
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Set a timeout to hide the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add("hidden");
+            }, 6000); // 6000ms = 6 seconds (adjust as needed)
         });
     </script>
 
