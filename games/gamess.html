@@ -9,11 +9,15 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="manifest" href="../favicon/site.webmanifest">
   <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="../pages/team.css">
+  <link rel="stylesheet" href="../pages/terms.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -23,6 +27,714 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/scroll-indicator.css" />
+
+  <!-- Hangman CSS -->
+     <style>
+    :root {
+      --bg-color: #fdf6ec;
+      --card-bg: #ffffffd3;
+      --primary: #1c1919;
+      --success: #f849e6;
+      --danger: #d63031;
+      --text: #baccd1;
+      --muted: #c5d0d3;
+      --radius: 10px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+   
+    
+/* Game-specific styles only - navbar styles come from index.css */
+
+section{
+    padding: 50px var(--padding-inline-section);
+    background: var(--bg-shade);
+    
+    
+}
+.main-page{
+    margin-top: 60px; /* Since hangman doesn't use .main wrapper */
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 5%;
+    
+ 
+}
+
+/* Mobile responsive fix for main content */
+@media (max-width: 1000px) {
+    .main-page {
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 450px) {
+    .main-page {
+        margin-top: 50px;
+    }
+}
+.header-left{
+   max-width: 40vw;
+}
+.header-left h1{
+    margin-top: 20px;
+}
+.header-right img{
+    width: 100%;
+    margin-left: 10%;
+}
+.get-started-btn{
+    margin-top: 20px;
+    transition: all 0.3s ease;
+
+}
+
+.get-started-btn:hover{
+    transform: translate(1.3);
+    background-color: #577592;
+}
+#click{
+    display: none;
+}
+@media (max-width: 768px) {
+  nav ul {
+    position: fixed;
+    top: 15vh;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 15vh);
+    background-color: var(--nav-bgcolor);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: left 0.3s ease;
+    z-index: 9;
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+
+  nav .menu-btn i {
+    display: block;
+  }
+}
+
+    .game-title {
+      text-align: center;
+      margin-top: 100px; /* Offset for fixed navbar */
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .hangman-container {
+      background: var(--card-bg);
+      padding: 30px 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      width: 100%;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #hint {
+      font-size: 1em;
+      color: var(--muted);
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    #word {
+      font-family: monospace;
+      font-size: 2em;
+      letter-spacing: 0.5em;
+      margin: 20px 0;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    input#guess {
+      font-size: 1.2em;
+      width: 60px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    input#guess:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(154, 150, 181, 0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: 600;
+      color: #fff;
+      background-color: var(--primary);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #574b90;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #status {
+      font-size: 1em;
+      margin-top: 20px;
+      font-weight: 500;
+      min-height: 1.5em;
+    }
+
+    .status-success { color: var(--success); }
+    .status-danger { color: var(--danger); }
+    .status-info { color: var(--primary); }
+    .status-win { color: var(--success); }
+    .status-lose { color: var(--danger); }
+
+    #guessed-letters-container {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: var(--muted);
+    }
+
+    #guessedLetters {
+      font-family: monospace;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    #newGameButton {
+      margin-top: 25px;
+      background-color: var(--success);
+    }
+
+    #newGameButton:hover {
+      background-color: #019875;
+    }
+  </style>
+  <!-- Sudoku -->
+   <style>
+      .sudoku-board { display: grid; grid-template-columns: repeat(9, 40px); grid-template-rows: repeat(9, 40px); gap: 2px; margin: 20px auto; }
+      .cell { border: 1px solid #999; text-align: center; font-size: 1.2rem; font-weight: bold; background: #ecf0f1; }
+      .cell input { width: 100%; height: 100%; border: none; text-align: center; font-size: 1.2rem; background: none; }
+      .cell input:focus { outline: 2px solid #74b9ff; background: #dfe6e9; }
+      .cell:nth-child(3n+1) { border-left: 2px solid black; }
+      .cell:nth-child(n+19):nth-child(-n+27), .cell:nth-child(n+46):nth-child(-n+54) { border-top: 2px solid black; }
+      #newGameBtn { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 8px; background: #82ccdd; font-size: 1rem; cursor: pointer; }
+   </style>
+   <!-- Memory -->
+    <style>
+    /* Global Styles */
+
+    body {
+      
+      color: var(--text-color);
+      
+    }
+
+    /* Mobile responsive fixes */
+    @media (max-width: 1000px) {
+      body {
+        padding-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      body {
+        padding-top: 50px;
+      }
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: var(--main-color);
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .game-info {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 20px;
+      padding: 10px 0;
+      background-color: var(--card-front-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px var(--shadow);
+      font-size: 1em;
+      font-weight: 700;
+      color: var(--main-color);
+    }
+
+    .controls {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    select,
+    button {
+      padding: 10px 20px;
+      font-size: 0.95em;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      box-shadow: 0 2px 5px var(--shadow);
+      transition: background-color 0.2s ease;
+    }
+
+    select {
+      background-color: var(--card-front-color);
+      border: 1px solid #ddd;
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.5H18.5c-4.1%200-7.9%201.5-10.9%204.5-3%203-4.6%206.8-4.6%2011.1%200%204.2%201.6%208%204.6%2011l128.8%20128.9c3%203%206.8%204.6%2011%204.6s8-.5%2011-4.6l128.7-128.9c3.1-3.1%204.7-6.9%204.7-11.1%200-4.2-1.6-8-4.6-11z%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 10px auto;
+      min-width: 130px;
+    }
+
+    button {
+      background-color: var(--main-color);
+      color: white;
+      font-weight: 700;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Grid & Card Styles */
+    .grid-container {
+      display: grid;
+      gap: 12px;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: var(--card-front-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 20px var(--shadow);
+      border: 1px solid #eee;
+    }
+
+    .card {
+      width: 80px;
+      height: 80px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 5px var(--shadow);
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      font-weight: bold;
+      border-radius: var(--border-radius);
+      user-select: none;
+    }
+
+    .card-front {
+      background-color: var(--card-front-color);
+      color: var(--text-color);
+      transform: rotateY(180deg);
+    }
+
+    /* Icon color */
+    .card-back {
+      background-color: var(--card-back-color);
+      color: white;
+    }
+
+    /* Back of the card */
+
+    /* Card States */
+    .card.matched .card-inner {
+      background-color: var(--matched-color);
+      box-shadow: 0 0 10px var(--matched-color);
+    }
+
+    .card.matched .card-front,
+    .card.matched .card-back {
+      background-color: var(--matched-color);
+      color: white;
+    }
+
+    .card.matched {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .card.wrong .card-inner {
+      background-color: var(--error-color);
+      box-shadow: 0 0 10px var(--error-color);
+    }
+
+    .card.wrong .card-front,
+    .card.wrong .card-back {
+      background-color: var(--error-color);
+      color: white;
+    }
+
+    /* Messages & Modal */
+    #game-message {
+      margin-top: 20px;
+      font-size: 1.1em;
+      font-weight: 700;
+      color: var(--main-color);
+      min-height: 1.5em;
+    }
+
+    #game-over-modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 15px var(--shadow);
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .modal-content h2 {
+      font-size: 1.8em;
+      color: var(--main-color);
+      margin-bottom: 15px;
+    }
+
+    .modal-content p {
+      font-size: 1em;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    .modal-content button {
+      background-color: var(--main-color);
+      color: white;
+      padding: 10px 25px;
+      font-weight: 700;
+    }
+
+    .modal-content button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .card {
+        width: 70px;
+        height: 70px;
+        font-size: 2em;
+      }
+
+      .game-info {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .game-info div {
+        flex-basis: 45%;
+      }
+
+      .controls {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      select,
+      button {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .card {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5em;
+      }
+
+      .grid-container {
+        padding: 5px;
+        gap: 5px;
+      }
+
+      select,
+      button {
+        padding: 8px 10px;
+        font-size: 0.85em;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+    }
+  </style>
+  <!-- colour recall CSS -->
+   <style>
+       
+    .container { padding-top: 60px; }
+    @media (max-width: 1000px) { .container { padding-top: 55px; } }
+    @media (max-width: 450px) { .container { padding-top: 50px; } }
+
+    h2 { color: #2c3e50; }
+   </style>
+   <!-- Guess the output CSS -->
+    <style>
+        .question { margin-top: 20px; background-color: #1a1f3a; padding: 15px; border-radius: 10px; }
+        .options button { display: block; width: 100%; margin: 5px 0;  background-color: #82ccdd; border: none; cursor: pointer; color: black; }
+        .options button:hover { background-color: #6bb7c9; }
+        #guess-output-score { margin-top: 20px; font-size: 1.2rem; }
+        #language{color:black; background-color: white;}
+    </style>
+    <!-- lock logic CSS -->
+     <style>
+        .lock { display: flex; gap: 20px; justify-content: center; margin: 20px 0; }
+        .dial { width: 60px; height: 80px; background: #fff; border: 3px solid #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; user-select: none; color: #000; }
+        .clues { margin-top: 20px; font-size: 1.1rem; text-align: left; color: #fff; }
+        .clues ul { padding-left: 20px; }
+        .success { color: #4ade80; font-weight: bold; margin-top: 15px; }
+     </style>
+     <!-- Quiz CSS -->
+      <style>
+    /* Mobile responsive fixes */
+    @media (max-width: 1000px) {
+      .container {
+        padding-top: 55px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .container {
+        padding-top: 50px;
+      }
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    .quiz-box {
+      background: #926f57;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      transition: 0.3s;
+    }
+
+    .quiz-question {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      color: #34495e;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #d1eaff;
+      font-size: 1rem;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .quiz-options button:hover {
+      background: #9ad5ff;
+    }
+
+    .quiz-result {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .quiz-quote {
+      font-style: italic;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    .progress {
+      margin: 15px 0;
+      height: 10px;
+      width: 100%;
+      background: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #7ed6df;
+      width: 0%;
+      transition: width 0.4s;
+    }
+
+    .quiz-score {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    #quiz-restart {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #82ccdd;
+      cursor: pointer;
+    }
+  </style>
+  <!-- Sliding Tile CSS -->
+  <style>
+    .puzzle-box { background-color: #2d3436; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px; max-width: 400px; margin: 0 auto; }
+    .puzzle-board { display: grid; grid-template-columns: repeat(3, 100px); grid-template-rows: repeat(3, 100px); gap: 8px; margin: 20px auto; }
+    .tile { display: flex; justify-content: center; align-items: center; background-color: #74b9ff; border-radius: 8px; font-size: 1.5rem; cursor: pointer; font-weight: bold; }
+    .tile.empty { background: #eee; cursor: default; }
+    #status { margin-top: 10px; font-size: 1.1rem; font-weight: bold; }
+  </style>
+  <!-- Typing Speed CSS -->
+  <style>
+       @media (max-width: 450px) {
+      .container {
+        padding-top: 50px;
+      }
+    }
+
+    .sentence {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      line-height: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .char {
+      padding: 2px 3px;
+      border-bottom: 2px dotted #ccc;
+    }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #4a2900;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+       background-color: var(--accent-color-dark);}
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/floating-sidebar.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
+  
 </head>
 <body id="onload">
   <!-- Scroll Progress Indicator -->
@@ -42,7 +754,7 @@
             <button id="lang-toggle">
                 हिंदी
             </button>
-            <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+           <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
         </div>
     </nav>
 
@@ -52,95 +764,355 @@
 This space is crafted to help AKTU and Nitra Technical Campus students unwind while staying sharp. Dive into interactive experiences like typing speed challenges, memory tests, coding quizzes, and brain-boosting hangman puzzles, all designed to engage and enhance your focus, reflexes, and logic. Whether you're taking a break from studies or looking to sharpen your skills in a playful way, Nitra Mitra Games has something for everyone. Play, practice, and power up your mind!</p>
   </section>
 
+<div class="games-section">
+    <div class="outer-games">
+      <div class="inner-games">
 
-  <div class="container game-container">
-    <!-- Typing Speed -->
-    <div class="card">
-      <img src="../images/typing.png" class="card-img-top" alt="Typing Game">
-      <div class="card-body">
-        <h5 class="card-title">Typing Speed Challenge</h5>
-        <p class="card-text">Test how fast you can type in this timed speed challenge made for coding ninjas!</p>
-        <a href="typing.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
+        <!-- Tabs with arrows -->
+        <div class="tabs-wrapper">
+          <button class="arrow left">&#10094;</button>
+          <div class="tabs">
+            <button class="tab-button active" data-tab="hangman">Hangman</button>
+            <button class="tab-button" data-tab="sudoku">Sudoku</button>
+            <button class="tab-button" data-tab="memory">Memory Game</button>
+            <button class="tab-button" data-tab="color-recall">Color Recall</button>
+            <button class="tab-button" data-tab="guess-output">Guess the Output</button>
+            <button class="tab-button" data-tab="lock-logic">Lock Logic</button>
+            <button class="tab-button" data-tab="quiz">Quiz</button>
+            <button class="tab-button" data-tab="sliding-tile">Sliding Tile</button>
+            <button class="tab-button" data-tab="typing-speed">Typing Speed Challenge</button>
+          </div>
+          <button class="arrow right">&#10095;</button>
+        </div>
+        <div class="play-games">
+        <!-- Tab content -->
+        <div class="tab-content">
+          <!-- Hangman -->
+          <div id="hangman" class="tab-pane active">
+              <h1 style="text-align: center; color: #555172; margin-bottom: 20px;">Hangman - CS Terms</h1>
+              <p>Guess computer science words before the stick figure is fully drawn. No pressure!</p>
+              <!-- WHITE GAME CARD -->
+              <div class="hangman-container">
+                <div id="hint"></div>
+                <p id="word">Loading...</p>
 
-    <!-- Memory Game -->
-    <div class="card">
-      <img src="../images/memory.png" class="card-img-top" alt="Memory Game">
-      <div class="card-body">
-        <h5 class="card-title">Memory Game</h5>
-        <p class="card-text">Flip and match iconic CS symbols. Boost your brainpower while having fun.</p>
-        <a href="memory.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
+                <div class="input-group">
+                  <input type="text" id="guess" maxlength="1" placeholder="a-z" autofocus />
+                  <button id="guessButton">Guess</button>
+                </div>
 
-    <!-- Coding Quiz -->
-    <div class="card" >
-      <img src="../images/quiz.png" class="card-img-top" alt="Quiz Game">
-      <div class="card-body">
-        <h5 class="card-title">Basic Coding Quiz</h5>
-        <p class="card-text">Take a quick quiz on JavaScript, Python, and basic logic to level up your skills.</p>
-        <a href="quiz.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
+                <div id="guessed-letters-container">
+                  Guessed Letters: <span id="guessedLetters"></span>
+                </div>
 
-    <!-- Hangman -->
-    <div class="card">
-      <img src="../images/hangman.png" class="card-img-top" alt="Hangman">
-      <div class="card-body">
-        <h5 class="card-title">Hangman: CS Edition</h5>
-        <p class="card-text">Guess computer science words before the stick figure is fully drawn. No pressure!</p>
-        <a href="hangman.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
-   
-    <div class="card" >
-      <img src="../images/8-tiles.jpeg" class="card-img-top" alt="sliding tile game";">
-      <div class="card-body">
-        <h5 class="card-title">Sliding Tile Game</h5>
-        <p class="card-text">Arrange the tiles in the correct order to win!</p>
-        <a href="Sliding-Tile.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
-    <div class="card" >
-      <img src="../images/sudoku.png" class="card-img-top" alt="sudoku";">
-      <div class="card-body">
-        <h5 class="card-title">Sudoku</h5>
-        <p class="card-text">Solve the sudoku puzzle and test your brain!</p>
-        <a href="sudoku.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
-    <div class="card" >
-      <img src="../images/Color-Recall.png" class="card-img-top" alt="Color-Recall";>
-      <div class="card-body">
-        <h5 class="card-title">Color-Recall</h5>
-        <p class="card-text">Remember the sequence and repeat it! Can you keep up as the patterns get longer and trickier?</p>
-        <a href="color-recall.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
-      <div class="card" >
-      <img src="../images/guessTheoutput.png" class="card-img-top" alt="Guess-The-Output";>
-      <div class="card-body">
-        <h5 class="card-title">Guess The Output</h5>
-        <p class="card-text">Test your programming skills with our “Guess the Coding Output” challenge!</p>
-        <a href="guessTheoutput.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
-    <div class="card" >
-      <img src="../images/logic-lock.webp" class="card-img-top" alt="Lock-Logic";>
-      <div class="card-body">
-        <h5 class="card-title">Lock-Logic</h5>
-        <p class="card-text">Use your brain to crack the code and unlock the challenge! Only the correct combination will set it free</p>
-        <a href="lock-logic.html" class="btn btn-primary">Play Now</a>
-      </div>
-    </div>
-    </div>
-     
-  
-  
+                <p id="status"></p>
+                <button id="newGameButton">New Game</button>
+              </div>
+          </div>
+          <!-- Sudoku -->
+          <div id="sudoku" class="tab-pane">
+            <h2>🧩 Sudoku Game</h2>
+            <p>Solve the sudoku puzzle and test your brain!</p>
+              <div class="puzzle-box" 
+              style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; background: #222; border-radius: 12px; width: fit-content; margin: auto;">
+            
+            <div id="sudoku-game" class="sudoku-board" 
+                  style="margin-bottom: 10px;"></div>
+            
+            <button id="newGameBtn" 
+                    style="padding: 8px 16px; border: none; border-radius: 8px; background: #ff5722; color: white; font-weight: bold; cursor: pointer;">
+                🆕 New Game
+            </button>
+            
+            <p id="status" style="color: #ffffff; margin-top: 8px; font-size: 14px;"> </p>
+            </div>
+          </div>
+          <!-- Memory -->
+          <div id="memory" class="tab-pane">
+            <h1>🌈 Colorful Memory Match</h1>
+            <p>Flip and match iconic CS symbols. Boost your brainpower while having fun.</p>
+          <div class="game-info">
+            <div>Score: <span id="score">0</span></div>
+            <div>Time: <span id="timer">0s</span></div>
+            <div>Moves: <span id="moves">0</span></div>
+          </div>
 
+          <div class="controls">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+              <option value="easy">Easy (8 cards)</option>
+              <option value="medium" selected>Medium (12 cards)</option>
+              <option value="hard">Hard (16 cards)</option>
+              <option value="expert">Expert (20 cards)</option>
+            </select>
+            <button id="startButton">Start New Game</button>
+          </div>
 
+          <div class="grid-container" id="grid-container"></div>
+          <p id="game-message"></p>
+
+          <div id="game-over-modal">
+            <div class="modal-content">
+              <h2 id="modal-title"></h2>
+              <p id="modal-score"></p>
+              <button id="modal-restart-button">Play Again</button>
+            </div>
+          </div>
+          
+          <audio id="flipSound" src="https://www.soundjay.com/buttons/sounds/button-2.mp3" preload="auto"></audio>
+          <audio id="matchSound" src="https://www.soundjay.com/misc/sounds/ding-dong-2.mp3" preload="auto"></audio>
+          <audio id="noMatchSound" src="https://www.soundjay.com/buttons/sounds/button-7.mp3" preload="auto"></audio>
+          <audio id="winSound" src="https://www.soundjay.com/misc/sounds/success-sound-effect.mp3" preload="auto"></audio>
+          <audio id="loseSound" src="https://www.soundjay.com/misc/sounds/error.mp3" preload="auto"></audio>
+          </div>
+          <!-- Color Recall -->
+          <div id="color-recall" class="tab-pane">
+            <h2>🧠 Pattern Memory Game</h2>
+            <p>Remember the sequence and repeat it! Can you keep up as the patterns get longer and trickier?</p>
+            <div class="game-box" style="width: 500px;">
+              <div id="game" class="color-board" style="margin-left: 105px;">
+                <div class="color-btn" id="red"></div>
+                <div class="color-btn" id="green"></div>
+                <div class="color-btn" id="blue"></div>
+                <div class="color-btn" id="yellow"></div>
+              </div>
+              <button id="startBtn">Start Game</button>
+              <p id="level">Level: 0</p>
+            </div>
+</div>
+          </div>
+          <!-- Guess the output -->
+          <div id="guess-output" class="tab-pane">
+              <h2>💻 Guess the Output Game</h2>
+              <p>Test your programming skills with our “Guess the Coding Output” challenge!</p>
+          <div class="game-box">
+            <label for="language">Select Language:</label>
+            <select id="language">
+              <option value="cpp">C++</option>
+              <option value="java">Java</option>
+              <option value="python">Python</option>
+            </select>
+
+            <div id="question-container" class="question">
+              <p id="question-text">Select a language to start the game.</p>
+              <div class="options">
+                <button class="option-btn">Option 1</button>
+                <button class="option-btn">Option 2</button>
+                <button class="option-btn">Option 3</button>
+                <button class="option-btn">Option 4</button>
+              </div>
+            </div>
+
+            <button id="next-btn">Next Question</button>
+            <p id="guess-output-score">Score: 0</p>
+          </div>
+          </div>
+          <!-- Lock Logic -->
+          <div id="lock-logic" class="tab-pane">
+              <h2>🧠 Logic Lock Game</h2>
+              <p>Use your brain to crack the code and unlock the challenge! Only the correct combination will set it free</p>
+              <div class="game-box">
+                <div class="lock">
+                  <div class="dial" id="dial1">0</div>
+                  <div class="dial" id="dial2">0</div>
+                  <div class="dial" id="dial3">0</div>
+                </div>
+                <div class="clues" id="clues"></div>
+                <div id="result">Locked 🔒</div>
+                <button id="checkBtn">Check</button>
+                <button id="resetBtn">Restart Game</button>
+              </div>
+          </div>
+          <!-- Quiz -->
+          <div id="quiz" class="tab-pane">
+              <h2>🧪 Basic Coding Quiz</h2>
+              <p>Take a quick quiz on JavaScript, Python, and basic logic to level up your skills.</p>
+              <div class="quiz-box">
+                <div class="progress"><div class="progress-bar" id="bar"></div></div>
+                <div class="quiz-score" id="quiz-score">Score: 0</div>
+                <div class="quiz-question" id="quiz-question">Loading question...</div>
+                <div class="quiz-options" id="quiz-options"></div>
+                <div class="quiz-result" id="quiz-result"></div>
+                <div class="quiz-quote" id="quiz-quote"></div>
+                <button id="quiz-restart" style="display:none" onclick="restartQuiz()">🔁 Restart Quiz</button>
+              </div>
+              </div>
+               <!-- Sliding Tile -->
+          <div id="sliding-tile" class="tab-pane">
+            <h2>🧩 8 Puzzle Game</h2>
+            <p>Arrange the tiles in the correct order to win!</p>
+            <div class="puzzle-box">
+              <div id="puzzle" class="puzzle-board"></div>
+              <button id="shuffleBtn">🔀 Shuffle</button>
+              <p id="status" style="color: #ffffff;"></p>
+            </div>
+          </div>
+            <!-- Typing Speed Challenge -->
+          <div id="typing-speed" class="tab-pane">
+            <h1 >💻 Typing Speed Challenge</h1>
+            <div id="sentenceDisplay" class="sentence"></div>
+            <input id="inputBox" placeholder="Start typing here..." autocomplete="off" />
+            <div class="stats">⏱️ Time: <span id="typing-timer">0</span> sec</div>
+            <div class="stats">⚡ WPM: <span id="wpm">0</span></div>
+            <div class="stats">🏆 Best Speed: <span id="bestWpm">0</span> WPM</div>
+            <button class="btn" onclick="loadNewSentence()">🔁 Try Another</button>
+          </div>
+
+          </div>
+          <!-- Visitor Counter -->
+       <div class="visitor">
+      <h4>Total Visitors</h4>
+      <span id="counter">
+        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+      </span>
+    </div>
+            
+        </div>
+      </div>
+
+      </div>
+    </div>
   </div>
+
+  <!-- Visitor Counter -->
+       <!-- <div class="visitor">
+      <h4>Total Visitors</h4>
+      <span id="counter">
+        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+      </span>
+    </div> -->
+
+  <!-- TEAM SECTION (Before Footer) -->
+    <section class="team-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>
+                    Dedicated developers working together to create the best educational platform for NITRA
+                    students.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Vaibhav Babele Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar">
+                        <img src="../images/vaibhav.jpg" alt="Vaibhav Babele">
+                    </div>
+                    <h3>Vaibhav
+                        Babele</h3>
+                    <p>
+                        Lead Developer & Founder</p>
+                    <p>
+                        Computer Science Engineering student passionate about creating educational platforms for
+                        students.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/vaibhavbabele" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ghanshyam Prajapati Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar">
+                        <img src="../images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
+                    </div>
+                    <h3>Ghanshyam
+                        Prajapati</h3>
+                    <p>
+                        Co-Developer</p>
+                    <p>
+                        Dedicated developer contributing to the platform's growth and student experience
+                        enhancement.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                            target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Development Team Card -->
+                <div class="team-showcase-card">
+                    <div class="team-avatar placeholder">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>
+                        Development Team</h3>
+                    <p>
+                        Contributors & Maintainers</p>
+                    <p>
+                        A growing community of student developers working together to improve the platform.
+                    </p>
+                    <div class="social-links">
+                        <a href="pr-contributors.html">
+                            <i class="fas fa-users"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <h1 class="contact-heading">Contact Us</h1>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a> |
+                <a href="./terms.html">Terms & Conditions</a> |
+                <a href="./contact.html">Contact</a> |
+                <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
+            </div>
+
+            <p class="copyright">
+                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+
+
 <!-- Google Translate -->
 <div id="google_translate_element" style="display:none;"></div>
 <script src="../language.js"></script>
@@ -151,11 +1123,849 @@ This space is crafted to help AKTU and Nitra Technical Campus students unwind wh
 <script src="../js/sidebar.js"></script>
 <script src="../index.js"></script>
 <p></p>
-<div style="text-align: center;">
-    <h4 color="white">Total Visitors</h4>
-     <script type="text/javascript"></script>
-     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
-   </div>
+
+
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+<script>
+    // Tabs switching
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabPanes.forEach(pane => pane.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.tab).classList.add("active");
+      });
+    });
+
+    // Arrows for side scroll
+    const tabsContainer = document.querySelector(".tabs");
+    document.querySelector(".arrow.left").addEventListener("click", () => {
+      tabsContainer.scrollBy({ left: -150, behavior: "smooth" });
+    });
+    document.querySelector(".arrow.right").addEventListener("click", () => {
+      tabsContainer.scrollBy({ left: 150, behavior: "smooth" });
+    });
+</script>
+<!-- Hangman Script -->
+   <script>
+    const words = [
+      { word: "algorithm", hint: "Step-by-step solution process" },
+      { word: "compiler", hint: "Turns code into machine instructions" },
+      { word: "debugger", hint: "Tool to identify and fix bugs" },
+      { word: "function", hint: "Reusable block of code" },
+      { word: "variable", hint: "Holds a value in memory" },
+      { word: "framework", hint: "Software skeleton to build on" },
+      { word: "database", hint: "Stores organized data" },
+      { word: "frontend", hint: "What the user sees" },
+      { word: "backend", hint: "Behind-the-scenes server logic" },
+      { word: "protocol", hint: "Set of communication rules" },
+      { word: "recursion", hint: "Function that calls itself" },
+      { word: "boolean", hint: "True or false value" },
+      { word: "repository", hint: "Version-controlled code storage" }
+    ];
+
+    const wordDisplay = document.getElementById("word");
+    const hintDisplay = document.getElementById("hint");
+    const guessInput = document.getElementById("guess");
+    const guessButton = document.getElementById("guessButton");
+    const guessedLettersDisplay = document.getElementById("guessedLetters");
+    const statusDisplay = document.getElementById("status");
+    const newGameButton = document.getElementById("newGameButton");
+
+    let chosenWord = '', chosenHint = '', displayWord = [], guessedLetters = [], triesLeft = 6;
+
+    function initializeGame() {
+      const random = words[Math.floor(Math.random() * words.length)];
+      chosenWord = random.word;
+      chosenHint = random.hint;
+      displayWord = Array(chosenWord.length).fill("_");
+      guessedLetters = [];
+      triesLeft = 6;
+
+      wordDisplay.textContent = displayWord.join(" ");
+      hintDisplay.textContent = `Hint: ${chosenHint}`;
+      guessedLettersDisplay.textContent = "";
+      statusDisplay.textContent = `Tries left: ${triesLeft}`;
+      statusDisplay.className = "";
+
+      guessInput.disabled = false;
+      guessButton.disabled = false;
+      guessInput.focus();
+    }
+
+    function handleGuess() {
+      const guessChar = guessInput.value.toLowerCase();
+      guessInput.value = "";
+      guessInput.focus();
+
+      if (!guessChar || guessChar.length !== 1 || !/[a-z]/.test(guessChar)) {
+        statusDisplay.textContent = "Please enter a valid letter.";
+        statusDisplay.className = "status-info";
+        return;
+      }
+
+      if (guessedLetters.includes(guessChar)) {
+        statusDisplay.textContent = `Already guessed '${guessChar}'`;
+        statusDisplay.className = "status-info";
+        return;
+      }
+
+      guessedLetters.push(guessChar);
+      guessedLettersDisplay.textContent = guessedLetters.join(", ");
+
+      let found = false;
+      for (let i = 0; i < chosenWord.length; i++) {
+        if (chosenWord[i] === guessChar) {
+          displayWord[i] = guessChar;
+          found = true;
+        }
+      }
+
+      if (found) {
+        statusDisplay.textContent = `Correct!`;
+        statusDisplay.className = "status-success";
+      } else {
+        triesLeft--;
+        statusDisplay.textContent = `Wrong! Tries left: ${triesLeft}`;
+        statusDisplay.className = "status-danger";
+      }
+
+      wordDisplay.textContent = displayWord.join(" ");
+
+      if (displayWord.join("") === chosenWord) {
+        statusDisplay.textContent = "You got it!";
+        statusDisplay.className = "status-win";
+        endGame();
+      } else if (triesLeft === 0) {
+        statusDisplay.textContent = `Out of tries! Word was: ${chosenWord}`;
+        statusDisplay.className = "status-lose";
+        endGame();
+      }
+    }
+
+    function endGame() {
+      guessInput.disabled = true;
+      guessButton.disabled = true;
+    }
+
+    guessButton.addEventListener("click", handleGuess);
+    newGameButton.addEventListener("click", initializeGame);
+    guessInput.addEventListener("keypress", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleGuess();
+      }
+    });
+
+    initializeGame();
+
+  </script>
+  <!-- Sudoku Script -->
+   <script>
+    (function(){
+  const sudokuContainer = document.getElementById("sudoku-game");
+  const statusEl = document.getElementById("status");
+  const newGameBtn = document.getElementById("newGameBtn");
+  if(!sudokuContainer || !statusEl || !newGameBtn) return;
+
+  const puzzle = [
+    [5,3,null,null,7,null,null,null,null],
+    [6,null,null,1,9,5,null,null,null],
+    [null,9,8,null,null,null,null,6,null],
+    [8,null,null,null,6,null,null,null,3],
+    [4,null,null,8,null,3,null,null,1],
+    [7,null,null,null,2,null,null,null,6],
+    [null,6,null,null,null,null,2,8,null],
+    [null,null,null,4,1,9,null,null,5],
+    [null,null,null,null,8,null,null,7,9]
+  ];
+
+  const solution = [
+    [5,3,4,6,7,8,9,1,2],
+    [6,7,2,1,9,5,3,4,8],
+    [1,9,8,3,4,2,5,6,7],
+    [8,5,9,7,6,1,4,2,3],
+    [4,2,6,8,5,3,7,9,1],
+    [7,1,3,9,2,4,8,5,6],
+    [9,6,1,5,3,7,2,8,4],
+    [2,8,7,4,1,9,6,3,5],
+    [3,4,5,2,8,6,1,7,9]
+  ];
+
+  function renderBoard() {
+    sudokuContainer.innerHTML = "";
+    statusEl.textContent = "";
+    puzzle.forEach((row, r) => {
+      row.forEach((val, c) => {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+
+        if (val) {
+          cell.textContent = val;
+          cell.style.background = "#b2bec3";
+        } else {
+          const input = document.createElement("input");
+          input.setAttribute("maxlength", "1");
+          input.setAttribute("data-row", r);
+          input.setAttribute("data-col", c);
+          input.oninput = () => checkWin();
+          cell.appendChild(input);
+        }
+
+        sudokuContainer.appendChild(cell);
+      });
+    });
+  }
+
+  function checkWin() {
+    let correct = true;
+    sudokuContainer.querySelectorAll("input").forEach(input => {
+      const r = parseInt(input.dataset.row);
+      const c = parseInt(input.dataset.col);
+      if (input.value === "" || Number(input.value) !== solution[r][c]) {
+        correct = false;
+      }
+    });
+
+    if (correct) {
+      statusEl.textContent = "🎉 Sudoku Solved!";
+      statusEl.style.color = "#4cd137";
+    } else {
+      statusEl.textContent = "Keep trying!";
+      statusEl.style.color = "#e84118";
+    }
+  }
+
+  newGameBtn.addEventListener("click", renderBoard);
+  renderBoard();
+})();
+   </script>
+   <!-- Memory Game Script -->
+    <script>
+
+    // --- Game Configuration ---
+    const allGameIcons = [
+      "fa-solid fa-desktop", "fa-solid fa-memory", "fa-brands fa-html5", "fa-solid fa-robot",
+      "fa-solid fa-microchip", "fa-solid fa-grip-lines", "fa-solid fa-globe", "fa-brands fa-css3-alt",
+      "fa-brands fa-js", "fa-solid fa-database", "fa-solid fa-link", "fa-solid fa-shield-halved",
+      "fa-solid fa-code", "fa-solid fa-terminal", "fa-solid fa-mouse-pointer", "fa-solid fa-cube",
+      "fa-solid fa-network-wired", "fa-solid fa-cloud", "fa-solid fa-lock", "fa-solid fa-server"
+    ]; // Simplified to just icon classes
+
+    const difficulties = {
+      easy: { pairs: 4, timeLimit: 60, gridCols: 4 },
+      medium: { pairs: 6, timeLimit: 90, gridCols: 4 },
+      hard: { pairs: 8, timeLimit: 120, gridCols: 4 },
+      expert: { pairs: 10, timeLimit: 150, gridCols: 5 }
+    };
+
+    // --- DOM Elements ---
+    const [gridContainer, scoreDisplay, timerDisplay, movesDisplay, difficultySelect, startButton, gameMessageDisplay, gameOverModal, modalTitle, modalScore, modalRestartButton] = [
+      'grid-container', 'score', 'timer', 'moves', 'difficulty', 'startButton', 'game-message', 'game-over-modal', 'modal-title', 'modal-score', 'modal-restart-button'
+    ].map(id => document.getElementById(id));
+    const [flipSound, matchSound, noMatchSound, winSound, loseSound] = [
+      'flipSound', 'matchSound', 'noMatchSound', 'winSound', 'loseSound'
+    ].map(id => document.getElementById(id));
+
+    // --- Game State Variables ---
+    let shuffledIcons = []; let flippedCards = []; let matchedCards = [];
+    let score = 0; let moves = 0; let timer = 0; let timerInterval;
+    let awaitingEndOfMove = false; let gameActive = false;
+    let currentDifficulty = difficulties.medium;
+
+    // --- Utility Functions ---
+    const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+    const playSound = (sound) => { sound.currentTime = 0; sound.play().catch(e => { }); };
+    const updateGameInfo = () => { scoreDisplay.textContent = score; timerDisplay.textContent = `${timer}s`; movesDisplay.textContent = moves; };
+
+    // --- Game Logic ---
+    function startGame() {
+      clearInterval(timerInterval);
+      currentDifficulty = difficulties[difficultySelect.value];
+      const uniqueIcons = shuffleArray([...allGameIcons]).slice(0, currentDifficulty.pairs);
+      shuffledIcons = shuffleArray([...uniqueIcons, ...uniqueIcons]);
+
+      flippedCards = []; matchedCards = []; score = 0; moves = 0; timer = 0;
+      awaitingEndOfMove = false; gameActive = true;
+      gameMessageDisplay.textContent = ""; gameOverModal.style.display = "none";
+      startButton.textContent = "Restart Game"; startButton.disabled = true;
+
+      updateGameInfo();
+      renderGrid();
+      startTimer();
+    }
+
+    function renderGrid() {
+      gridContainer.innerHTML = "";
+      gridContainer.style.gridTemplateColumns = `repeat(${currentDifficulty.gridCols}, 1fr)`;
+
+      shuffledIcons.forEach((iconClass, index) => {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        cardElement.dataset.value = iconClass; // Store icon class as value
+
+        const cardInner = document.createElement("div");
+        cardInner.classList.add("card-inner");
+
+        const cardFront = document.createElement("div");
+        cardFront.classList.add("card-face", "card-front");
+        cardFront.innerHTML = `<i class="${iconClass}"></i>`; // Render the icon
+
+        const cardBack = document.createElement("div");
+        cardBack.classList.add("card-face", "card-back");
+        cardBack.innerHTML = `<i class="fa-solid fa-question"></i>`;
+
+        cardInner.append(cardFront, cardBack);
+        cardElement.append(cardInner);
+        cardElement.addEventListener("click", () => flipCard(cardElement));
+        gridContainer.append(cardElement);
+      });
+    }
+
+    function flipCard(card) {
+      if (!gameActive || awaitingEndOfMove || matchedCards.includes(card) || flippedCards.includes(card)) return;
+      playSound(flipSound);
+      card.classList.add("flipped");
+      flippedCards.push(card);
+
+      if (flippedCards.length === 2) {
+        moves++; updateGameInfo(); awaitingEndOfMove = true;
+        setTimeout(checkMatch, 1000);
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flippedCards;
+      if (card1.dataset.value === card2.dataset.value) {
+        playSound(matchSound);
+        card1.classList.add("matched"); card2.classList.add("matched");
+        matchedCards.push(card1, card2); score += 100; gameMessageDisplay.textContent = "Match! 👍";
+        card1.removeEventListener("click", () => flipCard(card1));
+        card2.removeEventListener("click", () => flipCard(card2));
+        if (matchedCards.length === shuffledIcons.length) endGame(true);
+      } else {
+        playSound(noMatchSound); score = Math.max(0, score - 25); gameMessageDisplay.textContent = "No match! 👎";
+        card1.classList.add("wrong"); card2.classList.add("wrong");
+        setTimeout(() => { card1.classList.remove("flipped", "wrong"); card2.classList.remove("flipped", "wrong"); gameMessageDisplay.textContent = ""; }, 800);
+      }
+      flippedCards = [];
+      setTimeout(() => { awaitingEndOfMove = false; gameMessageDisplay.textContent = ""; }, 1000);
+      updateGameInfo();
+    }
+
+    function startTimer() { timerInterval = setInterval(() => { timer++; updateGameInfo(); if (timer >= currentDifficulty.timeLimit) endGame(false); }, 1000); }
+
+    function endGame(win) {
+      gameActive = false; clearInterval(timerInterval); startButton.disabled = false;
+      gameOverModal.style.display = "flex";
+      modalTitle.textContent = win ? "🎉 Congratulations! You Won! 🎉" : "⏱️ Time's Up! Game Over! ⏱️";
+      modalScore.innerHTML = `You made <b>${moves} moves</b> and your final score was <b>${score}</b> in <b>${timer} seconds</b>.`;
+      if (win) playSound(winSound); else playSound(loseSound);
+    }
+
+    // --- Event Listeners & Initial Setup ---
+    startButton.addEventListener("click", startGame);
+    modalRestartButton.addEventListener("click", () => { gameOverModal.style.display = "none"; startGame(); });
+    difficultySelect.addEventListener("change", () => { gameMessageDisplay.textContent = "Click 'Start New Game' to begin!"; startButton.disabled = false; });
+
+    startGame();
+    startButton.disabled = false; // Enable button on first load
+    gameMessageDisplay.textContent = "Select difficulty and click 'Start New Game'!";
+
+    // NAVBAR MENU TOGGLE
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+<!-- Color-Recall Script -->
+  <script>
+      (function(){
+  const startBtn = document.getElementById("startBtn");
+  const levelText = document.getElementById("level");
+  const buttons = document.querySelectorAll(".color-btn");
+  if(!startBtn || !levelText || buttons.length === 0) return;
+
+  const colors = ["red", "green", "blue", "yellow"];
+  let gamePattern = [];
+  let userPattern = [];
+  let level = 0;
+
+  startBtn.addEventListener("click", () => {
+    level = 0;
+    gamePattern = [];
+    nextSequence();
+  });
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const userChosenColor = e.target.id;
+      userPattern.push(userChosenColor);
+      flashColor(userChosenColor);
+      checkAnswer(userPattern.length - 1);
+    });
+  });
+
+  function nextSequence() {
+    userPattern = [];
+    level++;
+    levelText.textContent = "Level: " + level;
+
+    const randomColor = colors[Math.floor(Math.random() * 4)];
+    gamePattern.push(randomColor);
+
+    gamePattern.forEach((color, i) => {
+      setTimeout(() => { flashColor(color); }, i * 600);
+    });
+  }
+
+  function flashColor(color) {
+    const btn = document.getElementById(color);
+    if(!btn) return;
+    btn.style.opacity = "1";
+    setTimeout(() => { btn.style.opacity = "0.7"; }, 300);
+  }
+
+  function checkAnswer(currentIndex) {
+    if (userPattern[currentIndex] === gamePattern[currentIndex]) {
+      if (userPattern.length === gamePattern.length) {
+        setTimeout(() => { nextSequence(); }, 800);
+      }
+    } else {
+      alert("Game Over! You reached level " + level);
+      level = 0;
+      gamePattern = [];
+      userPattern = [];
+    }
+  }
+})();
+  </script>
+  <!-- Guess the output script -->
+   <script>
+        (function(){
+  const languageSelect = document.getElementById('language');
+  const questionText = document.getElementById('question-text');
+  const optionButtons = document.querySelectorAll('.option-btn');
+  const scoreText = document.getElementById('guess-output-score');
+  const nextBtn = document.getElementById('next-btn');
+  if(!languageSelect || !questionText || optionButtons.length === 0 || !scoreText || !nextBtn) return;
+
+  const questions = {
+    cpp: [
+      { q: "int a = 5; cout << a + 2;", options: ["5", "7", "52", "Error"], answer: 1 },
+      { q: "int arr[3] = {1,2,3}; cout << arr[1];", options: ["1","2","3","Error"], answer: 1 },
+      { q: "for(int i=0;i<2;i++) cout<<i;", options: ["0 1","1 2","0 1 2","Error"], answer: 0 },
+      { q: "int x=10; x++; cout<<x;", options: ["10","11","12","Error"], answer: 1 },
+      { q: "cout<< (5==5);", options: ["0","1","5","Error"], answer: 1 }
+    ],
+    java: [
+      { q: "int a = 5; System.out.println(a+2);", options: ["5","7","52","Error"], answer: 1 },
+      { q: "int[] arr = {1,2,3}; System.out.println(arr[1]);", options: ["1","2","3","Error"], answer: 1 },
+      { q: "for(int i=0;i<2;i++) System.out.print(i);", options: ["0 1","1 2","0 1 2","Error"], answer: 0 },
+      { q: "int x=10; x++; System.out.println(x);", options: ["10","11","12","Error"], answer: 1 },
+      { q: "System.out.println(5==5);", options: ["true","false","5","Error"], answer: 0 }
+    ],
+    python: [
+      { q: "a = 5\nprint(a+2)", options: ["5","7","52","Error"], answer: 1 },
+      { q: "arr = [1,2,3]\nprint(arr[1])", options: ["1","2","3","Error"], answer: 1 },
+      { q: "for i in range(2): print(i,end=' ')", options: ["0 1","1 2","0 1 2","Error"], answer: 0 },
+      { q: "x=10\nx+=1\nprint(x)", options: ["10","11","12","Error"], answer: 1 },
+      { q: "print(5==5)", options: ["True","False","5","Error"], answer: 0 }
+    ]
+  };
+
+  let currentLanguage = 'cpp';
+  let currentIndex = 0;
+  let score = 0;
+
+  languageSelect.addEventListener('change', () => {
+    currentLanguage = languageSelect.value;
+    currentIndex = 0;
+    score = 0;
+    scoreText.textContent = "Score: " + score;
+    loadQuestion();
+  });
+
+  optionButtons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      const correctAnswer = questions[currentLanguage][currentIndex].answer;
+      if (idx === correctAnswer) score++;
+      currentIndex++;
+      if(currentIndex < questions[currentLanguage].length){
+        loadQuestion();
+      } else {
+        questionText.textContent = `Game Over! Final Score: ${score}/${questions[currentLanguage].length}`;
+        optionButtons.forEach(b=>b.style.display='none');
+      }
+      scoreText.textContent = "Score: " + score;
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if(currentIndex < questions[currentLanguage].length){
+      loadQuestion();
+    }
+  });
+
+  function loadQuestion() {
+    const q = questions[currentLanguage][currentIndex];
+    questionText.textContent = q.q;
+    optionButtons.forEach((btn, idx) => {
+      btn.textContent = q.options[idx];
+      btn.style.display = 'block';
+    });
+  }
+})();
+   </script>
+<!-- Lock Logic Script -->
+ <script>
+    (function(){
+  const dials = [document.getElementById('dial1'), document.getElementById('dial2'), document.getElementById('dial3')];
+  const checkBtn = document.getElementById('checkBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const cluesDiv = document.getElementById('clues');
+  const resultDiv = document.getElementById('result');
+  if(dials.some(d => !d) || !checkBtn || !resetBtn || !cluesDiv || !resultDiv) return;
+
+  const levels = [
+    { clues: ["Dial 1 + Dial 2 = 7","Dial 2 × Dial 3 = 12","Dial 1 < Dial 3"],
+      check: ([d1,d2,d3]) => d1 + d2 === 7 && d2 * d3 === 12 && d1 < d3 },
+    { clues: ["Dial 1 × 2 = Dial 3","Dial 2 + Dial 3 = 9","Dial 1 ≠ Dial 2"],
+      check: ([d1,d2,d3]) => d1*2===d3 && d2+d3===9 && d1!==d2 },
+    { clues: ["Dial 1 + Dial 2 + Dial 3 = 15","Dial 3 - Dial 1 = 5","Dial 2 is even"],
+      check: ([d1,d2,d3]) => d1+d2+d3===15 && d3-d1===5 && d2%2===0 }
+  ];
+
+  let currentLevel = 0;
+  let values = [0,0,0];
+
+  function showClues() {
+    cluesDiv.innerHTML = "Clues:<ul>" + levels[currentLevel].clues.map(c => `<li>${c}</li>`).join('') + "</ul>";
+  }
+
+  function checkLock() {
+    if(levels[currentLevel].check(values)) {
+      resultDiv.innerHTML = "<span class='success'>Unlocked! 🎉</span>";
+      setTimeout(() => {
+        if(currentLevel < levels.length-1) {
+          currentLevel++;
+          values = [0,0,0];
+          dials.forEach((d,i)=>d.textContent=values[i]);
+          showClues();
+          resultDiv.textContent = "Next Level ➡️";
+        } else {
+          resultDiv.innerHTML = "<span class='success'>You cracked all the locks! 🏆</span>";
+        }
+      }, 500);
+    } else {
+      resultDiv.textContent = "Locked 🔒";
+    }
+  }
+
+  dials.forEach((dial,index)=>{
+    dial.addEventListener("click", ()=>{
+      values[index] = (values[index]+1)%10;
+      dial.textContent = values[index];
+    });
+  });
+
+  checkBtn.addEventListener("click", checkLock);
+
+  resetBtn.addEventListener("click", ()=>{
+    currentLevel = 0;
+    values = [0,0,0];
+    dials.forEach((d,i)=>d.textContent=values[i]);
+    showClues();
+    resultDiv.textContent = "Locked 🔒";
+  });
+
+  showClues();
+})();
+ </script>
+ <!-- Quiz Script -->
+  <script>
+(function() {
+  // Quiz variables (private scope)
+  let current = 0, score = 0;
+
+  const questions = [
+    {
+      q: "What does HTML stand for?",
+      o: ["HyperText Markup Language", "Hyper Transfer Markup Language", "HighText Machine Language"],
+      a: 0,
+      tip: "HTML is a markup language, not a programming language."
+    },
+    {
+      q: "Which language is used for styling web pages?",
+      o: ["HTML", "JQuery", "CSS"],
+      a: 2,
+      tip: "CSS = Cascading Style Sheets."
+    },
+    {
+      q: "Inside which HTML element do we put JavaScript?",
+      o: ["<script>", "<js>", "<javascript>"],
+      a: 0,
+      tip: "Always use <script> tags for JavaScript."
+    },
+    {
+      q: "Which data structure uses FIFO?",
+      o: ["Stack", "Queue", "Graph"],
+      a: 1,
+      tip: "FIFO stands for First In First Out."
+    },
+    {
+      q: "What does 'const' mean in JavaScript?",
+      o: ["A fixed loop", "An immutable variable", "A variable that can change"],
+      a: 1,
+      tip: "‘const’ creates a constant reference to a value."
+    }
+  ];
+
+  // Load question
+  function loadQuestion() {
+    const q = questions[current];
+    document.getElementById("quiz-question").textContent = `Q${current + 1}. ${q.q}`;
+
+    const opts = document.getElementById("quiz-options");
+    opts.innerHTML = "";
+
+    q.o.forEach((opt, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.onclick = () => checkAnswer(i);
+      opts.appendChild(btn);
+    });
+
+    document.getElementById("bar").style.width = `${(current / questions.length) * 100}%`;
+  }
+
+  // Check answer
+  function checkAnswer(i) {
+    const correct = i === questions[current].a;
+    if (correct) {
+      score++;
+      document.getElementById("quiz-result").textContent = "✅ Correct!";
+    } else {
+      document.getElementById("quiz-result").textContent = "❌ Wrong!";
+    }
+
+    document.getElementById("quiz-score").textContent = `Score: ${score}`;
+    document.getElementById("quiz-quote").textContent = `"${questions[current].tip}"`;
+
+    current++;
+    if (current < questions.length) {
+      setTimeout(() => {
+        document.getElementById("quiz-result").textContent = "";
+        document.getElementById("quiz-quote").textContent = "";
+        loadQuestion();
+      }, 1000); // faster transition
+    } else {
+      endQuiz();
+    }
+  }
+
+  // End quiz
+  function endQuiz() {
+    document.getElementById("quiz-question").textContent = `🎉 Quiz Over!`;
+    document.getElementById("quiz-options").innerHTML = "";
+    document.getElementById("quiz-result").textContent = `Your final score is ${score}/${questions.length}`;
+    document.getElementById("bar").style.width = `100%`;
+    document.getElementById("quiz-restart").style.display = "inline-block";
+  }
+
+  // Restart quiz
+  function restartQuiz() {
+    current = 0;
+    score = 0;
+    document.getElementById("quiz-score").textContent = `Score: 0`;
+    document.getElementById("quiz-restart").style.display = "none";
+    document.getElementById("quiz-result").textContent = "";
+    document.getElementById("quiz-quote").textContent = "";
+    loadQuestion();
+  }
+
+  // Attach restart button
+  document.getElementById("quiz-restart").onclick = restartQuiz;
+
+  // Start quiz
+  loadQuestion();
+})();
+</script>
+
+<!-- Sliding Tile Script -->
+ <script>
+  (function(){
+  const puzzleContainer = document.getElementById("puzzle");
+  const statusEl = document.getElementById("status");
+  const shuffleBtn = document.getElementById("shuffleBtn");
+  if(!puzzleContainer || !statusEl || !shuffleBtn) return;
+
+  let tiles = [];
+
+  function init() {
+    tiles = [1,2,3,4,5,6,7,8,null];
+    render();
+  }
+
+  function render() {
+    puzzleContainer.innerHTML = "";
+    tiles.forEach((tile, index) => {
+      const div = document.createElement("div");
+      div.classList.add("tile");
+      if (tile) {
+        div.textContent = tile;
+        div.addEventListener("click", () => moveTile(index));
+      } else {
+        div.classList.add("empty");
+      }
+      puzzleContainer.appendChild(div);
+    });
+    checkWin();
+  }
+
+  function moveTile(index) {
+    const emptyIndex = tiles.indexOf(null);
+    const validMoves = [emptyIndex - 1, emptyIndex + 1, emptyIndex - 3, emptyIndex + 3];
+    if (validMoves.includes(index)) {
+      [tiles[emptyIndex], tiles[index]] = [tiles[index], tiles[emptyIndex]];
+      render();
+    }
+  }
+
+  function shuffle() {
+    for (let i = tiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
+    }
+    render();
+  }
+
+  function checkWin() {
+    const win = [1,2,3,4,5,6,7,8,null];
+    if (JSON.stringify(tiles) === JSON.stringify(win)) {
+      statusEl.textContent = "🎉 You solved it!";
+    } else {
+      statusEl.textContent = "";
+    }
+  }
+
+  shuffleBtn.addEventListener("click", shuffle);
+  init();
+})();
+
+ </script>
+ <!-- Typing Speed Script -->
+<script>
+(function() {
+  const sentences = [
+    "Practice makes perfect.",
+    "Keep it simple, stupid.",
+    "Divide and conquer.",
+    "Recursion is not scary.",
+    "Debugging is twice as hard.",
+    "Every bug starts with logic.",
+    "Think before you code.",
+    "Pointers point to power.",
+    "Semicolons matter.",
+    "One bug at a time."
+  ];
+
+  let currentSentence = "";
+  let timer;        // now private
+  let startTime;
+  let isRunning = false;
+  let bestWPM = localStorage.getItem("bestWpm") || 0;
+
+  const inputBox = document.getElementById("inputBox");
+  const sentenceDisplay = document.getElementById("sentenceDisplay");
+  const timerDisplay = document.getElementById("typing-timer");
+  const wpmDisplay = document.getElementById("wpm");
+  const bestWpmDisplay = document.getElementById("bestWpm");
+
+  bestWpmDisplay.textContent = bestWPM;
+
+  function loadNewSentence() {
+    currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
+    sentenceDisplay.innerHTML = '';
+    currentSentence.split('').forEach(char => {
+      const span = document.createElement('span');
+      span.innerText = char;
+      span.classList.add('char');
+      sentenceDisplay.appendChild(span);
+    });
+    inputBox.value = '';
+    timerDisplay.textContent = '0';
+    wpmDisplay.textContent = '0';
+    clearInterval(timer);
+    isRunning = false;
+  }
+
+  function startTimer() {
+    startTime = new Date();
+    timer = setInterval(() => {
+      const elapsed = Math.floor((new Date() - startTime) / 1000);
+      timerDisplay.textContent = elapsed;
+      updateWPM();
+    }, 1000);
+  }
+
+  function updateWPM() {
+    const typed = inputBox.value.trim().split(" ").length;
+    const elapsed = (new Date() - startTime) / 1000 / 60; // minutes
+    const wpm = Math.round(typed / elapsed);
+    if (elapsed > 0) {
+      wpmDisplay.textContent = isFinite(wpm) ? wpm : 0;
+    }
+
+    if (wpm > bestWPM) {
+      bestWPM = wpm;
+      localStorage.setItem("bestWpm", bestWPM);
+      bestWpmDisplay.textContent = bestWPM;
+    }
+  }
+
+  inputBox.addEventListener('input', () => {
+    if (!isRunning) {
+      startTimer();
+      isRunning = true;
+    }
+
+    const input = inputBox.value;
+    const charSpans = sentenceDisplay.querySelectorAll('span');
+    charSpans.forEach((span, index) => {
+      const char = input[index];
+      if (char == null) {
+        span.classList.remove('correct', 'incorrect');
+      } else if (char === span.innerText) {
+        span.classList.add('correct');
+        span.classList.remove('incorrect');
+      } else {
+        span.classList.add('incorrect');
+        span.classList.remove('correct');
+      }
+    });
+  });
+
+  inputBox.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      clearInterval(timer);
+      updateWPM();
+      loadNewSentence();
+    }
+  });
+
+  loadNewSentence();
+})();
+</script>
+
 <p></p>
         <!-- scroll -->
 </html>

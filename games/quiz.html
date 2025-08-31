@@ -55,13 +55,13 @@
       transition: 0.3s;
     }
 
-    .question {
+    .quiz-question {
       font-size: 1.3rem;
       margin: 20px 0;
       color: #34495e;
     }
 
-    .options button {
+    .quiz-options button {
       display: block;
       width: 100%;
       padding: 12px;
@@ -74,16 +74,16 @@
       cursor: pointer;
     }
 
-    .options button:hover {
+    .quiz-options button:hover {
       background: #9ad5ff;
     }
 
-    .result {
+    .quiz-result {
       font-size: 1.1rem;
       margin-top: 10px;
     }
 
-    .quote {
+    .quiz-quote {
       font-style: italic;
       color: #555;
       margin-top: 15px;
@@ -105,12 +105,12 @@
       transition: width 0.4s;
     }
 
-    .score {
+    .quiz-score {
       font-size: 1rem;
       margin: 10px 0;
     }
 
-    #restart {
+    #quiz-restart {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 1rem;
@@ -154,12 +154,12 @@
   <h2>🧪 Basic Coding Quiz</h2>
   <div class="quiz-box">
     <div class="progress"><div class="progress-bar" id="bar"></div></div>
-    <div class="score" id="score">Score: 0</div>
-    <div class="question" id="question">Loading question...</div>
-    <div class="options" id="options"></div>
-    <div class="result" id="result"></div>
-    <div class="quote" id="quote"></div>
-    <button id="restart" style="display:none" onclick="restartQuiz()">🔁 Restart Quiz</button>
+    <div class="quiz-score" id="quiz-score">Score: 0</div>
+    <div class="quiz-question" id="quiz-question">Loading question...</div>
+    <div class="quiz-options" id="quiz-options"></div>
+    <div class="quiz-result" id="quiz-result"></div>
+    <div class="quiz-quote" id="quiz-quote"></div>
+    <button id="quiz-restart" style="display:none" onclick="restartQuiz()">🔁 Restart Quiz</button>
   </div>
   </div>
 
@@ -201,8 +201,8 @@
 
     function loadQuestion() {
       const q = questions[current];
-      document.getElementById("question").textContent = `Q${current + 1}. ${q.q}`;
-      const opts = document.getElementById("options");
+      document.getElementById("quiz-question").textContent = `Q${current + 1}. ${q.q}`;
+      const opts = document.getElementById("quiz-options");
       opts.innerHTML = "";
 
       q.o.forEach((opt, i) => {
@@ -219,19 +219,19 @@
       const correct = i === questions[current].a;
       if (correct) {
         score++;
-        document.getElementById("result").textContent = "✅ Correct!";
+        document.getElementById("quiz-result").textContent = "✅ Correct!";
       } else {
-        document.getElementById("result").textContent = "❌ Wrong!";
+        document.getElementById("quiz-result").textContent = "❌ Wrong!";
       }
 
-      document.getElementById("score").textContent = `Score: ${score}`;
-      document.getElementById("quote").textContent = `"${questions[current].tip}"`;
+      document.getElementById("quiz-score").textContent = `Score: ${score}`;
+      document.getElementById("quiz-quote").textContent = `"${questions[current].tip}"`;
 
       current++;
       if (current < questions.length) {
         setTimeout(() => {
-          document.getElementById("result").textContent = "";
-          document.getElementById("quote").textContent = "";
+          document.getElementById("quiz-result").textContent = "";
+          document.getElementById("quiz-quote").textContent = "";
           loadQuestion();
         }, 1500);
       } else {
@@ -240,20 +240,20 @@
     }
 
     function endQuiz() {
-      document.getElementById("question").textContent = `🎉 Quiz Over!`;
-      document.getElementById("options").innerHTML = "";
-      document.getElementById("result").textContent = `Your final score is ${score}/${questions.length}`;
+      document.getElementById("quiz-question").textContent = `🎉 Quiz Over!`;
+      document.getElementById("quiz-options").innerHTML = "";
+      document.getElementById("quiz-result").textContent = `Your final score is ${score}/${questions.length}`;
       document.getElementById("bar").style.width = `100%`;
-      document.getElementById("restart").style.display = "inline-block";
+      document.getElementById("quiz-restart").style.display = "inline-block";
     }
 
     function restartQuiz() {
       current = 0;
       score = 0;
-      document.getElementById("score").textContent = `Score: 0`;
-      document.getElementById("restart").style.display = "none";
-      document.getElementById("result").textContent = "";
-      document.getElementById("quote").textContent = "";
+      document.getElementById("quiz-score").textContent = `Score: 0`;
+      document.getElementById("quiz-restart").style.display = "none";
+      document.getElementById("quiz-result").textContent = "";
+      document.getElementById("quiz-quote").textContent = "";
       loadQuestion();
     }
 

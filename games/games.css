@@ -101,7 +101,141 @@ body {
 .container { padding-top: 60px; }
 @media (max-width: 1000px) { .container { padding-top: 55px; } }
 @media (max-width: 450px) { .container { padding-top: 50px; } }
+
 h2 { color: #2c3e50; }
+
+
+.games-section{
+ display: flex;
+  justify-content: center;   /* center horizontally */
+  width: 100%;
+  height:1000px;
+  margin-top: 100px;          /* some space below the text */
+}
+
+.outer-games{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+  height: 950px;
+  background-color:rgb(242, 208, 135);
+  border: 1px solid #000; 
+  border-radius:20px;
+  padding:30px;
+  box-sizing: border-box;
+  
+}
+.inner-games{
+  display: flex;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  background-color:rgba(250, 235, 221, 0.6); ;
+  min-width:690px;
+  min-height:830px;
+  box-sizing: border-box;
+  margin-top:20px;
+  padding:10px;
+}
+.play-games{
+  display: flex;
+  flex-direction: column; /* stack games vertically */
+  justify-content: flex-start; /* align to top so tall games fit */
+  align-items: center; /* center horizontally */
+  background-color: #faebdd;
+  width: 90%;       /* use full width */
+  min-height: 700px; /* optional: ensures some height */
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius:20px;
+}
+body.dark-mode .outer-games {
+  background-color: var(--nav-bgcolor);
+}
+body.dark-mode .inner-games{
+  background-color: var(--img-bg-shade);
+}
+body.dark-mode .play-games{
+  background-color: rgba(80, 78, 78, 0.5);
+}
+body.dark-mode h2{
+  color:white;
+}
+body.dark-mode h1{
+  color:white;
+}
+
+.tabs-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 20px 0;
+    }
+    .tabs {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      white-space: nowrap;
+      width: 580px;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+
+    .tab-button {
+      flex: 0 0 auto;
+      margin: 0 5px;
+      padding: 10px 16px;
+      border: none;
+      background: rgb(70, 108, 213);
+      cursor: pointer;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .tab-button :hover{
+      background-color: #0056b3;
+    }
+    .tab-button.active {
+      background: #0056b3;
+      color: white;
+    }
+     
+    .arrow {
+      background: #0056b3;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      margin: 0 5px;
+      position: relative;
+    }
+
+    .tab-content {
+      margin-top: 20px;
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+.visitor {
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.visitor h4 {
+  
+  margin: 0;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.visitor #counter {
+  vertical-align: middle;
+}
 
 .game-box {
   background-color: #060c29;
