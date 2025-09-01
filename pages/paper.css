@@ -74,7 +74,10 @@
 
 body {
     font-family: "poppins", sans-serif;
-    color: var(--primary-text-color)
+    /* color: var(--primary-text-color) */
+
+    background: lightyellow !important;
+
 }
 
 h1 {
@@ -285,10 +288,19 @@ section {
     box-shadow: 0 0 5px #40413c, 0 0 5px #1e1f1c, 0 0 18px rgb(70, 70, 52), 0 0 15px rgb(238, 235, 240), 0 0 15px rgb(201, 6, 208);
 }
 
+
+.service {
+    padding-top : 100px;
+}
+
 .service-heading {
-    background: var(--bg-shade);
-    margin-top: 2%;
-    margin-bottom: 2%;
+  background: var(--bg-shade);
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222222;
 }
 
 .about-heading {
@@ -691,11 +703,7 @@ section {
         padding: 15px;
         font-size: 13px;
     }
-
-    .service-heading {
-        text-align: center;
-        width: 100%;
-    }
+    
 
     #sanjay-nagar {
         text-align: center;

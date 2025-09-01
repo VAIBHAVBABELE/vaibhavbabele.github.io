@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-08-31*
+*Last updated: 2025-09-01*
 
 ## 🌸 GSSoC '25 Leaderboard
 
@@ -12,6 +12,7 @@
 | [@thilak-r](https://github.com/thilak-r) | thilak22005@gmail.com | 0 | 0 | 3 | 3 | 30 |
 | [@Shailee6464](https://github.com/Shailee6464) | - | 0 | 4 | 0 | 4 | 28 |
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
+| [@pavigupta21](https://github.com/pavigupta21) | - | 1 | 0 | 1 | 2 | 13 |
 | [@Gupta-02](https://github.com/Gupta-02) | - | 0 | 0 | 1 | 1 | 10 |
 | [@mavishsethi](https://github.com/mavishsethi) | mavishsethi@gmail.com | 0 | 0 | 1 | 1 | 10 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
@@ -31,7 +32,6 @@
 | [@Anusha271815](https://github.com/Anusha271815) | - | 1 | 0 | 0 | 1 | 3 |
 | [@rashmibarodiya](https://github.com/rashmibarodiya) | - | 1 | 0 | 0 | 1 | 3 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | - | 1 | 0 | 0 | 1 | 3 |
-| [@pavigupta21](https://github.com/pavigupta21) | - | 1 | 0 | 0 | 1 | 3 |
 | [@Sejal-collection](https://github.com/Sejal-collection) | ksejal630@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@piyushhvarma](https://github.com/piyushhvarma) | pytworks@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@snehaburma270](https://github.com/snehaburma270) | - | 1 | 0 | 0 | 1 | 3 |
