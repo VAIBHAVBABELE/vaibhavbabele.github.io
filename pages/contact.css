@@ -341,7 +341,13 @@
     border: none;
 }
 
-/*FAQ SECTION */
+/* FAQ SECTION */
+.main-faq {
+    display: flex; /* ADD THIS LINE */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ADD THIS LINE */
+}
 
 .faq-container {
     width: 100%;
@@ -349,6 +355,8 @@
     padding: 20px;
     box-sizing: border-box;
 }
+
+/* ... the rest of your CSS remains the same ... */
 
 h1 {
     font-size: 24px;
@@ -435,8 +443,6 @@ h1 {
     flex-direction: column;
     gap: 15px;
 }
-
-
 
 .faq-item {
     background-color: #c9a786;
@@ -532,7 +538,6 @@ h1 {
     padding: 25px;
     max-height: 200px;
 }
-
 
 
 .section-title {
