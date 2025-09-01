@@ -287,72 +287,262 @@
         </section>
 
         <!-- FAQ SECTION -->
-        <section class="faq-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Frequently Asked Questions  🤔</h2>
-                    <p>Quick answers to common questions about Nitra Mitra</p>
+       <div class="main-faq">
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button class="search-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.532 5.093l5.053 5.054a.75.75 0 1 1-1.06 1.06l-5.054-5.053A8.25 8.25 0 0 1 2.25 10.5Z" />
+              </svg>
+            </button>
+        </div>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="general">General</button>
+            <button class="tab-btn" data-tab="ai-assistant">AI Assistant</button>
+            <button class="tab-btn" data-tab="contributing">Contributing</button>
+        </div>
+
+        <div class="faq-section" id="general-faq-section">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can I access study materials on Nitra Mitra?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
                 </div>
-
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <span>How can I access study materials on Nitra Mitra?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>You can access study materials by visiting our Resources section. All materials are
-                                organized by semester and subject for easy navigation.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <span>Is Nitra Mitra free to use?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, Nitra Mitra is completely free for all NITRA Technical Campus students. Our goal is
-                                to provide accessible educational resources.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <span>How can I contribute to the platform?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>You can contribute by sharing study materials, reporting issues, or joining our
-                                development team. Contact us for more information about contributing.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <span>What should I do if I find broken links or outdated content?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Please report any issues through our contact form or email us directly. We appreciate
-                                your help in keeping the platform updated and functional.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <span>How often is new content added to the platform?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>We regularly update the platform with new study materials, announcements, and features.
-                                Follow our social media for the latest updates.</p>
-                        </div>
-                    </div>
+                <div class="faq-answer">
+                    <p>You can access study materials by visiting our Resources section. All materials are organized by semester and subject for easy navigation.</p>
                 </div>
             </div>
-        </section>
 
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is Nitra Mitra free to use?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, Nitra Mitra is completely free for all NITRA Technical Campus students. Our goal is to provide accessible educational resources.</p>
+                </div>
+            </div>
+            
+             <div class="faq-item">
+                <div class="faq-question">
+                    <span>How often is new content added to the platform?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>We regularly update the platform with new study materials, announcements, and features. Follow our social media for the latest updates.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need to create an account to access resources?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>No, you do not need to create an account. All study materials and resources on Nitra Mitra are freely accessible to everyone without requiring a login.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I access Nitra Mitra on my mobile phone?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the Nitra Mitra website is fully responsive and designed to work seamlessly on all devices, including mobile phones, tablets, and desktops.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What if I can't find the study material I'm looking for?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>If you can't find specific material, you can request it by using our 'Contact Us' page. We will do our best to add the requested resources as soon as possible.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who is behind Nitra Mitra?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Nitra Mitra is a student-led initiative from NITRA Technical Campus, developed and maintained by students who are passionate about making educational resources easily accessible for their peers.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I download materials for offline use?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, most of the study materials, such as notes and previous year papers, are available in downloadable formats like PDF, allowing you to save them for offline access.</p>
+                </div>
+            </div>
+
+            </div>
+
+        <div class="faq-section hidden" id="ai-assistant-faq-section">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can I contribute to the platform?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>You can contribute by sharing study materials, reporting issues, or joining our development team. Contact us for more information about contributing.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section hidden" id="contributing-faq-section">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What should I do if I find broken links or outdated content?</span>
+                    <button class="toggle-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Please report any issues through our contact form or email us directly. We appreciate your help in keeping the platform updated and functional.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <p>Still have questions?</p>
+            <a href="../pages/contact.html" class="contact-button">Contact Us</a>
+        </div>
+    </div>
+    
+    <script>
+        // Functionality for expanding/collapsing FAQ items
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqAnswer = question.nextElementSibling;
+                const toggleBtnSvg = question.querySelector('.toggle-btn svg');
+
+                // Note: Without CSS, the 'show' class won't have a visual effect.
+                // We'll toggle it for logic, but the visibility change needs JS.
+                const isShown = faqAnswer.style.display === 'block';
+                faqAnswer.style.display = isShown ? 'none' : 'block';
+
+                if (!isShown) {
+                    toggleBtnSvg.style.transform = 'rotate(90deg)';
+                } else {
+                    toggleBtnSvg.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Functionality for tab switching
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const faqSections = document.querySelectorAll('.faq-section');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Note: The 'active' class won't have a visual effect without CSS.
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Note: The 'hidden' class won't have a visual effect without CSS.
+                // We'll hide all sections directly with JS.
+                faqSections.forEach(section => section.style.display = 'none');
+
+                button.classList.add('active');
+
+                const targetId = button.getAttribute('data-tab');
+                const targetSection = document.getElementById(targetId + '-faq-section');
+                
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                }
+            });
+        });
+        
+        // Initial state setup since CSS is not present
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.faq-answer').forEach(el => el.style.display = 'none');
+            document.getElementById('ai-assistant-faq-section').style.display = 'none';
+            document.getElementById('contributing-faq-section').style.display = 'none';
+        });
+
+        // Search Bar Functionality
+        const searchInput = document.querySelector('.search-bar input');
+
+        searchInput.addEventListener('input', () => {
+            const searchText = searchInput.value.toLowerCase().trim();
+            const allFaqItems = document.querySelectorAll('.faq-item');
+
+            allFaqItems.forEach(item => {
+                const questionText = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answerText = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                
+                if (questionText.includes(searchText) || answerText.includes(searchText)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+
+                if (item.style.display === 'block') {
+                    const parentSection = item.closest('.faq-section');
+                    if (parentSection) {
+                        faqSections.forEach(section => section.style.display = 'none');
+                        parentSection.style.display = 'block';
+                        tabButtons.forEach(btn => btn.classList.remove('active'));
+                    }
+                }
+            });
+        });
+    </script>
+    </div>
+
+    ```
+    <!-- FAQ ended  -->
 
 
 
