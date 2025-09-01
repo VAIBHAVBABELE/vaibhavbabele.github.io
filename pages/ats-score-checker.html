@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ATS Score Checker — Nitra Mitra</title>
+  <title>ATS Score Checker — NITra MITra</title>
 
   <!-- Bootstrap & Font Awesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,14 @@
   <!-- PDF.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
+  <!-- Add Chart.js for visual score breakdown -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4"></script>
+
+  <!-- Add Tippy.js for tooltips -->
+  <link href="https://unpkg.com/tippy.js@6/dist/tippy.css" rel="stylesheet">
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+
   <style>
     :root{
       --accent: #cda274;
@@ -21,87 +29,298 @@
       --bg: #faebdd;
       --card:#fff;
       --text:#4e342e;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --dark-bg: #1a1a1a;
+      --dark-card: #2c2c2c;
+      --dark-text: #e0e0e0;
     }
-    body{ background:var(--bg); color:var(--text); font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding-bottom:40px;}
-    .hero{ padding:28px; text-align:center; }
-    .card { border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.08); }
-    .primary-btn{ background:var(--accent); color:white; border-radius:8px; padding:8px 16px; border:none; }
-    .primary-btn:hover{ background:var(--accent-dark); }
-    .file-input-label{ display:block; cursor:pointer; }
-    .result-score{ font-size:3.25rem; font-weight:800; color:var(--accent-dark); }
-    .chip { display:inline-block; padding:6px 10px; border-radius:999px; background:#fff6ea; border:1px solid rgba(0,0,0,0.04); margin:4px; font-weight:600; }
-    .section-ok{ color:green; font-weight:700;}
-    .section-miss{ color:#b23c3c; font-weight:700;}
-    pre { white-space:pre-wrap; word-wrap:break-word; background:#fff; padding:12px; border-radius:8px; font-size:0.95rem; border:1px solid #eee; }
-    .small-muted{ font-size:0.9rem; color:#6b6b6b; }
-    .template-card { background: linear-gradient(0deg, rgba(255,255,255,0.8), rgba(255,255,255,0.8)); border-radius:12px; padding:16px; }
-    @media (max-width:768px){ .result-score{ font-size:2.25rem; } }
+    body{ 
+      background: var(--bg); 
+      color: var(--text); 
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+      padding-bottom: 60px; 
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    body.dark-mode .card {
+      background: var(--dark-card);
+      color: var(--dark-text);
+    }
+    body.dark-mode .navbar {
+      background: #4a3c1e !important;
+    }
+    body.dark-mode .chip {
+      background: #3a3a3a;
+      border-color: rgba(255,255,255,0.1);
+    }
+    body.dark-mode pre {
+      background: #2c2c2c;
+      border-color: #444;
+    }
+    body.dark-mode .modal-content {
+      background: var(--dark-card);
+      color: var(--dark-text);
+    }
+    body.dark-mode .modal-header {
+      background: #3a3a3a !important;
+    }
+    body.dark-mode .template-card {
+      background: #2c2c2c;
+    }
+    .navbar{ 
+      background: var(--accent); 
+      padding: 10px 20px; 
+    }
+    .navbar .nav-link{ 
+      color: white; 
+      font-weight: 600; 
+    }
+    .navbar .nav-link:hover{ 
+      color: var(--accent-dark); 
+    }
+    .navbar .nav-item button {
+      color: white;
+      background: none;
+      border: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      transition: color 0.3s;
+    }
+    .navbar .nav-item button:hover {
+      color: var(--accent-dark);
+    }
+    .hero{ 
+      padding: 40px 20px; 
+      text-align: center; 
+      background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent); 
+      border-radius: 0 0 20px 20px; 
+    }
+    .card { 
+      border-radius: 16px; 
+      box-shadow: 0 12px 35px rgba(0,0,0,0.1); 
+      transition: transform 0.2s; 
+    }
+    .card:hover { 
+      transform: translateY(-5px); 
+    }
+    .primary-btn{ 
+      background: var(--accent); 
+      color: white; 
+      border-radius: 10px; 
+      padding: 10px 20px; 
+      border: none; 
+      transition: background 0.3s; 
+    }
+    .primary-btn:hover{ 
+      background: var(--accent-dark); 
+    }
+    .file-input-label{ 
+      display: block; 
+      cursor: pointer; 
+    }
+    .result-score{ 
+      font-size: 3.5rem; 
+      font-weight: 800; 
+      color: var(--accent-dark); 
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    .chip { 
+      display: inline-flex; 
+      align-items: center; 
+      padding: 8px 12px; 
+      border-radius: 999px; 
+      background: #fff6ea; 
+      border: 1px solid rgba(0,0,0,0.06); 
+      margin: 6px 6px 6px 0; 
+      font-weight: 600; 
+      transition: transform 0.2s; 
+    }
+    .chip:hover { 
+      transform: scale(1.05); 
+    }
+    .section-ok{ 
+      color: var(--success); 
+      font-weight: 700; 
+    }
+    .section-miss{ 
+      color: var(--danger); 
+      font-weight: 700; 
+    }
+    pre { 
+      white-space: pre-wrap; 
+      word-wrap: break-word; 
+      background: #fff; 
+      padding: 14px; 
+      border-radius: 10px; 
+      font-size: 0.95rem; 
+      border: 1px solid #eee; 
+      max-height: 300px; 
+      overflow-y: auto; 
+    }
+    .small-muted{ 
+      font-size: 0.9rem; 
+      color: #6b6b6b; 
+    }
+    .template-card { 
+      background: linear-gradient(0deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9)); 
+      border-radius: 14px; 
+      padding: 18px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+      transition: box-shadow 0.3s; 
+    }
+    .template-card:hover { 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+    }
+    .progress { 
+      height: 8px; 
+      border-radius: 999px; 
+      margin-top: 4px; 
+    }
+    .accordion-button { 
+      font-weight: 600; 
+      color: var(--text); 
+    }
+    .accordion-button:not(.collapsed) { 
+      background: var(--accent); 
+      color: white; 
+    }
+    .icon-spin { 
+      animation: spin 1s linear infinite; 
+    }
+    @keyframes spin { 
+      0% { transform: rotate(0deg); } 
+      100% { transform: rotate(360deg); } 
+    }
+    @media (max-width: 768px){ 
+      .result-score{ font-size: 2.5rem; } 
+      .hero { padding: 30px 15px; } 
+      .navbar { padding: 10px; } 
+    }
   </style>
 </head>
 <body>
 
-  <div class="container mt-4">
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/index.html"><i class="fa fa-arrow-left me-1"></i> NITra MITra</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button id="theme-toggle" class="nav-link"><i class="fa fa-moon me-1"></i> Dark Mode</button>
+          </li>
+          <li class="nav-item">
+            <button id="lang-toggle" class="nav-link"><i class="fa fa-language me-1"></i> हिन्दी</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
     <div class="hero">
-      <h1 class="mb-1">Resume ATS Score Checker</h1>
-      <p class="small-muted mb-3">Upload your resume (PDF / DOCX / TXT), paste job description or keywords, and get an ATS compatibility score with suggestions to improve.</p>
-      <div class="d-flex justify-content-center gap-2 flex-wrap">
-        <a href="/index.html" class="btn btn-outline-secondary"><i class="fa fa-arrow-left"></i> Back to Home</a>
-        <button class="btn primary-btn" id="sample-jd-btn">Use Example Job Description</button>
+      <h1 class="mb-2 display-4">Resume ATS Score Checker</h1>
+      <p class="small-muted mb-4 lead">Upload your resume (PDF / DOCX / TXT), paste a job description or keywords, and receive an advanced ATS compatibility score with detailed insights and AI-like suggestions.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="/index.html" class="btn btn-outline-secondary"><i class="fa fa-arrow-left me-1"></i> Back to Home</a>
+        <button class="btn primary-btn" id="sample-jd-btn"><i class="fa fa-file-alt me-1"></i> Use Example Job Description</button>
       </div>
     </div>
 
     <!-- Main layout -->
-    <div class="row g-4">
+    <div class="row g-4 mt-4">
       <!-- Left: Upload + JD input -->
       <div class="col-lg-5">
-        <div class="card p-3">
-          <h5>1) Upload Resume</h5>
-          <p class="small-muted">Supported: <b>PDF</b>, <b>DOCX</b>, <b>.txt</b>. Files are processed in your browser only.</p>
+        <div class="card p-4">
+          <h5 class="mb-3">1) Upload Your Resume</h5>
+          <p class="small-muted mb-3">Supported formats: <b>PDF</b>, <b>DOCX</b>, <b>TXT</b>. All processing happens securely in your browser—no data is sent to servers.</p>
 
-          <div class="mb-3">
+          <div class="mb-4">
             <label class="file-input-label w-100">
               <input id="resume-file" type="file" accept=".pdf,.docx,.doc,.txt" style="display:none">
-              <div class="border rounded p-3 text-center">
-                <i class="fa fa-upload fa-2x"></i>
-                <div id="file-name" class="mt-2 small-muted">No file chosen</div>
-                <div class="mt-2"><small class="text-muted">Click to choose file</small></div>
+              <div class="border rounded p-4 text-center bg-light">
+                <i class="fa fa-upload fa-3x mb-2"></i>
+                <div id="file-name" class="mt-2 small-muted">Drag & drop or click to upload</div>
+                <div class="mt-2"><small class="text-muted">Max file size: 10MB</small></div>
               </div>
             </label>
           </div>
 
-          <div class="mb-3">
-            <label for="jd-text" class="form-label">2) Paste Job Description (or keywords)</label>
-            <textarea id="jd-text" rows="8" class="form-control" placeholder="Paste full job description or a short list of keywords..." ></textarea>
-            <div class="form-text">Tip: include important skills, tools, and role-specific terms (ex: JavaScript, React, SQL, Agile).</div>
+          <div class="mb-4">
+            <label for="jd-text" class="form-label fw-semibold">2) Paste Job Description or Keywords</label>
+            <textarea id="jd-text" rows="10" class="form-control" placeholder="Paste the full job description here, or list key skills like 'JavaScript, React, SQL'..."></textarea>
+            <div class="form-text">Pro Tip: Include role-specific terms, skills, and tools for accurate matching. Advanced keyword extraction will handle the rest.</div>
           </div>
 
-          <div class="d-flex gap-2">
-            <button class="btn primary-btn" id="analyze-btn"><i class="fa fa-chart-line"></i> Analyze Resume</button>
-            <button class="btn btn-outline-secondary" id="clear-btn">Clear</button>
+          <div class="d-flex gap-3">
+            <button class="btn primary-btn flex-grow-1" id="analyze-btn"><i class="fa fa-rocket me-1"></i> Analyze Now</button>
+            <button class="btn btn-outline-secondary" id="clear-btn"><i class="fa fa-trash me-1"></i> Clear</button>
           </div>
 
-          <hr />
+          <hr class="my-3" />
 
-          <div id="parsing-status" class="small-muted">No resume parsed yet.</div>
+          <div id="parsing-status" class="small-muted d-flex align-items-center"><i class="fa fa-info-circle me-1"></i> Ready to parse your resume.</div>
         </div>
 
-        <!-- Suggestions / Quick fixes -->
-        <div class="card p-3 mt-3">
-          <h6>Quick Formatting Hints</h6>
-          <ul id="format-hints" class="mb-0">
-            <li class="small-muted">Will check basic things like presence of email, phone, skills, education, experience, LinkedIn.</li>
-            <li class="small-muted">It will also highlight missing keywords from the job description.</li>
-          </ul>
+        <!-- Advanced Formatting Hints with Accordion -->
+        <div class="card p-4 mt-4">
+          <h6 class="mb-3">Advanced Formatting Tips</h6>
+          <div class="accordion" id="hintsAccordion">
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                  <i class="fa fa-lightbulb me-2"></i> Essential Sections & Contacts
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#hintsAccordion">
+                <div class="accordion-body small-muted">
+                  Ensure your resume includes clear sections for Skills, Experience, Education. Add email, phone, and LinkedIn at the top for ATS parsing.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                  <i class="fa fa-pen me-2"></i> Keyword Optimization
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#hintsAccordion">
+                <div class="accordion-body small-muted">
+                  Integrate job-specific keywords naturally into your summary and achievements to boost matching scores.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                  <i class="fa fa-file-alt me-2"></i> ATS Best Practices
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#hintsAccordion">
+                <div class="accordion-body small-muted">
+                  Avoid tables, images, or fancy fonts. Use standard headings and bullet points for better compatibility.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Right: Results -->
       <div class="col-lg-7">
-        <div class="card p-3">
-          <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="card p-4">
+          <div class="d-flex align-items-center justify-content-between mb-4">
             <div>
-              <h5 class="mb-0">Results</h5>
-              <div class="small-muted">Score breakdown and suggestions</div>
+              <h5 class="mb-1 fw-bold">Analysis Results</h5>
+              <div class="small-muted">Detailed score breakdown, insights, and actionable recommendations.</div>
             </div>
             <div class="text-end">
               <div id="score-number" class="result-score">—</div>
@@ -109,76 +328,79 @@
             </div>
           </div>
 
-          <div id="score-breakdown" class="mb-3">
-            <!-- Will be filled by JS -->
+          <!-- Score Chart -->
+          <div class="mb-4">
+            <canvas id="scoreChart" height="100"></canvas>
           </div>
 
-          <div class="mb-3">
-            <h6>Matched Keywords</h6>
-            <div id="matched-keywords" class="mb-2"></div>
-
-            <h6>Missing / Suggested Keywords</h6>
-            <div id="missing-keywords" class="mb-2"></div>
-
-            <h6>Detected Resume Text (first 1,500 chars)</h6>
-            <pre id="resume-preview">No resume text available.</pre>
+          <div id="score-breakdown" class="mb-4 d-flex gap-3 flex-wrap">
+            <!-- Filled by JS -->
           </div>
 
-          <div class="mb-3">
-            <h6>Formatting & Section Checks</h6>
-            <ul id="section-checks"></ul>
+          <div class="mb-4">
+            <h6 class="fw-semibold">Matched Keywords</h6>
+            <div id="matched-keywords" class="mb-3"></div>
+
+            <h6 class="fw-semibold">Missing / Suggested Keywords</h6>
+            <div id="missing-keywords" class="mb-3"></div>
+
+            <h6 class="fw-semibold">Extracted Resume Preview (First 1,500 chars)</h6>
+            <pre id="resume-preview">Upload a resume to see the preview.</pre>
           </div>
 
-          <div class="d-flex gap-2">
-            <button class="btn primary-btn" id="download-suggestions" disabled><i class="fa fa-file-download"></i> Download Suggestions (TXT)</button>
-            <button class="btn btn-outline-secondary" id="view-sample-1">View Sample Optimized Resume</button>
-            <button class="btn btn-outline-secondary" id="view-sample-2">View Simple Resume Template</button>
+          <div class="mb-4">
+            <h6 class="fw-semibold">Section & Formatting Checks</h6>
+            <ul id="section-checks" class="list-group list-group-flush"></ul>
+          </div>
+
+          <div class="d-flex gap-3 flex-wrap">
+            <button class="btn primary-btn" id="download-suggestions" disabled><i class="fa fa-download me-1"></i> Download Report (TXT)</button>
+            <button class="btn btn-outline-secondary" id="view-sample-1"><i class="fa fa-eye me-1"></i> Optimized Resume Sample</button>
+            <button class="btn btn-outline-secondary" id="view-sample-2"><i class="fa fa-eye me-1"></i> Simple Template</button>
           </div>
         </div>
 
-        <!-- Examples -->
-        <div class="mt-3">
-          <h6>Example Optimized Resumes</h6>
+        <!-- Enhanced Examples Section -->
+        <div class="mt-4">
+          <h6 class="fw-bold mb-3">Example Resume Templates</h6>
           <div class="row g-3">
             <div class="col-md-6">
               <div class="template-card">
-                <strong>Optimized — Technical (Download)</strong>
-                <p class="small-muted">Includes keywords, clear sections, bullets, and measurable achievements.</p>
+                <strong class="d-block mb-1">Optimized Technical Resume</strong>
+                <p class="small-muted mb-2">Keyword-rich, quantifiable achievements, ATS-friendly structure.</p>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-sm primary-btn" id="download-opt-tech">Download .txt</button>
-                  <button class="btn btn-sm btn-outline-secondary" id="preview-opt-tech">Preview</button>
+                  <button class="btn btn-sm primary-btn" id="download-opt-tech"><i class="fa fa-download me-1"></i> Download TXT</button>
+                  <button class="btn btn-sm btn-outline-secondary" id="preview-opt-tech"><i class="fa fa-eye me-1"></i> Preview</button>
                 </div>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="template-card">
-                <strong>Simple — Clean Layout</strong>
-                <p class="small-muted">Minimal layout for quick applications.</p>
+                <strong class="d-block mb-1">Simple Clean Resume</strong>
+                <p class="small-muted mb-2">Minimalist design for quick edits and broad compatibility.</p>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-sm primary-btn" id="download-simple">Download .txt</button>
-                  <button class="btn btn-sm btn-outline-secondary" id="preview-simple">Preview</button>
+                  <button class="btn btn-sm primary-btn" id="download-simple"><i class="fa fa-download me-1"></i> Download TXT</button>
+                  <button class="btn btn-sm btn-outline-secondary" id="preview-simple"><i class="fa fa-eye me-1"></i> Preview</button>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
 
-  <!-- Modal: Preview sample -->
+  <!-- Modal: Preview sample with better styling -->
   <div class="modal fade" id="sampleModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="sampleModalTitle">Sample Resume</h5>
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content rounded-3">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title fw-bold" id="sampleModalTitle">Sample Resume Preview</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <pre id="sampleModalContent"></pre>
+        <div class="modal-body bg-white">
+          <pre id="sampleModalContent" class="p-3 bg-light rounded"></pre>
         </div>
       </div>
     </div>
@@ -186,34 +408,32 @@
 
   <!-- Scripts -->
   <script>
-    // PDF.js worker config - using the same CDN version
+    // PDF.js worker config
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-    // Utility: strip HTML tags
+    // Utility functions (enhanced with better error handling)
     function stripHtml(html) {
       const tmp = document.createElement('div');
       tmp.innerHTML = html;
       return tmp.textContent || tmp.innerText || '';
     }
 
-    // Utility: normalize text
     function normalizeText(t) {
-      return t.replace(/\u00A0/g, ' ').replace(/[\r\n]+/g, ' ').replace(/[^\w\s\-\+\/\.]/g, ' ').toLowerCase();
+      return t.replace(/\u00A0/g, ' ').replace(/[\r\n]+/g, ' ').replace(/[^\w\s\-\+\/\.]/g, ' ').toLowerCase().trim();
     }
 
-    // Extract text from DOCX using mammoth
+    // Enhanced parsers with progress indicators
     async function parseDocx(file) {
       try {
         const arrayBuffer = await file.arrayBuffer();
-        const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer });
+        const result = await mammoth.convertToHtml({ arrayBuffer });
         return stripHtml(result.value);
       } catch (e) {
         console.error('DOCX parse error', e);
-        throw e;
+        throw new Error('Failed to parse DOCX. Try converting to PDF or TXT.');
       }
     }
 
-    // Extract text from PDF using pdf.js
     async function parsePdf(file) {
       try {
         const arrayBuffer = await file.arrayBuffer();
@@ -225,93 +445,105 @@
           const content = await page.getTextContent();
           const pageText = content.items.map(i => i.str).join(' ');
           fullText += pageText + '\n\n';
-          // limit pages to speed up for huge PDFs (safety)
-          if (i >= 20) break;
+          if (i >= 20) break; // Limit for performance
         }
         return fullText;
       } catch (e) {
         console.error('PDF parse error', e);
-        throw e;
+        throw new Error('Failed to parse PDF. Ensure it\'s text-based, not scanned.');
       }
     }
 
-    // TXT parse
     async function parseTxt(file) {
       return await file.text();
     }
 
-    // Basic resume parsing wrapper
     async function parseResume(file) {
       const name = file.name.toLowerCase();
       if (name.endsWith('.pdf')) return await parsePdf(file);
       if (name.endsWith('.docx') || name.endsWith('.doc')) return await parseDocx(file);
       if (name.endsWith('.txt')) return await parseTxt(file);
-      // fallback: text
-      return await parseTxt(file);
+      throw new Error('Unsupported file format. Please use PDF, DOCX, or TXT.');
     }
 
-    // Extract keywords from JD: simple approach (filter stop words, digits, common words)
+    // Advanced keyword extraction: n-grams for phrases
     const STOPWORDS = new Set([
       'and','or','the','a','an','to','for','with','in','on','by','of','is','are','be','as','at','you','your',
       'will','that','this','from','but','we','our','us','responsibilities','responsibility','ability','abilities',
-      'experience','years','year','including','including','work','works','working','work','have','has','using','use'
+      'experience','years','year','including','work','works','working','have','has','using','use'
     ]);
 
-    function extractKeywordsFromJD(text, limit=80) {
+    function extractKeywordsFromJD(text, limit=100) {
       const cleaned = normalizeText(text);
       const tokens = cleaned.split(/\s+/).filter(Boolean);
       const freq = {};
+      const ngrams = [];
+      // Single words
       for (let tok of tokens) {
-        if (tok.length < 2) continue;
-        if (/^\d+$/.test(tok)) continue;
-        if (STOPWORDS.has(tok)) continue;
-        if (tok.length <= 2) continue;
+        if (tok.length < 3 || /^\d+$/.test(tok) || STOPWORDS.has(tok)) continue;
         freq[tok] = (freq[tok] || 0) + 1;
       }
-      // sort by freq
-      const sorted = Object.keys(freq).sort((a,b) => freq[b]-freq[a]);
+      // Bi-grams for phrases
+      for (let i = 0; i < tokens.length - 1; i++) {
+        const bigram = `${tokens[i]} ${tokens[i+1]}`;
+        if (!STOPWORDS.has(tokens[i]) && !STOPWORDS.has(tokens[i+1])) {
+          freq[bigram] = (freq[bigram] || 0) + 1;
+          ngrams.push(bigram);
+        }
+      }
+      const sorted = Object.keys(freq).sort((a,b) => freq[b] - freq[a]);
       return sorted.slice(0, limit);
     }
 
-    // Score calculation: keywords weight 60%, sections presence 30%, formatting hints 10%
-    function calculateScore({ totalKeywords, matchedCount, sectionsScore, formattingScore }) {
-      const kWeight = 0.6, sWeight = 0.3, fWeight = 0.1;
+    // Enhanced score calculation with more weights
+    function calculateScore({ totalKeywords, matchedCount, sectionsScore, formattingScore, readabilityScore }) {
+      const kWeight = 0.5, sWeight = 0.25, fWeight = 0.15, rWeight = 0.1;
       const kwScore = totalKeywords === 0 ? 50 : Math.round((matchedCount / totalKeywords) * 100);
-      const combined = Math.round(kWeight * kwScore + sWeight * (sectionsScore*100) + fWeight * (formattingScore*100));
-      return { final: Math.min(100, combined), kwScore, sectionsScore: Math.round(sectionsScore*100), formattingScore: Math.round(formattingScore*100) };
+      const combined = Math.round(kWeight * kwScore + sWeight * (sectionsScore*100) + fWeight * (formattingScore*100) + rWeight * (readabilityScore*100));
+      return { final: Math.min(100, combined), kwScore, sectionsScore: Math.round(sectionsScore*100), formattingScore: Math.round(formattingScore*100), readabilityScore: Math.round(readabilityScore*100) };
     }
 
-    // Check for key resume sections & presence of contact info
+    // Enhanced sections analysis
     function analyzeSections(text) {
-      const lower = text.toLowerCase();
+      const lower = normalizeText(text);
       const checks = {
         email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i.test(text),
         phone: /(\+?\d{1,3}[-.\s]?)?(\d{10}|\d{3}[-.\s]\d{3}[-.\s]\d{4})/.test(text),
-        linkedin: /linkedin\.com/i.test(text),
-        skills: /\bskills\b/i.test(text),
+        linkedin: /linkedin\.com/i.test(lower),
+        github: /github\.com/i.test(lower),
+        skills: /\bskills\b/i.test(lower),
         education: /\beducation\b/i.test(lower) || /\bdegree\b/i.test(lower) || /\bbachelor\b/i.test(lower) || /\bmaster\b/i.test(lower),
-        experience: /\bexperience\b/i.test(text) || /\bprojects\b/i.test(text)
+        experience: /\bexperience\b/i.test(lower) || /\bprojects\b/i.test(lower) || /\bwork history\b/i.test(lower),
+        summary: /\bsummary\b/i.test(lower) || /\bobjective\b/i.test(lower) || /\bprofile\b/i.test(lower)
       };
-
-      // simple score: each present item gives a portion
       const presentCount = Object.values(checks).filter(Boolean).length;
-      const score = presentCount / Object.keys(checks).length; // 0..1
+      const score = presentCount / Object.keys(checks).length;
       return { checks, score };
     }
 
-    // Basic formatting checks (very lightweight)
+    // Advanced formatting checks
     function formattingHints(text) {
       const hints = [];
-      if (!(/[A-Z]{2,}/.test(text))) {
-        // not a reliable check, but leave
-      }
-      if (text.length < 200) hints.push('Resume seems very short — consider expanding achievements.');
-      if (!/\n-|\n•|\t/.test(text)) hints.push('Use bullet points for achievements (e.g., "-", "•").');
-      // detect many all-caps: might be headings — it's okay
+      if (text.length < 500) hints.push('Resume is too short — aim for at least 1 page with detailed achievements.');
+      if (text.length > 5000) hints.push('Resume is too long — condense to 1-2 pages for better ATS parsing.');
+      if (!/\n-|\n•|\t/.test(text)) hints.push('Add bullet points (e.g., "-", "•") for readability in experience sections.');
+      if (text.toUpperCase() === text) hints.push('Avoid all caps; use title case for headings.');
+      if (/\b(lorem|ipsum)\b/i.test(text)) hints.push('Remove placeholder text like "lorem ipsum".');
       return hints;
     }
 
-    // UI helpers
+    // Simple readability score (Flesch-Kincaid approximation)
+    function calculateReadability(text) {
+      const sentences = text.split(/[.!?]/).length || 1;
+      const words = text.split(/\s+/).length || 1;
+      const syllables = text.split(/[aeiouy]+/i).length || 1;
+      const asl = words / sentences;
+      const asw = syllables / words;
+      const score = 206.835 - 1.015 * asl - 84.6 * asw;
+      return Math.max(0, Math.min(100, score)) / 100; // Normalize to 0-1
+    }
+
+    // UI elements
     const fileInput = document.getElementById('resume-file');
     const fileNameEl = document.getElementById('file-name');
     const parseStatus = document.getElementById('parsing-status');
@@ -325,205 +557,184 @@
     const preview = document.getElementById('resume-preview');
     const sectionChecks = document.getElementById('section-checks');
     const downloadBtn = document.getElementById('download-suggestions');
+    const scoreChartCtx = document.getElementById('scoreChart').getContext('2d');
 
     let lastParsedText = '';
     let lastSuggestionsText = '';
+    let chartInstance = null;
 
-    // File input change
-    fileInput.addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      fileNameEl.textContent = file.name + ` — ${(file.size/1024|0)} KB`;
-      parseStatus.textContent = 'Parsing resume... (this may take a few seconds for PDFs)';
-      try {
-        const text = await parseResume(file);
-        lastParsedText = normalizeText(text);
-        const previewText = text.slice(0, 1500);
-        preview.textContent = previewText || 'No text extracted (format may not be supported).';
-        parseStatus.textContent = 'Resume parsed successfully.';
-      } catch (err) {
-        parseStatus.textContent = 'Failed to parse resume. Try uploading another file or .txt/.docx';
-        console.error(err);
+    // Drag & drop support
+    const dropArea = document.querySelector('.file-input-label div');
+    dropArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropArea.classList.add('border-primary');
+    });
+    dropArea.addEventListener('dragleave', () => dropArea.classList.remove('border-primary'));
+    dropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropArea.classList.remove('border-primary');
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        fileInput.files = e.dataTransfer.files;
+        handleFileChange(file);
       }
     });
 
-    // Clear
+    // File change handler
+    async function handleFileChange(file) {
+      fileNameEl.textContent = `${file.name} — ${(file.size / 1024 | 0)} KB`;
+      parseStatus.innerHTML = '<i class="fa fa-spinner icon-spin me-1"></i> Parsing resume...';
+      try {
+        const text = await parseResume(file);
+        lastParsedText = text;
+        preview.textContent = text.slice(0, 1500) + (text.length > 1500 ? '...' : '');
+        parseStatus.innerHTML = '<i class="fa fa-check-circle text-success me-1"></i> Resume parsed successfully.';
+      } catch (err) {
+        parseStatus.innerHTML = '<i class="fa fa-exclamation-triangle text-danger me-1"></i> ' + err.message;
+        preview.textContent = 'Parsing failed.';
+      }
+    }
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) handleFileChange(file);
+    });
+
+    // Clear handler
     clearBtn.addEventListener('click', () => {
       fileInput.value = '';
-      fileNameEl.textContent = 'No file chosen';
+      fileNameEl.textContent = 'Drag & drop or click to upload';
       jdText.value = '';
       scoreNumber.textContent = '—';
       scoreBreakdown.innerHTML = '';
       matchedContainer.innerHTML = '';
       missingContainer.innerHTML = '';
-      preview.textContent = 'No resume text available.';
+      preview.textContent = 'Upload a resume to see the preview.';
       sectionChecks.innerHTML = '';
-      parseStatus.textContent = 'Cleared.';
+      parseStatus.innerHTML = '<i class="fa fa-info-circle me-1"></i> Ready to parse your resume.';
       lastParsedText = '';
       lastSuggestionsText = '';
       downloadBtn.disabled = true;
+      if (chartInstance) chartInstance.destroy();
     });
 
-    // Analyze
-    analyzeBtn.addEventListener('click', () => {
-      if (!lastParsedText) {
-        alert('Please upload a resume first.');
-        return;
-      }
+    // Analyze handler
+    analyzeBtn.addEventListener('click', async () => {
+      if (!lastParsedText) return alert('Please upload a resume first.');
       const jd = jdText.value.trim();
-      if (!jd) {
-        if (!confirm('No job description entered. Continue and run checks only for formatting/sections?')) {
-          return;
-        }
-      }
+      if (!jd && !confirm('No job description provided. Proceed with general checks?')) return;
 
-      runAnalysis(lastParsedText, jd);
+      parseStatus.innerHTML = '<i class="fa fa-spinner icon-spin me-1"></i> Analyzing...';
+      await runAnalysis(lastParsedText, jd);
+      parseStatus.innerHTML = '<i class="fa fa-check-circle text-success me-1"></i> Analysis complete.';
     });
 
-    // Main analysis function
-    function runAnalysis(resumeTextRaw, jdRaw) {
+    // Main analysis
+    async function runAnalysis(resumeTextRaw, jdRaw) {
       const resumeText = normalizeText(resumeTextRaw);
       const jd = jdRaw || '';
 
-      // 1. Extract keywords
+      // Keywords
       const jdKeywords = extractKeywordsFromJD(jd);
-      // fallback: if JD empty, try top tokens from resume
-      const resumeTokens = resumeText.split(/\s+/).filter(Boolean);
-      const resumeFreq = {};
-      for (let w of resumeTokens) {
-        if (w.length < 3) continue;
-        resumeFreq[w] = (resumeFreq[w] || 0) + 1;
-      }
+      const matched = jdKeywords.filter(kw => resumeText.includes(kw));
+      const missing = jdKeywords.filter(kw => !resumeText.includes(kw));
 
-      // matching
-      const matched = [];
-      const missing = [];
-      for (let kw of jdKeywords) {
-        if (resumeText.includes(kw)) matched.push(kw);
-        else missing.push(kw);
-      }
-
-      // 2. sections analysis
+      // Sections
       const { checks, score: sectionsScore } = analyzeSections(resumeTextRaw);
 
-      // 3. formatting hints
+      // Formatting
       const hints = formattingHints(resumeTextRaw);
 
-      // 4. scoring
-      const { final, kwScore, sectionsScore: sPct, formattingScore: fPct } = calculateScore({
-        totalKeywords: jdKeywords.length || 0,
+      // Readability
+      const readabilityScore = calculateReadability(resumeTextRaw);
+
+      // Score
+      const { final, kwScore, sectionsScore: sPct, formattingScore: fPct, readabilityScore: rPct } = calculateScore({
+        totalKeywords: jdKeywords.length,
         matchedCount: matched.length,
         sectionsScore,
-        formattingScore: hints.length ? 0.9 : 1.0 // if there's hints, small penalty
+        formattingScore: hints.length ? (1 - hints.length * 0.1) : 1.0,
+        readabilityScore
       });
 
-      // UI updates
+      // Update UI
       scoreNumber.textContent = final;
       scoreBreakdown.innerHTML = `
-        <div class="d-flex gap-3 flex-wrap">
-          <div class="chip">Keywords score: <strong>${kwScore}</strong></div>
-          <div class="chip">Sections score: <strong>${sPct}%</strong></div>
-          <div class="chip">Formatting score: <strong>${fPct}%</strong></div>
-        </div>
+        <div class="chip">Keywords: <strong>${kwScore}</strong> <div class="progress"><div class="progress-bar bg-success" style="width:${kwScore}%"></div></div></div>
+        <div class="chip">Sections: <strong>${sPct}%</strong> <div class="progress"><div class="progress-bar bg-info" style="width:${sPct}%"></div></div></div>
+        <div class="chip">Formatting: <strong>${fPct}%</strong> <div class="progress"><div class="progress-bar bg-warning" style="width:${fPct}%"></div></div></div>
+        <div class="chip">Readability: <strong>${rPct}%</strong> <div class="progress"><div class="progress-bar bg-primary" style="width:${rPct}%"></div></div></div>
       `;
 
-      // matched / missing
-      matchedContainer.innerHTML = matched.length ? matched.map(k => `<span class="badge bg-light text-dark me-1 mb-1">${k}</span>`).join('') : '<span class="small-muted">None</span>';
-      missingContainer.innerHTML = missing.length ? missing.map(k => `<span class="badge bg-danger text-white me-1 mb-1">${k}</span>`).join('') : '<span class="small-muted">None — good match!</span>';
+      // Keywords UI with tooltips
+      matchedContainer.innerHTML = matched.length ? matched.map(k => `<span class="badge bg-success text-white me-1 mb-1" data-tippy-content="Matched in resume">${k}</span>`).join('') : '<span class="small-muted">No matches — add keywords!</span>';
+      missingContainer.innerHTML = missing.length ? missing.map(k => `<span class="badge bg-danger text-white me-1 mb-1" data-tippy-content="Add this keyword">${k}</span>`).join('') : '<span class="small-muted">Perfect match!</span>';
 
-      // section checks
-      sectionChecks.innerHTML = `
-        <li>Email: ${checks.email ? `<span class="section-ok">Found</span>` : `<span class="section-miss">Missing</span>`}</li>
-        <li>Phone: ${checks.phone ? `<span class="section-ok">Found</span>` : `<span class="section-miss">Missing</span>`}</li>
-        <li>LinkedIn: ${checks.linkedin ? `<span class="section-ok">Found</span>` : `<span class="section-miss">Missing</span>`}</li>
-        <li>Skills section: ${checks.skills ? `<span class="section-ok">Found</span>` : `<span class="section-miss">Missing</span>`}</li>
-        <li>Education: ${checks.education ? `<span class="section-ok">Found</span>` : `<span class="section-miss">Missing</span>`}</li>
-        <li>Experience / Projects: ${checks.experience ? `<span class="section-ok">Found</span>` : `<span class="section-miss">Missing</span>`}</li>
-      `;
+      // Section checks with icons
+      sectionChecks.innerHTML = Object.entries(checks).map(([key, val]) => `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          ${key.charAt(0).toUpperCase() + key.slice(1)}: <span class="${val ? 'section-ok' : 'section-miss'}"><i class="fa fa-${val ? 'check' : 'times'}-circle me-1"></i>${val ? 'Found' : 'Missing'}</span>
+        </li>
+      `).join('');
 
-      // formatting hints area
+      // Hints update (now in results for dynamic)
       const hintListEl = document.getElementById('format-hints');
-      hintListEl.innerHTML = `<li class="small-muted">Suggestions based on quick checks below:</li>` + hints.map(h => `<li>${h}</li>`).join('');
+      if (hintListEl) hintListEl.innerHTML = hints.map(h => `<li class="text-warning">${h}</li>`).join('') || '<li class="small-muted">No suggestions — great job!</li>';
 
-      // Last suggestions text for download
-      const suggestionsText = buildSuggestionsText({ final, kwScore, sPct, fPct, matched, missing, checks, hints });
-      lastSuggestionsText = suggestionsText;
+      // Chart
+      if (chartInstance) chartInstance.destroy();
+      chartInstance = new Chart(scoreChartCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Keywords', 'Sections', 'Formatting', 'Readability'],
+          datasets: [{ data: [kwScore, sPct, fPct, rPct], backgroundColor: ['#28a745', '#17a2b8', '#ffc107', '#007bff'] }]
+        },
+        options: { cutout: '70%', plugins: { legend: { position: 'bottom' } } }
+      });
+
+      // Suggestions text
+      lastSuggestionsText = buildSuggestionsText({ final, kwScore, sPct, fPct, rPct, matched, missing, checks, hints });
       downloadBtn.disabled = false;
+
+      // Init tooltips
+      tippy('[data-tippy-content]', { theme: 'light-border' });
+
       preview.scrollIntoView({ behavior: 'smooth' });
     }
 
-    function buildSuggestionsText({ final, kwScore, sPct, fPct, matched, missing, checks, hints }) {
-      let out = `ATS Score Report — Nitra Mitra\n\nOverall ATS Score: ${final}/100\n\nBreakdown:\n- Keywords Score: ${kwScore}\n- Sections Score: ${sPct}%\n- Formatting Score: ${fPct}%\n\nMatched Keywords (${matched.length}): ${matched.join(', ') || 'None'}\n\nMissing / Suggested Keywords (${missing.length}): ${missing.join(', ') || 'None'}\n\nSection Checks:\n- Email: ${checks.email ? 'Yes' : 'Missing'}\n- Phone: ${checks.phone ? 'Yes' : 'Missing'}\n- LinkedIn: ${checks.linkedin ? 'Yes' : 'Missing'}\n- Skills section: ${checks.skills ? 'Yes' : 'Missing'}\n- Education: ${checks.education ? 'Yes' : 'Missing'}\n- Experience/Projects: ${checks.experience ? 'Yes' : 'Missing'}\n\nFormatting Hints:\n${hints.length ? hints.map(h => '- '+h).join('\n') : '- None (looks good)'}\n\nActionable Recommendations:\n1. Add the top missing keywords into a 'Skills' section and sprinkle relevant keywords in achievements and summary.\n2. Ensure email and phone are clearly visible at top.\n3. Use bullet points for achievements with numbers (e.g., \"Improved X by 30%\" )\n4. Keep resume simple, avoid images/logos which break some ATS.\n\nGenerated by Nitra Mitra ATS Checker — use suggestions to improve your resume.\n`;
+    function buildSuggestionsText({ final, kwScore, sPct, fPct, rPct, matched, missing, checks, hints }) {
+      let out = `ATS Score Report — Enhanced by Grok\n\nOverall Score: ${final}/100\n\nBreakdown:\n- Keywords: ${kwScore}\n- Sections: ${sPct}%\n- Formatting: ${fPct}%\n- Readability: ${rPct}%\n\nMatched Keywords: ${matched.join(', ') || 'None'}\n\nMissing Keywords: ${missing.join(', ') || 'None'}\n\nSection Checks:\n${Object.entries(checks).map(([k,v]) => `- ${k.charAt(0).toUpperCase() + k.slice(1)}: ${v ? 'Yes' : 'No'}`).join('\n')}\n\nFormatting & Readability Hints:\n${hints.map(h => '- ' + h).join('\n') || '- None'}\n\nAdvanced Recommendations:\n1. Incorporate missing keywords into skills and experience sections.\n2. Improve readability by shortening sentences and using active voice.\n3. Add missing sections like Summary or GitHub for tech roles.\n4. Test with multiple JDs for versatility.\n\nPowered by Nitra Mitra — Optimized UI by Grok.`;
       return out;
     }
 
-    // Download suggestions
-    document.getElementById('download-suggestions').addEventListener('click', () => {
-      if (!lastSuggestionsText) return;
+    // Download
+    downloadBtn.addEventListener('click', () => {
       const blob = new Blob([lastSuggestionsText], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'ats-suggestions.txt';
-      document.body.appendChild(a);
+      a.download = 'ats-report.txt';
       a.click();
-      a.remove();
       URL.revokeObjectURL(url);
     });
 
-    // Sample JD button fills JD textarea with sample content
+    // Sample JD
     document.getElementById('sample-jd-btn').addEventListener('click', () => {
-      jdText.value = `We are looking for a Software Engineer with 2+ years experience in JavaScript, React, Node.js, REST API, SQL, AWS, Git, Agile methodologies. Strong CS fundamentals, problem-solving and communication skills required. Experience with unit testing (Jest) and code reviews preferred.`;
+      jdText.value = `Seeking a Full-Stack Developer with 3+ years in JavaScript, React.js, Node.js, Express, MongoDB/SQL, AWS/GCP, Docker, Git, CI/CD, Agile/Scrum. Strong in problem-solving, TDD (Jest/Mocha), and REST/GraphQL APIs. Experience with microservices preferred.`;
     });
 
-    // Sample resume templates (download & preview)
-    const sampleOptimized = `Harsh Vardhan Sahu
-Email: harshvardhan@example.com | Phone: +91-XXXXXXXXXX | LinkedIn: linkedin.com/in/harshvardhan
-Summary:
-Results-driven Software Engineer experienced in full-stack development using JavaScript, React, Node.js and SQL. Delivered features that improved user engagement by 25%.
+    // Samples (updated with more content)
+    const sampleOptimized = `Harsh Vardhan Sahu\nEmail: harsh.vardhan@example.com | Phone: +91-123-456-7890 | LinkedIn: linkedin.com/in/johndoe | GitHub: github.com/Harsh Vardhan Sahu\n\nProfessional Summary:\nDynamic Full-Stack Developer with 5+ years building scalable web apps using React, Node.js, and SQL. Boosted app performance by 40% at previous role.\n\nSkills:\nJavaScript, React.js, Node.js, Express, REST APIs, GraphQL, SQL, MongoDB, AWS, Docker, Git, Agile, Jest, CI/CD\n\nProfessional Experience:\nSenior Developer — TechCorp (2020-Present)\n- Led development of React-based dashboard, increasing user retention by 25%\n- Implemented Node.js microservices with Docker, reducing deployment time by 50%\n\nEducation:\nB.S. Computer Science — University of Example (2016)\n\nProjects:\n- E-commerce Platform: Built full-stack app with React and Node.js, handling 10k+ users.`;
 
-Skills:
-JavaScript, React, Node.js, Express, REST APIs, SQL, MongoDB, AWS (S3, Lambda), Docker, Git, Agile, Jest
-
-Experience:
-Software Developer — Acme Corp (2022 - Present)
-- Built user-facing features in React used by 30k users; improved performance by 18%
-- Designed backend REST APIs with Node.js and Express; reduced latency by 30%
-
-Education:
-B.Tech Computer Science — NITRA Technical Campus (2020 - 2024)
-Projects:
-- Resume Analyzer: Built a client-side ATS checker (JS) to parse and evaluate resumes.
-
----
-
-Keywords to highlight: JavaScript, React, Node.js, SQL, REST API, AWS, Agile, Git, Jest
-`;
-
-    const sampleSimple = `Harsh Vardhan Sahu
-Harsh@example.com | +91-XXXXXXXXXX | linkedin.com/in/harshvardhan
-
-Objective:
-Seeking entry-level software engineer role to apply full-stack skills and build scalable products.
-
-Skills:
-JavaScript, React, Node.js, SQL
-
-Education:
-B.Tech CSE — NITRA Technical Campus
-
-Experience:
-Intern — Some Company
-- Assisted in front-end development using React.
-`;
+    const sampleSimple = `Harsh Vardhan Sahu\nharsh.vardhan@example.com | +91-987-654-3210 | linkedin.com/in/jHarsh Vardhan Sahu\n\nObjective:\nEntry-level Software Engineer eager to contribute to innovative teams with strong foundational skills.\n\nSkills:\nJavaScript, React, Node.js, SQL, Git\n\nEducation:\nB.S. Computer Science — State University (2023)\n\nExperience:\nIntern — Startup Inc. (2022-2023)\n- Assisted in front-end development using React.\n- Collaborated on API integrations with Node.js.`;
 
     document.getElementById('download-opt-tech').addEventListener('click', () => downloadText(sampleOptimized, 'optimized-resume.txt'));
     document.getElementById('download-simple').addEventListener('click', () => downloadText(sampleSimple, 'simple-resume.txt'));
 
-    document.getElementById('preview-opt-tech').addEventListener('click', () => showModal('Optimized — Technical', sampleOptimized));
-    document.getElementById('preview-simple').addEventListener('click', () => showModal('Simple Template', sampleSimple));
-    document.getElementById('view-sample-1').addEventListener('click', () => showModal('Optimized — Technical', sampleOptimized));
-    document.getElementById('view-sample-2').addEventListener('click', () => showModal('Simple Template', sampleSimple));
+    document.getElementById('preview-opt-tech').addEventListener('click', () => showModal('Optimized Technical Resume', sampleOptimized));
+    document.getElementById('preview-simple').addEventListener('click', () => showModal('Simple Clean Resume', sampleSimple));
+    document.getElementById('view-sample-1').addEventListener('click', () => showModal('Optimized Technical Resume', sampleOptimized));
+    document.getElementById('view-sample-2').addEventListener('click', () => showModal('Simple Clean Resume', sampleSimple));
 
     function downloadText(text, filename) {
       const blob = new Blob([text], { type: 'text/plain' });
@@ -531,31 +742,117 @@ Intern — Some Company
       const a = document.createElement('a');
       a.href = url;
       a.download = filename;
-      document.body.appendChild(a);
       a.click();
-      a.remove();
       URL.revokeObjectURL(url);
     }
 
     function showModal(title, content) {
       document.getElementById('sampleModalTitle').textContent = title;
       document.getElementById('sampleModalContent').textContent = content;
-      const modal = new bootstrap.Modal(document.getElementById('sampleModal'));
-      modal.show();
+      new bootstrap.Modal(document.getElementById('sampleModal')).show();
     }
 
-    // Enable file area clicking
-    document.querySelector('.file-input-label').addEventListener('click', () => {
-      fileInput.click();
-    });
-
-    // small helpful keyboard shortcut: Ctrl+Enter runs analyze
+    // Ctrl+Enter shortcut
     document.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.key === 'Enter') {
-        analyzeBtn.click();
-      }
+      if (e.ctrlKey && e.key === 'Enter') analyzeBtn.click();
     });
 
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      themeToggle.innerHTML = `<i class="fa fa-${isDark ? 'sun' : 'moon'} me-1"></i> ${isDark ? 'Light Mode' : 'Dark Mode'}`;
+    });
+
+    // Language toggle
+    const langToggle = document.getElementById('lang-toggle');
+    const translations = {
+      en: {
+        title: 'Resume ATS Score Checker',
+        heroSubtitle: 'Upload your resume (PDF / DOCX / TXT), paste a job description or keywords, and receive an advanced ATS compatibility score with detailed insights and AI-like suggestions.',
+        uploadLabel: '1) Upload Your Resume',
+        uploadInfo: 'Supported formats: <b>PDF</b>, <b>DOCX</b>, <b>TXT</b>. All processing happens securely in your browser—no data is sent to servers.',
+        jdLabel: '2) Paste Job Description or Keywords',
+        jdTip: 'Pro Tip: Include role-specific terms, skills, and tools for accurate matching. Advanced keyword extraction will handle the rest.',
+        analyzeBtn: '<i class="fa fa-rocket me-1"></i> Analyze Now',
+        clearBtn: '<i class="fa fa-trash me-1"></i> Clear',
+        tipsTitle: 'Advanced Formatting Tips',
+        tip1: 'Ensure your resume includes clear sections for Skills, Experience, Education. Add email, phone, and LinkedIn at the top for ATS parsing.',
+        tip2: 'Integrate job-specific keywords naturally into your summary and achievements to boost matching scores.',
+        tip3: 'Avoid tables, images, or fancy fonts. Use standard headings and bullet points for better compatibility.',
+        resultsTitle: 'Analysis Results',
+        resultsSubtitle: 'Detailed score breakdown, insights, and actionable recommendations.',
+        matchedKeywords: 'Matched Keywords',
+        missingKeywords: 'Missing / Suggested Keywords',
+        resumePreview: 'Extracted Resume Preview (First 1,500 chars)',
+        sectionChecks: 'Section & Formatting Checks',
+        templateTitle: 'Example Resume Templates',
+        template1: 'Optimized Technical Resume',
+        template1Desc: 'Keyword-rich, quantifiable achievements, ATS-friendly structure.',
+        template2: 'Simple Clean Resume',
+        template2Desc: 'Minimalist design for quick edits and broad compatibility.'
+      },
+      hi: {
+        title: 'रिज्यूमे ATS स्कोर चेकर',
+        heroSubtitle: 'अपना रिज्यूमे (PDF / DOCX / TXT) अपलोड करें, जॉब डिस्क्रिप्शन या कीवर्ड्स पेस्ट करें, और विस्तृत अंतर्दृष्टि और AI-जैसे सुझावों के साथ उन्नत ATS संगतता स्कोर प्राप्त करें।',
+        uploadLabel: '1) अपना रिज्यूमे अपलोड करें',
+        uploadInfo: 'समर्थित प्रारूप: <b>PDF</b>, <b>DOCX</b>, <b>TXT</b>। सभी प्रोसेसिंग आपके ब्राउज़र में सुरक्षित रूप से होती है—कोई डेटा सर्वर पर नहीं भेजा जाता।',
+        jdLabel: '2) जॉब डिस्क्रिप्शन या कीवर्ड्स पेस्ट करें',
+        jdTip: 'प्रो टिप: सटीक मिलान के लिए भूमिका-विशिष्ट शब्द, कौशल और उपकरण शामिल करें। उन्नत कीवर्ड निष्कर्षण बाकी का ध्यान रखेगा।',
+        analyzeBtn: '<i class="fa fa-rocket me-1"></i> अब विश्लेषण करें',
+        clearBtn: '<i class="fa fa-trash me-1"></i> साफ करें',
+        tipsTitle: 'उन्नत प्रारूपण सुझाव',
+        tip1: 'सुनिश्चित करें कि आपके रिज्यूमे में कौशल, अनुभव, शिक्षा के लिए स्पष्ट अनुभाग शामिल हों। ATS पार्सिंग के लिए शीर्ष पर ईमेल, फोन और लिंक्डइन जोड़ें।',
+        tip2: 'मिलान स्कोर बढ़ाने के लिए जॉब-विशिष्ट कीवर्ड्स को अपने सारांश और उपलब्धियों में स्वाभाविक रूप से शामिल करें।',
+        tip3: 'टेबल, छवियों, या फैंसी फ़ॉन्ट से बचें। बेहतर संगतता के लिए मानक शीर्षक और बुलेट पॉइंट्स का उपयोग करें।',
+        resultsTitle: 'विश्लेषण परिणाम',
+        resultsSubtitle: 'विस्तृत स्कोर ब्रेकडाउन, अंतर्दृष्टि, और कार्रवाई योग्य सिफारिशें।',
+        matchedKeywords: 'मिलान किए गए कीवर्ड्स',
+        missingKeywords: 'गायब / सुझाए गए कीवर्ड्स',
+        resumePreview: 'निकाला गया रिज्यूमे पूर्वावलोकन (पहले 1,500 अक्षर)',
+        sectionChecks: 'अनुभाग और प्रारूपण जांच',
+        templateTitle: 'उदाहरण रिज्यूमे टेम्पलेट',
+        template1: 'अनुकूलित तकनीकी रिज्यूमे',
+        template1Desc: 'कीवर्ड-समृद्ध, मात्रात्मक उपलब्धियां, ATS-अनुकूल संरचना।',
+        template2: 'साधारण स्वच्छ रिज्यूमे',
+        template2Desc: 'त्वरित संपादन और व्यापक संगतता के लिए न्यूनतम डिज़ाइन।'
+      }
+    };
+
+    let currentLang = 'en';
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      langToggle.innerHTML = `<i class="fa fa-language me-1"></i> ${currentLang === 'en' ? 'हिन्दी' : 'English'}`;
+      updateLanguage();
+    });
+
+    function updateLanguage() {
+      const t = translations[currentLang];
+      document.querySelector('.hero h1').textContent = t.title;
+      document.querySelector('.hero p.lead').textContent = t.heroSubtitle;
+      document.querySelector('.card p.mb-3').innerHTML = t.uploadInfo;
+      document.querySelector('.card h5.mb-3').textContent = t.uploadLabel;
+      document.querySelector('.form-label.fw-semibold').textContent = t.jdLabel;
+      document.querySelector('.form-text').textContent = t.jdTip;
+      document.getElementById('analyze-btn').innerHTML = t.analyzeBtn;
+      document.getElementById('clear-btn').innerHTML = t.clearBtn;
+      document.querySelector('.card h6.mb-3').textContent = t.tipsTitle;
+      document.querySelector('#collapseOne .accordion-body').textContent = t.tip1;
+      document.querySelector('#collapseTwo .accordion-body').textContent = t.tip2;
+      document.querySelector('#collapseThree .accordion-body').textContent = t.tip3;
+      document.querySelector('.col-lg-7 .card h5.mb-1').textContent = t.resultsTitle;
+      document.querySelector('.col-lg-7 .card .small-muted').textContent = t.resultsSubtitle;
+      document.querySelectorAll('.fw-semibold')[1].textContent = t.matchedKeywords;
+      document.querySelectorAll('.fw-semibold')[2].textContent = t.missingKeywords;
+      document.querySelectorAll('.fw-semibold')[3].textContent = t.resumePreview;
+      document.querySelectorAll('.fw-semibold')[4].textContent = t.sectionChecks;
+      document.querySelector('.mt-4 h6.fw-bold').textContent = t.templateTitle;
+      document.querySelectorAll('.template-card strong')[0].textContent = t.template1;
+      document.querySelectorAll('.template-card p')[0].textContent = t.template1Desc;
+      document.querySelectorAll('.template-card strong')[1].textContent = t.template2;
+      document.querySelectorAll('.template-card p')[1].textContent = t.template2Desc;
+    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
