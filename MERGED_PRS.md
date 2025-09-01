@@ -2,10 +2,11 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-08-31*
+*Last updated: 2025-09-01*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#374](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374) | enhanced games section | [@pavigupta21](https://github.com/pavigupta21) | ## 🔖 PR Title: Enhanced Games Section with Tab-Switching Feature ... | 4 | enhancement, gssoc25, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-31 | 2180 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374) |
 | [#352](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/352) | Form validation added | [@gyanshankar1708](https://github.com/gyanshankar1708) | ## 🔖 PR Title: Form validation added in Contact us ... | 2 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-30 | 52 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/352) |
 | [#349](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/349) | Added navbar and footer to syllabus page | [@Parnika-h](https://github.com/Parnika-h) | ## 🔖 PR Title: Added Navbar & Contact Us Footer ... | 3 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-30 | 685 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/349) |
 | [#346](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/346) | Add the Sidebar and fix the navbar [OSCI25] | [@ManabBiswas](https://github.com/ManabBiswas) | ## 🔖 PR Title: <!-- A clear and concise title ... | 75 | enhancement, OSCI25, hard | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-29 | 5216 | 9 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/346) |
@@ -89,7 +90,7 @@ This document lists all merged PRs with details: author, title, description (max
 | [#64](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/64) | [Feature]: Add PR Showcase Page with Contributors, GsSOC  | [@thilak-r](https://github.com/thilak-r) | ## 🔖 PR Title: [Feature]: Add PR Showcase Page with ... | 2 | gssoc25, frontend, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-24 | 694 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/64) |
 | [#55](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/55) | Create LICENSE | [@EammenShaik](https://github.com/EammenShaik) | 📜 Description This pull request adds the **MIT License** to ... | 1 | documentation, good first issue, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-24 | 21 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/55) |
 | [#46](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/46) | Added Flask backend for AI Chatbot (API-secure) | [@shoaib2000857](https://github.com/shoaib2000857) | ## 🔖 PR Title: <!-- A clear and concise title ... | 10 | gssoc25, backend, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-24 | 1136 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/46) |
-| [#30](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/30) | Improved README with full instructions for running project locally | [@Vidushi-15b](https://github.com/Vidushi-15b) | ## ���� PR Title: <!-- 📘 Improved README.md with Complete ... | 1 | documentation, good first issue, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 55 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/30) |
+| [#30](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/30) | Improved README with full instructions for running project locally | [@Vidushi-15b](https://github.com/Vidushi-15b) | ## 🔖 PR Title: <!-- 📘 Improved README.md with Complete ... | 1 | documentation, good first issue, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 55 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/30) |
 | [#42](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/42) | Basic Assistant  | [@shoaib2000857](https://github.com/shoaib2000857) | ## 🔖 PR Title: Created a basic Js based chatbot ... | 5 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 1466 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/42) |
 | [#37](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/37) | Fix: UI issues in announcement and user experience tables (Closes #16, #17) | [@Triveni-Balekundri](https://github.com/Triveni-Balekundri) | 🔖 PR Title: Fix: UI issues in announcement and user ... | 4 | enhancement, gssoc25, LEVEL 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 661 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/37) |
 | [#25](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/25) | Enhancement/changed navbar and page layout | [@Nikita-Mishraa](https://github.com/Nikita-Mishraa) | ## 🔖 PR Title: Fixed navbar and page layout --- ... | 10 | good first issue, gssoc25, frontend, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-23 | 96 | 9 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/25) |
@@ -112,6 +113,25 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#374 enhanced games section](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374)
+
+- **Author:** [@pavigupta21](https://github.com/pavigupta21)
+- **Description:**  
+## 🔖 PR Title: Enhanced Games Section with Tab-Switching Feature ...
+- **Files Changed (4):**
+    - `games/games.css`
+  - `games/gamess.html`
+  - `games/hangman.html`
+  - `games/quiz.html`
+- **Labels:** `enhancement`, `gssoc25`, `level 3`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-08-31 16:32:26
+- **Lines Updated:** 2180
+- **Commits:** 1
+- **PR Link:** [PR #374](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374)
+
+---
 
 ### [#352 Form validation added](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/352)
 
@@ -3790,7 +3810,7 @@ This PR implements comprehensive content updates and structural enhancements acr
 
 - **Author:** [@Vidushi-15b](https://github.com/Vidushi-15b)
 - **Description:**  
-## ���� PR Title: <!-- 📘 Improved README.md with Complete ...
+## 🔖 PR Title: <!-- 📘 Improved README.md with Complete ...
 - **Files Changed (1):**
     - `README.md`
 - **Labels:** `documentation`, `good first issue`, `gssoc25`, `level 1`
