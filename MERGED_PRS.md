@@ -2,10 +2,13 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-09-01*
+*Last updated: 2025-09-02*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#370](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/370) | Enhanced the FAQ section and added extra features | [@Janhavi078](https://github.com/Janhavi078) | ## 🔖 PR Title: This PR improves the FAQ section ... | 3 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-01 | 503 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/370) |
+| [#383](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/383) | Fixed infrastructure/ facilities line alignment bug in CSS | [@YogitaSharma253](https://github.com/YogitaSharma253) | ## 🔖 PR Title: Fixed infrastructure facilities line alignment bug ... | 1 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-01 | 26 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/383) |
+| [#378](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/378) | Cleanup: Removed Unnecessary Game Files from Repository | [@pavigupta21](https://github.com/pavigupta21) | ## 🔖 PR Title: Cleanup: Removed Unnecessary Game Files from ... | 12 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-01 | 2308 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/378) |
 | [#374](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374) | enhanced games section | [@pavigupta21](https://github.com/pavigupta21) | ## 🔖 PR Title: Enhanced Games Section with Tab-Switching Feature ... | 4 | enhancement, gssoc25, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-31 | 2180 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374) |
 | [#352](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/352) | Form validation added | [@gyanshankar1708](https://github.com/gyanshankar1708) | ## 🔖 PR Title: Form validation added in Contact us ... | 2 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-30 | 52 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/352) |
 | [#349](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/349) | Added navbar and footer to syllabus page | [@Parnika-h](https://github.com/Parnika-h) | ## 🔖 PR Title: Added Navbar & Contact Us Footer ... | 3 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-30 | 685 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/349) |
@@ -113,6 +116,67 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#370 Enhanced the FAQ section and added extra features](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/370)
+
+- **Author:** [@Janhavi078](https://github.com/Janhavi078)
+- **Description:**  
+## 🔖 PR Title: This PR improves the FAQ section ...
+- **Files Changed (3):**
+    - `index.html`
+  - `pages/contact.css`
+  - `pages/contact.html`
+- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-01 10:51:24
+- **Lines Updated:** 503
+- **Commits:** 2
+- **PR Link:** [PR #370](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/370)
+
+---
+
+### [#383 Fixed infrastructure/ facilities line alignment bug in CSS](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/383)
+
+- **Author:** [@YogitaSharma253](https://github.com/YogitaSharma253)
+- **Description:**  
+## 🔖 PR Title: Fixed infrastructure facilities line alignment bug ...
+- **Files Changed (1):**
+    - `pages/paper.css`
+- **Labels:** `bug`, `OSCI25`, `Easy`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-01 06:32:27
+- **Lines Updated:** 26
+- **Commits:** 2
+- **PR Link:** [PR #383](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/383)
+
+---
+
+### [#378 Cleanup: Removed Unnecessary Game Files from Repository](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/378)
+
+- **Author:** [@pavigupta21](https://github.com/pavigupta21)
+- **Description:**  
+## 🔖 PR Title: Cleanup: Removed Unnecessary Game Files from ...
+- **Files Changed (12):**
+    - `games/Sliding-Tile.html`
+  - `games/color-recall.html`
+  - `games/games.css`
+  - `games/gamess.html`
+  - `games/gamess.js`
+  - `games/guessTheoutput.html`
+  - `games/hangman.html`
+  - `games/lock-logic.html`
+  - `games/memory.html`
+  - `games/quiz.html`
+  - `games/sudoku.html`
+  - `games/typing.html`
+- **Labels:** `bug`, `gssoc25`, `level 1`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-01 01:37:12
+- **Lines Updated:** 2308
+- **Commits:** 1
+- **PR Link:** [PR #378](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/378)
+
+---
 
 ### [#374 enhanced games section](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/374)
 
