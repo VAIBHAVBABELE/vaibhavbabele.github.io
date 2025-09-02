@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-09-01*
+*Last updated: 2025-09-02*
 
 ## 🌸 GSSoC '25 Leaderboard
 
@@ -11,8 +11,8 @@
 | [@Nikita-Mishraa](https://github.com/Nikita-Mishraa) | nikita.mishra.pri@gmail.com | 3 | 3 | 0 | 6 | 30 |
 | [@thilak-r](https://github.com/thilak-r) | thilak22005@gmail.com | 0 | 0 | 3 | 3 | 30 |
 | [@Shailee6464](https://github.com/Shailee6464) | - | 0 | 4 | 0 | 4 | 28 |
+| [@pavigupta21](https://github.com/pavigupta21) | - | 2 | 0 | 1 | 3 | 16 |
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
-| [@pavigupta21](https://github.com/pavigupta21) | - | 1 | 0 | 1 | 2 | 13 |
 | [@Gupta-02](https://github.com/Gupta-02) | - | 0 | 0 | 1 | 1 | 10 |
 | [@mavishsethi](https://github.com/mavishsethi) | mavishsethi@gmail.com | 0 | 0 | 1 | 1 | 10 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
@@ -28,6 +28,7 @@
 | [@sabaaa01](https://github.com/sabaaa01) | xsabafatima01@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@Tanvi0710](https://github.com/Tanvi0710) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Triveni-Balekundri](https://github.com/Triveni-Balekundri) | balekundritriveni05@gmail.com | 0 | 1 | 0 | 1 | 7 |
+| [@Janhavi078](https://github.com/Janhavi078) | - | 1 | 0 | 0 | 1 | 3 |
 | [@himanshitwri08](https://github.com/himanshitwri08) | himanshitiwari098@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@Anusha271815](https://github.com/Anusha271815) | - | 1 | 0 | 0 | 1 | 3 |
 | [@rashmibarodiya](https://github.com/rashmibarodiya) | - | 1 | 0 | 0 | 1 | 3 |
@@ -54,6 +55,7 @@
 |----------|-------|------|--------------|------|------------|--------------|
 | [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 1 | 1 | 3 | 60 |
 | [@ishanibasu](https://github.com/ishanibasu) | - | 0 | 0 | 1 | 1 | 30 |
+| [@YogitaSharma253](https://github.com/YogitaSharma253) | - | 1 | 0 | 0 | 1 | 10 |
 | [@gyanshankar1708](https://github.com/gyanshankar1708) | - | 1 | 0 | 0 | 1 | 10 |
 | [@Parnika-h](https://github.com/Parnika-h) | - | 1 | 0 | 0 | 1 | 10 |
 | [@roniitpodder](https://github.com/roniitpodder) | - | 1 | 0 | 0 | 1 | 10 |
