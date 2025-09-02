@@ -1,288 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Nitra Mitra</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
 
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="contact.css" />
     <!-- Floating Sidebar CSS -->
-    <link rel="stylesheet" href="../css/floating-sidebar.css">
+    <link rel="stylesheet" href="../css/floating-sidebar.css" />
     <!-- scroll -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/scroll-indicator.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/scroll-indicator.css" />
+  </head>
 
-<body id="onload">
+  <body id="onload">
     <!-- Scroll Progress Indicator -->
 
     <!-- NAVBAR -->
     <nav>
-        <div class="nav-first">
-            <button onclick="goBack()" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+      <div class="nav-first">
+        <button onclick="goBack()" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="logo">
+          <a href="https://www.nitra.ac.in/"
+            >NITra <span id="mitra">MITra</span></a
+          >
         </div>
-        <div class="nav-end">
-            <button id="lang-toggle">
-                हिंदी
-            </button>
-            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-        </div>
+      </div>
+      <div class="nav-end">
+        <button id="lang-toggle">हिंदी</button>
+        <img
+          src="../images/moon.png"
+          id="mode"
+          alt="Change mode"
+          title="change mode"
+        />
+      </div>
     </nav>
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress-container">
-    <div class="scroll-progress-bar"></div>
-  </div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+      <div class="scroll-progress-bar"></div>
+    </div>
 
     <div class="main">
-        <!-- HERO SECTION -->
-        
-        <section class="contact-hero">
-            <div class="container">
-                <h1>Get In Touch  👨‍💼</h1>
-                <p>We're here to help! Reach out to us for any questions, support, or feedback about Nitra Mitra
-                    platform.</p>
+      <!-- HERO SECTION -->
+
+      <section class="contact-hero">
+        <div class="container">
+          <h1>Get In Touch 👨‍💼</h1>
+          <p>
+            We're here to help! Reach out to us for any questions, support, or
+            feedback about Nitra Mitra platform.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT FORM SECTION -->
+      <section class="contact-form-section">
+        <div class="container">
+          <div class="section-title">
+            <h1 style="font-weight: bold">Send Us a Message 💬</h1>
+            <p>
+              Fill out the form below and we'll get back to you as soon as
+              possible
+            </p>
+          </div>
+
+          <div class="contact-form-container">
+            <div class="success-message" id="successMessage">
+              <i class="fas fa-check-circle"></i> Thank you! Your message has
+              been sent successfully.
             </div>
-        </section>
-        
 
-        <!-- CONTACT FORM SECTION -->
-        <section class="contact-form-section">
-            <div class="container">
-                <div class="section-title">
-                    <h1 style="font-weight: bold;">Send Us a Message  💬</h1>
-                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Enter your full name"
+                  required
+                />
+                <div class="form-validation" id="nameError">
+                  Please enter your full name
                 </div>
+              </div>
 
-                <div class="contact-form-container">
-                    <div class="success-message" id="successMessage">
-                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
-                    </div>
-
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control"
-                                placeholder="Enter your full name" required>
-                            <div class="form-validation" id="nameError">Please enter your full name</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control"
-                                placeholder="Enter your email address" required>
-                            <div class="form-validation" id="emailError">Please enter a valid email address</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control"
-                                placeholder="Enter your phone number">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="technical">Technical Support</option>
-                                <option value="academic">Academic Resources</option>
-                                <option value="feedback">Feedback & Suggestions</option>
-                                <option value="collaboration">Collaboration</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <div class="form-validation" id="subjectError">Please select a subject</div>
-                        </div>
-
-                        <!--Adding input field when other for subject is selected-->
-                        <div class="form-group" id = "other" style="display: none;">
-                            <label for="other">Subject</label>
-                            <input type="text" name="other" class="form-control"
-                                placeholder="Enter your subject ">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="6"
-                                placeholder="Enter your message here..." required></textarea>
-                            <div class="form-validation" id="messageError">Please enter your message</div>
-                        </div>
-
-                        <div style="text-align: center;">
-                            <button id="submit" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </div>
-                    </form>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Enter your email address"
+                  required
+                />
+                <div class="form-validation" id="emailError">
+                  Please enter a valid email address
                 </div>
-                <h4 color="white">Total Visitors</h4>
-                <div style="text-align: center;">
-                    <script type="text/javascript"></script>
-                <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select
+                  id="subject"
+                  name="subject"
+                  class="form-control"
+                  required
+                >
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="academic">Academic Resources</option>
+                  <option value="feedback">Feedback & Suggestions</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="form-validation" id="subjectError">
+                  Please select a subject
                 </div>
+              </div>
+
+              <!--Adding input field when other for subject is selected-->
+              <div class="form-group" id="other" style="display: none">
+                <label for="other">Subject</label>
+                <input
+                  type="text"
+                  name="other"
+                  class="form-control"
+                  placeholder="Enter your subject "
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  rows="6"
+                  placeholder="Enter your message here..."
+                  required
+                ></textarea>
+                <div class="form-validation" id="messageError">
+                  Please enter your message
+                </div>
+              </div>
+
+              <div style="text-align: center">
+                <button id="submit" class="submit-btn">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+          <h4 color="white">Total Visitors</h4>
+          <div style="text-align: center">
+            <script type="text/javascript"></script>
+            <script
+              type="text/javascript"
+              src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"
+            ></script>
+          </div>
+        </div>
+        <p></p>
+      </section>
+
+      <!-- CONTACT INFO SECTION -->
+      <section class="contact-info-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Contact Information 🗪</h2>
+            <p>Multiple ways to reach us and get the support you need</p>
+          </div>
+
+          <div class="contact-info-grid">
+            <div class="flip-card">
+              <div class="contact-card">
+                <div class="contact-card-front">
+                  <i class="fas fa-envelope"></i>
+                  <h3>Email Us</h3>
+                </div>
+                <div class="contact-card-back">
+                  <p><strong>General:</strong> nitramitra@gmail.com</p>
+                  <p><strong>Support:</strong> support@nitramitra.com</p>
+                  <p><strong>Response Time:</strong> 24-48 hours</p>
+                </div>
+              </div>
             </div>
-            <p></p>
-        </section>
 
-        <!-- CONTACT INFO SECTION -->
-        <section class="contact-info-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Contact Information  🗪</h2>
-                    <p>Multiple ways to reach us and get the support you need</p>
+            <div class="flip-card">
+              <div class="contact-card">
+                <div class="contact-card-front">
+                  <i class="fas fa-phone"></i>
+                  <h3>Call Us</h3>
                 </div>
-
-                <div class="contact-info-grid">
-                    <div class="flip-card">
-                        <div class="contact-card">
-                            <div class="contact-card-front">
-                                <i class="fas fa-envelope"></i>
-                                <h3>Email Us</h3>
-                            </div>
-                            <div class="contact-card-back">
-                                <p><strong>General:</strong> nitramitra@gmail.com</p>
-                                <p><strong>Support:</strong> support@nitramitra.com</p>
-                                <p><strong>Response Time:</strong> 24-48 hours</p>
-                            </div>                    
-                        </div>
-                    </div>
-
-
-
-                    <div class="flip-card">
-                        <div class="contact-card">
-                            <div class="contact-card-front">
-                                <i class="fas fa-phone"></i>
-                                <h3>Call Us</h3>
-                            </div>
-                            <div class="contact-card-back">
-                                <p><strong>Main Office:</strong> +91-120-XXXXXXX</p>
-                                <p><strong>Student Support:</strong> +91-120-XXXXXXX</p>
-                                <p><strong>Hours:</strong> Mon-Fri, 9 AM - 6 PM</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="flip-card">
-                        <div class="contact-card">
-                            <div class="contact-card-front">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <h3>Visit Us</h3>
-                            </div>
-                            <div class="contact-card-back">
-                                <p><strong>NITRA Technical Campus</strong></p>
-                                <p>Sanjay Nagar, Ghaziabad</p>
-                                <p>Uttar Pradesh, India - 201001</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="flip-card">
-                        <div class="contact-card">
-                            <div class="contact-card-front">
-                                <i class="fab fa-whatsapp"></i>
-                                <h3>Whatsapp</h3>
-                            </div>
-                            <div class="contact-card-back">
-                                <p><strong>Community Group</strong></p>
-                                <p>Join our WhatsApp community for quick updates and support</p>
-                                <p><strong>Active:</strong> 24/7</p>
-                            </div>
-                        </div>
-                    </div>
-
-
+                <div class="contact-card-back">
+                  <p><strong>Main Office:</strong> +91-120-XXXXXXX</p>
+                  <p><strong>Student Support:</strong> +91-120-XXXXXXX</p>
+                  <p><strong>Hours:</strong> Mon-Fri, 9 AM - 6 PM</p>
                 </div>
+              </div>
             </div>
-        </section>
 
-        <!-- TEAM SECTION -->
-        <section class="team-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Meet Our Team  👥</h2>
-                    <p>The dedicated team behind Nitra Mitra platform</p>
+            <div class="flip-card">
+              <div class="contact-card">
+                <div class="contact-card-front">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <h3>Visit Us</h3>
                 </div>
-
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-avatar">
-                            <img src="../images/vaibhav.jpg" alt="Vaibhav Babele">
-                        </div>
-                        <h3>Vaibhav Babele</h3>
-                        <p><strong>Lead Developer & Founder</strong></p>
-                        <p>Computer Science Engineering student passionate about creating educational platforms for
-                            students.</p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
-                                    class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/vaibhavbabele" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="team-card">
-                        <div class="team-avatar">
-                            <img src="../images/ghanshyam.jpeg" alt="Ghanshyam Prajapati"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <h3>Ghanshyam Prajapati</h3>
-                        <p><strong>Co-Developer</strong></p>
-                        <p>Dedicated developer contributing to the platform's growth and student experience enhancement.
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                                target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="team-card">
-                        <div class="team-avatar placeholder">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Development Team</h3>
-                        <p><strong>Contributors & Maintainers</strong></p>
-                        <p>A growing community of student developers working together to improve the platform.</p>
-                        <div class="social-links">
-                            <a href="pr-contributors.html"><i class="fas fa-users"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MAP SECTION -->
-        <section class="map-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Find Us</h2>
-                    <p>NITRA Technical Campus Location</p>
-                </div>
-
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6742857142857!2d77.4526916!3d28.6890015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf19dad10407d%3A0x146be811320a3214!2sBlock%20M%2C%20NITRA%2C%20Sector%2023%2C%20Sanjay%20Nagar%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201002!5e0!3m2!1sen!2sin!4v1690445316000!5m2!1sen!2sin"
-                        width="100%" height="400" style="border:0; border-radius: 15px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+                <div class="contact-card-back">
+                  <p><strong>NITRA Technical Campus</strong></p>
+                  <p>Sanjay Nagar, Ghaziabad</p>
+                  <p>Uttar Pradesh, India - 201001</p>
             </div>
         </section>
 
@@ -576,107 +557,358 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="social-media">
-                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-
-                <div class="footer-links">
-                    <a href="./privacy.html">Privacy Policy</a> |
-                    <a href="./terms.html">Terms & Conditions</a> |
-                    <a href="./contact.html">Contact</a> |
-                    <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
-                </div>
-
-                <p class="copyright">
-                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-                </p>
+              </div>
             </div>
 
-    
-    </footer>
+            <div class="flip-card">
+              <div class="contact-card">
+                <div class="contact-card-front">
+                  <i class="fab fa-whatsapp"></i>
+                  <h3>Whatsapp</h3>
+                </div>
+                <div class="contact-card-back">
+                  <p><strong>Community Group</strong></p>
+                  <p>
+                    Join our WhatsApp community for quick updates and support
+                  </p>
+                  <p><strong>Active:</strong> 24/7</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM SECTION -->
+      <section class="team-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Meet Our Team 👥</h2>
+            <p>The dedicated team behind Nitra Mitra platform</p>
+          </div>
+
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">
+                <img src="../images/vaibhav.jpg" alt="Vaibhav Babele" />
+              </div>
+              <h3>Vaibhav Babele</h3>
+              <p><strong>Lead Developer & Founder</strong></p>
+              <p>
+                Computer Science Engineering student passionate about creating
+                educational platforms for students.
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/vaibhavbabele"
+                  target="_blank"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="https://github.com/vaibhavbabele" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-avatar">
+                <img
+                  src="../images/ghanshyam.jpeg"
+                  alt="Ghanshyam Prajapati"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <h3>Ghanshyam Prajapati</h3>
+              <p><strong>Co-Developer</strong></p>
+              <p>
+                Dedicated developer contributing to the platform's growth and
+                student experience enhancement.
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                  target="_blank"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-avatar placeholder">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Development Team</h3>
+              <p><strong>Contributors & Maintainers</strong></p>
+              <p>
+                A growing community of student developers working together to
+                improve the platform.
+              </p>
+              <div class="social-links">
+                <a href="pr-contributors.html"><i class="fas fa-users"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAP SECTION -->
+      <section class="map-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Find Us</h2>
+            <p>NITRA Technical Campus Location</p>
+          </div>
+
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6742857142857!2d77.4526916!3d28.6890015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf19dad10407d%3A0x146be811320a3214!2sBlock%20M%2C%20NITRA%2C%20Sector%2023%2C%20Sanjay%20Nagar%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201002!5e0!3m2!1sen!2sin!4v1690445316000!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style="border: 0; border-radius: 15px"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="faq-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Frequently Asked Questions 🤔</h2>
+            <p>Quick answers to common questions about Nitra Mitra</p>
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How can I access study materials on Nitra Mitra?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  You can access study materials by visiting our Resources
+                  section. All materials are organized by semester and subject
+                  for easy navigation.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Is Nitra Mitra free to use?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, Nitra Mitra is completely free for all NITRA Technical
+                  Campus students. Our goal is to provide accessible educational
+                  resources.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How can I contribute to the platform?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  You can contribute by sharing study materials, reporting
+                  issues, or joining our development team. Contact us for more
+                  information about contributing.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span
+                  >What should I do if I find broken links or outdated
+                  content?</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Please report any issues through our contact form or email us
+                  directly. We appreciate your help in keeping the platform
+                  updated and functional.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How often is new content added to the platform?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We regularly update the platform with new study materials,
+                  announcements, and features. Follow our social media for the
+                  latest updates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer-section">
+        <div class="container">
+          <h1 class="contact-heading">Contact Us</h1>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <a
+                href="https://wa.me/919999999999"
+                target="_blank"
+                class="contact-link"
+              >
+                <i class="fab fa-whatsapp"></i>
+                <span>Whatsapp Community</span>
+                <p>Nitra Mitra</p>
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+                <p>nitramitra@gmail.com</p>
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <a
+                href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad"
+                target="_blank"
+                class="contact-link"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Address</span>
+                <p>Sanjay Nagar, Ghaziabad, India</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <a href="https://youtube.com/@my.vlog_spot" target="_blank"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+
+          <div class="footer-links">
+            <a href="./privacy.html">Privacy Policy</a> |
+            <a href="./terms.html">Terms & Conditions</a> |
+            <a href="./contact.html">Contact</a> |
+            <a href="../pages/pr-contribution/pr-contributors.html"
+              >Contributors</a
+            >
+          </div>
+
+          <p class="copyright">
+            &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights
+            Reserved.
+          </p>
+        </div>
+      </footer>
     </div>
 
     <!-- Success Modal -->
     <div id="successModal" class="success-modal">
-        <div class="success-modal-content">
-            <span class="close-x" onclick="closeSuccessModal()">&times;</span>
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2>Message Sent Successfully!</h2>
-            <p>Thank you for reaching out to us. We have received your message and will get back to you as soon as
-                possible.</p>
-            <button class="modal-close-btn" onclick="closeSuccessModal()">Close</button>
+      <div class="success-modal-content">
+        <span class="close-x" onclick="closeSuccessModal()">&times;</span>
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
         </div>
+        <h2>Message Sent Successfully!</h2>
+        <p>
+          Thank you for reaching out to us. We have received your message and
+          will get back to you as soon as possible.
+        </p>
+        <button class="modal-close-btn" onclick="closeSuccessModal()">
+          Close
+        </button>
+      </div>
     </div>
 
-    
     <!-- <script src="mode2.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // adding input field when other for subject is selected
-        document.getElementById('subject').addEventListener('change', function() {
-            const otherGroup = document.getElementById('other');
-            if (this.value === 'other') {
-                otherGroup.style.display = 'block';
-            } else {
-                otherGroup.style.display = 'none';
-            }
+      // adding input field when other for subject is selected
+      document
+        .getElementById("subject")
+        .addEventListener("change", function () {
+          const otherGroup = document.getElementById("other");
+          if (this.value === "other") {
+            otherGroup.style.display = "block";
+          } else {
+            otherGroup.style.display = "none";
+          }
         });
-        // Form validation and submission
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+      // Form validation and submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-            // Reset previous errors
-            document.querySelectorAll('.form-validation').forEach(error => {
-                error.style.display = 'none';
-            });
+          // Reset previous errors
+          document.querySelectorAll(".form-validation").forEach((error) => {
+            error.style.display = "none";
+          });
 
-            let isValid = true;
+          let isValid = true;
 
-            // Validate name
-            const name = document.getElementById('name').value.trim();
-            if (name.length < 2) {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
-            }
+          // Validate name
+          const name = document.getElementById("name").value.trim();
+          if (name.length < 2) {
+            document.getElementById("nameError").style.display = "block";
+            isValid = false;
+          }
 
-            // Validate email
-            const email = document.getElementById('email').value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('emailError').style.display = 'block';
-                isValid = false;
-            }
+          // Validate email
+          const email = document.getElementById("email").value.trim();
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            document.getElementById("emailError").style.display = "block";
+            isValid = false;
+          }
 
-            // Validate subject
-            const subject = document.getElementById('subject').value;
-            if (!subject) {
-                document.getElementById('subjectError').style.display = 'block';
-                isValid = false;
-            }
+          // Validate subject
+          const subject = document.getElementById("subject").value;
+          if (!subject) {
+            document.getElementById("subjectError").style.display = "block";
+            isValid = false;
+          }
 
-            // Validate message
-            const message = document.getElementById('message').value.trim();
-            if (message.length < 10) {
-                document.getElementById('messageError').style.display = 'block';
-                isValid = false;
-            }
+          // Validate message
+          const message = document.getElementById("message").value.trim();
+          if (message.length < 10) {
+            document.getElementById("messageError").style.display = "block";
+            isValid = false;
+          }
 
-            if (isValid) {
-                // For now, just show success message (you need to set up EmailJS or another service)
-                // To set up EmailJS:
-                // 1. Go to https://www.emailjs.com/
-                // 2. Create an account and get your service ID, template ID, and public key
-                // 3. Replace the commented code below with your actual EmailJS configuration
+          if (isValid) {
+            // For now, just show success message (you need to set up EmailJS or another service)
+            // To set up EmailJS:
+            // 1. Go to https://www.emailjs.com/
+            // 2. Create an account and get your service ID, template ID, and public key
+            // 3. Replace the commented code below with your actual EmailJS configuration
 
-                /*
+            /*
                 // EmailJS configuration (uncomment and configure when ready)
                 emailjs.init('YOUR_PUBLIC_KEY');
                 
@@ -713,108 +945,114 @@
                     });
                 */
 
-                // Show success modal popup
-                showSuccessModal();
+            // Show success modal popup
+            showSuccessModal();
 
-                // Reset form
-                this.reset();
+            // Reset form
+            this.reset();
 
-                // Log form data to console (for testing purposes)
-                console.log('Form submitted with data:', {
-                    name: name,
-                    email: email,
-                    phone: document.getElementById('phone').value,
-                    subject: subject,
-                    message: message
-                });
-            }
+            // Log form data to console (for testing purposes)
+            console.log("Form submitted with data:", {
+              name: name,
+              email: email,
+              phone: document.getElementById("phone").value,
+              subject: subject,
+              message: message,
+            });
+          }
         });
 
-        // Success Modal Functions
-        function showSuccessModal() {
-            document.getElementById('successModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
+      // Success Modal Functions
+      function showSuccessModal() {
+        document.getElementById("successModal").style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevent background scrolling
+      }
 
-        function closeSuccessModal() {
-            document.getElementById('successModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
+      function closeSuccessModal() {
+        document.getElementById("successModal").style.display = "none";
+        document.body.style.overflow = "auto"; // Restore scrolling
+      }
 
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-            const modal = document.getElementById('successModal');
-            if (event.target == modal) {
-                closeSuccessModal();
-            }
+      // Close modal when clicking outside of it
+      window.onclick = function (event) {
+        const modal = document.getElementById("successModal");
+        if (event.target == modal) {
+          closeSuccessModal();
         }
+      };
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                closeSuccessModal();
-            }
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeSuccessModal();
+        }
+      });
+
+      // FAQ toggle functionality
+      function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector("i");
+
+        // Close all other FAQs
+        document.querySelectorAll(".faq-answer").forEach((faq) => {
+          if (faq !== answer) {
+            faq.classList.remove("active");
+            faq.previousElementSibling
+              .querySelector("i")
+              .classList.remove("fa-chevron-up");
+            faq.previousElementSibling
+              .querySelector("i")
+              .classList.add("fa-chevron-down");
+          }
         });
 
-        // FAQ toggle functionality
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('i');
+        // Toggle current FAQ
+        answer.classList.toggle("active");
+        icon.classList.toggle("fa-chevron-down");
+        icon.classList.toggle("fa-chevron-up");
+      }
 
-            // Close all other FAQs
-            document.querySelectorAll('.faq-answer').forEach(faq => {
-                if (faq !== answer) {
-                    faq.classList.remove('active');
-                    faq.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
-                    faq.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
-                }
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
+        });
+      });
 
-            // Toggle current FAQ
-            answer.classList.toggle('active');
-            icon.classList.toggle('fa-chevron-down');
-            icon.classList.toggle('fa-chevron-up');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+      // Form field animations
+      document.querySelectorAll(".form-control").forEach((field) => {
+        field.addEventListener("focus", function () {
+          this.parentElement.classList.add("focused");
         });
 
-        // Form field animations
-        document.querySelectorAll('.form-control').forEach(field => {
-            field.addEventListener('focus', function () {
-                this.parentElement.classList.add('focused');
-            });
-
-            field.addEventListener('blur', function () {
-                if (!this.value) {
-                    this.parentElement.classList.remove('focused');
-                }
-            });
+        field.addEventListener("blur", function () {
+          if (!this.value) {
+            this.parentElement.classList.remove("focused");
+          }
         });
+      });
 
-        // Add loading animation to submit button
-        document.querySelector('.submit-btn').addEventListener('click', function () {
-            const btn = this;
-            const originalText = btn.innerHTML;
+      // Add loading animation to submit button
+      document
+        .querySelector(".submit-btn")
+        .addEventListener("click", function () {
+          const btn = this;
+          const originalText = btn.innerHTML;
 
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }, 2000);
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 2000);
         });
     </script>
     <script src="contact.js"></script>
@@ -822,13 +1060,12 @@
     <!-- Floating Sidebar JavaScript -->
     <script src="../js/sidebar.js"></script>
     <!-- Google Translate -->
-<div id="google_translate_element" style="display:none;"></div>
+    <div id="google_translate_element" style="display: none"></div>
 
-<script src="../language.js"></script>
-<!-- scroll -->
+    <script src="../language-enhanced.js"></script>
+    <!-- scroll -->
 
-  <!-- Scroll features -->
-  <script src="../js/scroll-indicator.js"></script>
-</body>
-
+    <!-- Scroll features -->
+    <script src="../js/scroll-indicator.js"></script>
+  </body>
 </html>
