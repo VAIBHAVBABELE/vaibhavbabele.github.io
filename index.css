@@ -908,8 +908,8 @@ section{
 
 
 .service {
-    background: var(--bg-shade); /* Consistent light beige section */
-    padding: 0 20px;
+    background: var(--bg-shade);
+   
 }
 
 .para{
@@ -955,9 +955,6 @@ section{
 
 
 }
-
-
-
 
 /* Main Calculator Section */
 /* Dark Mode Support */
@@ -1172,7 +1169,7 @@ body.dark-mode .user-experience li span{ color: #E6E0C8; }
 }
 
 
-.about{
+.about-section-landing{
   
   margin: 0 auto;
   display: grid;
@@ -1180,7 +1177,7 @@ body.dark-mode .user-experience li span{ color: #E6E0C8; }
   row-gap: 8px;
   padding: 10px 0;
 }
-.about h2{
+.about-section-landing h2{
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -1191,13 +1188,13 @@ body.dark-mode .user-experience li span{ color: #E6E0C8; }
   border-radius: 12px;
  
   margin: 18px 0 8px 0;
-  box-shadow: 0 8px 14px rgba(0,0,0,0.12);
+ 
 }
 
-.about p:hover{
+.about-section-landing p:hover{
   transform: translateY(-5px);
 }
-.about h2::before{
+.about-section-landing h2::before{
   content: '🎯';
   width: 40px;
   height: 40px;
@@ -1207,11 +1204,11 @@ body.dark-mode .user-experience li span{ color: #E6E0C8; }
   place-items: center;
   font-size: 25px;
 }
-.about h2:nth-of-type(2)::before{ content: '👥'; }
-.about h2:nth-of-type(3)::before{ content: '♡'; }
-.about h2:nth-of-type(4)::before{ content: '🎓'; }
+.about-section-landing h2:nth-of-type(2)::before{ content: '👥'; }
+.about-section-landing h2:nth-of-type(3)::before{ content: '♡'; }
+.about-section-landing h2:nth-of-type(4)::before{ content: '🎓'; }
 
-.about p{
+.about-section-landing p{
   background: #ffffff;
   border: 1px solid var(--accent-color);
   border-radius: 16px;
@@ -1222,13 +1219,13 @@ body.dark-mode .user-experience li span{ color: #E6E0C8; }
 }
 
 /* Dark mode variant */
-body.dark-mode .about p{
+body.dark-mode .about-section-landing p{
   background: #232428;
   border: 1px solid rgba(252, 211, 77, 0.35);
   color: #e2d7a9;
   box-shadow: 0 10px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(0,0,0,0.12);
 }
-body.dark-mode .about h2{
+body.dark-mode .about-section-landing h2{
   color:#FDE68A
 }
 
@@ -1453,8 +1450,6 @@ margin-bottom: 5%;
 .service img {
   height: auto;
 }
-
-
 
 
 
