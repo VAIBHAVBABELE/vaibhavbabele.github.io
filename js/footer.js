@@ -13,93 +13,110 @@ class ModernFooter {
 
     renderFooter() {
         const footerHTML = `
-            <footer class="modern-footer">
-                <div class="footer-container">
-                    <div class="footer-content">
-                        <!-- About Section -->
-                        <div class="footer-section">
-                            <h3><i class="fas fa-graduation-cap"></i> About Nitra Mitra</h3>
-                            <p>Your ultimate platform for academic resources, campus updates, and community connection at NITRA Technical Campus. Empowering students with comprehensive educational tools.</p>
-                            <div class="contact-info">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Sanjay Nagar, Ghaziabad, India</span>
-                            </div>
-                            <div class="contact-info">
-                                <i class="fas fa-envelope"></i>
-                                <span>nitramitra@gmail.com</span>
-                            </div>
+           <footer class="modern-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <!-- About Section -->
+                    <div class="footer-hero">
+                        <h3><i class="fas fa-graduation-cap"></i>Nitra Mitra</h3>
+                        <p class="footer-description">Your ultimate platform for academic resources, campus updates, and community connection
+                            at NITRA Technical Campus. Empowering students with comprehensive educational tools.
+                        </p>
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Sanjay Nagar, Ghaziabad, India</span>
                         </div>
+                        <div class="contact-info">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span><a href="mailto:nitramitra@gmail.com">nitramitra@gmail.com</a></span>
+                        </div>
+                    </div>
+
+
+                    <div class="footer-shortcuts">
 
                         <!-- Quick Links Section -->
-                        <div class="footer-section">
-                            <h3><i class="fas fa-link"></i> Quick Links</h3>
+                        <div class="quick-links">
+                            <h3 class="footer-heading"><i class="fas fa-link"></i> Quick Links</h3>
                             <ul class="footer-links-list">
                                 <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                                <li><a href="../pages/resorces.html"><i class="fas fa-book"></i> Resources</a></li>
+                                <li><a href="../pages/resources.html"><i class="fas fa-book"></i> Resources</a>
+                                </li>
                                 <li><a href="../pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
-                                <li><a href="../pages/cgpa-calculator.html"><i class="fas fa-calculator"></i> CGPA Calculator</a></li>
-                                <li><a href="../games/gamess.html"><i class="fas fa-gamepad"></i> Games</a></li>
-                                <li><a href="../pages/infrastructure.html"><i class="fas fa-building"></i> Infrastructure</a></li>
+                                <li><a href="../pages/cgpa-calculator.html"><i class="fas fa-calculator"></i> CGPA
+                                        Calculator</a></li>
+                                <li><a href="../games/games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                                
                             </ul>
                         </div>
 
                         <!-- Academic Tools Section -->
-                        <div class="footer-section">
-                            <h3><i class="fas fa-tools"></i> Academic Tools</h3>
+                        <div class="academic-tools">
+                            <h3 class="footer-heading"><i class="fas fa-tools"></i> Academic Tools</h3>
                             <ul class="footer-links-list">
-                                <li><a href="../pages/assistant/assistant.html"><i class="fas fa-robot"></i> Student Assistant</a></li>
-                                <li><a href="../pages/summary/summary.html"><i class="fas fa-file-alt"></i> AI Summary Tool</a></li>
-                                <li><a href="../pages/syllabus/syllabus.html"><i class="fas fa-clipboard-list"></i> Syllabus</a></li>
-                                <li><a href="../pages/ats-score-checker/ats-score-checker.html"><i class="fas fa-check-circle"></i> ATS Score Checker</a></li>
-                                <li><a href="../pages/placement-updates.html"><i class="fas fa-briefcase"></i> Placement Updates</a></li>
+                                <li><a href="../pages/assistant/assistant.html"><i class="fas fa-robot"></i>
+                                        Student
+                                        Assistant</a></li>
+                                <li><a href="../pages/summary/summary.html"><i class="fas fa-file-alt"></i> AI
+                                        Summary
+                                        Tool</a></li>
+                                <li><a href="../pages/syllabus/syllabus.html"><i class="fas fa-clipboard-list"></i>
+                                        Syllabus</a></li>
+                                <li><a href="../pages/ats-score-checker/ats-score-checker.html"><i
+                                            class="fas fa-check-circle"></i> ATS Score Checker</a></li>
+                                <li><a href="../pages/placement-updates.html"><i class="fas fa-briefcase"></i>
+                                        Placement Updates</a></li>
                             </ul>
                         </div>
-
-                        <!-- Connect Section -->
-                        <div class="footer-section">
-                            <h3><i class="fas fa-users"></i> Connect With Us</h3>
-                            <p>Stay connected with our community and never miss important updates!</p>
-                            <div class="social-media-grid">
-                                <a href="https://youtube.com/@my.vlog_spot" target="_blank" class="social-link" title="YouTube">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank" class="social-link" title="LinkedIn">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank" class="social-link" title="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="social-link" title="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://wa.me/919999999999" target="_blank" class="social-link" title="WhatsApp">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                            </div>
-                            <div class="newsletter-form">
-                                <input type="email" class="newsletter-input" placeholder="Enter your email for updates" id="newsletter-email">
-                                <button class="newsletter-btn" id="newsletter-subscribe">
-                                    <i class="fas fa-paper-plane"></i> Subscribe
-                                </button>
-                            </div>
-                        </div>
                     </div>
+                    <!-- Connect Section -->
+                    <div class="footer-connect">
+                        <h3 class="footer-heading"><i class="fas fa-users"></i> Connect with Us</h3>
+                        <p class="footer-description">Stay connected with our community and never miss important updates!</p>
+                        <div class="social-media-grid">
+                            <a href="https://youtube.com/@my.vlog_spot" target="_blank" class="social-link"
+                                title="YouTube" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank" class="social-link"
+                                title="LinkedIn" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/my_vlog.spot/" target="_blank" class="social-link"
+                                title="Instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://wa.me/919999999999" target="_blank" class="social-link"
+                                title="WhatsApp" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
 
-                    <div class="footer-bottom">
-                        <div class="footer-bottom-content">
-                            <div class="copyright-text">
-                                <span id="footer-copyright">&copy; ${this.currentYear} Nitra Mitra. All Rights Reserved.</span>
-                            </div>
-                            <div class="footer-bottom-links">
-                                <a href="../pages/privacy.html">Privacy Policy</a>
-                                <a href="../pages/terms.html">Terms & Conditions</a>
-                                <a href="../pages/contact.html">Contact</a>
-                                <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
-                            </div>
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="footer-bottom-content">
+                        <div class="copyright-text">
+                            <span id="footer-copyright">
+                                &copy; <span id="current-year"></span> Nitra Mitra. All Rights Reserved.
+                            </span>
+                        </div>
+                        <div class="footer-bottom-links">
+                            <a href="../pages/privacy.html">Privacy Policy</a>
+                            <a href="../pages/terms.html">Terms & Conditions</a>
+                            <a href="../pages/contact.html">Contact</a>
+                            <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
+
         `;
 
         // Remove existing footer if any
@@ -149,7 +166,7 @@ class ModernFooter {
 
     handleNewsletterSubscription(emailInput) {
         const email = emailInput.value.trim();
-        
+
         if (!this.validateEmail(email)) {
             this.showNotification('Please enter a valid email address', 'error');
             return;
@@ -158,7 +175,7 @@ class ModernFooter {
         // Simulate subscription process
         const btn = document.getElementById('newsletter-subscribe');
         const originalText = btn.innerHTML;
-        
+
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
         btn.disabled = true;
 
@@ -251,7 +268,7 @@ class ModernFooter {
     fixRelativeLinks() {
         const currentPath = window.location.pathname;
         const footerLinks = document.querySelectorAll('.footer-links-list a, .footer-bottom-links a');
-        
+
         footerLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (href && href.startsWith('../')) {
@@ -291,9 +308,9 @@ class ModernFooter {
 }
 
 // Initialize footer when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const footer = new ModernFooter();
-    
+
     // Optional: Auto-detect page type and customize footer
     const path = window.location.pathname;
     if (path.includes('resorces')) {
