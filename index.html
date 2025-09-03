@@ -29,6 +29,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
@@ -40,7 +41,7 @@
 
 
     <!-- NAVBAR DESIGNING -->
-        <!-- NAVBAR DESIGNING -->
+    <!-- NAVBAR DESIGNING -->
     <nav>
         <div class="nav-first">
             <button onclick="goBack()" class="back-button">
@@ -102,6 +103,7 @@
             <div class="container1">
 
                 <div class="card">
+                    <i class="ri-book-open-line"></i>
                     <img src="images/resorce.jpg" class="card-img-top"
                         alt="Illustration representing academic resources">
                     <div class="card-body">
@@ -111,6 +113,7 @@
                     </div>
                 </div>
                 <div class="card">
+                    <i class="ri-gamepad-line"></i>
                     <img src="images/meeting.webp" class="card-img-top" alt="Game section">
                     <div class="card-body">
                         <h4 class="card-title">Games</h4>
@@ -120,6 +123,7 @@
                 </div>
 
                 <div class="card">
+                    <i class="ri-camera-line"></i>
                     <img src="images/gall.jpg" class="card-img-top" alt="gallery">
                     <div class="card-body">
                         <h4 class="card-title">Gallery</h4>
@@ -128,6 +132,7 @@
                     </div>
                 </div>
                 <div class="card" style="width: 25%;">
+                    <i class="ri-building-4-line"></i>
                     <img src="images/5121453.jpg" class="card-img-top" alt="infrastructure">
                     <div class="card-body">
                         <h4 class="card-title">Infrastructure</h4>
@@ -137,6 +142,7 @@
                 </div>
 
                 <div class="card" style="width: 25%;">
+                    <i class="ri-calculator-line"></i>
                     <img src="images/undraw_calculator_21hp.png" class="card-img-top" alt="CGPA Calculator">
                     <div class="card-body">
                         <h4 class="card-title">CGPA/SGPA Calculator</h4>
@@ -146,6 +152,7 @@
                 </div>
 
                 <div class="card" style="width: 25%;">
+                    <i class="ri-arrow-right-up-line"></i>
                     <img src="images/undraw_developer.png" class="card-img-top" alt="Placement Updates">
                     <div class="card-body">
                         <h4 class="card-title">Placement Cell Updates</h4>
@@ -157,8 +164,8 @@
 
 
                 <div class="card">
-
-                    <img src="images/qna.webp" class="card-img-top" alt="student assistant">
+                    <i class="ri-chat-1-line"></i>
+                    <img src="https://aisera.com/wp-content/uploads/2020/06/AI-Virtual-Assistant-1024x538.jpg" class="card-img-top" alt="student assistant">
                     <div class="card-body">
                         <h4 class="card-title">Student Assistant</h4>
                         <p class="card-text"><b>AI-powered chatbot for academic help.</b></p>
@@ -168,6 +175,7 @@
 
 
                 <div class="card" id="card">
+                    <i class="ri-sticky-note-line"></i>
                     <img src="images/qna.webp" class="card-img-top" alt="ai summary tool">
                     <div class="card-body">
                         <h4 class="card-title">AI Summary Tool</h4>
@@ -177,6 +185,7 @@
                 </div>
 
                 <div class="card" id="card">
+                    <i class="ri-graduation-cap-line"></i>
                     <img src="images/syllabus.avif" class="card-img-top" alt="Syllabus">
                     <div class="card-body">
                         <h4 class="card-title">Syllabus</h4>
@@ -184,16 +193,19 @@
                         <a href="pages/syllabus/syllabus.html" class="primary-button" id="btn">View Syllabus</a>
                     </div>
                 </div>
-               
-<div class="card" id="card">
-    <img src="images/res.avif" class="card-img-top" alt="ATS Score Checker">
-    <div class="card-body">
-      <h4 class="card-title">ATS Score Checker</h4>
-      <p class="card-text"><b>Upload your resume and get an ATS compatibility score with keyword insights and tips.</b></p>
-      <a href="pages/ats-score-checker/ats-score-checker.html" class="primary-button" id="btn">Check Now</a>
-    </div>
-  </div>
-  
+
+                <div class="card" id="card">
+                    <i class="ri-file-list-3-line"></i>
+                    <img src="images/res.avif" class="card-img-top" alt="ATS Score Checker">
+                    <div class="card-body">
+                        <h4 class="card-title">ATS Score Checker</h4>
+                        <p class="card-text"><b>Upload your resume and get an ATS compatibility score with keyword
+                                insights and tips.</b></p>
+                        <a href="pages/ats-score-checker/ats-score-checker.html" class="primary-button" id="btn">Check
+                            Now</a>
+                    </div>
+                </div>
+
             </div>
         </section>
         <section>
@@ -214,24 +226,37 @@
                 informed,
                 such as:
             </p>
-            <ul class="announcement-list">
-                <li><b>Upcoming Events & Academic Deadlines:</b> Stay on top of all academic deadlines and
-                    exciting
-                    campus events.
-                </li>
-                <li><b>Examination Schedules & Important Notices:</b> Get timely updates on exams, circulars,
-                    and
-                    crucial
-                    announcements.</li>
-                <li><b>Campus Activities & Cultural Events:</b> Discover and participate in various clubs,
-                    societies,
-                    and cultural
-                    celebrations.</li>
-                <li><b>Sports Competitions & Student Achievements:</b> Follow inter-college sports action and
-                    celebrate
-                    the
-                    accomplishments of your peers.</li>
-            </ul>
+            <div class="information">
+                <div class="info1">
+
+                    <p><b>Upcoming Events & Academic Deadlines:</b> Stay on top of all academic deadlines and
+                        exciting
+                        campus events.
+                    </p>
+                </div>
+                <div class="info2">
+                    <p><b>Examination Schedules & Important Notices:</b> Get timely updates on exams, circulars,
+                        and
+                        crucial
+                        announcements.</p>
+                </div>
+                <div class="info3">
+                    <p><b>Campus Activities & Cultural Events:</b> Discover and participate in various clubs,
+                        societies,
+                        and cultural
+                        celebrations.</p>
+                </div>
+                <div class="info4">
+
+                    <p><b>Sports Competitions & Student Achievements:</b> Follow inter-college sports action and
+                        celebrate
+                        the
+                        accomplishments of your peers.</p>
+                </div>
+
+
+            </div>
+
             <p class="para">Check frequently to stay connected and never miss a key update!</p>
 
             <div class="embed">
@@ -243,7 +268,7 @@
 
         <section class="user-experience">
             <h1 class="service-heading">User Experience</h1>
-            <p class="">The user experience on our platform has been overwhelmingly positive, with praise
+            <p class="user-para">The user experience on our platform has been overwhelmingly positive, with praise
                 for:</p>
             <ul>
                 <li><b>Ease of Use & Comprehensive Resources:</b> Seamless access to <span>materials, including
@@ -367,13 +392,13 @@
                 <div class="form-flex">
                     <div class="form-card">
                         <h2 id="Feedback" class="form-heading">Feedback</h2>
-                        <form name="submit-to-google-sheet">
+                        <form name="submit-to-google-sheet" >
                             <input type="text" placeholder="Name" name="Name" required><br><br>
                             <input type="email" placeholder="Email Address" name="Email" required><br><br>
                             <input type="text" placeholder="College Name " name="College" required><br><br>
                             <input type="text" placeholder="Branch" name="Branch" required><br><br>
-                            <input type="number" placeholder="Passing Year" name="Passing Year" min="2020"
-                                max="2030" required><br><br>
+                            <input type="number" placeholder="Passing Year" name="Passing Year" min="2020" max="2030"
+                                required><br><br>
                             <select name="Year" required>
                                 <optgroup label="1st Year">
                                     <option value="" disabled selected hidden>Select Semester</option>
@@ -431,9 +456,10 @@
                             </div>
 
                             <div><br>
-
-                                <input class="primary-button get-started-btn" id="btn" type="submit" value="submit"
-                                    name="submit"><br><br>
+                                <button class="primary-button get-started-btn" id="btn" type="submit" name="submit">
+                                    <i class="ri-send-plane-2-line" style="margin-right:8px;"></i>
+                                    Submit Feedback
+                                </button><br><br>
                             </div>
 
                             <span id="success"></span>
@@ -491,10 +517,14 @@
                         </form>
                     </div>
                 </div>
-                <h4 color="white">Total Visitors</h4>
-                <script type="text/javascript"></script>
-                <script type="text/javascript"
-                    src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+                <div class="visitor-card">
+                    <div class="visitor-title">Total Visitors</div>
+                    <div class="visitor-value">
+                        <script type="text/javascript"></script>
+                        <script type="text/javascript"
+                            src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+                    </div>
+                </div>
             </div>
         </section>
 

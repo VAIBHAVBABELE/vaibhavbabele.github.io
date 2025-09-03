@@ -152,6 +152,9 @@ iframe{
   display: none;
 }
 
+.emoji h6{
+  margin-bottom: 30px;
+}
 .emoji label {
   cursor: pointer;
   margin: 0 0.3rem;
@@ -161,15 +164,25 @@ iframe{
 .emoji img {
   width: 50px;
   height: 50px;
-  opacity: 0.5;
-  filter: grayscale(100%);
+  opacity: 1;
+  filter: none;
   transition: all 0.3s ease;
 }
 
 .emoji input:checked + label img {
-  opacity: 1;
-  transform: scale(1.2);
-  filter: grayscale(0%);
+  transform: scale(1.15);
+}
+
+/* selected emoji glow */
+.emoji input:checked + label {
+  position: relative;
+}
+.emoji input:checked + label::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.08);
 }
 
 
@@ -189,6 +202,7 @@ iframe{
     margin-bottom: 80px;
     background-color: var(--background-color);
     border-radius: 20px;
+    
 
 }
 
@@ -202,9 +216,18 @@ iframe{
 .form-heading{
     color: var(--primary-text-color) ;
     font-size: 1.8rem;
-    margin-top: 7%;
+    /* margin-top: 7%; */
     margin-bottom: 7%;
+    background-color: #DD7008;
+    padding:20px 0;
+    font-weight: 600;
 }
+
+.form-card{
+  overflow: hidden;
+ 
+}
+
 
 .form input[type="text"],
 .form input[type="email"],
@@ -807,18 +830,44 @@ section{
 
 .card {
     background-color: var(--card-bg-color); /* Light beige */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     border: 3px solid var(--accent-color); /* Warm brown border */
     transition: transform 0.3s ease;
     height: auto; 
     overflow: hidden; 
     box-sizing: border-box; 
-    padding: 10px;
+    /* padding: 10px; */
     display: flex; 
     flex-direction: column; 
     justify-content: space-between;
     width:25%;
+    position: relative;
+
+}
+
+.card img{
+  transition: scale 0.5s ease;
+}
+
+.card:hover img{
+  scale:1.1
+}
+
+.card i {
+  position: absolute;
+  z-index: 1;
+  background: rgba(24, 23, 23, 0.802);
+  border-radius: 50%;
+  width:45px;
+  height:45px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#FCD34D;
+  right:20px;
+  top:15px;
 }
 
 .card-body {
@@ -848,6 +897,7 @@ section{
     line-height: 1.5; 
     flex-grow: 1; 
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .btn-outline-primary:hover {
@@ -866,7 +916,7 @@ section{
     color: var(--primary-text-color);
     font-weight: bold;
     align-items: center;
-    text-align:justify;
+    text-align:center;
     padding: 10px 20px;
     margin: 30px;
 }
@@ -891,14 +941,24 @@ section{
 
 .service-heading{
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom:2%;
     text-decoration: dashed;
    list-style:lower-latin;
    font-family: "Cinzel", serif;
-   padding-bottom: 3%;
+  border-bottom: 2px solid #FCD34D;
+   font-size: 4rem;
+   width: fit-content;
+   margin-left: auto;
+   margin-right: auto;
+   font-weight: 600;
+
 
 
 }
+
+
+
+
 /* Main Calculator Section */
 /* Dark Mode Support */
 body.dark-mode {
@@ -935,6 +995,245 @@ body.dark-mode .btn-primary {
   background-color: #bb995c;
   color: #1a120b;
 }
+
+/* Service heading color only in dark mode */
+body.dark-mode .service-heading{
+  color:#FDE68A;
+  border-bottom: 2px solid #FDE68A;
+  border-width: 10%;
+  
+}
+body.dark-mode .para{
+  color:#e3d5a7;
+  
+}
+
+/* Dark mode: Announcement information grid */
+body.dark-mode .information{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+
+}
+body.dark-mode .information > div{
+  background: #232428;
+  border: 1px solid rgba(252, 211, 77, 0.35);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(0,0,0,0.12);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: transform 0.5s ease;
+}
+body.dark-mode .information > div b{
+  color:#FDE68A
+}
+body.dark-mode .information > div p{
+  margin: 0;
+  color: #E6E0C8;
+}
+
+body.dark-mode .information > div:hover{
+  transform: translateY(-5px);
+  
+}
+@media (max-width: 768px){
+  body.dark-mode .information{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light (normal) mode: Announcement information grid */
+.information{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  column-gap: 20px;
+  row-gap: 30px;
+  padding: 0px 45px;
+}
+.information > div{
+  background: #ffffff;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: transform 0.5s ease;
+  position: relative;
+  padding-left: 76px;
+}
+.information > div p{
+  margin: 0;
+  color: var(--primary-text-color);
+}
+
+ .information > div:hover{
+  transform: translateY(-5px);
+  
+}
+@media (max-width: 768px){
+  .information{ grid-template-columns: 1fr; }
+}
+
+
+.information > div::before{
+  content: '📅';
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FCD34D;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.25);
+}
+.information > div:nth-child(2)::before{ content: '📝'; }
+.information > div:nth-child(3)::before{ content: '🎭'; }
+.information > div:nth-child(4)::before{ content: '🏆'; }
+
+body.dark-mode .information > div{
+  padding-left: 76px;
+}
+body.dark-mode .information > div::before{
+  background: #FCD34D;
+  color: #111827;
+}
+
+/* =====================
+   User Experience cards
+   ===================== */
+.user-experience ul{
+  list-style: none;
+  padding: 25px;
+  margin: 24px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  column-gap: 20px;
+  row-gap: 30px;
+}
+.user-experience li{
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-radius: 16px;
+  padding: 28px 24px 24px 24px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.user-experience li:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
+}
+.user-experience li b{
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-text-color);
+}
+.user-experience li span{
+  color: var(--primary-text-color);
+}
+
+.user-experience li::before{
+  content: '⚡';
+  position: absolute;
+  left: 24px;
+  top: -22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FCD34D;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.25);
+}
+.user-para{
+  text-align: center;
+}
+.user-experience li:nth-child(2)::before{ content: '👥'; }
+.user-experience li:nth-child(3)::before{ content: '★'; color: #ffffff; }
+.user-experience li:nth-child(4)::before{ content: '📱'; }
+
+/* Dark mode variant */
+body.dark-mode .user-experience li{
+  background: #232428;
+  border: 1px solid rgba(252, 211, 77, 0.35);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+body.dark-mode .user-experience li b{ color: #FDE68A; }
+body.dark-mode .user-experience li,
+body.dark-mode .user-experience li span{ color: #E6E0C8; }
+
+@media (max-width: 768px){
+  .user-experience ul{ grid-template-columns: 1fr; }
+}
+
+
+.about{
+  
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 8px;
+  padding: 10px 0;
+}
+.about h2{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #1b1b1b;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 12px;
+ 
+  margin: 18px 0 8px 0;
+  box-shadow: 0 8px 14px rgba(0,0,0,0.12);
+}
+
+.about p:hover{
+  transform: translateY(-5px);
+}
+.about h2::before{
+  content: '🎯';
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+.about h2:nth-of-type(2)::before{ content: '👥'; }
+.about h2:nth-of-type(3)::before{ content: '♡'; }
+.about h2:nth-of-type(4)::before{ content: '🎓'; }
+
+.about p{
+  background: #ffffff;
+  border: 1px solid var(--accent-color);
+  border-radius: 16px;
+  padding: 18px 22px;
+  line-height: 1.7;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  transition: transform 0.5s ease;
+}
+
+/* Dark mode variant */
+body.dark-mode .about p{
+  background: #232428;
+  border: 1px solid rgba(252, 211, 77, 0.35);
+  color: #e2d7a9;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(0,0,0,0.12);
+}
+body.dark-mode .about h2{
+  color:#FDE68A
+}
+
+
+
 
 body.dark-mode .btn-primary:hover {
   background-color: #a67d42;
@@ -1156,6 +1455,9 @@ margin-bottom: 5%;
 }
 
 
+
+
+
 /* Gallery Image Hover Effect Styles */
 
 /* Scale the entire card on hover */
@@ -1166,6 +1468,8 @@ margin-bottom: 5%;
     z-index: 5; /* Ensure hovered card appears above others */
     transition: all 0.3s ease;
 }
+
+
 
 /* Scale the image itself on hover */
 .card-img-top {
@@ -1571,6 +1875,55 @@ footer .copyright {
   font-size: 14px;
 }
 
+/* Total Visitors card */
+.visitor-card{
+  width: fit-content;
+  margin: 20px auto 0 auto;
+  padding: 10px 22px;
+  background: #1f2937;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+.visitor-title{
+  text-align: center;
+  font-weight: 800;
+  color: #fde68a;
+  font-size: 1.4rem;
+  margin: 4px 0 2px 0;
+}
+.visitor-value{
+  text-align: center;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* meet our team color  */
+ .section-header h2{
+  position: relative;
+ 
+  font-weight: 600;
+  display: inline-block;
+  border-bottom: 2px solid #FDE68A;
+  padding-bottom: 6px;
+
+}
+
+body.dark-mode .section-header h2{
+  color:#FDE68A
+}
+
+body.dark-mode .section-header p{
+  color:#ddcb92
+}
+
+
+
 /* Additional responsive improvements for mid-range screens */
 @media (max-width: 1200px) and (min-width: 1001px) {
   nav {
@@ -1802,7 +2155,8 @@ nav {
 
   .service-heading {
     text-align: center;
-    width: 100%;
+    width: auto;
+    
   }
 
   #sanjay-nagar {
@@ -1894,6 +2248,7 @@ nav {
     position: relative;
     right: 2px;
     text-align: center;
+   
   }
 
   .about-flex {
@@ -2117,3 +2472,6 @@ body.dark-mode .result-box h4,
 body.dark-mode .result-box h5 {
     color: #e0e0e0;
 }
+
+/* meet our team heading in dark mode */
+
