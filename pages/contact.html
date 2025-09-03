@@ -18,6 +18,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
 
     <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <!-- Floating Sidebar CSS -->
     <link rel="stylesheet" href="../css/floating-sidebar.css">
     <!-- scroll -->
@@ -462,7 +464,8 @@
     
     <script>
         // Functionality for expanding/collapsing FAQ items
-        const faqQuestions = document.querySelectorAll('.faq-question');
+    <!-- Inject modern footer -->
+    <script src="../js/footer.js"></script>
         faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
                 const faqAnswer = question.nextElementSibling;
@@ -828,7 +831,6 @@
 <!-- scroll -->
 
   <!-- Scroll features -->
-  <script src="../js/scroll-indicator.js"></script>
-</body>
-
-</html>
+    <script src="../js/scroll-indicator.js"></script>
+    <script src="../js/footer.js"></script>
+</body></html>

@@ -109,11 +109,17 @@ class ModernFooter {
         </footer>
         `;
 
-        // Remove existing footer if any
+        // Remove existing modern footer if any
         const existingFooter = document.querySelector('.modern-footer');
-        if (existingFooter) {
-            existingFooter.remove();
-        }
+        if (existingFooter) existingFooter.remove();
+
+        // Remove legacy/old footer nodes (common class: footer-section) so the new footer can be injected
+        const legacyFooters = document.querySelectorAll('footer.footer-section, footer.privacy-footer');
+        legacyFooters.forEach(f => {
+            if (!f.classList.contains('modern-footer')) {
+                f.remove();
+            }
+        });
 
         // Append new footer to body
         document.body.insertAdjacentHTML('beforeend', footerHTML);
