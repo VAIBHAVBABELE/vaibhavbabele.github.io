@@ -1,7 +1,6 @@
 .team-showcase {
     padding: 80px 0;
     background: var(--bg-shade);
-    border-top: 5px solid var(--primary-text-color);
 }
 
 .team-showcase .container {
