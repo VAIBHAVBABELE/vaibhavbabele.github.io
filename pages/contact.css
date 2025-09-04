@@ -341,52 +341,193 @@
     border: none;
 }
 
-.faq-section {
-    padding: 80px 0;
-    background: var(--bg-shade);
+/* FAQ SECTION */
+.main-faq {
+    display: flex; /* ADD THIS LINE */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ADD THIS LINE */
 }
 
 .faq-container {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ... the rest of your CSS remains the same ... */
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Search bar styling */
+.search-bar {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    padding-right: 50px;
+    background-color: #c9a786;
+    border: none;
+    border-radius: 20px;
+    color: #333333;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: #666666;
+}
+
+.search-bar .search-button {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+}
+
+.search-bar .search-button svg {
+    height: 20px;
+    width: 20px;
+}
+
+/* Tab buttons styling */
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    background-color: #c9a786;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: #b5957a;
+}
+
+.tab-btn.active {
+    background-color: #333333;
+    color: #fcf6e9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* FAQ list and item styling */
+.faq-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .faq-item {
-    background: var(--white-4345);
-    margin-bottom: 20px;
-    border-radius: 15px;
-    border: 3px solid var(--primary-text-color);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.dark-mode .faq-item {
-    background: var(--bg-shade);
-    border-color: var(--primary-text-color);
+    background-color: #c9a786;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .faq-question {
-    padding: 25px;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--accent-color);
-    color: white;
-    font-weight: 600;
-    font-size: 1.1rem;
+    cursor: pointer;
 }
 
-.faq-question:hover {
-    background: var(--accent-color-dark);
+.faq-question span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.faq-question .toggle-btn {
+    background: transparent;
+    border: none;
+    color: #666666;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.faq-question .toggle-btn svg {
+    height: 18px;
+    width: 18px;
 }
 
 .faq-answer {
-    padding: 0 25px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background: var(--white-4345);
+    display: none;
+    padding-top: 10px;
+    color: #333333;
+    font-size: 14px;
+}
+
+.faq-answer.show {
+    display: block;
+}
+
+.feedback {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    color: #666666;
+}
+
+.feedback .likes, .feedback .dislikes {
+    cursor: pointer;
+}
+
+/* Contact section styling */
+.contact-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #c9a786;
+    border-radius: 12px;
+}
+
+.contact-section p {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333333;
+    color: #fcf6e9;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #444;
 }
 
 .dark-mode .faq-answer {
@@ -398,10 +539,6 @@
     max-height: 200px;
 }
 
-.faq-answer p {
-    color: var(--primary-text-color);
-    line-height: 1.6;
-}
 
 .section-title {
     text-align: center;
