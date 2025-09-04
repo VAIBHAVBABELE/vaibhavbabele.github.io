@@ -1,0 +1,327 @@
+/* team-styles.css */
+:root {
+    --primary-color: #4a90e2; 
+     --secondary-color: #7b5b3a;
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --card-bg: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    --border-radius: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-showcase {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #fdf6ec  100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    position: relative;
+    background: linear-gradient(135deg, var(--text-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+    animation: scaleIn 0.8s ease-out 0.8s forwards;
+    transform-origin: center;
+    transform: translateX(-50%) scaleX(0);
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(350px, 1fr));
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.team-showcase-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.team-showcase-card:nth-child(1) { animation-delay: 0.3s; }
+.team-showcase-card:nth-child(2) { animation-delay: 0.5s; }
+.team-showcase-card:nth-child(3) { animation-delay: 0.7s; }
+
+.team-showcase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.team-showcase-card:hover::before {
+    left: 100%;
+}
+
+.team-showcase-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-dark);
+    border-color: var(--primary-color);
+}
+
+.team-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid transparent;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    padding: 4px;
+    transition: var(--transition);
+}
+
+.team-showcase-card:hover .team-avatar {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px rgba(74, 144, 226, 0.4);
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: var(--transition);
+    background: var(--card-bg);
+}
+
+.team-avatar.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    font-size: 2.5rem;
+}
+
+.team-showcase-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.team-showcase-card:hover h3 {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.team-showcase-card > p:first-of-type {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.team-showcase-card > p:nth-of-type(2) {
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    transition: var(--transition);
+}
+
+.team-showcase-card:hover > p:nth-of-type(2) {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.social-links a:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.social-links a i {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.social-links a:hover i {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .team-showcase-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        min-height: auto;
+    }
+    
+    .team-content {
+        text-align: center;
+    }
+    
+    .team-avatar {
+        margin-bottom: 1rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .team-showcase-card {
+        padding: 1.5rem 1rem;
+    }
+}

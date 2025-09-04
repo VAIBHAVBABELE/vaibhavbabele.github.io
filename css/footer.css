@@ -33,7 +33,7 @@
     display: grid;
     grid-template-columns: 2fr 2fr 1.5fr;
     gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     align-items: start;
 }
 
@@ -66,13 +66,12 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 0 0 0;
     justify-content: space-between;
 }
 
 .quick-links,
 .academic-tools {
-    flex: 1;
     min-width: 0; /* Prevent flex items from overflowing */
 }
 
@@ -122,16 +121,17 @@
 }
 
 .footer-links-list a {
+    /* Use previous (softer) color but slightly larger for readability */
     color: var(--secondary-text-color);
     text-decoration: none;
-    font-weight: 400;
-    transition: all 0.22s ease;
+    font-weight: 700; /* keep bolder weight */
+    transition: color 0.22s ease, transform 0.22s ease;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 0;
-    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
-    line-height: 1.4;
+    padding: 6px 0; /* slightly larger hit area */
+    font-size: clamp(0.9rem, 1.15vw, 1rem); /* increased a little */
+    line-height: 1.35;
 }
 
 .footer-links-list a i {
@@ -144,7 +144,8 @@
 .footer-links-list a:hover {
     color: var(--accent-color);
     text-decoration: underline;
-    transform: translateX(5px);
+    transform: translateX(6px) translateY(-1px);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 
 /* Contact Info */
@@ -181,11 +182,13 @@
 .contact-info a {
     color: var(--secondary-text-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.22s ease, font-weight 0.22s ease;
+    font-weight: 600;
 }
 
 .contact-info a:hover {
     color: var(--accent-color);
+    font-weight: 700;
 }
 
 /* Social Media Grid */
@@ -245,7 +248,7 @@
 
 .footer-bottom-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 25px;
@@ -269,33 +272,48 @@
 .footer-bottom-links a {
     color: var(--secondary-text-color);
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    transition: background 0.28s ease, color 0.22s ease, transform 0.22s ease;
     padding: 6px 12px;
-    border-radius: 6px;
-    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+    border-radius: 8px;
+    font-size: clamp(0.9rem, 1.2vw, 1rem); /* increased a little */
 }
 
 .footer-bottom-links a:hover {
-    color: var(--accent-color-dark);
-    background: rgba(205, 162, 116, 0.1);
-    transform: translateY(-1px);
+    color: var(--white-4345);
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Dark mode: ensure links contrast with dark backgrounds */
+.dark-mode .footer-links-list a,
+.dark-mode .footer-bottom-links a,
+.dark-mode .contact-info a {
+    color: white;
+}
+
+.dark-mode .footer-links-list a:hover,
+.dark-mode .footer-bottom-links a:hover,
+.dark-mode .contact-info a:hover {
+    color: var(--accent-color);
 }
 
 /* Dark Mode Support */
 .dark-mode .modern-footer {
-    background: linear-gradient(135deg, var(--footer-bgColor) 0%, var(--bg-shade) 100%);
+    background: linear-gradient(135deg, var(--footer-bgColor) 0%, #a58b52 100%);
 }
 
-.dark-mode .footer-hero,
+
+/* .dark-mode .footer-hero,
 .dark-mode .footer-connect {
     background: var(--card-bg-color);
     border-color: var(--accent-color);
-}
-
+} */
+/* 
 .dark-mode .contact-info {
     background: var(--bg-shade);
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -317,8 +335,9 @@
     .footer-shortcuts {
         grid-column: 2;
         grid-row: 1;
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0px;
     }
     
     .footer-connect {
@@ -349,7 +368,7 @@
     
     .footer-shortcuts {
         flex-direction: column;
-        gap: 25px;
+        gap: 16px;
         align-items: center;
     }
     
@@ -384,7 +403,7 @@
     }
     
     .footer-shortcuts {
-        gap: 20px;
+        gap: 8px;
     }
     
     .footer-heading {
@@ -496,7 +515,7 @@
     }
     
     .footer-shortcuts {
-        gap: 15px;
+        gap: 5px;
     }
     
     .quick-links,
@@ -507,6 +526,10 @@
 
 /* Landscape mobile optimization */
 @media (max-width: 768px) and (orientation: landscape) {
+   .footer-description {
+        margin-left: 20px !important;
+        text-align: center !important;
+    }
     .modern-footer {
         padding: 15px 0 15px 15px;
     }
@@ -523,7 +546,7 @@
     .footer-shortcuts {
         grid-column: 2;
         flex-direction: row;
-        gap: 15px;
+        gap: 10px;
     }
     
     .footer-connect {
