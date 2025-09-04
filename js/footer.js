@@ -41,10 +41,10 @@ class ModernFooter {
                             <h3 class="footer-heading"><i class="fas fa-link"></i> Quick Links</h3>
                             <ul class="footer-links-list">
                                 <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                                <li><a href="../pages/resources.html"><i class="fas fa-book"></i> Resources</a></li>
+                                <li><a href="../pages/resorces.html"><i class="fas fa-book"></i> Resources</a></li>
                                 <li><a href="../pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
                                 <li><a href="../pages/cgpa-calculator.html"><i class="fas fa-calculator"></i> CGPA Calculator</a></li>
-                                <li><a href="../games/games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                                <li><a href="../games/gamess.html"><i class="fas fa-gamepad"></i> Games</a></li>
                             </ul>
                         </div>
 

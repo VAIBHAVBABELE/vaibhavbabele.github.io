@@ -51,11 +51,13 @@ function createTeamCard(member, index) {
             <div class="team-avatar ${avatarClass}">
                 ${avatarHTML}
             </div>
-            <h3>${member.name}</h3>
-            <p>${member.role}</p>
-            <p>${member.description}</p>
-            <div class="social-links">
-                ${socialLinksHTML}
+            <div class="team-content">
+                <h3>${member.name}</h3>
+                <p class="role">${member.role}</p>
+                <p class="description">${member.description}</p>
+                <div class="social-links">
+                    ${socialLinksHTML}
+                </div>
             </div>
         </div>
     `;
