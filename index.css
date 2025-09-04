@@ -339,7 +339,7 @@ iframe{
 .form input[type="password"]:hover,
 .form input[type="number"]:hover,
 .form input[type="date"]:hover
-.form textarea:hover{
+.form textarea:hover {
     font-weight: bold;
     border-radius: 10px;
     background-color: #e6eef4;
@@ -763,6 +763,101 @@ section{
 .header-left h1{
     margin-top: 20px;
 }
+
+
+/* Light mode */
+body.light-mode .quote-box {
+  background: #fff8e7;
+  color: #6B4F1D;
+  border-left: 4px solid #6B4F1D;
+}
+
+/* Dark mode */
+body.dark-mode .quote-box {
+  background: #1e1f20;
+  color: #f1f1f1;
+  border-left: 4px solid #f1f1f1;
+}
+
+
+.quote-box {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 15px auto;
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+  border-radius: 8px;
+  max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease; 
+  cursor: pointer;
+}
+
+
+#quote-text {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+#quote-text.show {
+  opacity: 1;
+}
+
+.quote-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#quote-text::before {
+  content: "“"; /* opening quote */
+  font-size: 22px;
+  color: #6B4F1D;
+  margin-right: 4px;
+}
+#quote-text::after {
+  content: "”"; /* closing quote */
+  font-size: 22px;
+  color: #6B4F1D;
+  margin-left: 4px;
+}
+
+#quote-text {
+  font-size: 20px;
+  font-weight: bold;
+  white-space: pre-wrap; 
+  border-right: 2px solid #333; 
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: #333; }
+  100% { border-color: transparent; }
+}
+
+/* Hover effect */
+.quote-box:hover {
+   transform: translateY(-2px);
+}
+
+/* === Responsive Media Queries === */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .quote-title { font-size: 13px; }
+  #quote-text { font-size: 18px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .quote-title { font-size: 12px; }
+  #quote-text { font-size: 16px; }
+  .quote-box { padding: 10px 15px; }
+}
+
 .header-right img{
     width: 100%;             /* bigger than before, try 15–20% */
   height: auto;
