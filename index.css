@@ -2247,6 +2247,7 @@ nav {
   }
 
   .about-flex {
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -2258,6 +2259,7 @@ nav {
   }
 
   .contact-section {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -2317,6 +2319,7 @@ nav {
   }
 
   .form-card {
+    display: flex;
     margin-bottom: 5px;
     width: 80%;
   }
