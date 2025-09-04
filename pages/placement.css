@@ -119,6 +119,7 @@ body.dark{
 .cards-grid{
   display:grid; gap:16px;
   grid-template-columns: repeat(3, minmax(0,1fr));
+  align-items: stretch;
 }
 @media (max-width: 1100px){ .cards-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 650px){ .cards-grid{ grid-template-columns: 1fr; } }
@@ -126,6 +127,8 @@ body.dark{
 .placement-card{
   background: var(--surface-2); border:1px solid var(--border); border-radius:20px;
   padding:18px; box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;
+  display: flex;
+  flex-direction: column; height: 100%;
 }
 .placement-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .card-header{ display:flex; gap:8px; align-items:center; margin-bottom:8px; }
@@ -139,9 +142,10 @@ body.dark{
 .card-company{ color:var(--muted); font-weight:700; margin-bottom:2px; }
 .card-date{ color:var(--text); font-weight:800; margin:6px 0; }
 .card-badges{ display:flex; gap:8px; margin:10px 0; flex-wrap:wrap; }
-.card-actions{ display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+.card-actions{ margin-top: auto; display:flex; justify-content:flex-start; gap: 20px; align-items:center; }
 .card-btn{ padding:8px 12px; border-radius:10px; border:1px solid var(--border); background:var(--surface-3); cursor:pointer; }
 .card-btn:hover{ filter: brightness(.98); }
+.card-actions .card-btn:first-child{margin-left: none}
 
 /* ---- Pagination ---- */
 .pagination{ display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
