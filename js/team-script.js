@@ -65,17 +65,37 @@ function getBasePath() {
 
 // Function to create team card HTML with flip structure
 function createTeamCard(member, index) {
-    const avatarHTML = member.image 
-        ? `<img src="${member.image}" alt="${member.name}" loading="lazy">`
+    const base = getBasePath();
+
+    // Helper to detect external/absolute URLs that should not be prefixed
+    const isExternal = (url) => {
+        if (!url) return false;
+        return /^(https?:)?\/\//i.test(url) || url.startsWith('mailto:') || url.startsWith('tel:') || url.startsWith('#') || url.startsWith('data:') || url.startsWith('blob:') || url.startsWith('/');
+    };
+
+    // Resolve image src with base path when image path is relative
+    let imgSrc = null;
+    if (member.image) {
+        imgSrc = isExternal(member.image) ? member.image : (base + member.image);
+    }
+
+    const avatarHTML = imgSrc
+        ? `<img src="${imgSrc}" alt="${member.name}" loading="lazy">`
         : `<i class="fas fa-users"></i>`;
-    
-    const avatarClass = member.image ? '' : 'placeholder';
-    
-    const socialLinksHTML = member.social.map(social => 
-        `<a href="${social.url}" target="_blank" rel="noopener noreferrer" aria-label="${member.name} ${social.platform}">
+
+    const avatarClass = imgSrc ? '' : 'placeholder';
+
+    const socialLinksHTML = member.social.map(social => {
+        let href = social.url || '#';
+        // Prefix local links (like pr-contributors.html) so they resolve from nested pages
+        if (!isExternal(href)) {
+            href = base + href;
+        }
+        const targetAttrs = isExternal(social.url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return `<a href="${href}"${targetAttrs} aria-label="${member.name} ${social.platform}">
             <i class="${social.icon}"></i>
-        </a>`
-    ).join('');
+        </a>`;
+    }).join('');
 
     return `
         <div class="team-showcase-card" data-aos="fade-up" data-aos-delay="${index * 100}">
@@ -273,6 +293,28 @@ function initializeTeamSection(targetElement) {
 
 // Auto-initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Fix common relative image paths on pages located in subfolders (e.g., pages/*)
+    function fixRelativeImages() {
+        const base = getBasePath();
+        if (!base) return;
+
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(img => {
+            const raw = img.getAttribute('src');
+            if (!raw) return;
+
+            // only handle images that look like they point to the project-level images folder
+            if (raw.startsWith('images/') || raw.startsWith('./images/')) {
+                // Avoid double-prefixing if already prefixed
+                if (!raw.startsWith('../') && !raw.startsWith(base)) {
+                    const newSrc = base + raw.replace(/^\.\//, '');
+                    img.setAttribute('src', newSrc);
+                }
+            }
+        });
+    }
+        // Fix page-level relative images for nested pages (icons, logos, etc.)
+        try { fixRelativeImages(); } catch (e) { /* non-fatal */ }
     let teamSection = document.querySelector('.team-showcase');
     
     if (!teamSection) {

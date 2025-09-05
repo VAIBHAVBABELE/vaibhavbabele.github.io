@@ -376,7 +376,8 @@
     .team-showcase { padding: 2rem 0; } /* reduce vertical margins on mobile */
 
     .mobile-layout {
-        padding: 1rem; /* reduced card padding */
+        margin-left: 1rem;
+        padding: 1.5rem; 
         gap: 1rem; /* smaller gap between avatar and content */
     }
     
@@ -455,3 +456,84 @@
 .team-showcase-card:nth-child(4) { transition-delay: 0.4s; }
 .team-showcase-card:nth-child(5) { transition-delay: 0.5s; }
 .team-showcase-card:nth-child(6) { transition-delay: 0.6s; }
+
+/* Dark mode support - activated when <body> has .dark-mode */
+body.dark-mode {
+    /* Override color palette for dark theme */
+    --primary-color: #4EA8FF;
+    --secondary-color: #c79b6a;
+    --text-color: #e6eef6;
+    --secondary-text-color: #bfc8d4;
+    --card-bg: #0f1724; /* dark card background */
+    --shadow-light: rgba(255, 255, 255, 0.02);
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .team-showcase {
+    background: linear-gradient(135deg, #071428 0%, #0b1622 100%);
+}
+
+body.dark-mode .team-showcase::before {
+    opacity: 0.06;
+    filter: brightness(0.9) contrast(0.95);
+}
+
+body.dark-mode .section-header h2 {
+    /* make header visible in dark mode without gradient text clip */
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .section-header p {
+    color: var(--secondary-text-color) !important;
+}
+
+body.dark-mode .mobile-layout,
+body.dark-mode .flip-card-front,
+body.dark-mode .flip-card-back {
+    background: var(--card-bg) !important;
+    box-shadow: 0 8px 25px var(--shadow-dark) !important;
+    border: 1px solid rgba(255,255,255,0.04) !important;
+}
+
+body.dark-mode .team-avatar {
+    border-color: rgba(255,255,255,0.06) !important;
+}
+
+body.dark-mode .team-avatar.placeholder {
+    background: var(--primary-color) !important;
+    color: #071428 !important;
+}
+
+body.dark-mode .team-avatar img {
+    background: var(--card-bg) !important;
+}
+
+body.dark-mode .team-info h3,
+body.dark-mode .back-content h3,
+body.dark-mode .mobile-layout .team-content h3 {
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .back-content .description,
+body.dark-mode .mobile-layout .team-content .description,
+body.dark-mode .flip-card-front .team-info .role,
+body.dark-mode .mobile-layout .team-content .role {
+    color: var(--secondary-text-color) !important;
+}
+
+body.dark-mode .social-links a {
+    background: var(--primary-color) !important;
+    color: #071428 !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .social-links a:hover {
+    background: var(--secondary-color) !important;
+}
+
+/* Slightly reduce animation contrast on dark to be subtle */
+body.dark-mode .team-showcase-card.animate-in {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
