@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-09-03*
+*Last updated: 2025-09-05*
 
 ## 🌸 GSSoC '25 Leaderboard
 
@@ -56,6 +56,8 @@
 |----------|-------|------|--------------|------|------------|--------------|
 | [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 1 | 1 | 3 | 60 |
 | [@ishanibasu](https://github.com/ishanibasu) | - | 0 | 0 | 1 | 1 | 30 |
+| [@Asmit-06](https://github.com/Asmit-06) | asmitchhotaray@gmail.com | 0 | 1 | 0 | 1 | 20 |
+| [@MehakGo](https://github.com/MehakGo) | - | 1 | 0 | 0 | 1 | 10 |
 | [@YogitaSharma253](https://github.com/YogitaSharma253) | - | 1 | 0 | 0 | 1 | 10 |
 | [@gyanshankar1708](https://github.com/gyanshankar1708) | - | 1 | 0 | 0 | 1 | 10 |
 | [@Parnika-h](https://github.com/Parnika-h) | - | 1 | 0 | 0 | 1 | 10 |

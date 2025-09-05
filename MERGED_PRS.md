@@ -2,10 +2,12 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-09-03*
+*Last updated: 2025-09-05*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#394](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394) | Redesigned landing page with new layout | [@Asmit-06](https://github.com/Asmit-06) | # 🔖 PR Title: - Complete redesigning of Nitra Mitra ... | 2 | enhancement, OSCI25, intermediate | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-03 | 497 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394) |
+| [#390](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/390) | feat: Improve Inconsistent Preview/Download button layout in Subject … | [@MehakGo](https://github.com/MehakGo) | # Improve Inconsistent Preview/Download Button Layout in Subject Notes Page ... | 2 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-03 | 1016 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/390) |
 | [#385](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/385) | Add Resume ATS Score Checker feature with upload, scoring, and suggestions | [@Harsh-vardhan-sahu](https://github.com/Harsh-vardhan-sahu) | ## 📄 Description: This PR introduces a **Resume ATS Score ... | 7 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-02 | 902 | 6 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/385) |
 | [#370](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/370) | Enhanced the FAQ section and added extra features | [@Janhavi078](https://github.com/Janhavi078) | ## 🔖 PR Title: This PR improves the FAQ section ... | 3 | bug, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-01 | 503 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/370) |
 | [#383](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/383) | Fixed infrastructure/ facilities line alignment bug in CSS | [@YogitaSharma253](https://github.com/YogitaSharma253) | ## 🔖 PR Title: Fixed infrastructure facilities line alignment bug ... | 1 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-01 | 26 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/383) |
@@ -117,6 +119,40 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#394 Redesigned landing page with new layout](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394)
+
+- **Author:** [@Asmit-06](https://github.com/Asmit-06)
+- **Description:**  
+# 🔖 PR Title: - Complete redesigning of Nitra Mitra ...
+- **Files Changed (2):**
+    - `index.css`
+  - `index.html`
+- **Labels:** `enhancement`, `OSCI25`, `intermediate`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-03 15:35:20
+- **Lines Updated:** 497
+- **Commits:** 2
+- **PR Link:** [PR #394](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394)
+
+---
+
+### [#390 feat: Improve Inconsistent Preview/Download button layout in Subject …](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/390)
+
+- **Author:** [@MehakGo](https://github.com/MehakGo)
+- **Description:**  
+# Improve Inconsistent Preview/Download Button Layout in Subject Notes Page ...
+- **Files Changed (2):**
+    - `pages/paper.css`
+  - `pages/subject.html`
+- **Labels:** `bug`, `OSCI25`, `Easy`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-03 10:22:31
+- **Lines Updated:** 1016
+- **Commits:** 1
+- **PR Link:** [PR #390](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/390)
+
+---
 
 ### [#385 Add Resume ATS Score Checker feature with upload, scoring, and suggestions](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/385)
 
