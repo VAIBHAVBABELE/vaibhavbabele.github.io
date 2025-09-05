@@ -12,7 +12,7 @@
 }
 
 .team-showcase {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background: linear-gradient(135deg, #f5f7fa 0%, #fdf6ec 100%);
     min-height: 100vh;
     position: relative;
@@ -33,7 +33,7 @@
 
 .container {
     max-width: 1200px;
-    margin: 0 10px;
+    margin: 1px auto;
     padding: 0 2rem;
     position: relative;
     z-index: 1;

@@ -17,7 +17,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  padding-bottom: 60px;
+  padding-bottom: 0px;
   transition: background 0.3s, color 0.3s;
 }
 

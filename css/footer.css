@@ -1,12 +1,26 @@
 /* Modern Footer Styles - Fixed & Responsive */
+:root {
+    /* sensible defaults so footer renders even if page doesn't define these */
+    --footer-bgColor: #f5f7fa;
+    --bg-shade: #fdf6ec;
+    --primary-text-color: #333333;
+    --secondary-text-color: #666666;
+    --accent-color: #d2bf80;
+    --accent-color-dark: #856113;
+    --white-4345: #ffffff;
+}
 .modern-footer {
-    background: linear-gradient(135deg, var(--footer-bgColor) 0%, var(--bg-shade) 100%);
+    /* Use CSS variable fallbacks so footer still has a visible background
+       when page-level variables are missing or reset by other styles. */
+    background: linear-gradient(135deg, var(--footer-bgColor, #f5f7fa) 0%, var(--bg-shade, #fdf6ec) 100%);
+    background-color: var(--footer-bgColor, #f5f7fa);
     padding: 20px 0 20px 50px; /* Keep left margin for sidebar */
-    color: var(--primary-text-color);
-    border-top: 3px solid var(--accent-color);
+    color: var(--primary-text-color, #333333);
+    border-top: 3px solid var(--accent-color, #d2bf80);
     position: relative;
     overflow: hidden;
     margin-top: auto; /* Push footer to bottom */
+    z-index: 5; /* ensure visible above low z-index elements */
 }
 
 .modern-footer::before {
