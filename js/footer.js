@@ -6,6 +6,37 @@ class ModernFooter {
         this.init();
     }
 
+    // Compute a base path from current location so footer links resolve correctly
+    getBasePath() {
+        const currentPath = window.location.pathname;
+
+        if (currentPath.includes('/pages/')) {
+            const pathParts = currentPath.split('/');
+            const pagesIndex = pathParts.indexOf('pages');
+            const depth = pathParts.length - pagesIndex - 2; // -2 for pages and filename
+
+            if (depth > 0) {
+                return '../'.repeat(depth + 1);
+            } else {
+                return '../';
+            }
+        }
+
+        if (currentPath.includes('/games/')) {
+            const pathParts = currentPath.split('/');
+            const gamesIndex = pathParts.indexOf('games');
+            const depth = pathParts.length - gamesIndex - 2;
+
+            if (depth > 0) {
+                return '../'.repeat(depth + 1);
+            } else {
+                return '../';
+            }
+        }
+
+        return '';
+    }
+
     init() {
         this.renderFooter();
         this.bindEvents();
@@ -14,6 +45,8 @@ class ModernFooter {
     }
 
     renderFooter() {
+        const basePath = this.getBasePath();
+
         const footerHTML = `
            <footer class="modern-footer">
             <div class="footer-container">
@@ -40,11 +73,11 @@ class ModernFooter {
                         <div class="quick-links">
                             <h3 class="footer-heading"><i class="fas fa-link"></i> Quick Links</h3>
                             <ul class="footer-links-list">
-                                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                                <li><a href="../pages/resorces.html"><i class="fas fa-book"></i> Resources</a></li>
-                                <li><a href="../pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
-                                <li><a href="../pages/cgpa-calculator.html"><i class="fas fa-calculator"></i> CGPA Calculator</a></li>
-                                <li><a href="../games/gamess.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                                <li><a href="${basePath}index.html"><i class="fas fa-home"></i> Home</a></li>
+                                <li><a href="${basePath}pages/resorces.html"><i class="fas fa-book"></i> Resources</a></li>
+                                <li><a href="${basePath}pages/gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                                <li><a href="${basePath}pages/cgpa-calculator.html"><i class="fas fa-calculator"></i> CGPA Calculator</a></li>
+                                <li><a href="${basePath}games/gamess.html"><i class="fas fa-gamepad"></i> Games</a></li>
                             </ul>
                         </div>
 
@@ -52,11 +85,11 @@ class ModernFooter {
                         <div class="academic-tools">
                             <h3 class="footer-heading"><i class="fas fa-tools"></i> Academic Tools</h3>
                             <ul class="footer-links-list">
-                                <li><a href="../pages/assistant/assistant.html"><i class="fas fa-robot"></i> Student Assistant</a></li>
-                                <li><a href="../pages/summary/summary.html"><i class="fas fa-file-alt"></i> AI Summary Tool</a></li>
-                                <li><a href="../pages/syllabus/syllabus.html"><i class="fas fa-clipboard-list"></i> Syllabus</a></li>
-                                <li><a href="../pages/ats-score-checker/ats-score-checker.html"><i class="fas fa-check-circle"></i> ATS Score Checker</a></li>
-                                <li><a href="../pages/placement-updates.html"><i class="fas fa-briefcase"></i> Placement Updates</a></li>
+                                <li><a href="${basePath}pages/assistant/assistant.html"><i class="fas fa-robot"></i> Student Assistant</a></li>
+                                <li><a href="${basePath}pages/summary/summary.html"><i class="fas fa-file-alt"></i> AI Summary Tool</a></li>
+                                <li><a href="${basePath}pages/syllabus/syllabus.html"><i class="fas fa-clipboard-list"></i> Syllabus</a></li>
+                                <li><a href="${basePath}pages/ats-score-checker/ats-score-checker.html"><i class="fas fa-check-circle"></i> ATS Score Checker</a></li>
+                                <li><a href="${basePath}pages/placement-updates.html"><i class="fas fa-briefcase"></i> Placement Updates</a></li>
                             </ul>
                         </div>
                     </div>
@@ -98,10 +131,10 @@ class ModernFooter {
                             </span>
                         </div>
                         <div class="footer-bottom-links">
-                            <a href="../pages/privacy.html">Privacy Policy</a>
-                            <a href="../pages/terms.html">Terms & Conditions</a>
-                            <a href="../pages/contact.html">Contact</a>
-                            <a href="../pages/pr-contribution/pr-contributors.html">Contributors</a>
+                            <a href="${basePath}pages/privacy.html">Privacy Policy</a>
+                            <a href="${basePath}pages/terms.html">Terms & Conditions</a>
+                            <a href="${basePath}pages/contact.html">Contact</a>
+                            <a href="${basePath}pages/pr-contribution/pr-contributors.html">Contributors</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +142,7 @@ class ModernFooter {
         </footer>
         `;
 
-        // Remove existing modern footer if any
+    // Remove existing modern footer if any
         const existingFooter = document.querySelector('.modern-footer');
         if (existingFooter) existingFooter.remove();
 
