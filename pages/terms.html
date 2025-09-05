@@ -29,31 +29,25 @@
   <meta name="description" content="Terms and conditions for using Nitra Mitra.">
     <!-- Floating Sidebar CSS -->
     <link rel="stylesheet" href="../css/floating-sidebar.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="../index.html">
-        <i class="fas fa-arrow-left"></i> NITra MITra
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#about">About</a></li>
-          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#feedback">Feedback</a></li>
-          <li class="nav-item"><a class="nav-link fw-bold" href="../index.html#contact">Contact us</a></li>
-        </ul>
-        <button class="btn" id="darkModeToggle" type="button">ðŸŒ™</button>
-      </div>
-    </div>
-  </nav>
+    <nav>
+        <div class="nav-first">
+            <button onclick="goBack()" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+        </div>
+        <div class="nav-end">
+            <button id="lang-toggle">
+                हिंदी
+            </button>
+            <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        </div>
+    </nav>
 
   <!-- Main Content Container -->
   <main>
@@ -95,26 +89,26 @@
       </ul>
       <div class="policy-visitors" data-aos="zoom-in" data-aos-delay="500">
       <!-- TEAM SECTION (standardized) -->
-      <div id="team-section"></div>
-
+      
       <!-- Team script (standardized) -->
-      <script src="../js/team-script.js"></script>
-              <i class="fas fa-users"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <i class="fas fa-users"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<div id="team-section"></div>
 
-  <!-- Legacy footer removed. Modern footer is injected via js/footer.js -->
+<!-- Legacy footer removed. Modern footer is injected via js/footer.js -->
 
-  <!-- Animation JS (AOS) -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="terms.js"></script>
-  <script src="../js/scroll-indicator.js"></script>
-    <!-- Floating Sidebar JavaScript -->
-    <script src="../js/sidebar.js"></script>
+<!-- Animation JS (AOS) -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="terms.js"></script>
+<script src="../js/scroll-indicator.js"></script>
+<script src="../js/team-script.js"></script>
+<!-- Floating Sidebar JavaScript -->
+<script src="../js/sidebar.js"></script>
   <!-- Inject modern footer -->
   <script src="../js/footer.js"></script>
 </body>
