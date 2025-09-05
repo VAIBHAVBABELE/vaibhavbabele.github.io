@@ -395,6 +395,15 @@
     .footer-bottom-links {
         gap: 15px;
     }
+
+    /* Center footer paragraphs and apply 20px horizontal margins on mobile */
+    .footer-description,
+    .footer-hero .footer-description,
+    .copyright-text {
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 @media (max-width: 600px) {
