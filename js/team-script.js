@@ -25,7 +25,7 @@ const teamData = [
         name: "Development Team",
         role: "Contributors & Maintainers",
         description: "A growing community of student developers working together to improve the platform.",
-        image: null, // This will show placeholder
+        image: null,
         social: [
             { platform: "team", url: "pr-contributors.html", icon: "fas fa-users" }
         ]
@@ -63,50 +63,61 @@ function getBasePath() {
     return '';
 }
 
-// Function to create team card HTML
+// Function to create team card HTML with flip structure
 function createTeamCard(member, index) {
-    const basePath = getBasePath();
-
-    // Resolve image path (only prefix if it's a relative path)
-    let imgSrc = '';
-    if (member.image) {
-        if (member.image.startsWith('http') || member.image.startsWith('/')) {
-            imgSrc = member.image;
-        } else {
-            imgSrc = `${basePath}${member.image}`;
-        }
-    }
-
-    const avatarHTML = imgSrc
-        ? `<img src="${imgSrc}" alt="${member.name}" loading="lazy">`
+    const avatarHTML = member.image 
+        ? `<img src="${member.image}" alt="${member.name}" loading="lazy">`
         : `<i class="fas fa-users"></i>`;
     
     const avatarClass = member.image ? '' : 'placeholder';
     
-    const socialLinksHTML = member.social.map(social => {
-        let url = social.url || '#';
-        // Prefix local links that are not absolute (http), anchors, or special schemes
-        if (!url.startsWith('http') && !url.startsWith('#') && !url.startsWith('mailto:') && !url.startsWith('tel:') && !url.startsWith('/')) {
-            url = `${basePath}${url}`;
-        }
-
-        return `
-            <a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${member.name} ${social.platform}">
-                <i class="${social.icon}"></i>
-            </a>`;
-    }).join('');
+    const socialLinksHTML = member.social.map(social => 
+        `<a href="${social.url}" target="_blank" rel="noopener noreferrer" aria-label="${member.name} ${social.platform}">
+            <i class="${social.icon}"></i>
+        </a>`
+    ).join('');
 
     return `
         <div class="team-showcase-card" data-aos="fade-up" data-aos-delay="${index * 100}">
-            <div class="team-avatar ${avatarClass}">
-                ${avatarHTML}
+            <!-- Mobile Layout (Always visible on mobile) -->
+            <div class="mobile-layout">
+                <div class="team-avatar ${avatarClass}">
+                    ${avatarHTML}
+                </div>
+                <div class="team-content">
+                    <h3>${member.name}</h3>
+                    <p class="role">${member.role}</p>
+                    <p class="description">${member.description}</p>
+                    <div class="social-links">
+                        ${socialLinksHTML}
+                    </div>
+                </div>
             </div>
-            <div class="team-content">
-                <h3>${member.name}</h3>
-                <p class="role">${member.role}</p>
-                <p class="description">${member.description}</p>
-                <div class="social-links">
-                    ${socialLinksHTML}
+
+            <!-- Desktop Flip Card (Hidden on mobile) -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <!-- Front Face -->
+                    <div class="flip-card-front">
+                        <div class="team-avatar ${avatarClass}">
+                            ${avatarHTML}
+                        </div>
+                        <div class="team-info">
+                            <h3>${member.name}</h3>
+                            <p class="role">${member.role}</p>
+                        </div>
+                    </div>
+
+                    <!-- Back Face -->
+                    <div class="flip-card-back">
+                        <div class="back-content">
+                            <h3>${member.name}</h3>
+                            <p class="description">${member.description}</p>
+                            <div class="social-links">
+                                ${socialLinksHTML}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,18 +139,36 @@ function createTeamSectionHTML() {
     `;
 }
 
-// Function to add hover sound effect (optional)
-function addSoundEffects() {
+// Function to add hover sound effect and interactions
+function addInteractiveEffects() {
     const cards = document.querySelectorAll('.team-showcase-card');
+    
     cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            // You can add a subtle sound effect here if needed
-            card.style.transform = 'translateY(-15px) scale(1.02)';
-        });
+        const flipCard = card.querySelector('.flip-card');
+        const flipCardInner = card.querySelector('.flip-card-inner');
         
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0) scale(1)';
-        });
+        if (flipCard && flipCardInner) {
+            // Desktop hover effects
+            flipCard.addEventListener('mouseenter', () => {
+                flipCardInner.style.transform = 'rotateY(180deg)';
+            });
+            
+            flipCard.addEventListener('mouseleave', () => {
+                flipCardInner.style.transform = 'rotateY(0deg)';
+            });
+        }
+
+        // Mobile touch effects
+        const mobileLayout = card.querySelector('.mobile-layout');
+        if (mobileLayout) {
+            mobileLayout.addEventListener('touchstart', () => {
+                mobileLayout.style.transform = 'scale(0.98)';
+            });
+            
+            mobileLayout.addEventListener('touchend', () => {
+                mobileLayout.style.transform = 'scale(1)';
+            });
+        }
     });
 }
 
@@ -153,7 +182,7 @@ function addScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
+                entry.target.classList.add('animate-in');
                 observer.unobserve(entry.target);
             }
         });
@@ -161,38 +190,7 @@ function addScrollAnimations() {
 
     const cards = document.querySelectorAll('.team-showcase-card');
     cards.forEach(card => {
-        card.style.animationPlayState = 'paused';
         observer.observe(card);
-    });
-}
-
-// Function to add parallax effect to team section
-function addParallaxEffect() {
-    const teamSection = document.querySelector('.team-showcase');
-    if (!teamSection) return;
-
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.3;
-        
-        if (teamSection.querySelector('.container')) {
-            teamSection.querySelector('.container').style.transform = `translateY(${parallax}px)`;
-        }
-    });
-}
-
-// Function to add interactive card tilt effect (simplified for horizontal layout)
-function addTiltEffect() {
-    const cards = document.querySelectorAll('.team-showcase-card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
     });
 }
 
@@ -207,11 +205,36 @@ function addLoadingAnimation() {
         card.style.transform = 'translateY(50px)';
         
         setTimeout(() => {
-            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
         }, index * 200);
     });
+}
+
+// Function to handle responsive behavior
+function handleResponsiveBehavior() {
+    const cards = document.querySelectorAll('.team-showcase-card');
+    
+    function checkScreenSize() {
+        const isMobile = window.innerWidth <= 768;
+        
+        cards.forEach(card => {
+            const mobileLayout = card.querySelector('.mobile-layout');
+            const flipCard = card.querySelector('.flip-card');
+            
+            if (isMobile) {
+                mobileLayout.style.display = 'flex';
+                flipCard.style.display = 'none';
+            } else {
+                mobileLayout.style.display = 'none';
+                flipCard.style.display = 'block';
+            }
+        });
+    }
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
 }
 
 // Function to initialize the team section
@@ -229,12 +252,10 @@ function initializeTeamSection(targetElement) {
     
     // Add interactive effects after DOM is ready
     setTimeout(() => {
-        addSoundEffects();
+        addInteractiveEffects();
         addScrollAnimations();
-        addTiltEffect();
         addLoadingAnimation();
-        // Uncomment the line below if you want parallax effect
-        // addParallaxEffect();
+        handleResponsiveBehavior();
     }, 100);
     
     // Add error handling for images
@@ -242,7 +263,6 @@ function initializeTeamSection(targetElement) {
     images.forEach(img => {
         img.addEventListener('error', (e) => {
             console.warn(`Failed to load image: ${img.src}`);
-            // Replace with placeholder
             const placeholder = document.createElement('div');
             placeholder.className = 'team-avatar placeholder';
             placeholder.innerHTML = '<i class="fas fa-user"></i>';
@@ -253,17 +273,14 @@ function initializeTeamSection(targetElement) {
 
 // Auto-initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Look for existing team section or create new one
     let teamSection = document.querySelector('.team-showcase');
     
     if (!teamSection) {
-        // If no existing section, look for a target container
         const targetContainer = document.getElementById('team-section') || 
                                document.querySelector('[data-team-section]') ||
                                document.body;
         
         if (targetContainer === document.body) {
-            // Create a new section element
             teamSection = document.createElement('section');
             targetContainer.appendChild(teamSection);
         } else {
@@ -283,11 +300,9 @@ window.TeamShowcase = {
 
 // Additional utility functions
 const TeamUtils = {
-    // Function to update team member data dynamically
     updateTeamMember: (index, newData) => {
         if (index >= 0 && index < teamData.length) {
             teamData[index] = { ...teamData[index], ...newData };
-            // Re-render the section
             const teamSection = document.querySelector('.team-showcase');
             if (teamSection) {
                 initializeTeamSection(teamSection);
@@ -295,7 +310,6 @@ const TeamUtils = {
         }
     },
     
-    // Function to add new team member
     addTeamMember: (memberData) => {
         teamData.push(memberData);
         const teamSection = document.querySelector('.team-showcase');
@@ -304,7 +318,6 @@ const TeamUtils = {
         }
     },
     
-    // Function to remove team member
     removeTeamMember: (index) => {
         if (index >= 0 && index < teamData.length) {
             teamData.splice(index, 1);

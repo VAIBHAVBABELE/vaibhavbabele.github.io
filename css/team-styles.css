@@ -1,19 +1,19 @@
 /* team-styles.css */
 :root {
     --primary-color: #4a90e2; 
-     --secondary-color: #7b5b3a;
+    --secondary-color: #7b5b3a;
     --text-color: #333;
     --secondary-text-color: #666;
     --card-bg: #fff;
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-dark: rgba(0, 0, 0, 0.2);
     --border-radius: 20px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-showcase {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #fdf6ec  100%);
+    background: linear-gradient(135deg, #f5f7fa 0%, #fdf6ec 100%);
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -42,9 +42,6 @@
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-out 0.2s forwards;
 }
 
 .section-header h2 {
@@ -52,7 +49,6 @@
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 1rem;
-    position: relative;
     background: linear-gradient(135deg, var(--text-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -67,11 +63,8 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 2px;
-    animation: scaleIn 0.8s ease-out 0.8s forwards;
-    transform-origin: center;
-    transform: translateX(-50%) scaleX(0);
 }
 
 .section-header p {
@@ -82,45 +75,157 @@
     line-height: 1.8;
 }
 
+/* Team Grid Layout */
 .team-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    align-items: center;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
+/* Base Team Card */
 .team-showcase-card {
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-showcase-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Layout - Horizontal Cards */
+.mobile-layout {
     background: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 2rem;
     display: flex;
     align-items: center;
     gap: 2rem;
-    text-align: left;
     box-shadow: 0 8px 25px var(--shadow-light);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease-out forwards;
     border: 2px solid rgba(74, 144, 226, 0.1);
-    width: 100%;
-    max-width: 700px;
+    transition: var(--transition);
+    display: none; /* Hidden by default, shown on mobile */
 }
 
-.team-showcase-card:nth-child(1) { animation-delay: 0.1s; }
-.team-showcase-card:nth-child(2) { animation-delay: 0.2s; }
-.team-showcase-card:nth-child(3) { animation-delay: 0.3s; }
-
-.team-showcase-card:hover {
+.mobile-layout:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px var(--shadow-dark);
     border-color: var(--primary-color);
 }
 
+/* Desktop Flip Card */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    display: block; /* Shown by default, hidden on mobile */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border: 2px solid rgba(74, 144, 226, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card:hover .flip-card-front,
+.flip-card:hover .flip-card-back {
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 40px var(--shadow-dark);
+}
+
+/* Front Face Styling */
+.flip-card-front {
+    gap: 1.5rem;
+}
+
+.flip-card-front .team-info {
+    text-align: center;
+}
+
+.flip-card-front .team-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.flip-card-front .team-info .role {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Back Face Styling */
+.flip-card-back {
+    justify-content: space-between;
+    text-align: center;
+}
+
+.back-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.back-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.back-content .description {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Team Avatar Styling */
 .team-avatar {
     width: 120px;
     height: 120px;
@@ -132,9 +237,9 @@
     flex-shrink: 0;
 }
 
-.team-showcase-card:hover .team-avatar {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+.flip-card-front .team-avatar {
+    width: 150px;
+    height: 150px;
 }
 
 .team-avatar img {
@@ -155,26 +260,22 @@
     font-size: 2.5rem;
 }
 
-.team-content {
+/* Mobile Layout Content */
+.mobile-layout .team-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.team-content h3 {
+.mobile-layout .team-content h3 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-color);
     margin: 0;
-    transition: var(--transition);
 }
 
-.team-showcase-card:hover .team-content h3 {
-    color: var(--primary-color);
-}
-
-.team-content .role {
+.mobile-layout .team-content .role {
     color: var(--secondary-color);
     font-weight: 500;
     font-size: 0.95rem;
@@ -183,26 +284,23 @@
     letter-spacing: 0.5px;
 }
 
-.team-content .description {
+.mobile-layout .team-content .description {
     color: var(--secondary-text-color);
     line-height: 1.6;
-    margin: 0.5rem 0 0 0;
+    margin: 0.5rem 0;
     font-size: 0.95rem;
-    opacity: 0;
-    max-height: 0;
-    transition: all 0.3s ease;
-    overflow: hidden;
 }
 
-.team-showcase-card:hover .team-content .description {
-    opacity: 1;
-    max-height: 100px;
-    margin: 0.5rem 0 1rem 0;
-}
-
+/* Social Links */
 .social-links {
     display: flex;
     gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mobile-layout .social-links {
+    justify-content: flex-start;
     margin-top: 0.5rem;
 }
 
@@ -232,31 +330,41 @@
     transition: var(--transition);
 }
 
-.social-links a:hover i {
-    transform: scale(1.1);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    to {
-        transform: translateX(-50%) scaleX(1);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
 /* Responsive Design */
+@media (min-width: 769px) {
+    /* Desktop: Show flip cards, hide mobile layout */
+    .mobile-layout {
+        display: none !important;
+    }
+    
+    .flip-card {
+        display: block !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Mobile: Show mobile layout, hide flip cards */
+    .mobile-layout {
+        display: flex !important;
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+    
+    .flip-card {
+        display: none !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
     .container {
         padding: 0 1rem;
     }
@@ -265,77 +373,26 @@
         font-size: 2.5rem;
     }
     
-    .team-grid {
-        gap: 1.5rem;
-        max-width: 100%;
-    }
-    
-    .team-showcase-card {
-        flex-direction: row;
-        text-align: left;
+    .mobile-layout {
         padding: 1.5rem;
-        max-width: 100%;
         gap: 1.5rem;
-        align-items: flex-start;
     }
     
-    /* Remove hover effects on mobile */
-    .team-showcase-card:hover {
-        transform: none;
-        box-shadow: 0 8px 25px var(--shadow-light);
-        border-color: rgba(74, 144, 226, 0.1);
-    }
-    
-    .team-showcase-card:hover .team-avatar {
-        transform: none;
-        box-shadow: none;
-    }
-    
-    .team-showcase-card:hover .team-content h3 {
-        color: var(--text-color);
-    }
-    
-    .team-content {
-        text-align: left;
-        flex: 1;
-    }
-    
-    .team-avatar {
+    .mobile-layout .team-avatar {
         width: 80px;
         height: 80px;
-        margin-bottom: 0;
-        flex-shrink: 0;
     }
     
-    .team-content h3 {
+    .mobile-layout .team-content h3 {
         font-size: 1.3rem;
-        margin-bottom: 0.25rem;
     }
     
-    .team-content .role {
+    .mobile-layout .team-content .role {
         font-size: 0.85rem;
-        margin-bottom: 0.5rem;
     }
     
-    .team-content .description {
-        opacity: 1;
-        max-height: none;
-        margin: 0.5rem 0 1rem 0;
+    .mobile-layout .team-content .description {
         font-size: 0.9rem;
-        line-height: 1.5;
-    }
-    
-    /* Remove hover effects on description for mobile */
-    .team-showcase-card:hover .team-content .description {
-        opacity: 1;
-        max-height: none;
-        margin: 0.5rem 0 1rem 0;
-    }
-    
-    .social-links {
-        justify-content: flex-start;
-        margin-top: 0.5rem;
-        gap: 0.5rem;
     }
     
     .social-links a {
@@ -345,17 +402,6 @@
     
     .social-links a i {
         font-size: 0.9rem;
-    }
-    
-    /* Remove hover effects on social links for mobile */
-    .social-links a:hover {
-        transform: none;
-        box-shadow: none;
-        background: var(--primary-color);
-    }
-    
-    .social-links a:hover i {
-        transform: none;
     }
 }
 
@@ -368,25 +414,25 @@
         font-size: 1rem;
     }
     
-    .team-showcase-card {
+    .mobile-layout {
         padding: 1.25rem;
         gap: 1rem;
     }
     
-    .team-avatar {
+    .mobile-layout .team-avatar {
         width: 70px;
         height: 70px;
     }
     
-    .team-content h3 {
+    .mobile-layout .team-content h3 {
         font-size: 1.2rem;
     }
     
-    .team-content .role {
+    .mobile-layout .team-content .role {
         font-size: 0.8rem;
     }
     
-    .team-content .description {
+    .mobile-layout .team-content .description {
         font-size: 0.85rem;
     }
     
@@ -398,36 +444,12 @@
     .social-links a i {
         font-size: 0.8rem;
     }
-    
-    /* Remove hover effects on mobile for 480px and below */
-    .team-showcase-card:hover {
-        transform: none;
-        box-shadow: 0 8px 25px var(--shadow-light);
-        border-color: rgba(74, 144, 226, 0.1);
-    }
-    
-    .team-showcase-card:hover .team-avatar {
-        transform: none;
-        box-shadow: none;
-    }
-    
-    .team-showcase-card:hover .team-content h3 {
-        color: var(--text-color);
-    }
-    
-    .team-showcase-card:hover .team-content .description {
-        opacity: 1;
-        max-height: none;
-        margin: 0.5rem 0 1rem 0;
-    }
-    
-    .social-links a:hover {
-        transform: none;
-        box-shadow: none;
-        background: var(--primary-color);
-    }
-    
-    .social-links a:hover i {
-        transform: none;
-    }
 }
+
+/* Animation delays for staggered loading */
+.team-showcase-card:nth-child(1) { transition-delay: 0.1s; }
+.team-showcase-card:nth-child(2) { transition-delay: 0.2s; }
+.team-showcase-card:nth-child(3) { transition-delay: 0.3s; }
+.team-showcase-card:nth-child(4) { transition-delay: 0.4s; }
+.team-showcase-card:nth-child(5) { transition-delay: 0.5s; }
+.team-showcase-card:nth-child(6) { transition-delay: 0.6s; }
