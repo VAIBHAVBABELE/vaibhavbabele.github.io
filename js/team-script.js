@@ -32,19 +32,69 @@ const teamData = [
     }
 ];
 
+// Compute a base path from current location so image and local links resolve correctly
+function getBasePath() {
+    const currentPath = window.location.pathname;
+
+    if (currentPath.includes('/pages/')) {
+        const pathParts = currentPath.split('/');
+        const pagesIndex = pathParts.indexOf('pages');
+        const depth = pathParts.length - pagesIndex - 2; // -2 for pages and filename
+
+        if (depth > 0) {
+            return '../'.repeat(depth + 1);
+        } else {
+            return '../';
+        }
+    }
+
+    if (currentPath.includes('/games/')) {
+        const pathParts = currentPath.split('/');
+        const gamesIndex = pathParts.indexOf('games');
+        const depth = pathParts.length - gamesIndex - 2;
+
+        if (depth > 0) {
+            return '../'.repeat(depth + 1);
+        } else {
+            return '../';
+        }
+    }
+
+    return '';
+}
+
 // Function to create team card HTML
 function createTeamCard(member, index) {
-    const avatarHTML = member.image 
-        ? `<img src="${member.image}" alt="${member.name}" loading="lazy">`
+    const basePath = getBasePath();
+
+    // Resolve image path (only prefix if it's a relative path)
+    let imgSrc = '';
+    if (member.image) {
+        if (member.image.startsWith('http') || member.image.startsWith('/')) {
+            imgSrc = member.image;
+        } else {
+            imgSrc = `${basePath}${member.image}`;
+        }
+    }
+
+    const avatarHTML = imgSrc
+        ? `<img src="${imgSrc}" alt="${member.name}" loading="lazy">`
         : `<i class="fas fa-users"></i>`;
     
     const avatarClass = member.image ? '' : 'placeholder';
     
-    const socialLinksHTML = member.social.map(social => 
-        `<a href="${social.url}" target="_blank" rel="noopener noreferrer" aria-label="${member.name} ${social.platform}">
-            <i class="${social.icon}"></i>
-        </a>`
-    ).join('');
+    const socialLinksHTML = member.social.map(social => {
+        let url = social.url || '#';
+        // Prefix local links that are not absolute (http), anchors, or special schemes
+        if (!url.startsWith('http') && !url.startsWith('#') && !url.startsWith('mailto:') && !url.startsWith('tel:') && !url.startsWith('/')) {
+            url = `${basePath}${url}`;
+        }
+
+        return `
+            <a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${member.name} ${social.platform}">
+                <i class="${social.icon}"></i>
+            </a>`;
+    }).join('');
 
     return `
         <div class="team-showcase-card" data-aos="fade-up" data-aos-delay="${index * 100}">
