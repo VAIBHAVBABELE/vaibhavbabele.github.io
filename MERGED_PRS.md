@@ -2,10 +2,11 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-09-05*
+*Last updated: 2025-09-06*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#407](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/407) | Add Daily Motivation Quote widget with dark/light mode support | [@YogitaSharma253](https://github.com/YogitaSharma253) | ## 🔖 PR Title: Add Daily Motivation Quote widget with ... | 3 | enhancement, OSCI25, intermediate | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-05 | 164 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/407) |
 | [#394](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394) | Redesigned landing page with new layout | [@Asmit-06](https://github.com/Asmit-06) | # 🔖 PR Title: - Complete redesigning of Nitra Mitra ... | 2 | enhancement, OSCI25, intermediate | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-03 | 497 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394) |
 | [#390](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/390) | feat: Improve Inconsistent Preview/Download button layout in Subject … | [@MehakGo](https://github.com/MehakGo) | # Improve Inconsistent Preview/Download Button Layout in Subject Notes Page ... | 2 | bug, OSCI25, Easy | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-03 | 1016 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/390) |
 | [#385](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/385) | Add Resume ATS Score Checker feature with upload, scoring, and suggestions | [@Harsh-vardhan-sahu](https://github.com/Harsh-vardhan-sahu) | ## 📄 Description: This PR introduces a **Resume ATS Score ... | 7 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-02 | 902 | 6 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/385) |
@@ -119,6 +120,24 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#407 Add Daily Motivation Quote widget with dark/light mode support](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/407)
+
+- **Author:** [@YogitaSharma253](https://github.com/YogitaSharma253)
+- **Description:**  
+## 🔖 PR Title: Add Daily Motivation Quote widget with ...
+- **Files Changed (3):**
+    - `index.css`
+  - `index.html`
+  - `index.js`
+- **Labels:** `enhancement`, `OSCI25`, `intermediate`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-05 03:56:33
+- **Lines Updated:** 164
+- **Commits:** 4
+- **PR Link:** [PR #407](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/407)
+
+---
 
 ### [#394 Redesigned landing page with new layout](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/394)
 
