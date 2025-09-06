@@ -551,13 +551,19 @@
     }
 
 function displayContributors() {
+    // Exclude repo owner + bots
+    const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
     const sortedContributors = Array.from(contributors.values())
-        .sort((a, b) => b.score - a.score);
+        .filter(c => !excludedUsers.includes(c.name))
+        .sort((a, b) => {
+            if (a.score !== b.score) return b.score - a.score;
+            return b.totalPRs - a.totalPRs; // tie-breaker
+        });
 
     const topThree = sortedContributors.slice(0, 3);
     const restContributors = sortedContributors.slice(3);
 
-    const podiumHTML = `
+ const podiumHTML = `
         <div class="ranking-podium">
             ${topThree.length > 1 ? `
                 <div class="podium-item position-2">
@@ -654,11 +660,11 @@ function displayContributors() {
                 <div class="contributor-level ${levelBadgeClass}">
                     Level ${contributor.level} - ${levelText}
                 </div>
+                <div class="contributor-stats">
+                    <div class="score">⭐ ${contributor.score}</div>
+                    <div class="pr-count">📊 ${contributor.totalPRs} PRs</div>
+                </div>
                 ${contributor.bio ? `<div class="contributor-bio">${contributor.bio.substring(0, 100)}${contributor.bio.length > 100 ? '...' : ''}</div>` : ''}
-            </div>
-            <div class="contributor-stats">
-                <div class="score">⭐ ${contributor.score}</div>
-                <div class="pr-count">📊 ${contributor.totalPRs} PRs</div>
             </div>
             <div class="contributor-actions">
                 <div class="social-links">
@@ -674,8 +680,7 @@ function displayContributors() {
                     </a>
                 </div>
             </div>
-        </div>
-    `;
+        </div>`;
     }).join('');
 
     return `
@@ -685,9 +690,9 @@ function displayContributors() {
         <div class="contributors-ranking-list">
             ${listHTML}
         </div>
-    </div>
-`;
+    </div>`;
 }
+
 
     function displayPRs(prs) {
         const prsHTML = prs.slice(0, 10).map(pr => {
