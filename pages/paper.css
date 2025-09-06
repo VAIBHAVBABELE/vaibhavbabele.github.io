@@ -1301,7 +1301,7 @@ body.dark .topic[data-match="true"] summary {
   color: #fff;
 }
 
-.papers-flex{
+/* .papers-flex{
   display: grid;
     row-gap: 30px;
     column-gap: 50px;
@@ -1311,7 +1311,23 @@ body.dark .topic[data-match="true"] summary {
     align-items: center;
     width: 100%;
     margin-top:100px;
+} */
+ .papers-flex {
+  display: grid;
+  gap: 30px 50px; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: auto;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 70px;
 }
+
+.papers-flex .category-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .pdf-modal {
   display: none;
   position: fixed;

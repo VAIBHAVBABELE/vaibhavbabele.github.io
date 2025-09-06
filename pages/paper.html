@@ -78,6 +78,10 @@
                 to
                 excel in your academic journey.</p>
 
+     <p class="text-muted">Choose a year -> open a subject -> preview or download PDFs</p>    
+   <div class="notes-search mx-auto">
+      <input id="notesSearch" type="text" class="form-control form-control-lg" placeholder="Search subjects or files (e.g., JAVA, Physics)" />
+    </div>
             <div class="papers-flex">
                 <div class="category-card">
                     <div class="category-head">
@@ -1111,6 +1115,25 @@ window.addEventListener("click", (e) => {
   }
 });
 </script>
+<script>
+  const searchInput = document.getElementById("notesSearch");
+  const topics = document.querySelectorAll(".topic"); // all <details> blocks
+
+  searchInput.addEventListener("keyup", function () {
+    const query = searchInput.value.toLowerCase().trim();
+
+    topics.forEach(topic => {
+      const subjectName = topic.querySelector("summary span").textContent.toLowerCase();
+
+      if (subjectName.includes(query)) {
+        topic.style.display = "block";  // show subject
+      } else {
+        topic.style.display = "none";   // hide subject
+      }
+    });
+  });
+</script>
+
 
 
 </body>
