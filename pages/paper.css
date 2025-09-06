@@ -1300,3 +1300,58 @@ body.dark .topic[data-match="true"] summary {
   background: #3a3f57;
   color: #fff;
 }
+
+/* .papers-flex{
+  display: grid;
+    row-gap: 30px;
+    column-gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 0fr);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top:100px;
+} */
+ .papers-flex {
+  display: grid;
+  gap: 30px 50px; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: auto;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 70px;
+}
+
+.papers-flex .category-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.pdf-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.7);
+}
+.pdf-modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+}
+.pdf-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;}
