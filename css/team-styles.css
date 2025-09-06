@@ -78,7 +78,8 @@
 /* Team Grid Layout */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* use px-based minmax for predictable column widths */
+    grid-template-columns: repeat(auto-fit, minmax(260px, min(1fr, 360px)));
     gap: 16px;
     max-width: 980px;
     margin: 0 auto;
@@ -342,7 +343,7 @@
     }
     
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, min(1fr, 360px)));
         gap: 16px;
     }
 }
@@ -361,8 +362,8 @@
     }
     
     .team-grid {
-        grid-template-columns: 1fr;
-        gap: 12px; /* reduced gap for compact mobile spacing */
+        grid-template-columns: 1fr !important;
+        gap: 8px !important; /* tighter gap on mobile */
     }
 
     .container {
@@ -426,8 +427,8 @@
     }
 
     .mobile-layout {
-        padding: 8px;
-        gap: 8px;
+        padding: 6px;
+        gap: 6px;
     }
 
     .mobile-layout .team-avatar {
@@ -448,8 +449,8 @@
     }
 
     .social-links a {
-        width: 26px;
-        height: 26px;
+        width: 24px;
+        height: 24px;
     }
 
     .social-links a i {
