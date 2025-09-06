@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="../../index.css">
     <link rel="stylesheet" href="../floating-button.css">
     <link rel="stylesheet" href="summary.css">
-    <link rel="stylesheet" href="../footer.css">
+    <link rel="stylesheet" href="../../css/team-styles.css">
+    <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../paper.css">
         <link rel="stylesheet" href="../../css/floating-sidebar.css">
 
@@ -249,63 +250,9 @@ The AI will help you:
         </section> -->
     </div>
 
-       <footer class="footer-section">
-            <div class="container">
-                <h1 class="contact-heading">Contact Us</h1>
-
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>Whatsapp Community</span>
-                            <p>Nitra Mitra</p>
-                        </a>
-                    </div>
-
-                    <div class="contact-item">
-                        <a href="mailto:nitramitra@gmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                            <p>nitramitra@gmail.com</p>
-                        </a>
-                    </div>
-
-                    <div class="contact-item">
-                        <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
-                            class="contact-link">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Address</span>
-                            <p>Sanjay Nagar, Ghaziabad, India</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="social-media">
-                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-
-                <div class="footer-links">
-                    <a href="../privacy.html">Privacy Policy</a> |
-                    <a href="../terms.html">Terms & Conditions</a> |
-                    <a href="../contact.html">Contact</a> |
-                    <a href="../pr-contribution/pr-contributors.html">Contributors</a>
-                </div>
-
-                <p class="copyright">
-                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-                </p>
-            </div>
-
-        </footer>
-
-
-
-    
+    <!-- Team section injected by shared script -->
+    <div id="team-section"></div>
+    <!-- Legacy footer removed. Modern footer is injected via js/footer.js -->
 
     <!-- Floating Button for Custom Meetings -->
     <button class="floating-btn" id="myButton" onclick="toggleContainer()">Custom Meetings</button>
@@ -688,6 +635,9 @@ The AI will help you:
 <div id="google_translate_element" style="display:none;"></div>
 
 <script src="../../language.js"></script>
+<script src="../../js/team-script.js"></script>
 <script src="../../js/scroll-indicator.js"></script>
+<!-- Inject modern footer -->
+<script src="../../js/footer.js"></script>
 </body>
 </html>

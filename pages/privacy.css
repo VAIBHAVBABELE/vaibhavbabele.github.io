@@ -1,4 +1,4 @@
- * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -34,7 +34,6 @@
     --accent-color: #cda274; /* Tan - for buttons, links, highlights */
     --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
     --padding-inline-section: 10px;
-    --footer-bgColor: #e7c6b6; /* Warm dusty rose-beige for footer */
     --placeholder-color: #8a7e74; /* Muted warm gray for placeholder text */
     --input-bg-color: #f0e3d3; 
     }
@@ -46,7 +45,6 @@
   --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
   --primary-text-color: #fdf0d5; /* Warm light beige text */
   --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
-  --footer-bgColor: #a58672; /* Warm clay brown */
   --placeholder-color: #b9a89f;
   --input-bg-color: #3f3b3c; /* Dark beige input fields */
     }
@@ -71,21 +69,19 @@
         margin-top: 50px;
       }
     }
+body{
+  padding: 0;
+  margin: 0
+}
+  
 
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      color: var(--primary-text-color);
-      flex: 1;
-    }
+   /* Footer spacing is handled dynamically by js/footer.js which measures the
+     injected footer height and sets body padding-bottom. Keep a 0px fallback
+     here to avoid double spacing if JS is disabled. */
+   /* :root { --page-footer-space: 0px; } */
+   /* body { padding-bottom: 0; } */
+   /* Keep container padding normal; injected footer script will set body padding. */
+   /* .container { padding-bottom: 0; } */
 
     .container {
       margin-top: 10px;
@@ -236,36 +232,7 @@
         color: var(--secondary-text-color);
         margin-bottom: 15px;
     }
-    
-    .privacy-footer {
-        padding: 0 ;
-        border-top:0;
-    }
-    
-    .footer-content {
-        text-align: center;
-    }
-    
-    .footer-links {
-        margin-bottom: 20px;
-    }
-    
-    .footer-links a {
-        color: var(--secondary-text-color);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        padding: 0 15px;
-    }
-    
-    .footer-links a:hover {
-        color: var(--accent-color-dark);
-    }
-    
-    .footer-links .divider {
-        color: var(--secondary-text-color);
-        opacity: 0.5;
-    }
+
     
     .essential-contact {
         margin: 20px 0;
@@ -292,15 +259,4 @@
         color: var(--secondary-text-color);
         margin: 0;
         font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-        .footer-links a {
-            display: block;
-            padding: 8px 0;
-        }
-        
-        .footer-links .divider {
-            display: none;
-        }
     }

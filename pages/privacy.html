@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../index.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
     <title>Privacy policy |Nitra Mitra</title>
     <link
       rel="apple-touch-icon"
@@ -44,36 +45,33 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="team.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="../css/team-styles.css" />
     <link rel="stylesheet" href="privacy.css" />
-    <!-- scroll -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/scroll-indicator.css" />
-    <!-- Floating Sidebar CSS -->
+    <link rel="stylesheet" href="../css/scroll-indicator.css" />
     <link rel="stylesheet" href="../css/floating-sidebar.css">
-</head>
+  </head>
 
   <body>
     <!-- Scroll Progress Indicator -->
-        <nav>
-        <div class="nav-first">
-            <button onclick="goBack()" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-        </div>
-        <div class="nav-end">
-            <button id="lang-toggle">
-                à¤¹à¤¿à¤‚à¤¦à¥€
-            </button>
-            <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
-        </div>
+    <nav>
+      <div class="nav-first">
+        <button onclick="goBack()" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+      </div>
+      <div class="nav-end">
+        <button id="lang-toggle">
+          हिंदी
+        </button>
+        <img src="../images/moon.png" id="mode" alt="Change mode" title="change mode">
+      </div>
     </nav>
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress-container">
-    <div class="scroll-progress-bar"></div>
-  </div>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+      <div class="scroll-progress-bar"></div>
+    </div>
     <div class="container">
       <div class="privacy-container">
         <div class="privacy-header">
@@ -159,17 +157,17 @@
       </div>
     </div>
 
-    <footer class="footer-section privacy-footer">
+    <!-- TEAM SECTION (Before Footer) -->
+    <div id="team-section"></div>
+
+    <!-- CONTACT SECTION -->
+    <!-- <div class="contact-section">
       <div class="container">
         <h1 class="contact-heading">Contact Us</h1>
 
         <div class="contact-grid">
           <div class="contact-item">
-            <a
-              href="https://wa.me/919999999999"
-              target="_blank"
-              class="contact-link"
-            >
+            <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
               <i class="fab fa-whatsapp"></i>
               <span>Whatsapp Community</span>
               <p>Nitra Mitra</p>
@@ -185,55 +183,23 @@
           </div>
 
           <div class="contact-item">
-            <a
-              href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad"
-              target="_blank"
-              class="contact-link"
-            >
+            <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank" class="contact-link">
               <i class="fas fa-map-marker-alt"></i>
               <span>Address</span>
               <p>Sanjay Nagar, Ghaziabad, India</p>
             </a>
           </div>
         </div>
-
-        <div class="social-media">
-          <a href="https://youtube.com/@my.vlog_spot" target="_blank"
-            ><i class="fab fa-youtube"></i
-          ></a>
-          <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-        </div>
-
-        <div class="footer-links">
-          <a href="./privacy.html">Privacy Policy</a> |
-          <a href="./terms.html">Terms & Conditions</a> |
-          <a href="./contact.html">Contact</a> |
-          <a href="../pages/pr-contribution/pr-contributors.html"
-            >Contributors</a
-          >
-        </div>
-
-        <p class="copyright">
-          &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-        </p>
       </div>
-    </footer>
+    </div> -->
+
+  <!-- Footer will be injected by ../js/footer.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../index.js"></script>
-        <!-- scroll -->
-  
-  <!-- Scroll features -->
-  <script src="../js/scroll-indicator.js"></script>
-    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/team-script.js"></script>
+    <script src="../js/scroll-indicator.js"></script>
     <script src="../js/sidebar.js"></script>
-</body>
+    <script src="../js/footer.js"></script>
+  </body>
 </html>
-
-

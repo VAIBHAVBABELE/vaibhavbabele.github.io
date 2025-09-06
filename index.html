@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="pages/team.css">
+    <link rel="stylesheet" href="./css/team-styles.css">
     <link rel="stylesheet" href="pages/summary/summary.css">
     <link rel="stylesheet" href="pages/assistant/assistant.css">
     <link rel="stylesheet" href="pages/cursor.css">
     <!-- Floating Sidebar CSS -->
     <link rel="stylesheet" href="css/floating-sidebar.css">
+    <!--  Footer CSS -->
+    <link rel="stylesheet" href="./css/footer.css">
     <!-- scroll -->
     <link rel="stylesheet" href="./css/scroll-indicator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,10 +37,13 @@
 
     <!-- Floating Sidebar JS -->
     <script src="js/sidebar.js"></script>
+    <!-- footer  -->
+    <script src="./js/footer.js"></script>
+    <link rel="stylesheet" href="./css/team-styles.css">
+    <script src="./js/team-script.js"></script>
 </head>
 
 <body id="onload">
-
 
 
     <!-- NAVBAR DESIGNING -->
@@ -386,12 +391,13 @@
 
    
 
-    <!-- TEAM SECTION (Before Footer) -->
+        <!-- TEAM SECTION (Before Footer) -->
+        <div id="team-section"></div>
 
-    <section class="team-showcase">
-        <div class="container">
-            <div class="section-header">
-                <h2>Meet Our Team
+        <!-- <section class="team-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet Our Team
 
                 </h2>
                 <p>
@@ -400,101 +406,116 @@
                 </p>
             </div>
 
-            <div class="team-grid">
-                <!-- Vaibhav Babele Card -->
-                <div class="team-showcase-card">
-                    <div class="team-avatar">
-                        <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
-                    </div>
-
-                    <h3>Vaibhav
-
-                        Babele</h3>
-                    <p>
-                        Lead Developer & Founder</p>
-
-                    <p>
-                        Computer Science Engineering student passionate about creating educational platforms
-                        for
-
-                        students.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/vaibhavbabele" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Ghanshyam Prajapati Card -->
-                <div class="team-showcase-card">
-                    <div class="team-avatar">
-                        <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
-                    </div>
-
-                    <h3>Ghanshyam
-
-                        Prajapati</h3>
-                    <p>
-                        Co-Developer</p>
-                    <p>
-                        Dedicated developer contributing to the platform's growth and student experience
-                        enhancement.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
-                            target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Development Team Card -->
-                <div class="team-showcase-card">
-                    <div class="team-avatar placeholder">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>
-                        Development Team</h3>
-                    <p>
-                        Contributors & Maintainers</p>
-                    <p>
-                        A growing community of student developers working together to improve the platform.
-                    </p>
-                    <div class="social-links">
-                        <a href="pr-contributors.html">
-                            <i class="fas fa-users"></i>
-                        </a>
-                    </div>
-                </div>
+                <div class="team-grid">
+                    <!-- Vaibhav Babele Card -->
+        <!-- <div class="team-showcase-card">
+            <div class="team-avatar">
+                <img src="images/vaibhav.jpg" alt="Vaibhav Babele">
             </div>
-        </div>
 
-    </section>
+            <h3>Vaibhav
 
-    
+                Babele</h3>
+            <p>
+                Lead Developer & Founder</p>
+
+            <p>
+                Computer Science Engineering student passionate about creating educational platforms
+                for
+
+                students.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/vaibhavbabele" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div> -->
+
+        <!-- Ghanshyam Prajapati Card -->
+        <!-- <div class="team-showcase-card">
+            <div class="team-avatar">
+                <img src="images/ghanshyam.jpeg" alt="Ghanshyam Prajapati">
+            </div>
+
+            <h3>Ghanshyam
+
+                Prajapati</h3>
+            <p>
+                Co-Developer</p>
+            <p>
+                Dedicated developer contributing to the platform's growth and student experience
+                enhancement.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ghanshyam-prajapati-ab5710266/?originalSubdomain=in"
+                    target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div> -->
+
+        <!-- Development Team Card -->
+        <!-- <div class="team-showcase-card">
+            <div class="team-avatar placeholder">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>
+                Development Team</h3>
+            <p>
+                Contributors & Maintainers</p>
+            <p style="color: var(--secondary-text-color); line-height: 1.6; margin-bottom: 25px;">
+                A growing community of student developers working together to improve the platform.
+            </p>
+            <div class="social-links">
+                <a href="pr-contributors.html">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+        </div> -->
+    </div>
+    </div>
+
+    </section> -->
+
+    <!-- CONTACT DESIGNING  -->
 
 
 
 
     <!-- CONTACT DESIGNING  -->
 
-    <footer class="footer-section">
+    <!-- <section class="contact-section">
         <div class="container">
             <h1 class="contact-heading">Contact Us</h1>
 
             <div class="contact-grid">
+                 <div class="contact-item">
+                    <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp Community</span>
+                        <p>Nitra Mitra</p>
+                    </a>
+                </div> -->
+            <!-- <div class="contact-grid">
                 <div class="contact-item">
                     <a href="https://wa.me/919999999999" target="_blank" class="contact-link">
                         <i class="fab fa-whatsapp"></i>
                         <span>Whatsapp Community</span>
                         <p>Nitra Mitra</p>
                     </a>
+                </div> -->
+<!-- 
+                <div class="contact-item">
+                    <a href="mailto:nitramitra@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <p>nitramitra@gmail.com</p>
+                    </a>
                 </div>
-
                 <div class="contact-item">
                     <a href="mailto:nitramitra@gmail.com" class="contact-link">
                         <i class="fas fa-envelope"></i>
@@ -510,29 +531,42 @@
                         <span>Address</span>
                         <p>Sanjay Nagar, Ghaziabad, India</p>
                     </a>
+                </div> -->
+            <!-- </div> --> 
+                <!-- <div class="contact-item">
+                    <a href="https://www.google.com/maps?q=Sanjay+Nagar,+Ghaziabad" target="_blank"
+                        class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Address</span>
+                        <p>Sanjay Nagar, Ghaziabad, India</p>
+                    </a>
+                </div> -->
+            <!-- </div> -->
+
+
+        <!-- </div>
+    </section> -->
+    <!-- <footer class="footer-section">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="pages/privacy.html">Privacy Policy</a> |
+                    <a href="pages/terms.html">Terms & Conditions</a> |
+                    <a href="pages/contact.html">Contact</a> |
+                    <a href="pages/pr-contribution/pr-contributors.html">Contributors</a>
                 </div>
+                <div class="social-media">
+                    <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">
+                    &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
+                </p>
             </div>
-
-            <div class="social-media">
-                <a href="https://youtube.com/@my.vlog_spot" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/vaibhavbabele" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/my_vlog.spot/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-
-            <div class="footer-links">
-                <a href="pages/privacy.html">Privacy Policy</a> |
-                <a href="pages/terms.html">Terms & Conditions</a> |
-                <a href="pages/contact.html">Contact</a> |
-                <a href="pages/pr-contribution/pr-contributors.html">Contributors</a>
-            </div>
-
-
-            <p class="copyright">
-                &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
+        </footer> -->
 
 
     </div>
