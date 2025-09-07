@@ -1,9 +1,11 @@
+
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../index.css">
 
@@ -19,9 +21,12 @@
     <!-- scroll -->
     <link rel="stylesheet" href="../../css/scroll-indicator.css">
     <!-- Floating Sidebar JavaScript -->
-    <script src="../js/sidebar.js"></script>
+    <!-- <script src="../js/sidebar.js"></script> -->
+     <script src="../../js/sidebar.js"></script>
+
 
 </head>
+<body>
 <!-- Scroll Progress Indicator -->
 <div class="scroll-progress-container">
     <div class="scroll-progress-bar"></div>
@@ -39,7 +44,8 @@
         <button id="lang-toggle">
             हिंदी
         </button>
-        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+        <img src="../../images/moon.png" id="mode" alt="Change mode" title="change mode">
+
     </div>
 </nav>
 
@@ -118,11 +124,9 @@
         <p class="copyright">
             &copy; <span id="year"></span> 2025 Nitra Mitra. All Rights Reserved.
         </p>
-    </div>
+        
+        </div>
 
-    </div>
-
-    </section>
 </footer>
 
 
@@ -149,7 +153,8 @@
         modeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             const isDarkMode = body.classList.contains('dark-mode');
-            modeToggle.src = isDarkMode ? 'images/sun.png' : 'images/moon.png';
+            modeToggle.src = isDarkMode ? '../../images/sun.png' : '../../images/moon.png';
+
         });
     }
 
@@ -343,7 +348,7 @@
         }
 
         // If no cache, fetch from API
-        contentDiv.innerHTML = `<div class="loading">🔄 Fetching fresh data from ${repo}... br><small>Getting all contributor details - this may take a moment</small></div>`;
+        contentDiv.innerHTML = `<div class="loading">🔄 Fetching fresh data from ${repo}... <br><small>Getting all contributor details - this may take a moment</small></div>`;
 
         try {
             const headers = {
@@ -545,19 +550,20 @@
         contentDiv.innerHTML = statsHTML + contributorsHTML + prsHTML;
     }
 
-    function displayContributors() {
-        const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
-        const sortedContributors = Array.from(contributors.values())
-            .filter(c => !excludedUsers.includes(c.name))
-            .sort((a, b) => {
-                if (a.score !== b.score) return b.score - a.score;
-                return b.totalPRs - a.totalPRs;
-            });
+function displayContributors() {
+    // Exclude repo owner + bots
+    const excludedUsers = ['VAIBHAVBABELE', 'dependabot[bot]'];
+    const sortedContributors = Array.from(contributors.values())
+        .filter(c => !excludedUsers.includes(c.name))
+        .sort((a, b) => {
+            if (a.score !== b.score) return b.score - a.score;
+            return b.totalPRs - a.totalPRs; // tie-breaker
+        });
 
-        const topThree = sortedContributors.slice(0, 3);
-        const restContributors = sortedContributors.slice(3);
+    const topThree = sortedContributors.slice(0, 3);
+    const restContributors = sortedContributors.slice(3);
 
-        const podiumHTML = `
+ const podiumHTML = `
         <div class="ranking-podium">
             ${topThree.length > 1 ? `
                 <div class="podium-item position-2">
@@ -576,11 +582,10 @@
                         ${topThree[1].linkedinUrl ? `<a href="${topThree[1].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
                     </div>
                     <div class="download-certificate">
-                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
-                            class="download-link"
-" target="_blank" title="Download Certificate">
+                       <a href="../../pages/certificate/certificate.html?name=${topThree[1].name}&level=${topThree[1].level}&prs=${topThree[1].totalPRs}&rank=2&score=${topThree[1].score}&avatar=${encodeURIComponent(topThree[1].avatar)}"
+                        class="download-link" target="_blank" title="Download Certificate">
+
                             <p>Download Certificate</p>
-                            
                         </a>
                     </div>
                 </div>
@@ -603,11 +608,9 @@
                         ${topThree[0].linkedinUrl ? `<a href="${topThree[0].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
                     </div>
                     <div class="download-certificate">
-                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
-                            class="download-link"
-" target="_blank" title="Download Certificate">
+                        <a href="../../pages/certificate/certificate.html?name=${topThree[0].name}&level=${topThree[0].level}&prs=${topThree[0].totalPRs}&rank=1&score=${topThree[0].score}&avatar=${encodeURIComponent(topThree[0].avatar)}"
+                            class="download-link" target="_blank" title="Download Certificate">
                             <p>Download Certificate</p>
-                            
                         </a>
                     </div>
                 </div>
@@ -630,11 +633,9 @@
                         ${topThree[2].linkedinUrl ? `<a href="${topThree[2].linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
                     </div>
                     <div class="download-certificate">
-                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
-                            class="download-link"
-" target="_blank" title="Download Certificate">
+                        <a href="../../pages/certificate/certificate.html?name=${topThree[2].name}&level=${topThree[2].level}&prs=${topThree[2].totalPRs}&rank=3&score=${topThree[2].score}&avatar=${encodeURIComponent(topThree[2].avatar)}"
+                            class="download-link" target="_blank" title="Download Certificate">
                             <p>Download Certificate</p>
-                            
                         </a>
                     </div>
                 </div>
@@ -642,59 +643,56 @@
         </div>
     `;
 
-        const listHTML = restContributors.map((contributor, index) => {
-            const rank = index + 4;
-            const levelClass = `level-${contributor.level}`;
-            const levelBadgeClass = `level-${contributor.level}-badge`;
-            const levelText = ['Beginner', 'Intermediate', 'Advanced'][contributor.level - 1];
+    const listHTML = restContributors.map((contributor, index) => {
+        const rank = index + 4;
+        const levelClass = `level-${contributor.level}`;
+        const levelBadgeClass = `level-${contributor.level}-badge`;
+        const levelText = ['Beginner', 'Intermediate', 'Advanced'][contributor.level - 1];
 
-            return `
-            <div class="contributor-rank-item ${levelClass}">
-                <div class="rank-number">${rank}</div>
-                <div class="contributor-avatar">
-                    <img src="${contributor.avatar}" alt="${contributor.name}">
-                </div>
-                <div class="contributor-details">
-                    <div class="contributor-name">${contributor.name}</div>
-                    <div class="contributor-level ${levelBadgeClass}">
-                        Level ${contributor.level} - ${levelText}
-                    </div>
-                    ${contributor.bio ? `<div class="contributor-bio">${contributor.bio.substring(0, 100)}${contributor.bio.length > 100 ? '...' : ''}</div>` : ''}
+        return `
+        <div class="contributor-rank-item ${levelClass}">
+            <div class="rank-number">${rank}</div>
+            <div class="contributor-avatar">
+                <img src="${contributor.avatar}" alt="${contributor.name}">
+            </div>
+            <div class="contributor-details">
+                <div class="contributor-name">${contributor.name}</div>
+                <div class="contributor-level ${levelBadgeClass}">
+                    Level ${contributor.level} - ${levelText}
                 </div>
                 <div class="contributor-stats">
                     <div class="score">⭐ ${contributor.score}</div>
                     <div class="pr-count">📊 ${contributor.totalPRs} PRs</div>
                 </div>
-                <div class="contributor-actions">
-                    <div class="social-links">
-                        <a href="${contributor.profileUrl}" target="_blank" title="GitHub Profile">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        ${contributor.linkedinUrl ? `<a href="${contributor.linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
-                    </div>
-                    <div class="download-certificate">
-                        <a href="certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
-                            class="download-link"
-" target="_blank" title="Download Certificate">
-                            <p>Download Certificate</p>
-                            
-                        </a>
-                    </div>
+                ${contributor.bio ? `<div class="contributor-bio">${contributor.bio.substring(0, 100)}${contributor.bio.length > 100 ? '...' : ''}</div>` : ''}
+            </div>
+            <div class="contributor-actions">
+                <div class="social-links">
+                    <a href="${contributor.profileUrl}" target="_blank" title="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    ${contributor.linkedinUrl ? `<a href="${contributor.linkedinUrl}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                </div>
+                <div class="download-certificate">
+                    <a href="../../pages/certificate/certificate.html?name=${contributor.name}&level=${contributor.level}&prs=${contributor.totalPRs}&rank=${rank}&score=${contributor.score}&avatar=${encodeURIComponent(contributor.avatar)}"
+                        class="download-link" target="_blank" title="Download Certificate">
+                        <p>Download Certificate</p>
+                    </a>
                 </div>
             </div>
-        `;
-        }).join('');
+        </div>`;
+    }).join('');
 
-        return `
-        <div class="contributors-section">
-            <h2 class="section-title">🏆 Top Contributors Ranking</h2>
-            ${podiumHTML}
-            <div class="contributors-ranking-list">
-                ${listHTML}
-            </div>
+    return `
+    <div class="contributors-section">
+        <h2 class="section-title">🏆 Top Contributors Ranking</h2>
+        ${podiumHTML}
+        <div class="contributors-ranking-list">
+            ${listHTML}
         </div>
-    `;
-    }
+    </div>`;
+}
+
 
     function displayPRs(prs) {
         const prsHTML = prs.slice(0, 10).map(pr => {
@@ -748,7 +746,7 @@
     // Initialize the app
     window.addEventListener('load', () => {
         fetchPRs();
-        addRefreshButton();
+        // addRefreshButton();
     });
 </script>
 <!-- scroll -->
@@ -756,3 +754,5 @@
 </body>
 
 </html>
+
+
