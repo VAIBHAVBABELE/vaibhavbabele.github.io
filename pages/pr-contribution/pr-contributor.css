@@ -284,7 +284,8 @@ nav #click {
 }
 
 /* Paragraph */
-.para {
+
+.para-pr {
     color: var(--primary-text-color);
     font-weight: 500;
     text-align: center;
@@ -302,7 +303,7 @@ nav #click {
     animation: slideUp 0.8s ease 0.2s forwards;
 }
 
-.para span {
+.para-pr span {
     color: var(--accent-color-dark);
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent-color-dark), var(--main-color));
@@ -1269,7 +1270,7 @@ footer {
         margin-bottom: 30px;
     }
     
-    .para {
+    .para-pr {
         padding: 25px 20px;
         font-size: 1rem;
     }
@@ -1367,7 +1368,7 @@ footer {
         font-size: 2rem;
     }
     
-    .para {
+    .para-pr {
         padding: 20px 15px;
         font-size: 0.95rem;
     }
@@ -1451,4 +1452,14 @@ footer {
         order: 3;
         margin-bottom: 120px;
     }
+}
+
+.para-pr {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    text-align: center;    /* keeps text justified */
+    padding: 10px;
+    margin: 30px auto;      /* centers the paragraph block */
+    max-width: 800px;       /* optional: keeps it readable */
+    display: block;         /* makes sure it behaves like a block */
 }
