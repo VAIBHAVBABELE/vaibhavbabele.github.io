@@ -3,45 +3,53 @@ const email = document.getElementById('email');
 const message = document.getElementById('message');
 const phone = document.getElementById('phone');
 const subject = document.getElementById('subject');
-const submit = document.getElementById('submit');
+const form = document.getElementById('contactForm'); // sahi ID
 
-submit.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (name.value === '' || email.value === '' || message.value === '' || phone.value === '' || subject.value === '') {
-        alert('Please fill all the fields');
+
+    if (!validateForm()) {
         return;
     }
-    if (!validateEmail(email) || !validatePhone(phone)) {
-        return;
-    }
-    alert('Form submitted successfully');
-    name.value = '';
-    email.value = '';
-    message.value = '';
-    phone.value = '';
-    subject.value = '';
+
+    alert('Form submitted successfully!');
+    form.reset(); // form ke sab fields reset karega
 });
 
-const validateEmail = (email) => {
-    if (email.value === '') {
+function validateForm() {
+    if (name.value.trim() === '') {
+        alert('Please enter your name');
+        return false;
+    }
+    if (email.value.trim() === '') {
         alert('Please enter your email');
         return false;
     }
-    if (!email.value.includes('@') || !email.value.includes('.')) {
+    if (!validateEmail(email.value.trim())) {
         alert('Please enter a valid email');
+        return false;
+    }
+    if (phone.value.trim() !== '' && !validatePhone(phone.value.trim())) {
+        alert('Please enter a valid 10-digit phone number');
+        return false;
+    }
+    if (subject.value.trim() === '') {
+        alert('Please select a subject');
+        return false;
+    }
+    if (message.value.trim() === '') {
+        alert('Please enter your message');
         return false;
     }
     return true;
 }
 
-const validatePhone = (phone) => {
-    if (phone.value === '') {
-        alert('Please enter your phone number');
-        return false;
-    }
-    if (phone.value.length !== 10 || isNaN(phone.value)) {
-        alert('Please enter a valid phone number');
-        return false;
-    }
-    return true;
+function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+function validatePhone(phone) {
+    const phonePattern = /^[0-9]{10}$/;
+    return phonePattern.test(phone);
 }
