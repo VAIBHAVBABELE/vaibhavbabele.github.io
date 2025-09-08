@@ -1,17 +1,19 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-08-31*
+*Last updated: 2025-09-08*
 
 ## 🌸 GSSoC '25 Leaderboard
 
 | Username | Email | Level 1 | Level 2 | Level 3 | PRs Merged | Total Points |
 |----------|-------|---------|---------|---------|------------|--------------|
-| [@shoaib2000857](https://github.com/shoaib2000857) | 24f2000857@ds.study.iitm.ac.in | 1 | 2 | 4 | 7 | 57 |
+| [@shoaib2000857](https://github.com/shoaib2000857) | 24f2000857@ds.study.iitm.ac.in | 1 | 3 | 4 | 8 | 64 |
 | [@vaishaligoyal05](https://github.com/vaishaligoyal05) | vishug654@gmail.com | 0 | 1 | 4 | 5 | 47 |
 | [@Nikita-Mishraa](https://github.com/Nikita-Mishraa) | nikita.mishra.pri@gmail.com | 3 | 3 | 0 | 6 | 30 |
 | [@thilak-r](https://github.com/thilak-r) | thilak22005@gmail.com | 0 | 0 | 3 | 3 | 30 |
 | [@Shailee6464](https://github.com/Shailee6464) | - | 0 | 4 | 0 | 4 | 28 |
+| [@pavigupta21](https://github.com/pavigupta21) | - | 2 | 1 | 1 | 4 | 23 |
 | [@Prabathvsv](https://github.com/Prabathvsv) | - | 0 | 2 | 0 | 2 | 14 |
+| [@Harsh-vardhan-sahu](https://github.com/Harsh-vardhan-sahu) | - | 0 | 0 | 1 | 1 | 10 |
 | [@Gupta-02](https://github.com/Gupta-02) | - | 0 | 0 | 1 | 1 | 10 |
 | [@mavishsethi](https://github.com/mavishsethi) | mavishsethi@gmail.com | 0 | 0 | 1 | 1 | 10 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
@@ -27,11 +29,11 @@
 | [@sabaaa01](https://github.com/sabaaa01) | xsabafatima01@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@Tanvi0710](https://github.com/Tanvi0710) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Triveni-Balekundri](https://github.com/Triveni-Balekundri) | balekundritriveni05@gmail.com | 0 | 1 | 0 | 1 | 7 |
+| [@Janhavi078](https://github.com/Janhavi078) | - | 1 | 0 | 0 | 1 | 3 |
 | [@himanshitwri08](https://github.com/himanshitwri08) | himanshitiwari098@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@Anusha271815](https://github.com/Anusha271815) | - | 1 | 0 | 0 | 1 | 3 |
 | [@rashmibarodiya](https://github.com/rashmibarodiya) | - | 1 | 0 | 0 | 1 | 3 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | - | 1 | 0 | 0 | 1 | 3 |
-| [@pavigupta21](https://github.com/pavigupta21) | - | 1 | 0 | 0 | 1 | 3 |
 | [@Sejal-collection](https://github.com/Sejal-collection) | ksejal630@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@piyushhvarma](https://github.com/piyushhvarma) | pytworks@gmail.com | 1 | 0 | 0 | 1 | 3 |
 | [@snehaburma270](https://github.com/snehaburma270) | - | 1 | 0 | 0 | 1 | 3 |
@@ -52,8 +54,11 @@
 
 | Username | Email | Easy | Intermediate | Hard | PRs Merged | Total Points |
 |----------|-------|------|--------------|------|------------|--------------|
-| [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 1 | 1 | 3 | 60 |
+| [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 2 | 1 | 4 | 80 |
+| [@YogitaSharma253](https://github.com/YogitaSharma253) | - | 1 | 1 | 0 | 2 | 30 |
 | [@ishanibasu](https://github.com/ishanibasu) | - | 0 | 0 | 1 | 1 | 30 |
+| [@Asmit-06](https://github.com/Asmit-06) | asmitchhotaray@gmail.com | 0 | 1 | 0 | 1 | 20 |
+| [@MehakGo](https://github.com/MehakGo) | - | 1 | 0 | 0 | 1 | 10 |
 | [@gyanshankar1708](https://github.com/gyanshankar1708) | - | 1 | 0 | 0 | 1 | 10 |
 | [@Parnika-h](https://github.com/Parnika-h) | - | 1 | 0 | 0 | 1 | 10 |
 | [@roniitpodder](https://github.com/roniitpodder) | - | 1 | 0 | 0 | 1 | 10 |
