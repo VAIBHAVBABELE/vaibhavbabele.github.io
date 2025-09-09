@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitra Mitra Registration</title>
+
+  <!-- Marketplace-specific CSS -->
+  <link rel="stylesheet" href="student-marketplace.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500;600&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../favicon/site.webmanifest">
+  <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- team styles (shared) -->
+  <link rel="stylesheet" href="../css/team-styles.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/scroll-indicator.css" />
+
+  <!-- Floating Sidebar CSS -->
+  <link rel="stylesheet" href="../css/floating-sidebar.css">
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-first">
+      <button onclick="goBack()" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+    </div>
+    <div class="nav-end">
+      <button id="lang-toggle">
+        हिंदी
+      </button>
+      <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+
+    </div>
+  </nav>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <header>
+    <h1>Register to Trade on Student Marketplace</h1>
+    <p>Join the Marketplace</p>
+  </header>
+
+  <div class="nav-links">
+    <a href="product-list.html">Marketplace</a>
+    <a href="student-marketplace.html">Registration</a>
+  </div>
+
+  <p id="registration-info">Fill out the form below to register as a buyer or seller and start trading within the
+    student community.</p>
+
+  <div class="container">
+    <div class="main">
+      <div class="container-box">
+        <div class="tabs">
+          <button id="buyerTab" class="active" onclick="showForm('buyer')">Buy Items</button>
+          <button id="sellerTab" onclick="showForm('seller')">Sell Items</button>
+        </div>
+
+
+        <!-- Buyer Form -->
+        <div class="form-section" id="buyer-form">
+          <h2>🛒 Buyer Registration</h2>
+          <input type="text" id="buyerName" placeholder="Full Name" required>
+          <input type="email" id="buyerEmail" placeholder="Email" required>
+          <input type="text" id="buyerDept" placeholder="College / Department" required>
+          <input type="tel" id="buyerPhone" placeholder="Phone Number" required>
+          <input type="text" id="buyerAddress" placeholder="Address (Optional)">
+          <div id="buyerMessage"></div>
+          <button type="button" onclick="registerBuyer()">Register</button>
+        </div>
+
+        <!-- Seller Form -->
+        <div class="form-section" id="seller-form">
+          <h2>🏷️ Seller Registration</h2>
+          <input type="text" id="sellerName" placeholder="Seller Name" required>
+          <input type="text" id="productName" placeholder="Product Name" required>
+          <input type="text" id="productDesc" placeholder="Short Description" required>
+          <input type="number" id="productQty" placeholder="Quantity Available" required>
+          <input type="number" id="price" placeholder="Price (₹)" required>
+          <input type="email" id="sellerEmail" placeholder="Email" required>
+          <input type="tel" id="sellerPhone" placeholder="Phone Number" required>
+          <input type="text" id="sellerAddress" placeholder="Address (Optional)">
+          <div id="sellerMessage"></div>
+          <button type="button" onclick="registerSeller()">Register</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="back-link">
+      <a href="product-list.html">⬅ Back to Marketplace </a>
+    </div>
+
+    <br>
+
+    <div style="text-align: center;">
+      <h4 color="white">Total Visitors</h4>
+      <script type="text/javascript"></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Team injected by shared script -->
+    <div id="team-section" class="team-showcase"></div>
+
+    <script>
+      // ===== Dark Mode Toggle =====
+      let darkModeInitialized = false;
+
+      function initDarkMode() {
+        // Prevent multiple initializations
+        if (darkModeInitialized) return;
+
+        const mode = document.getElementById("mode");
+
+        if (!mode) {
+          console.error('Mode element not found!');
+          return;
+        }
+
+        // Initialize dark mode state
+        const isDark = localStorage.getItem('mode') === 'true';
+        document.body.classList.toggle('dark-mode', isDark);
+
+        updateModeIcon(mode);
+
+        // Remove any existing event listeners
+        mode.onclick = null;
+
+        // Add click event listener
+        mode.addEventListener('click', function () {
+          const wasDarkmode = localStorage.getItem('mode') === 'true';
+          const newMode = !wasDarkmode;
+          localStorage.setItem('mode', newMode);
+          document.body.classList.toggle("dark-mode", newMode);
+          updateModeIcon(mode);
+          console.log('Theme toggled to:', newMode ? 'dark' : 'light');
+        });
+
+        darkModeInitialized = true;
+        console.log('Dark mode toggle initialized successfully');
+      }
+
+      function updateModeIcon(mode) {
+        if (!mode) return;
+
+        const path = window.location.pathname;
+        const isDeepPage = ['/summary', '/assistant', '/pr-contribution', '/certificate'].some(subpath =>
+          path.includes('/pages' + subpath)
+        );
+
+        let imgPathPrefix = '';
+        if (isDeepPage) {
+          imgPathPrefix = '../../images/';
+        } else if (path.includes('/pages') || path.includes('/games')) {
+          imgPathPrefix = '../images/';
+        } else {
+          imgPathPrefix = 'images/';
+        }
+
+        mode.src = document.body.classList.contains("dark-mode") ? imgPathPrefix + "sun.png" : imgPathPrefix + "moon.png";
+      }
+
+      // Test function for debugging 
+      function testThemeToggle() {
+        const mode = document.getElementById("mode");
+        console.log('Mode element:', mode);
+        console.log('Current dark mode state:', document.body.classList.contains('dark-mode'));
+        console.log('LocalStorage mode:', localStorage.getItem('mode'));
+
+        if (mode) {
+          mode.click();
+        } else {
+          console.error('Mode element not found!');
+        }
+      }
+
+      // Initialize dark mode when DOM 
+      document.addEventListener('DOMContentLoaded', function () {
+        
+        setTimeout(initDarkMode, 100);
+      });
+
+      window.addEventListener('load', function () {
+        if (!darkModeInitialized) {
+          initDarkMode();
+        }
+      });
+    </script>
+
+    <script src="../index.js"></script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="../language.js"></script>
+
+
+    <!-- Scroll features -->
+
+    <!-- Load team script (injects team section) -->
+    <script src="../js/team-script.js"></script>
+    <!-- Scroll features -->
+    <script src="../js/scroll-indicator.js"></script>
+    <!-- Floating Sidebar JavaScript -->
+    <script src="../js/sidebar.js"></script>
+    <!-- Dynamic footer (CSS is already included in head): -->
+    <script src="../js/footer.js"></script>
+
+    <script src="student-marketplace.js"></script>
+
+</body>
+</html>
