@@ -619,32 +619,68 @@
             return;
         }
 
-        try {
-            // Try loading leaderboard.md (local or raw)
-            const leaderboardMap = await tryLoadLeaderboard(repo);
+     try {
+    // Try loading leaderboard.md (local or raw)
+    const leaderboardMap = await tryLoadLeaderboard(repo);
 
-            // Fetch all merged PRs (paginated)
-            const mergedPRs = await fetchAllMergedPRs(repo);
-            if (!mergedPRs.length) {
-                showError('No merged PRs found for ' + repo);
-                return;
-            }
+    let mergedPRs = [];
+    let contributorsMap = new Map();
 
-            // Process contributors and fetch profile details
-            const contributorsMap = await processContributors(mergedPRs, repo, leaderboardMap);
+    try {
+        // Fetch all merged PRs (paginated)
+        mergedPRs = await fetchAllMergedPRs(repo);
 
-            // Cache results (contributors as array for JSON)
-            saveToCache(CACHE_KEYS.PRS, mergedPRs);
-            saveToCache(CACHE_KEYS.CONTRIBUTORS, Array.from(contributorsMap.entries()));
+        // Process contributors and fetch profile details
+        contributorsMap = await processContributors(mergedPRs, repo, leaderboardMap);
 
-            displayResults(mergedPRs, contributorsMap);
-            displayCacheStatus();
-            console.log('✅ Contributors data fetched and displayed.');
+        // Cache results
+        saveToCache(CACHE_KEYS.PRS, mergedPRs);
+        saveToCache(CACHE_KEYS.CONTRIBUTORS, Array.from(contributorsMap.entries()));
 
-        } catch (err) {
-            console.error(err);
-            showError(err.message || 'Unknown error while fetching contributors.');
+        console.log('✅ Contributors data fetched via GitHub API.');
+
+    } catch (apiErr) {
+        console.warn('GitHub API failed, falling back to leaderboard.md', apiErr);
+
+        if (!leaderboardMap || leaderboardMap.size === 0) {
+            showError('Could not fetch contributors from GitHub API and leaderboard.md is empty.');
+            return;
         }
+
+        // Build contributorsMap directly from leaderboard
+        leaderboardMap.forEach((points, usernameLower) => {
+            contributorsMap.set(usernameLower, {
+                name: usernameLower,
+                avatar: '',
+                profileUrl: `https://github.com/${usernameLower}`,
+                prs: [],
+                totalPRs: 0,
+                levelPRs: {1:0,2:0,3:0},
+                maxLevel: 1,
+                level: 1,
+                score: points,
+                bio: '',
+                company: '',
+                location: '',
+                linkedinUrl: '',
+                twitterUrl: '',
+                websiteUrl: '',
+                _scoreSource: 'leaderboard.md'
+            });
+        });
+
+        console.log('✅ Contributors data loaded from leaderboard.md fallback.');
+    }
+
+    // Finally, display whatever we have
+    displayResults(mergedPRs, contributorsMap);
+    displayCacheStatus();
+
+} catch (err) {
+    console.error(err);
+    showError(err.message || 'Unknown error while fetching contributors.');
+}
+
     }
 
     // Initialize on load
@@ -658,3 +694,5 @@
     });
 
 })();
+
+
