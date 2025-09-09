@@ -2,7 +2,7 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-09-08*
+*Last updated: 2025-09-09*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
@@ -75,7 +75,7 @@ This document lists all merged PRs with details: author, title, description (max
 | [#155](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/155) | Revert "Feature/about us restructure and enhancement across home page" | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | Reverts VAIBHAVBABELE/vaibhavbabele.github.io#153 | 3 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 589 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/155) |
 | [#153](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/153) | Feature/about us restructure and enhancement across home page | [@Shailee6464](https://github.com/Shailee6464) | This PR implements comprehensive content updates and structural enhancements across ... | 3 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 589 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/153) |
 | [#132](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/132) | Refactor: Improved alt tag for Games card and resource card image | [@Shailee6464](https://github.com/Shailee6464) | ## 🔖 PR Title: <!-- A clear and concise title ... | 9 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 4 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/132) |
-| [#141](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/141) | Front end pages for the AI notes summary | [@shoaib2000857](https://github.com/shoaib2000857) | ## ���� PR Title: <!-- A clear and concise title ... | 3 | gssoc25, frontend, backend, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 1377 | 15 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/141) |
+| [#141](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/141) | Front end pages for the AI notes summary | [@shoaib2000857](https://github.com/shoaib2000857) | ## ��� PR Title: <!-- A clear and concise title ... | 3 | gssoc25, frontend, backend, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 1377 | 15 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/141) |
 | [#150](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/150) | Added Contact Us Page & Team Showcase to All Pages with Responsive Design | [@Prabathvsv](https://github.com/Prabathvsv) | ## 🔖 PR Title: <!-- A clear and concise title ... | 17 | enhancement, gssoc25, frontend, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 2491 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/150) |
 | [#124](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/124) | Added snake trail cursor animation with mobile detection | [@rajasmitaa](https://github.com/rajasmitaa) | ## 🔖 PR Title: Added snake trail cursor animation with ... | 3 | gssoc25, frontend, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 65 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/124) |
 | [#52](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/52) | added gitignore file | [@MAHENDAR09](https://github.com/MAHENDAR09) | ## 🔖 PR Title: ADDED GIT IGNORE <!-- A clear ... | 1 | documentation, gssoc25, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 88 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/52) |
@@ -3536,7 +3536,7 @@ This PR implements comprehensive content updates and structural enhancements acr
 
 - **Author:** [@shoaib2000857](https://github.com/shoaib2000857)
 - **Description:**  
-## ���� PR Title: <!-- A clear and concise title ...
+## ��� PR Title: <!-- A clear and concise title ...
 - **Files Changed (3):**
     - `summary.css`
   - `summary.html`
