@@ -1,3 +1,129 @@
+ body {
+    font-family: Arial, sans-serif;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .contact-form-section {
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border 0.3s, background 0.3s, color 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  }
+
+  .submit-btn {
+    background: #007BFF;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .submit-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+
+  .form-validation {
+    font-size: 13px;
+    margin-top: 5px;
+    color: red;
+  }
+
+  .success-message {
+    background: #d4edda;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  /* Dark Mode */
+  body.dark {
+    background: #121212;
+    color: #e4e4e4;
+  }
+
+  body.dark .container {
+    background: #1e1e1e;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+  }
+
+  body.dark .form-control {
+    background: #2b2b2b;
+    border: 1px solid #555;
+    color: #fff;
+  }
+
+  body.dark .form-control:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102,175,233,0.6);
+  }
+
+  body.dark .submit-btn {
+    background: #28a745;
+  }
+
+  body.dark .submit-btn:hover {
+    background: #218838;
+  }
+
+  /* Toggle Button */
+  .toggle-btn {
+    background: #f1f1f1;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .toggle-btn:hover {
+    background: #ddd;
+  }
+
+  body.dark .toggle-btn {
+    background: #333;
+    color: #fff;
+  }
+    body.dark .toggle-btn:hover {
+        background: #444;
+    }
+
+
 .contact-hero {
     background: var(--primary-text-color);
     padding: 100px 0 50px;

@@ -61,83 +61,80 @@
         </section>
         
 
-        <!-- CONTACT FORM SECTION -->
-        <section class="contact-form-section">
-            <div class="container">
-                <div class="section-title">
-                    <h1 style="font-weight: bold;">Send Us a Message  💬</h1>
-                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
-                </div>
+<!-- CONTACT FORM SECTION -->
+<section class="contact-form-section">
+  <div class="container">
+    <div class="section-title">
+      <h1 style="font-weight: bold;">Send Us a Message 💬</h1>
+      <p>Fill out the form below and we'll get back to you as soon as possible</p>
+    </div>
 
-                <div class="contact-form-container">
-                    <div class="success-message" id="successMessage">
-                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
-                    </div>
+    <!-- Dark Mode Toggle -->
+    <div style="text-align:right; margin-bottom: 10px;">
+      <button id="darkModeToggle" class="toggle-btn">🌙 Dark Mode</button>
+    </div>
 
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control"
-                                placeholder="Enter your full name" required>
-                            <div class="form-validation" id="nameError">Please enter your full name</div>
-                        </div>
+    <div class="contact-form-container">
+      <div class="success-message" id="successMessage" style="display:none;">
+        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+      </div>
 
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control"
-                                placeholder="Enter your email address" required>
-                            <div class="form-validation" id="emailError">Please enter a valid email address</div>
-                        </div>
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+          <div class="form-validation" id="nameError"></div>
+        </div>
 
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control"
-                                placeholder="Enter your phone number">
-                        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+          <div class="form-validation" id="emailError"></div>
+        </div>
 
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" class="form-control" required>
-                                <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="technical">Technical Support</option>
-                                <option value="academic">Academic Resources</option>
-                                <option value="feedback">Feedback & Suggestions</option>
-                                <option value="collaboration">Collaboration</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <div class="form-validation" id="subjectError">Please select a subject</div>
-                        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+          <div class="form-validation" id="phoneError"></div>
+        </div>
 
-                        <!--Adding input field when other for subject is selected-->
-                        <div class="form-group" id = "other" style="display: none;">
-                            <label for="other">Subject</label>
-                            <input type="text" name="other" class="form-control"
-                                placeholder="Enter your subject ">
-                        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" class="form-control" required>
+            <option value="">Select a subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="technical">Technical Support</option>
+            <option value="academic">Academic Resources</option>
+            <option value="feedback">Feedback & Suggestions</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="form-validation" id="subjectError"></div>
+        </div>
 
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="6"
-                                placeholder="Enter your message here..." required></textarea>
-                            <div class="form-validation" id="messageError">Please enter your message</div>
-                        </div>
+        <!-- Other Subject Input -->
+        <div class="form-group" id="otherSubjectGroup" style="display:none;">
+          <label for="otherSubject">Custom Subject</label>
+          <input type="text" id="otherSubject" name="otherSubject" class="form-control" placeholder="Enter your subject">
+          <div class="form-validation" id="otherSubjectError"></div>
+        </div>
 
-                        <div style="text-align: center;">
-                            <button id="submit" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <h4 color="white">Total Visitors</h4>
-                <div style="text-align: center;">
-                    <script type="text/javascript"></script>
-                <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
-                </div>
-            </div>
-            <p></p>
-        </section>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" class="form-control" rows="6" placeholder="Enter your message here..." required></textarea>
+          <div class="form-validation" id="messageError"></div>
+        </div>
+
+        <div style="text-align: center;">
+          <button id="submit" type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 
         <!-- CONTACT INFO SECTION -->
         <!-- <section class="contact-info-section">
