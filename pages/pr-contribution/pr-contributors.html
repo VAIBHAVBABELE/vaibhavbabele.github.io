@@ -30,7 +30,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="pr-contributor.css">
-    
+
     <link rel="stylesheet" href="../../css/team-styles.css">
     <link rel="stylesheet" href="../../index.css">
     <link rel="stylesheet" href="../../css/footer.css">
@@ -48,66 +48,66 @@
 
 
 <!-- NAVBAR DESIGNING -->
-  <nav>
-      <div class="nav-first">
-         <button onclick="goBack()" class="back-button">
+<nav>
+    <div class="nav-first">
+        <button onclick="goBack()" class="back-button">
             <i class="fas fa-arrow-left"></i>
-         </button>
-         <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
-      </div>
-      <div class="nav-end">
-         <button id="lang-toggle">
+        </button>
+        <div class="logo"><a href="https://www.nitra.ac.in/">NITra <span id="mitra">MITra</span></a></div>
+    </div>
+    <div class="nav-end">
+        <button id="lang-toggle">
             हिंदी
-         </button>
-         <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
-      </div>
-   </nav>
+        </button>
+        <img src="images/moon.png" id="mode" alt="Change mode" title="change mode">
+    </div>
+</nav>
 
 <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress-container">
-     <div class="scroll-progress-bar"></div>
-  </div>
+<div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+</div>
 
 
 
- <main class="main-content">
-     <div class="hero-section">
-         <div class="container">
-             <h1 class="service-heading">🏆 PR Contributors</h1>
-             <p class="para">Welcome to the <span>PR Contributors</span> section! This page tracks and celebrates
+<main class="main-content">
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="service-heading">🏆 PR Contributors</h1>
+            <p class="para">Welcome to the <span>PR Contributors</span> section! This page tracks and celebrates
                 all the amazing contributors who have helped improve <span>Nitra Mitra</span> through their pull
                 requests. Here you can view contributor rankings, track merged PRs, and see the impact each
                 contributor has made to our platform. Thank you to all our <span>contributors</span> for making
                 Nitra Mitra better for the entire <span>NITRA Technical Campus</span> community!</p>
-         </div>
-     </div>
+        </div>
+    </div>
 
-     <div class="content-wrapper">
-         <div class="container">
-             <div class="pr-container">
-                 <div class="pr-header">
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="pr-container">
+                <div class="pr-header">
                     <h2>Our Contributors</h2>
                     <p>Celebrating excellence in open source contributions</p>
-                 </div>
-                 <div id="content" class="main-content-area">
+                </div>
+                <div id="content" class="main-content-area">
                     <!-- <div class="loading">🔄 Loading contributors...</div>  -->
-                     <div class="admin-card" id="admin-card"></div>
+                    <div class="admin-card" id="admin-card"></div>
 
-                     <h2 class="heading"> GSSoC '25 Contributors</h2>
-                     <div id="gsoc-container" class="contributors-container"></div>
+                    <h2 class="heading"> GSSoC '25 Contributors</h2>
+                    <div id="gsoc-container" class="contributors-container"></div>
 
-                     <h2 class="heading"> OSCI '25 Contributors</h2>
-                     <div id="osci-container" class="contributors-container"></div>
+                    <h2 class="heading"> OSCI '25 Contributors</h2>
+                    <div id="osci-container" class="contributors-container"></div>
 
-                 </div>
-             </div>
-         </div>
-     </div>
- </main>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
- <br>
+<br>
 
- <div style="text-align: center;">
+<div style="text-align: center;">
     <h4 color="white">Total Visitors</h4>
     <script type="text/javascript"></script>
     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1204905/t/13"></script>
@@ -117,7 +117,7 @@
 <br>
 
 <!-- Team injected by shared script -->
-  <div id="team-section" class="team-showcase"></div>
+<div id="team-section" class="team-showcase"></div>
 
 
 <script src="../../index.js"></script>
@@ -144,7 +144,7 @@
         contributors.forEach((c, index) => {
             const rank = index + 1; // rank based on points
 
-            
+
             let levelNum;
             if (c.totalPoints < 50) levelNum = 1;       // Beginner
             else if (c.totalPoints < 100) levelNum = 2; // Intermediate
@@ -237,7 +237,7 @@
 
     window.onload = fetchLeaderboard;
     // Refresh leaderboard every 1 minutes (300,000 ms)
-    setInterval(fetchLeaderboard,  60 * 1000);
+    setInterval(fetchLeaderboard, 60 * 1000);
 </script>
 
 
@@ -260,4 +260,5 @@
 <script src="../../js/footer.js"></script>
 
 </body>
+
 </html>
