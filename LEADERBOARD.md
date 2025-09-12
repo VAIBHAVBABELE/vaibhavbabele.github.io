@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-09-08*
+*Last updated: 2025-09-12*
 
 ## 🌸 GSSoC '25 Leaderboard
 
@@ -55,7 +55,7 @@
 | Username | Email | Easy | Intermediate | Hard | PRs Merged | Total Points |
 |----------|-------|------|--------------|------|------------|--------------|
 | [@ManabBiswas](https://github.com/ManabBiswas) | - | 1 | 2 | 1 | 4 | 80 |
-| [@YogitaSharma253](https://github.com/YogitaSharma253) | - | 1 | 1 | 0 | 2 | 30 |
+| [@YogitaSharma253](https://github.com/YogitaSharma253) | - | 1 | 1 | 1 | 3 | 60 |
 | [@ishanibasu](https://github.com/ishanibasu) | - | 0 | 0 | 1 | 1 | 30 |
 | [@Asmit-06](https://github.com/Asmit-06) | asmitchhotaray@gmail.com | 0 | 1 | 0 | 1 | 20 |
 | [@MehakGo](https://github.com/MehakGo) | - | 1 | 0 | 0 | 1 | 10 |
