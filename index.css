@@ -1865,6 +1865,11 @@ body {
   padding:5px 10px; cursor:pointer; border:none; background:#333; color:#fff; border-radius:5px;
 }
 
+#lang-toggle:hover{
+  padding:5px 10px; cursor:pointer; border:none; background:#ffffff84; color:#333; border-radius:5px;
+}
+
+
 /* Tabs container */
 body.dark-mode .nav-tabs {
   border-bottom: 2px solid var(--accent-color) !important;
