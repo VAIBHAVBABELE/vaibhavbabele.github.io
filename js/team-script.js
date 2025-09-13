@@ -27,7 +27,8 @@ const teamData = [
         description: "A growing community of student developers working together to improve the platform.",
         image: null,
         social: [
-            { platform: "team", url: "pr-contributors.html", icon: "fas fa-users" }
+         { platform: "team", url: "pages/pr-contribution/pr-contributors.html", icon: "fas fa-users" }
+
         ]
     }
 ];
