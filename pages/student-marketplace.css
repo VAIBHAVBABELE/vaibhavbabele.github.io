@@ -17,15 +17,17 @@
   }
 
   header h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 45px;
+    margin-bottom: 15px;
     font-family: Playfair Display, Oswald, Abril Fatface;
+    font-weight: bolder;
   }
 
   header p {
-    font-size: 20px;
+    font-size: 30px;
     color: #6B4F1D;
     font-family: Merriweather, Nunito, DM Sans;
+    
   }
 
 
@@ -56,7 +58,7 @@
     background: #4E342E;
     color: #FAEBDD;
     border-radius: 5px;
-    text-decoration: underline;
+    
   }
 
   .nav-links a.active {
@@ -214,8 +216,10 @@
     text-align: center;
     margin: 20px 0;
     color: #6B4F1D;
-    font-size: 30px;
+    font-size: 40px;
     font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #d8b28b;
 
   }
 
@@ -335,6 +339,7 @@
 
   .Go-link {
     text-align: center;
+    
     margin: 20px 0 40px;
     font-weight: bold;
     transition: 1s ease-in-out;
