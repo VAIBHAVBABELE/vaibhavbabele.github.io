@@ -2,10 +2,11 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-09-12*
+*Last updated: 2025-09-14*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#435](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/435) | Enhance PR contributors page | [@YogitaSharma253](https://github.com/YogitaSharma253) | ## 🔖 PR Title: Enhance PR contributors page: fixed cards, ... | 5 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-13 | 2374 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/435) |
 | [#424](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/424) | Add Student Marketplace Feature | [@YogitaSharma253](https://github.com/YogitaSharma253) | ## 🔖 PR Title: Add Student Marketplace Feature --- ## ... | 27 | feature, OSCI25, hard | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-09 | 1332 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/424) |
 | [#333](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/333) | Backend for quiz | [@shoaib2000857](https://github.com/shoaib2000857) | ## 🔖 PR Title: <!-- A clear and concise title ... | 1 | gssoc25, backend, feature, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-08-28 | 342 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/333) |
 | [#410](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/410) | Fix/footer | [@ManabBiswas](https://github.com/ManabBiswas) | ## 🔖 PR Title: fix the footer and team section ... | 35 | enhancement, OSCI25, intermediate | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-07 | 6230 | 21 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/410) |
@@ -123,6 +124,26 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#435 Enhance PR contributors page](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/435)
+
+- **Author:** [@YogitaSharma253](https://github.com/YogitaSharma253)
+- **Description:**  
+## 🔖 PR Title: Enhance PR contributors page: fixed cards, ...
+- **Files Changed (5):**
+    - `osci-logo.png`
+  - `pages/certificate/certificate.js`
+  - `pages/pr-contribution/PR_DESCRIPTION_FINAL.md`
+  - `pages/pr-contribution/pr-contributor.css`
+  - `pages/pr-contribution/pr-contributors.html`
+- **Labels:** `enhancement`, `gssoc25`, `level 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-13 11:38:55
+- **Lines Updated:** 2374
+- **Commits:** 1
+- **PR Link:** [PR #435](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/435)
+
+---
 
 ### [#424 Add Student Marketplace Feature](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/424)
 

@@ -1,180 +1,73 @@
 # 🛡️ Security Enhancements for Nitra Mitra Platform
 
-## 📋 Summary
-This PR implements comprehensive security improvements across the entire Nitra Mitra platform, addressing multiple security vulnerabilities while maintaining all existing functionality. All changes are based on the latest codebase and follow industry best practices.
+**Summary**
 
-## 🎯 Problem Statement
-The Nitra Mitra platform had several security vulnerabilities:
-- No protection against XSS attacks (missing CSP headers)
-- External resources loaded without integrity verification (no SRI hashes)
-- No clickjacking protection (missing X-Frame-Options)
-- Hardcoded analytics configuration scattered across files
-- Missing security headers (HSTS, content type protection, etc.)
-- No protection for sensitive files
+This PR delivers a fully revised and corrected version of the contributor page code for the Nitra Mitra platform. The update focuses on improving functionality, usability, maintainability, and visual clarity for both GSSoC and OSCI contributors.
 
-## ✨ Solution Overview
-Implemented a comprehensive security framework that includes:
-- **Subresource Integrity (SRI)** hashes for all external resources
-- **Content Security Policy (CSP)** with whitelist approach
-- **Centralized configuration system** for better maintainability
-- **Dynamic analytics loading** with error handling
-- **Complete security headers suite**
-- **File access protection** for sensitive files
+**Key updates include:**
 
-## 📁 Files Changed
+-Resolved multiple errors present in the previous contributor page code.
 
-### 🆕 **New Files** (3 files)
-- `js/config.js` - Centralized configuration system with Object.freeze() protection
-- `js/analytics.js` - Dynamic analytics/ads loader with comprehensive error handling  
-- `.htaccess.backup` - Safety backup of original server configuration
+-Dynamic rendering of contributor cards with accurate levels, PR counts, and avatars.
 
-### 🔧 **Modified Files** (7 files)
-- `assistant.html` - Added SRI hashes and security attributes
-- `contact.html` - Security improvements and configuration integration
-- `infrastructure.html` - SRI implementation and secure loading
-- `paper.html` - External resource security enhancements
-- `index.html` - Main page security hardening
-- `privacy.html` - Privacy page security updates
-- `.htaccess` - Enhanced with comprehensive security headers
+-Clear separation between GSSoC and OSCI contributors for better readability.
 
-## 🔒 Security Improvements
+-Admin card now always displayed at the top, independent of contribution data.
 
-### **1. Subresource Integrity (SRI) Protection**
-```html
-<!-- Before: Vulnerable to CDN compromise -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+-Verified responsiveness and consistent behavior across desktop, tablet, and mobile devices.
 
-<!-- After: Protected with integrity verification -->
-<link rel="stylesheet" 
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous">
-```
+-optimized code for performance and maintainability, ensuring smooth updates when leaderboard data changes.
 
-### **2. Content Security Policy (CSP)**
-Implemented comprehensive CSP headers to prevent XSS attacks:
-```apache
-default-src 'self'; 
-script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-```
+**Files Updated**
 
-### **3. Security Headers Suite**
-- ✅ **X-Frame-Options**: Prevents clickjacking attacks
-- ✅ **X-Content-Type-Options**: Stops MIME sniffing attacks  
-- ✅ **X-XSS-Protection**: Browser XSS protection
-- ✅ **Strict-Transport-Security**: Forces HTTPS for 1 year
-- ✅ **Referrer-Policy**: Controls referrer information leakage
-- ✅ **Permissions-Policy**: Restricts unnecessary browser features
+-Only files relevant to the contributor page have been modified.
 
-### **4. Centralized Configuration System**
-```javascript
-// Secure, maintainable configuration with Object.freeze()
-const SITE_CONFIG = Object.freeze({
-    analytics: {
-        googleAnalyticsId: 'G-WZP9NSCWF5',
-        adSenseClientId: 'ca-pub-1013609987989002'
-    },
-    security: {
-        enforceHttps: true,
-        enableCsp: true,
-        enableSri: true
-    }
-});
-```
+-No personal data or emails have been included.
 
-## 🚀 Benefits
+-The code now supports automatic updates from the GitHub API, reflecting latest contributions in real-time.
 
-### **Security Benefits**
-- **XSS Prevention**: CSP blocks unauthorized script execution
-- **Clickjacking Protection**: X-Frame-Options prevents iframe attacks
-- **MITM Prevention**: SRI hashes detect resource tampering
-- **Privacy Enhancement**: Referrer policy controls information leakage
-- **File Protection**: Sensitive files blocked from public access
+**Key Improvements**
 
-### **Maintainability Benefits**
-- **Centralized Config**: All settings in one secure location
-- **Dynamic Loading**: Analytics loaded with proper error handling
-- **Feature Flags**: Easy enabling/disabling of features
-- **Better Logging**: Comprehensive error tracking and debugging
+-Dynamic Contributor Display
 
-### **Performance Benefits**
-- **Optimized Loading**: Scripts loaded asynchronously
-- **Better Caching**: Enhanced cache headers for static assets
-- **Error Reduction**: Graceful fallbacks prevent failed requests
+-Cards generated automatically from GitHub API and leaderboard data.
 
-## 🧪 Testing Performed
+-Shows levels for GSSoC contributors (Level1, Level2, Level3) and task counts for OSCI contributors (Easy, Intermediate, Hard).
 
-### **Security Testing**
-- ✅ CSP policy validated - no violations in browser console
-- ✅ SRI hashes verified - all external resources load correctly
-- ✅ Security headers tested with securityheaders.com
-- ✅ File protection verified - sensitive files return 403
+-Separation by Program
 
-### **Functionality Testing**
-- ✅ Google Analytics tracking confirmed working
-- ✅ Google AdSense integration preserved
-- ✅ All interactive features functional
-- ✅ Mobile responsiveness maintained
-- ✅ Cross-browser compatibility verified
+-GSSoC and OSCI contributors displayed in distinct sections.
 
-### **Performance Testing**
-- ✅ Page load times maintained
-- ✅ Resource loading optimized
-- ✅ No increase in blocking requests
+-Easier navigation and understanding of contributions.
 
-## 📊 Security Assessment
+-Admin Card Priority
 
-| Security Aspect | Before | After | Improvement |
-|-----------------|--------|-------|-------------|
-| SRI Protection | ❌ None | ✅ 100% Coverage | +100% |
-| XSS Protection | ❌ Basic | ✅ CSP + Headers | +200% |
-| Clickjacking | ❌ Vulnerable | ✅ Protected | +100% |
-| HTTPS Enforcement | ⚠️ Partial | ✅ HSTS Enabled | +50% |
-| File Security | ❌ Exposed | ✅ Protected | +100% |
-| Configuration | ⚠️ Hardcoded | ✅ Centralized | +100% |
+-Admin card is pinned at the top to highlight project administration.
 
-## 🛡️ Compliance & Standards
+-Responsiveness & Cross-Device Compatibility
 
-This implementation aligns with:
-- **OWASP Web Security Guidelines**
-- **Mozilla Security Recommendations**
-- **Google Web Security Best Practices**
-- **W3C Security Headers Standards**
+-Fully functional on desktop, tablet, and mobile.
 
-## 🔄 Deployment Notes
+-Layout, spacing, and font sizes optimized for readability.
 
-### **Safe Deployment**
-- All changes are backward compatible
-- Original `.htaccess` backed up as `.htaccess.backup`
-- Graceful fallbacks for all dynamic features
-- No breaking changes to existing functionality
+-Error Handling & Performance
 
-### **Rollback Plan**
-If issues occur, simple rollback available:
-```bash
-# Restore original .htaccess
-cp .htaccess.backup .htaccess
+-Graceful handling of missing or incomplete data.
 
-# Remove new files if needed
-rm js/config.js js/analytics.js
-```
+-Optimized rendering for minimal page load times.
 
-## 🎉 Ready for Review
+**Reviewer Checklist**
 
-This PR is ready for review and testing. All security improvements have been thoroughly tested and documented. The implementation follows security best practices while maintaining the excellent user experience of the Nitra Mitra platform.
+ -Contributor levels and PR counts match the latest leaderboard.
 
-### **Review Checklist**
-- [ ] Security headers functioning correctly
-- [ ] External resources loading with SRI verification
-- [ ] Analytics and ads working properly
-- [ ] No console errors or CSP violations
-- [ ] Mobile responsiveness maintained
-- [ ] Performance not degraded
+ -GSSoC and OSCI sections display correctly and separately.
 
----
+ -Admin card always appears at the top.
 
-**Fixes**: Security vulnerabilities in external resource loading, XSS protection, clickjacking prevention
-**Type**: Security Enhancement
-**Impact**: High security improvement, no functionality changes
-**Testing**: Comprehensive security and functionality testing completed
+ -Avatars and images load correctly for all contributors.
+
+ -Page is fully responsive across all devices.
+
+ -No console errors or layout issues.
+
+ -Code is maintainable, clean, and follows project standards.
