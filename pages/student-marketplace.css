@@ -216,6 +216,7 @@
     color: #6B4F1D;
     font-size: 30px;
     font-family: sans-serif;
+
   }
 
 
@@ -321,18 +322,22 @@
   .card h3 {
     margin: 10px 0 5px;
     color: #6B4F1D;
+    font-weight: bold;
+    
   }
 
   .card p {
     margin: 5px 0;
-    color: #555;
-    font-size: 14px;
+    color: #2e2d2d;
+    font-size: 20px;
   }
 
 
   .Go-link {
     text-align: center;
     margin: 20px 0 40px;
+    font-weight: bold;
+    transition: 1s ease-in-out;
   }
 
   .Go-link a {
@@ -347,6 +352,7 @@
 
   .Go-link a:hover {
     background: #4E342E;
+    transform: scale(1.07);
   }
 
   body.dark-mode header {
