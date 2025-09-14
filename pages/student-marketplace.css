@@ -303,7 +303,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     border: 2px solid #2d1008;
-    width: 300px;
+    width:300px;
     height: auto;
     margin: 20px;
     box-sizing: border-box;
@@ -340,7 +340,7 @@
   .Go-link {
     text-align: center;
     
-    margin: 20px 0 40px;
+    margin: 25px 0 45px;
     font-weight: bold;
     transition: 1s ease-in-out;
   }
@@ -361,12 +361,15 @@
   }
 
   body.dark-mode header {
-    background: #F0E2C6;
-    color: #4E342E;
+    background: #444;
+    color: #fff;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
   }
 
+  body.dark-mode header p{
+    color: #ecc48c;
+  }
 
   body.dark-mode .nav-links {
     background: #444444;
@@ -485,15 +488,15 @@
   }
 
   body.dark-mode .marketplace {
-    background: #6b5e48;
+    background: #000;
     color: #f0e8d8;
   }
 
 
   body.dark-mode .card {
-    background: #1f1f1f;
-    border: 1px solid #555;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    background: #292828;
+    border: 1px solid #f2c9b5;
+    box-shadow: 0 4px 6px rgba(99, 98, 98, 0.4);
   }
 
   body.dark-mode .card h3,
