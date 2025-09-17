@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-*Last updated: 2025-09-13*
+*Last updated: 2025-09-17*
 
 ## 🌸 GSSoC '25 Leaderboard
 
@@ -19,6 +19,7 @@
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | - | 1 | 1 | 0 | 2 | 10 |
 | [@kunnal-singhh](https://github.com/kunnal-singhh) | - | 1 | 1 | 0 | 2 | 10 |
 | [@PrathmeshTatar](https://github.com/PrathmeshTatar) | prathmeshtatar05@gmail.com | 0 | 0 | 1 | 1 | 10 |
+| [@YogitaSharma253](https://github.com/YogitaSharma253) | - | 0 | 1 | 0 | 1 | 7 |
 | [@cin-sameer](https://github.com/cin-sameer) | s.rathorework@gmail.com | 0 | 1 | 0 | 1 | 7 |
 | [@RohitSalv](https://github.com/RohitSalv) | - | 0 | 1 | 0 | 1 | 7 |
 | [@Sushilnautiyal07](https://github.com/Sushilnautiyal07) | nautiyals927@gmail.com | 0 | 1 | 0 | 1 | 7 |
