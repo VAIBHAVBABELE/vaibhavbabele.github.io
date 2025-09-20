@@ -34,23 +34,23 @@ let darkModeInitialized = false;
 function initDarkMode() {
     // Prevent multiple initializations
     if (darkModeInitialized) return;
-    
+
     const mode = document.getElementById("mode");
-    
+
     if (!mode) {
         console.error('Mode element not found!');
         return;
     }
-    
+
     // Initialize dark mode state
     const isDark = localStorage.getItem('mode') === 'true';
     document.body.classList.toggle('dark-mode', isDark);
-    
+
     updateModeIcon(mode);
-    
+
     // Remove any existing event listeners
     mode.onclick = null;
-    
+
     // Add click event listener
     mode.addEventListener('click', function () {
         const wasDarkmode = localStorage.getItem('mode') === 'true';
@@ -60,7 +60,7 @@ function initDarkMode() {
         updateModeIcon(mode);
         console.log('Theme toggled to:', newMode ? 'dark' : 'light');
     });
-    
+
     darkModeInitialized = true;
     console.log('Dark mode toggle initialized successfully');
 }
@@ -91,7 +91,7 @@ function testThemeToggle() {
     console.log('Mode element:', mode);
     console.log('Current dark mode state:', document.body.classList.contains('dark-mode'));
     console.log('LocalStorage mode:', localStorage.getItem('mode'));
-    
+
     if (mode) {
         mode.click();
     } else {
@@ -100,13 +100,13 @@ function testThemeToggle() {
 }
 
 // Initialize dark mode when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Small delay to ensure all elements are loaded
     setTimeout(initDarkMode, 100);
 });
 
 // Also try on window load as backup
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     if (!darkModeInitialized) {
         initDarkMode();
     }
@@ -170,89 +170,89 @@ function initLanguageToggle() {
 }
 
 // Run language toggle initialization
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     setTimeout(initLanguageToggle, 200);
 });
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("nav ul li a");
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav ul li a");
 
-  window.addEventListener("scroll", () => {
-    let current = "";
+    window.addEventListener("scroll", () => {
+        let current = "";
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100; // adjust offset for header
-      const sectionHeight = section.clientHeight;
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // adjust offset for header
+            const sectionHeight = section.clientHeight;
 
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("active");
+            }
+        });
     });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    }); 
-  });
 });
 
 // ===== Daily Motivation Quote =====
 document.addEventListener("DOMContentLoaded", function () {
-  const quotes = [
-  "Believe in yourself and all that you are!",
-  "Small steps every day lead to big results.",
-  "Your hard work will pay off.",
-  "Every day is a new beginning.",
-  "Consistency is the key to success.",
-  "Trust your dreams and keep going.",
-  "Learn from failure and never give up.",
-  "Think positive, life will get easier.",
-  "Give your best and don’t stress.",
-  "Focus on your goals and ignore distractions.",
-  "Try something new, growth comes from change.",
-  "Remember your goals daily.",
-  "Smile often, it boosts your energy.",
-  "Value your time.",
-  "Patience brings the best results.",
-  "Step out of your comfort zone.",
-  "Believe in yourself.",
-  "Never stop learning.",
-  "Celebrate small wins.",
-  "Surround yourself with positive people.",
-  "Reduce stress, keep your mindset strong.",
-  "Every day is an opportunity.",
-  "Hard work and smart work both matter.",
-  "Enjoy life, don’t just work.",
-  "Accept your mistakes.",
-  "Focus on solutions, not problems.",
-  "Self-discipline is important.",
-  "Upgrade your skills regularly.",
-  "Dream big, start small.",
-  "Keep pushing forward, every step counts."
-  ];
+    const quotes = [
+        "Believe in yourself and all that you are!",
+        "Small steps every day lead to big results.",
+        "Your hard work will pay off.",
+        "Every day is a new beginning.",
+        "Consistency is the key to success.",
+        "Trust your dreams and keep going.",
+        "Learn from failure and never give up.",
+        "Think positive, life will get easier.",
+        "Give your best and don’t stress.",
+        "Focus on your goals and ignore distractions.",
+        "Try something new, growth comes from change.",
+        "Remember your goals daily.",
+        "Smile often, it boosts your energy.",
+        "Value your time.",
+        "Patience brings the best results.",
+        "Step out of your comfort zone.",
+        "Believe in yourself.",
+        "Never stop learning.",
+        "Celebrate small wins.",
+        "Surround yourself with positive people.",
+        "Reduce stress, keep your mindset strong.",
+        "Every day is an opportunity.",
+        "Hard work and smart work both matter.",
+        "Enjoy life, don’t just work.",
+        "Accept your mistakes.",
+        "Focus on solutions, not problems.",
+        "Self-discipline is important.",
+        "Upgrade your skills regularly.",
+        "Dream big, start small.",
+        "Keep pushing forward, every step counts."
+    ];
 
-  const today = new Date();
-  const index = (today.getDate() -1)% quotes.length;
-  const quoteElement = document.getElementById("quote-text");
-  
+    const today = new Date();
+    const index = (today.getDate() - 1) % quotes.length;
+    const quoteElement = document.getElementById("quote-text");
 
-  if (quoteElement) {
-    const text = quotes[index];
-    quoteElement.innerText = "";
-    quoteElement.classList.add("show");
-     let i = 0;
-    function typeEffect() {
-      if (i < text.length) {
-        quoteElement.innerText += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 80);
-      }
+
+    if (quoteElement) {
+        const text = quotes[index];
+        quoteElement.innerText = "";
+        quoteElement.classList.add("show");
+        let i = 0;
+        function typeEffect() {
+            if (i < text.length) {
+                quoteElement.innerText += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, 80);
+            }
+        }
+
+        typeEffect();
     }
-    
-    typeEffect(); 
-  }
 });
