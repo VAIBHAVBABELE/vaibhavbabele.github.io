@@ -46,7 +46,6 @@
 
 
 
-
 .main:not(.dark-mode){
   
     margin-top: 60px; /* Updated to match navbar height */
@@ -1923,7 +1922,29 @@ body.dark-mode #cgpa-result {
   border-radius: 10px;
   box-shadow: 0 2px 8px #85611333;
 }
+ 
+body.dark-mode .note-info span,
+body.dark-mode .category-card,
+body.dark-mode .form-control,
+body.dark-mode .topic summary span {
+  color: black !important;
+}
 
+body.dark-mode .text-muted{
+  color:white !important;
+}
+
+body.dark-mode #notesSearch {
+  color: white !important;            /* typed text */
+  background-color: #222 !important;  /* dark background */
+  border: 1px solid #555 !important;  /* subtle border */
+}
+
+/* Placeholder text color */
+body.dark-mode #notesSearch::placeholder {
+  color: white !important;
+  opacity: 0.7;
+}
 
 .result-box {
     background-color: #f8f9fa;
