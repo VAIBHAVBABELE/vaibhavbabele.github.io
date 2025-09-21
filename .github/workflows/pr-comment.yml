@@ -22,7 +22,7 @@ jobs:
               const prNumber = context.payload.pull_request.number;
 
               const message =  `
-              👋 **Hi @${prAuthor}**, thank you for opening this Pull Request!
+              👋 **Hi @${prAuthor}**, thank you for opening this Pull Request! \n@neeraj1907 is your mentor.
               🔧 Please ensure the following:
               - ✅ Resolve any **merge conflicts**, if they exist.make sure you have updated your local repo to avoid conflicts. and solve in your local repo. do not solve in github editor.try to solve in your local repo in vs code or any other editor.
               - 🧾 Clearly **mention the issue number** you are solving (e.g., \`Fixes #issue_number\`).

@@ -121,14 +121,17 @@ It is **built by students, for students**, and welcomes open-source contribution
 </p>
 
 <div align="center">
-  <img src="vaibhavbabele.github.io/images/gssoc%20logo.png" alt="GSSOC" width="80%">
+  <img src="images/gssoc%20logo.png" alt="GSSOC" width="80%">
+    <img src="images/osci1.PNG" alt="osci 25" ">
 </div>
 
 🌟 **Exciting News...**
 
-🚀 This project is now an official part of GirlScript Summer of Code – GSSoC 2025! 💃🎉💻 We’re thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow with Nitra Mitra. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+🚀 This project is now an official part of GirlScript Summer of Code – GSSoC 2025! and open source connect india - osci 25 💃🎉💻 We’re thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow with Nitra Mitra. Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
 
 👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
+
+and osci is one of the progam which **15 days long open-source programs**  that encourages developers of all levels to contribute to real-world projects. #osci #osci25
 
 🌈 With **mentorship, community support**, and **collaborative coding**, it's the perfect platform for developers to:
 
