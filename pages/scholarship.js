@@ -72,14 +72,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.classList.add("card");
       card.innerHTML = `
-        <div class="${badgeClass}">${badgeText}</div>
-        <img src="${item.logo || 'path/to/placeholder.png'}" alt="${item.provider} logo" class="logo" loading="lazy" onerror="this.style.display='none'">
-        <h4>${item.title}</h4>
-        <p><strong>Deadline:</strong> ${deadlineDate.toLocaleDateString()}</p>
-        <p class="award">🏆<strong>Award:</strong> ${item.award}</p>  
-        <p class="eligibility">🎓<strong>Eligibility:</strong> ${item.Eligibility}</p>
-        <a href="${item.applyLink}" target="_blank" class="apply-btn" ${daysLeft <= 0 ? 'style="pointer-events:none; opacity:0.6;"' : ''}>Apply Now</a>
-      `;
+        <div class="card-top">
+          <img src="${item.logo || 'path/to/placeholder.png'}" alt="${item.provider} logo" class="logo" loading="lazy" onerror="this.style.display='none'">
+
+          <div class="${badgeClass}">${badgeText}</div>
+        </div>
+
+        <div class="card-body">
+         <h4>${item.title}</h4>
+         <p class="deadline"><strong>Deadline:</strong> ${deadlineDate.toLocaleDateString()}</p>
+         <p class="award">🏆<strong>Award:</strong> ${item.award}</p>  
+         <p class="eligibility">🎓<strong>Eligibility:</strong> ${item.Eligibility}</p>
+         <a href="${item.applyLink}" target="_blank" class="apply-btn" ${daysLeft <= 0 ? 'style="pointer-events:none; opacity:0.6;"' : ''}>Apply Now</a>
+
+        </div> 
+        `;
 
       container.appendChild(card);
     });
