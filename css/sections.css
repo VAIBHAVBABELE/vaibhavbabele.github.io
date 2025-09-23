@@ -13,7 +13,6 @@ Modern Section Styles
     padding-bottom: 15px;
 }
 
-
 .service-heading::after {
     content: '';
     position: absolute;
