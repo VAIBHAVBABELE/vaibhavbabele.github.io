@@ -575,6 +575,7 @@ body.dark-mode .quote-box {
     color: var(--primary-text-color);
     font-weight: bold;
     align-items: center;
+    justify-content: center;
     text-align:center;
     padding: 10px 20px;
     margin: 30px;

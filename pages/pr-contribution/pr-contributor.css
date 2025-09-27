@@ -213,7 +213,8 @@ nav #click {
 }
 
 /* Paragraph */
-.para {
+
+.para-pr {
     color: var(--primary-text-color);
     font-weight: 500;
     text-align: center;
@@ -231,7 +232,7 @@ nav #click {
     animation: slideUp 0.8s ease 0.2s forwards;
 }
 
-.para span {
+.para-pr span {
     color: var(--accent-color-dark);
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent-color-dark), var(--main-color));
@@ -670,12 +671,245 @@ nav #click {
         grid-template-columns: 1fr;
     }
 
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+    
+    nav .menu-btn {
+        display: block;
+        color: var(--primary-text-color);
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--nav-bgcolor);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: left 0.3s ease;
+    }
+    
+    nav #click:checked ~ ul {
+        left: 0;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .service-heading {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .para-pr {
+        padding: 25px 20px;
+        font-size: 1rem;
+    }
+    
+    .pr-header h2 {
+        font-size: 2rem;
+    }
+    
+    .pr-header {
+        padding: 30px 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+    /* ... existing nav styles ... */
+    
+    .ranking-podium {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+        min-height: auto;
+    }
+    
+    .podium-item {
+        width: 260px;
+        min-height: 380px;
+        padding: 30px 20px;
+        margin-bottom: 0 !important;
+    }
+    
+    .position-1,
+    .position-2,
+    .position-3 {
+        order: unset;
+        min-height: 380px;
+    }
+}
+    .contributor-rank-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 25px 20px;
+    }
+    
+    .contributor-stats {
+        padding: 0;
+    }
+    
+    .rank-number {
+        order: -1;
+        font-size: 1.5rem;
+        min-width: 40px;
+        padding: 8px;
+    }
+    
+    .contributors-section,
+    .prs-section {
+        padding: 30px 20px;
+    }
+    
+    .contact-section .contact-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .social-media a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        margin: 2rem 1rem 0 0;
+    }
+    
+    .stat-card {
+        padding: 30px 20px;
+    }
+    
+    .pr-header-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
     .dark-mode .avatar {
         width: 70px;
         height: 70px;
+
     }
+
+
+@media (max-width: 480px) {
+    .service-heading {
+        font-size: 2rem;
+    }
+    
+    .para-pr {
+        padding: 20px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .podium-item {
+        width: 240px;
+        min-height: 360px;
+        padding: 25px 15px;
+    }
+    
+    .podium-avatar img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .crown {
+        font-size: 2rem;
+        top: -15px;
+    }
+    
+    .contributor-rank-item {
+        padding: 20px 15px;
+    }
+    
+    .rank-number {
+        font-size: 1.3rem;
+    }
+    
+    .contributor-avatar img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .pr-item {
+        padding: 20px 15px;
+    }
+    
+    .contributors-section,
+    .prs-section {
+        padding: 25px 15px;
+    }
+    
+    .stats {
+        padding: 25px 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 25px 15px;
+    }
+}
+/* Desktop podium specific adjustments */
+/* Desktop podium specific adjustments */
+@media (min-width: 769px) {
+    .ranking-podium {
+        align-items: flex-end;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: nowrap;
+    }
+    
+    .podium-item {
+        flex-shrink: 0;
+    }
+    
+    /* 2nd place (left side, shorter) */
+    .position-2 {
+        order: 1;
+        margin-bottom: 80px;
+    }
+    
+    /* 1st place (center, tallest) */
+    .position-1 {
+        order: 2;
+        margin-bottom: 0;
+    }
+    
+    /* 3rd place (right side, shortest) */
+    .position-3 {
+        order: 3;
+        margin-bottom: 120px;
 
     .dark-mode .contributor-card {
         padding: 15px;
+
     }
+}
+
+.para-pr {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    text-align: center;    /* keeps text justified */
+    padding: 10px;
+    margin: 30px auto;      /* centers the paragraph block */
+    max-width: 800px;       /* optional: keeps it readable */
+    display: block;         /* makes sure it behaves like a block */
 }
