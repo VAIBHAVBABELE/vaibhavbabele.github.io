@@ -824,12 +824,12 @@
             // Load assignment data from Firebase if authenticated, otherwise localStorage
             try {
                 if (window.utils && window.utils.isAuthenticated() && window.dbFunctions) {
-                    // Load from Firebase
-                    console.log('Loading dashboard data from Firebase...');
+                    // Load from Firebase with user-specific data
+                    console.log('Loading dashboard data from Firebase for user:', window.currentUser?.uid);
                     const result = await window.dbFunctions.getDocuments('assignments');
                     if (result.success) {
                         updateAssignmentStats(result.data);
-                        console.log('Dashboard data loaded from Firebase:', result.data.length, 'assignments');
+                        console.log('Dashboard data loaded from Firebase:', result.data.length, 'assignments for user');
                     } else {
                         console.error('Failed to load from Firebase:', result.error);
                         // Fallback to localStorage

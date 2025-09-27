@@ -768,32 +768,54 @@
     <script>
         // Profile functionality
         document.addEventListener('DOMContentLoaded', async function() {
+            // Wait for Firebase to initialize
+            let retryCount = 0;
+            const maxRetries = 10;
+            
+            while (retryCount < maxRetries && (!window.utils || !window.dbFunctions)) {
+                await new Promise(resolve => setTimeout(resolve, 500));
+                retryCount++;
+            }
+            
             await loadProfileData();
             await loadUserStats();
             loadSettings();
             initializeTeamSection();
             
-            // Set up real-time listeners for authenticated users
+            // Set up real-time listeners for authenticated users with proper error handling
             if (window.utils && window.utils.isAuthenticated() && window.dbFunctions) {
                 console.log('Setting up real-time listeners for profile data...');
                 
-                // Listen for assignment changes
-                window.dbFunctions.listenToCollection('assignments', (assignments) => {
-                    console.log('Real-time assignment update received:', assignments.length, 'assignments');
-                    updateUserStatsFromData(assignments, null, null);
-                });
-                
-                // Listen for grade changes
-                window.dbFunctions.listenToCollection('grades', (grades) => {
-                    console.log('Real-time grade update received:', grades.length, 'grades');
-                    updateUserStatsFromData(null, grades, null);
-                });
-                
-                // Listen for attendance changes
-                window.dbFunctions.listenToCollection('attendance', (attendance) => {
-                    console.log('Real-time attendance update received:', attendance.length, 'attendance records');
-                    updateUserStatsFromData(null, null, attendance);
-                });
+                try {
+                    // Listen for assignment changes with user-specific data
+                    const unsubscribeAssignments = window.dbFunctions.listenToCollection('assignments', (assignments) => {
+                        console.log('Real-time assignment update received for user:', window.currentUser?.uid, assignments.length, 'assignments');
+                        updateUserStatsFromData(assignments, null, null);
+                    });
+                    
+                    // Listen for grade changes with user-specific data
+                    const unsubscribeGrades = window.dbFunctions.listenToCollection('grades', (grades) => {
+                        console.log('Real-time grade update received for user:', window.currentUser?.uid, grades.length, 'grades');
+                        updateUserStatsFromData(null, grades, null);
+                    });
+                    
+                    // Listen for attendance changes with user-specific data
+                    const unsubscribeAttendance = window.dbFunctions.listenToCollection('attendance', (attendance) => {
+                        console.log('Real-time attendance update received for user:', window.currentUser?.uid, attendance.length, 'attendance records');
+                        updateUserStatsFromData(null, null, attendance);
+                    });
+                    
+                    // Store unsubscribe functions for cleanup
+                    window.profileUnsubscribers = {
+                        assignments: unsubscribeAssignments,
+                        grades: unsubscribeGrades,
+                        attendance: unsubscribeAttendance
+                    };
+                } catch (error) {
+                    console.error('Error setting up real-time listeners:', error);
+                }
+            } else {
+                console.log('User not authenticated or Firebase not available, using localStorage fallback');
             }
         });
 
@@ -895,25 +917,38 @@
                 let attendance = [];
                 
                 if (window.utils && window.utils.isAuthenticated() && window.dbFunctions) {
-                    // Load from Firebase
-                    console.log('Loading user stats from Firebase...');
+                    // Load from Firebase with user-specific data
+                    console.log('Loading user stats from Firebase for user:', window.currentUser?.uid);
                     
-                    const assignmentsResult = await window.dbFunctions.getDocuments('assignments');
-                    if (assignmentsResult.success) {
-                        assignments = assignmentsResult.data;
+                    try {
+                        const assignmentsResult = await window.dbFunctions.getDocuments('assignments');
+                        if (assignmentsResult.success) {
+                            assignments = assignmentsResult.data;
+                        }
+                    } catch (error) {
+                        console.warn('Error loading assignments from Firebase:', error);
                     }
                     
-                    const gradesResult = await window.dbFunctions.getDocuments('grades');
-                    if (gradesResult.success) {
-                        grades = gradesResult.data;
+                    try {
+                        const gradesResult = await window.dbFunctions.getDocuments('grades');
+                        if (gradesResult.success) {
+                            grades = gradesResult.data;
+                        }
+                    } catch (error) {
+                        console.warn('Error loading grades from Firebase:', error);
                     }
                     
-                    const attendanceResult = await window.dbFunctions.getDocuments('attendance');
-                    if (attendanceResult.success) {
-                        attendance = attendanceResult.data;
+                    try {
+                        const attendanceResult = await window.dbFunctions.getDocuments('attendance');
+                        if (attendanceResult.success) {
+                            attendance = attendanceResult.data;
+                        }
+                    } catch (error) {
+                        console.warn('Error loading attendance from Firebase:', error);
                     }
                     
-                    console.log('Profile data loaded from Firebase:', {
+                    console.log('Profile data loaded from Firebase for user:', {
+                        userId: window.currentUser?.uid,
                         assignments: assignments.length,
                         grades: grades.length,
                         attendance: attendance.length
@@ -926,39 +961,18 @@
                     attendance = JSON.parse(localStorage.getItem('performance_attendance') || '[]');
                 }
                 
-                const totalAssignments = assignments.length;
-                const completedAssignments = assignments.filter(a => a.status === 'Completed' || a.status === 'Graded').length;
-                
-                let averageGrade = 0;
-                if (grades.length > 0) {
-                    const totalMarks = grades.reduce((sum, grade) => sum + (parseFloat(grade.marks) || 0), 0);
-                    const maxMarks = grades.reduce((sum, grade) => sum + (parseFloat(grade.maxMarks) || 100), 0);
-                    averageGrade = maxMarks > 0 ? (totalMarks / maxMarks * 100).toFixed(1) : 0;
-                }
-                
-                let attendanceRate = 0;
-                if (attendance.length > 0) {
-                    const presentDays = attendance.filter(a => a.status === 'Present').length;
-                    attendanceRate = ((presentDays / attendance.length) * 100).toFixed(1);
-                }
-                
-                // Safely update stats elements
-                const setElementText = (id, value) => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.textContent = value;
-                    } else {
-                        console.warn(`Element with id '${id}' not found`);
-                    }
-                };
-                
-                setElementText('totalAssignments', totalAssignments);
-                setElementText('completedAssignments', completedAssignments);
-                setElementText('averageGrade', averageGrade);
-                setElementText('attendanceRate', attendanceRate + '%');
+                updateUserStatsFromData(assignments, grades, attendance);
             } catch (error) {
                 console.error('Error loading user stats:', error);
-            }
+                // Fallback to localStorage
+                try {
+                    const assignments = JSON.parse(localStorage.getItem('assignments') || '[]');
+                    const grades = JSON.parse(localStorage.getItem('performance_grades') || '[]');
+                    const attendance = JSON.parse(localStorage.getItem('performance_attendance') || '[]');
+                    updateUserStatsFromData(assignments, grades, attendance);
+                } catch (fallbackError) {
+                    console.error('Error in fallback stats loading:', fallbackError);
+                }
         }
 
         // Helper function to update stats from real-time data
@@ -991,11 +1005,18 @@
                     attendanceRate = ((presentDays / attendance.length) * 100).toFixed(1);
                 }
                 
-                // Safely update stats elements
+                // Safely update stats elements with animation
                 const setElementText = (id, value) => {
                     const element = document.getElementById(id);
                     if (element) {
-                        element.textContent = value;
+                        // Add fade effect to prevent flashing
+                        element.style.opacity = '0.7';
+                        element.style.transition = 'opacity 0.3s ease';
+                        
+                        setTimeout(() => {
+                            element.textContent = value;
+                            element.style.opacity = '1';
+                        }, 150);
                     } else {
                         console.warn(`Element with id '${id}' not found`);
                     }
@@ -1194,6 +1215,29 @@
             window.history.back();
         }
 
+        // Cleanup function for real-time listeners
+        function cleanupProfileListeners() {
+            if (window.profileUnsubscribers) {
+                try {
+                    if (window.profileUnsubscribers.assignments) {
+                        window.profileUnsubscribers.assignments();
+                    }
+                    if (window.profileUnsubscribers.grades) {
+                        window.profileUnsubscribers.grades();
+                    }
+                    if (window.profileUnsubscribers.attendance) {
+                        window.profileUnsubscribers.attendance();
+                    }
+                    console.log('Profile listeners cleaned up successfully');
+                } catch (error) {
+                    console.error('Error cleaning up profile listeners:', error);
+                }
+                window.profileUnsubscribers = null;
+            }
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', cleanupProfileListeners);
         // Initialize team section
         function initializeTeamSection() {
             setTimeout(() => {
