@@ -77,7 +77,6 @@
   margin-top: 1.5rem;
   max-height: 600px;
   overflow-y: auto;
-  font-family: "Poppins", sans-serif;
   color: var(--primary-text-color);
   display: none;
 }
