@@ -116,7 +116,7 @@ window.authFunctions = {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
             
-            // Create user profile in Firestore
+            // Create user profile in Firestore using the user's UID as document ID
             await addDoc(collection(db, 'users'), {
                 uid: user.uid,
                 email: user.email,
@@ -218,9 +218,13 @@ window.dbFunctions = {
     // Add document to collection
     async addDocument(collectionName, data) {
         try {
+            if (!window.currentUser?.uid) {
+                return { success: false, error: 'User not authenticated' };
+            }
+            
             const docRef = await addDoc(collection(db, collectionName), {
                 ...data,
-                userId: window.currentUser?.uid,
+                userId: window.currentUser.uid,
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString()
             });
@@ -234,12 +238,14 @@ window.dbFunctions = {
     // Get documents from collection
     async getDocuments(collectionName, userId = null) {
         try {
-            let q = collection(db, collectionName);
-            
-            if (userId) {
-                q = query(q, where('userId', '==', userId));
+            if (!window.currentUser?.uid && !userId) {
+                return { success: false, error: 'User not authenticated' };
             }
             
+            let q = collection(db, collectionName);
+            const targetUserId = userId || window.currentUser.uid;
+            
+            q = query(q, where('userId', '==', targetUserId));
             q = query(q, orderBy('createdAt', 'desc'));
             
             const querySnapshot = await getDocs(q);
@@ -259,6 +265,10 @@ window.dbFunctions = {
     // Update document
     async updateDocument(collectionName, docId, data) {
         try {
+            if (!window.currentUser?.uid) {
+                return { success: false, error: 'User not authenticated' };
+            }
+            
             await updateDoc(doc(db, collectionName, docId), {
                 ...data,
                 updatedAt: new Date().toISOString()
@@ -273,6 +283,10 @@ window.dbFunctions = {
     // Delete document
     async deleteDocument(collectionName, docId) {
         try {
+            if (!window.currentUser?.uid) {
+                return { success: false, error: 'User not authenticated' };
+            }
+            
             await deleteDoc(doc(db, collectionName, docId));
             return { success: true };
         } catch (error) {
@@ -283,12 +297,15 @@ window.dbFunctions = {
 
     // Listen to real-time updates
     listenToCollection(collectionName, callback, userId = null) {
-        let q = collection(db, collectionName);
-        
-        if (userId) {
-            q = query(q, where('userId', '==', userId));
+        if (!window.currentUser?.uid && !userId) {
+            console.error('User not authenticated for real-time updates');
+            return null;
         }
         
+        let q = collection(db, collectionName);
+        const targetUserId = userId || window.currentUser.uid;
+        
+        q = query(q, where('userId', '==', targetUserId));
         q = query(q, orderBy('createdAt', 'desc'));
         
         return onSnapshot(q, (querySnapshot) => {

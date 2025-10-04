@@ -10,6 +10,9 @@ class AssignmentTrackerFirebase {
     }
 
     async init() {
+        // Wait for authentication to be ready
+        await this.waitForAuthentication();
+        
         // Check if user is authenticated
         if (!window.utils || !window.utils.isAuthenticated()) {
             this.showLoginRequired();
@@ -23,6 +26,24 @@ class AssignmentTrackerFirebase {
         this.setupNotifications();
     }
 
+    async waitForAuthentication() {
+        return new Promise((resolve) => {
+            if (window.currentUser) {
+                resolve();
+                return;
+            }
+            
+            // Wait for auth state change
+            const checkAuth = () => {
+                if (window.currentUser) {
+                    resolve();
+                } else {
+                    setTimeout(checkAuth, 100);
+                }
+            };
+            checkAuth();
+        });
+    }
     showLoginRequired() {
         const container = document.querySelector('.main');
         if (container) {
@@ -87,11 +108,20 @@ class AssignmentTrackerFirebase {
 
             // Set up real-time listener
             this.unsubscribe = window.dbFunctions.listenToCollection('assignments', (assignments) => {
+                console.log('Real-time assignment update received:', assignments.length, 'assignments');
                 this.assignments = assignments;
                 this.updateStats();
                 this.renderAssignments();
             }, window.currentUser?.uid);
 
+            // Also manually load assignments once
+            const result = await window.dbFunctions.getDocuments('assignments');
+            if (result.success) {
+                console.log('Manually loaded assignments:', result.data.length);
+                this.assignments = result.data;
+                this.updateStats();
+                this.renderAssignments();
+            }
         } catch (error) {
             console.error('Error loading assignments:', error);
             window.utils.showNotification('Error loading assignments', 'error');
@@ -137,7 +167,8 @@ class AssignmentTrackerFirebase {
             priority: getElementValue('assignmentPriority'),
             status: getElementValue('assignmentStatus'),
             grade: getElementValue('assignmentGrade') || null,
-            notes: getElementValue('assignmentNotes').trim()
+            notes: getElementValue('assignmentNotes').trim(),
+            userId: window.currentUser?.uid // Ensure user ID is included
         };
         
         console.log('Assignment data:', assignmentData);

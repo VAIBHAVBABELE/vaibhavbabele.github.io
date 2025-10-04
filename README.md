@@ -215,54 +215,9 @@ npm install
 ```
 
 3. **Configure API Keys and Services**
-
-#### 🔥 Firebase Setup (Authentication)
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project or use existing
-3. Enable **Authentication** → **Sign-in method** → **Email/Password**
-4. Get your Firebase config:
-   - Project Settings → General → Your apps → Web app
-   - Copy the `firebaseConfig` object
-
-5. **Update Firebase Configuration:**
-   - Open `js/firebase-config.js`
-   - Replace the placeholder config with your actual Firebase config:
-   ```javascript
-   const firebaseConfig = {
-     apiKey: "your-api-key",
-     authDomain: "your-project.firebaseapp.com",
-     projectId: "your-project-id",
-     storageBucket: "your-project.appspot.com",
-     messagingSenderId: "123456789",
-     appId: "your-app-id"
-   };
-   ```
-
-#### 🔐 Domain Restrictions Setup
-**For Firebase Authentication:**
-1. In Firebase Console → Authentication → Settings → Authorized domains
-2. Add your domains:
-   - `localhost` (for development)
-   - `your-domain.com` (for production)
-   - `your-github-username.github.io` (for GitHub Pages)
-
-**For Google AI Studio API:**
-1. Go to [Google AI Studio](https://aistudio.google.com/)
-2. Create API key
-3. Set domain restrictions:
-   - Go to API key settings
-   - Add your domains to "Application restrictions"
-   - Set "Website restrictions" to your domain
-
-#### 🤖 AI Features Setup
-1. **Google AI Studio API:**
-   - Get API key from [Google AI Studio](https://aistudio.google.com/)
-   - Add to environment variables or config file
-   - Set domain restrictions as mentioned above
-
-2. **Backend AI Service (Optional):**
-   - Deploy to Vercel for server-side AI processing
-   - See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions
+   - See the detailed [Firebase Configuration Setup](#-firebase-configuration-setup) section below
+   - Set up Google AI Studio API key for AI features
+   - Configure domain restrictions for all services
 
 ### 🏠 Local Development
 
@@ -314,15 +269,9 @@ Update your Firebase Security Rules:
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow authenticated users to read/write their own data
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-    
-    // Public read access for some collections
-    match /public/{document=**} {
-      allow read: if true;
-      allow write: if request.auth != null;
+    // Simple rule: Allow all authenticated users to read/write
+    match /{document=**} {
+      allow read, write: if request.auth != null;
     }
   }
 }
@@ -585,15 +534,9 @@ export const storage = getStorage(app);
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow read/write access to authenticated users only
+    // Simple rule: Allow all authenticated users to read/write
     match /{document=**} {
       allow read, write: if request.auth != null;
-    }
-    
-    // Public read access for certain collections
-    match /public/{document=**} {
-      allow read: if true;
-      allow write: if request.auth != null;
     }
   }
 }
@@ -604,14 +547,9 @@ service cloud.firestore {
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+    // Simple rule: Allow all authenticated users to read/write
     match /{allPaths=**} {
       allow read, write: if request.auth != null;
-    }
-    
-    // Public read access for images
-    match /images/{allPaths=**} {
-      allow read: if true;
-      allow write: if request.auth != null;
     }
   }
 }
@@ -621,6 +559,65 @@ service firebase.storage {
    - Go to Firebase Console → Authentication → Settings
    - Under "Authorized domains", add only your production domains
    - Remove `localhost` for production
+
+**IMPORTANT: Set API Key Domain Restrictions**
+   
+   **For Firebase API Key:**
+   1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+   2. Select your Firebase project
+   3. Navigate to "APIs & Services" → "Credentials"
+   4. Find your Firebase API key and click on it
+   5. Under "Application restrictions":
+      - Select "HTTP referrers (web sites)"
+      - Add your domains:
+        ```
+        https://yourdomain.com/*
+        https://www.yourdomain.com/*
+        http://localhost:3000/* (for development)
+        http://127.0.0.1:3000/* (for development)
+        https://your-username.github.io/* (for GitHub Pages)
+        ```
+   6. Click "Save"
+
+5. **Firestore Database Indexes**
+   
+   Create the required composite indexes for optimal performance:
+
+   **For Assignments Collection:**
+   Click this link to create the index:
+   ```
+   https://console.firebase.google.com/v1/r/project/project-7a943/firestore/indexes?create_composite=ClFwcm9qZWN0cy9wcm9qZWN0LTdhOTQzL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9hc3NpZ25tZW50cy9pbmRleGVzL18QARoKCgZ1c2VySWQQARoNCgljcmVhdGVkQXQQAhoMCghfX25hbWVfXxAC
+   ```
+
+   **For Grades Collection:**
+   Click this link to create the index:
+   ```
+   https://console.firebase.google.com/v1/r/project/project-7a943/firestore/indexes?create_composite=Ckxwcm9qZWN0cy9wcm9qZWN0LTdhOTQzL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9ncmFkZXMvaW5kZXhlcy9fEAEaCgoGdXNlcklkEAEaDQoJY3JlYXRlZEF0EAIaDAoIX19uYW1lX18QAg
+   ```
+
+   **For Attendance Collection:**
+   Click this link to create the index:
+   ```
+   https://console.firebase.google.com/v1/r/project/project-7a943/firestore/indexes?create_composite=ClBwcm9qZWN0cy9wcm9qZWN0LTdhOTQzL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9hdHRlbmRhbmNlL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGg0KCWNyZWF0ZWRBdBACGgwKCF9fbmFtZV9fEAI
+   ```
+
+   **For Goals Collection:**
+   Click this link to create the index:
+   ```
+   https://console.firebase.google.com/v1/r/project/project-7a943/firestore/indexes?create_composite=Cktwcm9qZWN0cy9wcm9qZWN0LTdhOTQzL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9nb2Fscy9pbmRleGVzL18QARoKCgZ1c2VySWQQARoNCgljcmVhdGVkQXQQAhoMCghfX25hbWVfXxAC
+   ```
+
+   **For StudyTime Collection:**
+   Click this link to create the index:
+   ```
+   https://console.firebase.google.com/v1/r/project/project-7a943/firestore/indexes?create_composite=Ck9wcm9qZWN0cy9wcm9qZWN0LTdhOTQzL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9zdHVkeVRpbWUvaW5kZXhlcy9fEAEaCgoGdXNlcklkEAEaDQoJY3JlYXRlZEF0EAIaDAoIX19uYW1lX18QAg
+   ```
+
+   📋 **Steps to Fix Database Index Issues:**
+   1. Click each link above to create the required indexes
+   2. Wait for indexes to build (this may take a few minutes)
+   3. Test your queries to ensure they work properly
+   4. Monitor Firebase Console for any index-related errors
 
 ### 4. Environment-Specific Configuration
 

@@ -24,7 +24,7 @@ $password = '';
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDDException $e) {
+} catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['error' => 'Database connection failed']);
     exit();
@@ -34,7 +34,7 @@ try {
 $createTableSQL = "
 CREATE TABLE IF NOT EXISTS assignments (
     id VARCHAR(36) PRIMARY KEY,
-    user_id VARCHAR(36) DEFAULT 'default_user',
+    user_id VARCHAR(36) NOT NULL,
     title VARCHAR(255) NOT NULL,
     subject VARCHAR(100) NOT NULL,
     description TEXT,
@@ -48,6 +48,30 @@ CREATE TABLE IF NOT EXISTS assignments (
 )";
 $pdo->exec($createTableSQL);
 
+// Get user ID from request headers or body
+function getUserId() {
+    // Try to get user ID from Authorization header
+    $headers = getallheaders();
+    if (isset($headers['Authorization'])) {
+        $auth = $headers['Authorization'];
+        if (preg_match('/Bearer (.+)/', $auth, $matches)) {
+            // For now, we'll use the token as user ID
+            // In production, you should verify the JWT token
+            return $matches[1];
+        }
+    }
+    
+    // Try to get from request body
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (isset($input['user_id'])) {
+        return $input['user_id'];
+    }
+    
+    // Default fallback - in production, this should require authentication
+    return 'default_user';
+}
+
+$userId = getUserId();
 $method = $_SERVER['REQUEST_METHOD'];
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $pathParts = explode('/', trim($path, '/'));
@@ -57,9 +81,9 @@ switch ($method) {
     case 'GET':
         if (isset($pathParts[2]) && $pathParts[2] === 'assignments') {
             if (isset($pathParts[3])) {
-                getAssignment($pdo, $pathParts[3]);
+                getAssignment($pdo, $pathParts[3], $userId);
             } else {
-                getAssignments($pdo);
+                getAssignments($pdo, $userId);
             }
         } else {
             http_response_code(404);
@@ -69,7 +93,7 @@ switch ($method) {
         
     case 'POST':
         if (isset($pathParts[2]) && $pathParts[2] === 'assignments') {
-            createAssignment($pdo);
+            createAssignment($pdo, $userId);
         } else {
             http_response_code(404);
             echo json_encode(['error' => 'Endpoint not found']);
@@ -78,7 +102,7 @@ switch ($method) {
         
     case 'PUT':
         if (isset($pathParts[2]) && $pathParts[2] === 'assignments' && isset($pathParts[3])) {
-            updateAssignment($pdo, $pathParts[3]);
+            updateAssignment($pdo, $pathParts[3], $userId);
         } else {
             http_response_code(404);
             echo json_encode(['error' => 'Endpoint not found']);
@@ -87,7 +111,7 @@ switch ($method) {
         
     case 'DELETE':
         if (isset($pathParts[2]) && $pathParts[2] === 'assignments' && isset($pathParts[3])) {
-            deleteAssignment($pdo, $pathParts[3]);
+            deleteAssignment($pdo, $pathParts[3], $userId);
         } else {
             http_response_code(404);
             echo json_encode(['error' => 'Endpoint not found']);
@@ -103,10 +127,10 @@ switch ($method) {
 /**
  * Get all assignments
  */
-function getAssignments($pdo) {
+function getAssignments($pdo, $userId) {
     try {
         $stmt = $pdo->prepare("SELECT * FROM assignments WHERE user_id = ? ORDER BY deadline ASC");
-        $stmt->execute(['default_user']);
+        $stmt->execute([$userId]);
         $assignments = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         // Convert datetime strings to ISO format
@@ -126,10 +150,10 @@ function getAssignments($pdo) {
 /**
  * Get single assignment
  */
-function getAssignment($pdo, $id) {
+function getAssignment($pdo, $id, $userId) {
     try {
         $stmt = $pdo->prepare("SELECT * FROM assignments WHERE id = ? AND user_id = ?");
-        $stmt->execute([$id, 'default_user']);
+        $stmt->execute([$id, $userId]);
         $assignment = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if (!$assignment) {
@@ -153,7 +177,7 @@ function getAssignment($pdo, $id) {
 /**
  * Create new assignment
  */
-function createAssignment($pdo) {
+function createAssignment($pdo, $userId) {
     $input = json_decode(file_get_contents('php://input'), true);
     
     if (!$input) {
@@ -181,7 +205,7 @@ function createAssignment($pdo) {
         
         $stmt->execute([
             $id,
-            'default_user',
+            $userId,
             $input['title'],
             $input['subject'],
             $input['description'] ?? '',
@@ -193,7 +217,7 @@ function createAssignment($pdo) {
         ]);
         
         // Return the created assignment
-        getAssignment($pdo, $id);
+        getAssignment($pdo, $id, $userId);
     } catch (PDOException $e) {
         http_response_code(500);
         echo json_encode(['error' => 'Failed to create assignment: ' . $e->getMessage()]);
@@ -203,7 +227,7 @@ function createAssignment($pdo) {
 /**
  * Update assignment
  */
-function updateAssignment($pdo, $id) {
+function updateAssignment($pdo, $id, $userId) {
     $input = json_decode(file_get_contents('php://input'), true);
     
     if (!$input) {
@@ -215,7 +239,7 @@ function updateAssignment($pdo, $id) {
     try {
         // Check if assignment exists
         $stmt = $pdo->prepare("SELECT id FROM assignments WHERE id = ? AND user_id = ?");
-        $stmt->execute([$id, 'default_user']);
+        $stmt->execute([$id, $userId]);
         if (!$stmt->fetch()) {
             http_response_code(404);
             echo json_encode(['error' => 'Assignment not found']);
@@ -241,14 +265,14 @@ function updateAssignment($pdo, $id) {
         }
         
         $values[] = $id;
-        $values[] = 'default_user';
+        $values[] = $userId;
         
         $sql = "UPDATE assignments SET " . implode(', ', $fields) . " WHERE id = ? AND user_id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute($values);
         
         // Return the updated assignment
-        getAssignment($pdo, $id);
+        getAssignment($pdo, $id, $userId);
     } catch (PDOException $e) {
         http_response_code(500);
         echo json_encode(['error' => 'Failed to update assignment: ' . $e->getMessage()]);
@@ -258,10 +282,10 @@ function updateAssignment($pdo, $id) {
 /**
  * Delete assignment
  */
-function deleteAssignment($pdo, $id) {
+function deleteAssignment($pdo, $id, $userId) {
     try {
         $stmt = $pdo->prepare("DELETE FROM assignments WHERE id = ? AND user_id = ?");
-        $stmt->execute([$id, 'default_user']);
+        $stmt->execute([$id, $userId]);
         
         if ($stmt->rowCount() === 0) {
             http_response_code(404);
@@ -292,7 +316,7 @@ function generateUUID() {
 /**
  * Get assignment statistics
  */
-function getAssignmentStats($pdo) {
+function getAssignmentStats($pdo, $userId) {
     try {
         $stmt = $pdo->prepare("
             SELECT 
@@ -302,7 +326,7 @@ function getAssignmentStats($pdo) {
             FROM assignments 
             WHERE user_id = ?
         ");
-        $stmt->execute(['default_user']);
+        $stmt->execute([$userId]);
         $stats = $stmt->fetch(PDO::FETCH_ASSOC);
         
         echo json_encode(['success' => true, 'stats' => $stats]);
