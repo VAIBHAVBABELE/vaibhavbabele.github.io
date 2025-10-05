@@ -2,10 +2,12 @@
 
 This document lists all merged PRs with details: author, title, description (max 10 words), files changed, labels, who merged, merge timestamp, number of lines updated, number of commits, and PR link.
 
-*Last updated: 2025-09-27*
+*Last updated: 2025-10-05*
 
 | # | Title | Author | Description | Files Changed | Labels | Merged By | Merged At | Lines Updated | Commits | PR Link |
 |---|-------|--------|-------------|--------------|--------|-----------|-----------|--------------|---------|---------|
+| [#459](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/459) |  New feature for tracking academic assignments and deadlines | [@rudrasingh993](https://github.com/rudrasingh993) | ✨ Features Added: Assignment Tracker: New feature for tracking academic ... | 73 | gssoc25, feature, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-27 | 14910 | 16 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/459) |
+| [#458](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/458) | Added login signup option and Anylatic Dashboard | [@rudrasingh993](https://github.com/rudrasingh993) | 🧑‍💻 What changes were made? Dashboard Page: Added modern glassmorphism ... | 69 | gssoc25, backend, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-27 | 12118 | 15 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/458) |
 | [#451](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/451) | Enhance pwa manifest and favicon system | [@rudrasingh993](https://github.com/rudrasingh993) | # 🎨 Enhanced PWA Manifest and Comprehensive Favicon System ## ... | 72 | bug, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-22 | 2840 | 5 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/451) |
 | [#455](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/455) | Fix minor chanhes and seamless dark mode transition  | [@rudrasingh993](https://github.com/rudrasingh993) | ## 🌙 Enhanced Dark Mode with Smooth Transitions ### Summary ... | 19 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-22 | 895 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/455) |
 | [#450](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/450) | SEO and meta tag added | [@rudrasingh993](https://github.com/rudrasingh993) | # 🚀 SEO Optimization: Add Meta Tags, Open Graph, and ... | 5 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-09-21 | 476 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/450) |
@@ -80,7 +82,7 @@ This document lists all merged PRs with details: author, title, description (max
 | [#147](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/147) | AI-Powered Resume Analyzer  | [@PrathmeshTatar](https://github.com/PrathmeshTatar) | ## 🔖 PR Title: **Enhancement: Integrated AI-Powered Resume Analyzer UI ... | 10 | gssoc25, backend, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-28 | 692 | 2 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/147) |
 | [#155](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/155) | Revert "Feature/about us restructure and enhancement across home page" | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | Reverts VAIBHAVBABELE/vaibhavbabele.github.io#153 | 3 |  | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 589 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/155) |
 | [#153](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/153) | Feature/about us restructure and enhancement across home page | [@Shailee6464](https://github.com/Shailee6464) | This PR implements comprehensive content updates and structural enhancements across ... | 3 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 589 | 3 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/153) |
-| [#132](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/132) | Refactor: Improved alt tag for Games card and resource card image | [@Shailee6464](https://github.com/Shailee6464) | ## �� PR Title: <!-- A clear and concise title ... | 9 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 4 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/132) |
+| [#132](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/132) | Refactor: Improved alt tag for Games card and resource card image | [@Shailee6464](https://github.com/Shailee6464) | ## 🔖 PR Title: <!-- A clear and concise title ... | 9 | enhancement, gssoc25, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 4 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/132) |
 | [#141](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/141) | Front end pages for the AI notes summary | [@shoaib2000857](https://github.com/shoaib2000857) | ## 🔖 PR Title: <!-- A clear and concise title ... | 3 | gssoc25, frontend, backend, level 3 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 1377 | 15 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/141) |
 | [#150](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/150) | Added Contact Us Page & Team Showcase to All Pages with Responsive Design | [@Prabathvsv](https://github.com/Prabathvsv) | ## 🔖 PR Title: <!-- A clear and concise title ... | 17 | enhancement, gssoc25, frontend, level 2 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 2491 | 4 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/150) |
 | [#124](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/124) | Added snake trail cursor animation with mobile detection | [@rajasmitaa](https://github.com/rajasmitaa) | ## 🔖 PR Title: Added snake trail cursor animation with ... | 3 | gssoc25, frontend, level 1 | [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE) | 2025-07-27 | 65 | 1 | [PR Link](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/124) |
@@ -128,6 +130,178 @@ This document lists all merged PRs with details: author, title, description (max
 ---
 
 ## 📝 Detailed Merged PRs
+
+### [#459  New feature for tracking academic assignments and deadlines](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/459)
+
+- **Author:** [@rudrasingh993](https://github.com/rudrasingh993)
+- **Description:**  
+✨ Features Added: Assignment Tracker: New feature for tracking academic ...
+- **Files Changed (73):**
+    - `FIREBASE_SETUP.md`
+  - `README.md`
+  - `backend/assignment-tracker.php`
+  - `games/games.css`
+  - `index.css`
+  - `index.html`
+  - `js/firebase-config.js`
+  - `js/team-script.js`
+  - `pages/404.html`
+  - `pages/ai-assistant.html`
+  - `pages/ai-file-process.html`
+  - `pages/ai-question-gen.html`
+  - `pages/ai-summary.html`
+  - `pages/announcement-table.html`
+  - `pages/assignment-tracker-firebase.js`
+  - `pages/assignment-tracker.css`
+  - `pages/assignment-tracker.html`
+  - `pages/assignment-tracker.js`
+  - `pages/attendance.html`
+  - `pages/auth.css`
+  - `pages/auth.html`
+  - `pages/auth.js`
+  - `pages/career-resource-library.html`
+  - `pages/complaints.html`
+  - `pages/contact-queries.html`
+  - `pages/dark-mode.html`
+  - `pages/dashboard.html`
+  - `pages/documentation-templates.html`
+  - `pages/feedback.html`
+  - `pages/gateway.html`
+  - `pages/ide-recommendation.html`
+  - `pages/infrastructure.html`
+  - `pages/issue-tracker.html`
+  - `pages/job-board.html`
+  - `pages/lab-reports.html`
+  - `pages/lectures.html`
+  - `pages/live-sessions.html`
+  - `pages/lost-found.html`
+  - `pages/marketplace.html`
+  - `pages/mock-test.html`
+  - `pages/multi-language.html`
+  - `pages/notes.html`
+  - `pages/notifications.html`
+  - `pages/open-source-opportunities.html`
+  - `pages/paper.html`
+  - `pages/performance-analytics-firebase.js`
+  - `pages/performance-analytics.css`
+  - `pages/performance-analytics.html`
+  - `pages/pg-reviews.html`
+  - `pages/placement-updates.html`
+  - `pages/privacy.html`
+  - `pages/product-list.html`
+  - `pages/profile.html`
+  - `pages/pyqs.html`
+  - `pages/quantum.html`
+  - `pages/registration-complete.html`
+  - `pages/resorces.html`
+  - `pages/roommate-finder.html`
+  - `pages/scholarship.html`
+  - `pages/service-ratings.html`
+  - `pages/skill-tracker.html`
+  - `pages/student-dashboard.html`
+  - `pages/student-marketplace.html`
+  - `pages/study-groups.html`
+  - `pages/subject-wiki.html`
+  - `pages/subject.html`
+  - `pages/suggestions.html`
+  - `pages/syllabus.html`
+  - `pages/tech.html`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+  - `pages/version-control-tips.html`
+- **Labels:** `gssoc25`, `feature`, `level 3`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-27 12:52:57
+- **Lines Updated:** 14910
+- **Commits:** 16
+- **PR Link:** [PR #459](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/459)
+
+---
+
+### [#458 Added login signup option and Anylatic Dashboard](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/458)
+
+- **Author:** [@rudrasingh993](https://github.com/rudrasingh993)
+- **Description:**  
+🧑‍💻 What changes were made? Dashboard Page: Added modern glassmorphism ...
+- **Files Changed (69):**
+    - `FIREBASE_SETUP.md`
+  - `README.md`
+  - `backend/assignment-tracker.php`
+  - `games/games.css`
+  - `index.css`
+  - `index.html`
+  - `js/firebase-config.js`
+  - `js/team-script.js`
+  - `pages/404.html`
+  - `pages/ai-assistant.html`
+  - `pages/ai-file-process.html`
+  - `pages/ai-question-gen.html`
+  - `pages/ai-summary.html`
+  - `pages/announcement-table.html`
+  - `pages/attendance.html`
+  - `pages/auth.css`
+  - `pages/auth.html`
+  - `pages/auth.js`
+  - `pages/career-resource-library.html`
+  - `pages/complaints.html`
+  - `pages/contact-queries.html`
+  - `pages/dark-mode.html`
+  - `pages/dashboard.html`
+  - `pages/documentation-templates.html`
+  - `pages/feedback.html`
+  - `pages/gateway.html`
+  - `pages/ide-recommendation.html`
+  - `pages/infrastructure.html`
+  - `pages/issue-tracker.html`
+  - `pages/job-board.html`
+  - `pages/lab-reports.html`
+  - `pages/lectures.html`
+  - `pages/live-sessions.html`
+  - `pages/lost-found.html`
+  - `pages/marketplace.html`
+  - `pages/mock-test.html`
+  - `pages/multi-language.html`
+  - `pages/notes.html`
+  - `pages/notifications.html`
+  - `pages/open-source-opportunities.html`
+  - `pages/paper.html`
+  - `pages/performance-analytics-firebase.js`
+  - `pages/performance-analytics.css`
+  - `pages/performance-analytics.html`
+  - `pages/pg-reviews.html`
+  - `pages/placement-updates.html`
+  - `pages/privacy.html`
+  - `pages/product-list.html`
+  - `pages/profile.html`
+  - `pages/pyqs.html`
+  - `pages/quantum.html`
+  - `pages/registration-complete.html`
+  - `pages/resorces.html`
+  - `pages/roommate-finder.html`
+  - `pages/scholarship.html`
+  - `pages/service-ratings.html`
+  - `pages/skill-tracker.html`
+  - `pages/student-dashboard.html`
+  - `pages/student-marketplace.html`
+  - `pages/study-groups.html`
+  - `pages/subject-wiki.html`
+  - `pages/subject.html`
+  - `pages/suggestions.html`
+  - `pages/syllabus.html`
+  - `pages/tech.html`
+  - `pages/terms.html`
+  - `pages/test.html`
+  - `pages/user-experience-table.html`
+  - `pages/version-control-tips.html`
+- **Labels:** `gssoc25`, `backend`, `level 2`
+- **Merged By:** [@VAIBHAVBABELE](https://github.com/VAIBHAVBABELE)
+- **Merged At:** 2025-09-27 12:52:05
+- **Lines Updated:** 12118
+- **Commits:** 15
+- **PR Link:** [PR #458](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/458)
+
+---
 
 ### [#451 Enhance pwa manifest and favicon system](https://github.com/VAIBHAVBABELE/vaibhavbabele.github.io/pull/451)
 
@@ -3771,7 +3945,7 @@ This PR implements comprehensive content updates and structural enhancements acr
 
 - **Author:** [@Shailee6464](https://github.com/Shailee6464)
 - **Description:**  
-## �� PR Title: <!-- A clear and concise title ...
+## 🔖 PR Title: <!-- A clear and concise title ...
 - **Files Changed (9):**
     - `backend/.github/ISSUE_TEMPLATE/contribution.yaml`
   - `backend/.github/SECURITY.md`

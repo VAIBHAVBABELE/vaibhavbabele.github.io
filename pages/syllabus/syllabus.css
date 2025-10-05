@@ -25,7 +25,6 @@
 body {
     background: var(--secondary-color);
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
     color: var(--text-color);
     padding-top: 80px;
 }
@@ -39,11 +38,9 @@ header {
 h1 {
     margin: 0 0 0.5rem 0;
     margin-top: 30px;
-    font-size: 8rem;
 }
 
 p{
-    font-size: 2rem;
     margin: 0;
 }
 #pdf-list {
@@ -72,7 +69,6 @@ p{
     border-color: var(--button-hover);
 }
 .pdf-title {
-    font-weight: 600;
     margin-bottom: 0.8rem;
     text-align: center;
 }
@@ -83,7 +79,6 @@ p{
     padding: 0.6rem 1.2rem;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
     cursor: pointer;
     transition: background 0.2s;
 }

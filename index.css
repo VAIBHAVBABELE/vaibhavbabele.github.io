@@ -44,8 +44,6 @@
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -109,11 +107,6 @@
 
 .user-info i {
     font-size: 1.2rem;
-}
-
-.user-info span {
-    font-weight: 600;
-    font-size: 0.9rem;
 }
 
 .user-dropdown {
@@ -291,7 +284,6 @@
 
 
 body{
-    font-family: "Raleway", sans-serif;
     color: var(--primary-text-color);
     
     /* Smooth transitions for all color and background changes */
@@ -308,20 +300,9 @@ h1, h2, h3, h4, h5, h6{
     transition: color var(--transition-duration) var(--transition-timing);
 }
 
-h1{
-    font-size: 3rem;
-}
-h2{
-    font-size: 2rem;
-}
-h3{
-    font-size: 1.5rem;
-}
+/* Heading styles moved to typography.css */
 p{
-    font-family: 'Poppins',sans-serif;
-    font-size: 1.25rem;
     color: var(--secondary-text-color);
-    line-height: 1.8rem;
     transition: color var(--transition-duration) var(--transition-timing);
 }
 a{
@@ -338,7 +319,6 @@ padding-inline: var(--padding-inline-section);
 .primary-button{
     background-color: var(--accent-color);
     border-radius: 6px;
-    font-weight: 700;
     color: white;
     padding: 12px 24px ;
     box-shadow:0 0 2px var(--secondary-text-color) ;
@@ -420,11 +400,9 @@ nav ul li a {
     text-decoration: none;
     position: relative;
     color: var(--primary-text-color);
-    margin: 0 4px; /* Reduced margin */
-    font-size: 15px; /* Slightly smaller font */
+    margin: 0 4px;
     letter-spacing: 0.3px;
-    font-weight: 600;
-    padding: 8px 12px; /* Reduced padding */
+    padding: 8px 12px;
     transition: all 0.3s ease;
     white-space: nowrap;
 }
@@ -451,12 +429,9 @@ nav ul li a:hover {
 }
 
 nav .logo {
-    font-size: 22px; /* Reduced logo size */
     color: var(--main-color);
-    font-weight: 600;
-    font-family: "Cinzel",serif;
     text-decoration: none;
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink: 0;
 }
 
 nav .logo a {
@@ -608,8 +583,6 @@ body.dark-mode .quote-box {
 }
 
 .quote-title {
-  font-size: 14px;
-  font-weight: bold;
   margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 1px;

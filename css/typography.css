@@ -1,0 +1,384 @@
+/* =====================================================
+   TYPOGRAPHY SYSTEM - Consistent Font Styling
+   ===================================================== */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap');
+
+/* =====================================================
+   CSS CUSTOM PROPERTIES - Typography Variables
+   ===================================================== */
+:root {
+  /* Font Families */
+  --font-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+  --font-secondary: 'Merriweather', Georgia, serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+  
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  
+  /* Font Sizes - Mobile First Approach with clamp() */
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);      /* 12-14px */
+  --fs-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);        /* 14-16px */
+  --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);        /* 16-18px */
+  --fs-md: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);       /* 18-20px */
+  --fs-lg: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);        /* 20-24px */
+  --fs-xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);          /* 24-30px */
+  --fs-2xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);    /* 30-36px */
+  --fs-3xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);         /* 36-48px */
+  --fs-4xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);             /* 48-64px */
+  --fs-5xl: clamp(4rem, 3rem + 5vw, 6rem);                 /* 64-96px */
+  
+  /* Line Heights */
+  --lh-tight: 1.2;
+  --lh-snug: 1.3;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.6;
+  --lh-loose: 1.8;
+  
+  /* Letter Spacing */
+  --ls-tight: -0.025em;
+  --ls-normal: 0;
+  --ls-wide: 0.025em;
+  --ls-wider: 0.05em;
+  --ls-widest: 0.1em;
+}
+
+/* =====================================================
+   BASE TYPOGRAPHY RESET
+   ===================================================== */
+
+/* Base font settings for html and body */
+html {
+  font-size: 16px; /* Base font size for rem calculations */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-normal);
+  color: var(--text-color, #333333);
+  background-color: var(--bg-color, #ffffff);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove default margins and ensure consistent styling */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* =====================================================
+   HEADING HIERARCHY
+   ===================================================== */
+
+h1, .h1 {
+  font-family: var(--font-secondary);
+  font-size: var(--fs-5xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: 1.5rem;
+}
+
+h2, .h2 {
+  font-family: var(--font-secondary);
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: 1.25rem;
+}
+
+h3, .h3 {
+  font-family: var(--font-primary);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-normal);
+  margin-bottom: 1rem;
+}
+
+h4, .h4 {
+  font-family: var(--font-primary);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-normal);
+  margin-bottom: 0.875rem;
+}
+
+h5, .h5 {
+  font-family: var(--font-primary);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-normal);
+  margin-bottom: 0.75rem;
+}
+
+h6, .h6 {
+  font-family: var(--font-primary);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: 0.625rem;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   TEXT ELEMENTS
+   ===================================================== */
+
+p, .text-body {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  margin-bottom: 1rem;
+}
+
+.text-lead {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--primary-text-color, #4e342e);
+}
+
+.text-large {
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+}
+
+.text-small {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+.text-xs {
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+}
+
+/* =====================================================
+   FONT WEIGHT UTILITIES
+   ===================================================== */
+
+.fw-light { font-weight: var(--fw-light) !important; }
+.fw-regular { font-weight: var(--fw-regular) !important; }
+.fw-medium { font-weight: var(--fw-medium) !important; }
+.fw-semibold { font-weight: var(--fw-semibold) !important; }
+.fw-bold { font-weight: var(--fw-bold) !important; }
+.fw-extrabold { font-weight: var(--fw-extrabold) !important; }
+
+/* =====================================================
+   SPECIALIZED TEXT STYLES
+   ===================================================== */
+
+/* Navigation and UI Text */
+.nav-link, .menu-item {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+}
+
+/* Button Text */
+.btn, button {
+  font-family: var(--font-primary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: none;
+}
+
+.btn-large {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+.btn-small {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+/* Form Elements */
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+}
+
+label {
+  font-family: var(--font-primary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+}
+
+/* Caption and Helper Text */
+.caption, .helper-text {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  color: var(--secondary-text-color, #926f57);
+}
+
+/* Quote Text */
+blockquote, .quote {
+  font-family: var(--font-secondary);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  font-style: italic;
+}
+
+/* Code Text */
+code, pre, .code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+}
+
+/* =====================================================
+   RESPONSIVE TYPOGRAPHY ADJUSTMENTS
+   ===================================================== */
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  :root {
+    --lh-tight: 1.1;
+    --lh-snug: 1.25;
+    --lh-normal: 1.4;
+  }
+  
+  h1, .h1 { margin-bottom: 1.25rem; }
+  h2, .h2 { margin-bottom: 1rem; }
+  h3, .h3 { margin-bottom: 0.875rem; }
+  h4, .h4 { margin-bottom: 0.75rem; }
+  h5, .h5 { margin-bottom: 0.625rem; }
+  h6, .h6 { margin-bottom: 0.5rem; }
+  
+  p, .text-body { margin-bottom: 0.875rem; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  :root {
+    --lh-tight: 1.1;
+    --lh-snug: 1.2;
+    --lh-normal: 1.35;
+  }
+  
+  h1, .h1 { margin-bottom: 1rem; }
+  h2, .h2 { margin-bottom: 0.875rem; }
+  h3, .h3 { margin-bottom: 0.75rem; }
+  h4, .h4 { margin-bottom: 0.625rem; }
+  h5, .h5 { margin-bottom: 0.5rem; }
+  h6, .h6 { margin-bottom: 0.5rem; }
+  
+  p, .text-body { margin-bottom: 0.75rem; }
+}
+
+/* =====================================================
+   ACCESSIBILITY AND READABILITY
+   ===================================================== */
+
+/* Focus states for better accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-color, #cda274);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    font-weight: var(--fw-medium);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--fw-bold);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Dark mode typography adjustments */
+@media (prefers-color-scheme: dark) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    font-weight: var(--fw-regular);
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-family: var(--font-secondary);
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    font-weight: var(--fw-bold);
+  }
+  
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* =====================================================
+   LEGACY OVERRIDE CLASSES (for gradual migration)
+   ===================================================== */
+
+/* Override any problematic inline styles */
+[style*="font-family"] {
+  font-family: var(--font-primary) !important;
+}
+
+[style*="font-size"] h1,
+[style*="font-size"] h2,
+[style*="font-size"] h3,
+[style*="font-size"] h4,
+[style*="font-size"] h5,
+[style*="font-size"] h6 {
+  font-size: revert !important;
+}
+
+/* Utility classes to override problematic styling */
+.typography-reset {
+  font-family: var(--font-primary) !important;
+  font-size: var(--fs-base) !important;
+  font-weight: var(--fw-regular) !important;
+  line-height: var(--lh-normal) !important;
+}
+
+.typography-heading {
+  font-family: var(--font-secondary) !important;
+  font-weight: var(--fw-bold) !important;
+  line-height: var(--lh-tight) !important;
+}
