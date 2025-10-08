@@ -1,12 +1,12 @@
 .trail-dot {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: rgba(0, 123, 255, 0.8);
-  pointer-events: none;
-  z-index: 9999;
-  filter: blur(3px);
-  transform-origin: center;
-  transition: transform 0.2s ease;
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgba(207, 129, 51, 0.8); /* warm brown */
+    pointer-events: none;
+    z-index: 9999;
+    filter: blur(3px);
+    transform-origin: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }

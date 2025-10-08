@@ -1,6 +1,16 @@
-/* navbar.css - Collapsible Sidebar Navigation */
+/* navbar.css - Collapsible Sidebar Navigation with Fixed Colors */
 
-/* Sidebar Container */
+/* ---------------- VARIABLES ---------------- */
+:root {
+    --nav-bgcolor: #1b3c53;       /* Dark Blue - main navbar bg */
+    --accent-color: #bfd7ea;      /* Light Blue - gradient highlight */
+    --accent-color-dark: #d2c1b6; /* Beige - borders, accents */
+    --main-color: #f9f3ef;        /* Cream - text/icons */
+    --primary-text-color: #f9f3ef; /* Sidebar link text */
+    --white-4345: #ffffff;        /* For active links / toggles */
+}
+
+/* ---------------- SIDEBAR ---------------- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -20,7 +30,7 @@
     transform: translateX(0);
 }
 
-/* Sidebar Header */
+/* ---------------- SIDEBAR HEADER ---------------- */
 .sidebar-header {
     padding: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -50,7 +60,7 @@
     color: var(--main-color);
 }
 
-/* Toggle Button */
+/* ---------------- TOGGLE BUTTON ---------------- */
 .toggle-btn {
     position: absolute;
     right: -30px;
@@ -83,7 +93,7 @@
     transform: rotate(180deg);
 }
 
-/* Navigation Menu */
+/* ---------------- NAVIGATION MENU ---------------- */
 .nav-menu {
     padding: 20px 0;
     list-style: none;
@@ -153,7 +163,7 @@
     transform: translateX(0);
 }
 
-/* Dropdown Menu */
+/* ---------------- DROPDOWN MENU ---------------- */
 .nav-dropdown {
     max-height: 0;
     overflow: hidden;
@@ -182,7 +192,7 @@
     transform: rotate(180deg);
 }
 
-/* Mode Toggle in Sidebar */
+/* ---------------- MODE TOGGLE ---------------- */
 .mode-toggle {
     position: absolute;
     bottom: 20px;
@@ -226,7 +236,7 @@
     transform: translateX(0);
 }
 
-/* Language Toggle */
+/* ---------------- LANGUAGE TOGGLE ---------------- */
 .lang-toggle {
     padding: 8px 12px;
     background: var(--accent-color);
@@ -252,7 +262,7 @@
     color: var(--white-4345);
 }
 
-/* Content Area Adjustment */
+/* ---------------- CONTENT ADJUSTMENT ---------------- */
 body.sidebar-expanded {
     margin-left: 250px;
 }
@@ -267,7 +277,7 @@ body.sidebar-expanded {
     margin-left: 250px;
 }
 
-/* Mobile Responsiveness */
+/* ---------------- MOBILE RESPONSIVENESS ---------------- */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
@@ -302,7 +312,7 @@ body.sidebar-expanded {
     }
 }
 
-/* Dark Mode Adjustments */
+/* ---------------- DARK MODE ---------------- */
 .dark-mode .sidebar {
     background: linear-gradient(135deg, var(--nav-bgcolor), var(--accent-color));
     border-right-color: var(--accent-color-dark);

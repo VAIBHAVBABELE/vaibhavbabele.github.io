@@ -1,262 +1,241 @@
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-         /* --snd-bg-color: #c4c8f9;
-    --text-color:#fff;
-    --main-color:#491a02;
-    --bg-color: #a6cde5;
-    --white-4345: #f7f7f7;
-    --bg-shade: #f0d8eb;
-    --img-bg-shade: rgba(242, 227, 241, 0.6);
-    --primary-text-color:#38393a;
-    --secondary-text-color:#926f57;
-    --nav-bgcolor:rgb(242, 208, 135);
-    --accent-color:#d2bf80f0;
-    --accent-color-dark:#856113;
-    --padding-inline-section:10px;
-    --footer-bgColor:#ec9999;
-    --placeholder-color: #6c757d;
-    --input-bg-color: #dad6d9; */
-    --snd-bg-color: #fdf0d5; /* Soft beige secondary background */
-    --text-color: #3e3e3e; /* Deep brown for primary text */
-    --main-color: #5a3e2b; /* Rich brown for headings or strong accents */
-    --bg-color: #fdf6ec; /* Light creamy beige main background */
-    --white-4345: #f9f6f0; /* Near-white with warm tone */
-    --bg-shade: #faebdd; /* Subtle background contrast */
-    --img-bg-shade: rgba(250, 235, 221, 0.6); /* Beige translucent background for images */
-    --primary-text-color: #4e342e; /* Slightly darker warm brown */
-    --secondary-text-color: #926f57; /* Light brown for secondary elements */
-    --nav-bgcolor: #f2d087; /* Warm yellow beige for navbar */
-    --accent-color: #cda274; /* Tan - for buttons, links, highlights */
-    --accent-color-dark: #856113; /* Deep goldish-brown for hover or emphasis */
-    --padding-inline-section: 10px;
-    --placeholder-color: #8a7e74; /* Muted warm gray for placeholder text */
-    --input-bg-color: #f0e3d3; 
-    }
-
-    .dark-mode {
-         --nav-bgcolor: #a58b52; /* Tan brown navbar */
-  --bg-color: #1c1a17; /* Warm charcoal background */
-  --bg-shade: #2a2723; /* Slightly lighter for cards or sections */
-  --img-bg-shade: rgba(80, 78, 78, 0.5); /* Soft contrast for image containers */
-  --primary-text-color: #fdf0d5; /* Warm light beige text */
-  --tertiary-color: #d4b996; /* Soft accent like glowing buttons */
-  --placeholder-color: #b9a89f;
-  --input-bg-color: #3f3b3c; /* Dark beige input fields */
-    }
-
-    .main:not(.dark-mode) {
-      border: var(--primary-text-color) 5px solid;
-      margin-top: 60px;
-      /* Updated to match new navbar */
-    }
-    h1{
-      margin-top: 25px;
-    }
-    /* Mobile responsive fix for main content */
-    @media (max-width: 1000px) {
-      .main:not(.dark-mode) {
-        margin-top: 55px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .main:not(.dark-mode) {
-        margin-top: 50px;
-      }
-    }
-body{
+  margin: 0;
   padding: 0;
-  margin: 0
+  box-sizing: border-box;
 }
-  
 
-   /* Footer spacing is handled dynamically by js/footer.js which measures the
-     injected footer height and sets body padding-bottom. Keep a 0px fallback
-     here to avoid double spacing if JS is disabled. */
-   /* :root { --page-footer-space: 0px; } */
-   /* body { padding-bottom: 0; } */
-   /* Keep container padding normal; injected footer script will set body padding. */
-   /* .container { padding-bottom: 0; } */
+/* ===== CSS Variables ===== */
+:root {
+  --snd-bg-color: #fdf0d5; 
+  --text-color: #3e3e3e;
+  --main-color: #5a3e2b;
+  --bg-color: #fdf6ec;
+  --white-4345: #f9f6f0;
+  --bg-shade: #faebdd;
+  --img-bg-shade: rgba(250, 235, 221, 0.6);
+  --primary-text-color: #4e342e;
+  --secondary-text-color: #926f57;
+  --nav-bgcolor: #f2d087;
+  --accent-color: #cda274;
+  --accent-color-dark: #856113;
+  --padding-inline-section: 10px;
+  --placeholder-color: #8a7e74;
+  --input-bg-color: #f0e3d3;
+}
 
-    .container {
-      margin-top: 10px;
-      padding: 20px;
-      font-size: smaller;
-    }
+.dark-mode {
+  --nav-bgcolor: #a58b52;
+  --bg-color: #1c1a17;
+  --bg-shade: #2a2723;
+  --img-bg-shade: rgba(80, 78, 78, 0.5);
+  --primary-text-color: #fdf0d5;
+  --tertiary-color: #d4b996;
+  --placeholder-color: #b9a89f;
+  --input-bg-color: #3f3b3c;
+}
 
-    .privacy-container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 40px;
-      background-color: var(--bg-shade);
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
+/* ===== Body & Main ===== */
+body {
+  padding: 0;
+  margin: 0;
+}
 
-    .privacy-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
-    }
+.main:not(.dark-mode) {
+  border: 5px solid var(--primary-text-color);
+  margin-top: 60px;
+}
 
-    .privacy-header {
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
+h1 { margin-top: 25px; }
 
-    .privacy-header h1 {
-      color: var(--main-color);
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+@media (max-width: 1000px) {
+  .main:not(.dark-mode) { margin-top: 55px; }
+}
 
-    .privacy-divider {
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
-      border: none;
-      margin: 25px auto;
-      width: 150px;
-      border-radius: 3px;
-    }
+@media (max-width: 450px) {
+  .main:not(.dark-mode) { margin-top: 50px; }
+}
 
-    .privacy-section {
-      margin-bottom: 35px;
-      padding: 20px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      background-color: rgba(255, 255, 255, 0.05);
-    }
+/* ===== Container ===== */
+.container {
+  margin-top: 10px;
+  padding: 20px;
+  font-size: smaller;
+}
 
-    .privacy-section:hover {
-      transform: translateX(10px);
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+/* ===== Privacy Container ===== */
+.privacy-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--bg-shade);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-    .privacy-section h4 {
-      color: var(--secondary-text-color);
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-    }
+.privacy-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
+}
 
-    .privacy-section h4::before {
-      content: '•';
-      color: var(--accent-color);
-      margin-right: 10px;
-      font-size: 1.6rem;
-    }
+/* ===== Privacy Header ===== */
+.privacy-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
 
-    .privacy-section p {
-      line-height: 1.8;
-      margin-bottom: 15px;
-      color: var(--primary-text-color);
-      font-size: 1.05rem;
-      padding-left: 25px;
-    }
+.privacy-header h1 {
+  color: var(--main-color);
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
-    .privacy-section a {
-      color: var(--accent-color-dark);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      font-weight: 500;
-    }
+.privacy-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
+  border: none;
+  margin: 25px auto;
+  width: 150px;
+  border-radius: 3px;
+}
 
-    .privacy-section a::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: var(--accent-color);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
+/* ===== Privacy Sections ===== */
+.privacy-section {
+  margin-bottom: 35px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.05);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-    .privacy-section a:hover::after {
-      transform: scaleX(1);
-    }
+.privacy-section:hover {
+  transform: translateX(10px);
+  background-color: rgba(255,255,255,0.1);
+}
 
-    .privacy-section a:hover {
-      color: var(--main-color);
-    }
+.privacy-section h4 {
+  color: var(--secondary-text-color);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
 
-    @media (max-width: 768px) {
-      .privacy-container {
-        margin: 20px;
-        padding: 25px;
-      }
+.privacy-section h4::before {
+  content: '•';
+  color: var(--accent-color);
+  margin-right: 10px;
+  font-size: 1.6rem;
+}
 
-      .privacy-header h1 {
-        font-size: 2rem;
-      }
+.privacy-section p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: var(--primary-text-color);
+  font-size: 1.05rem;
+  padding-left: 25px;
+}
 
-      .privacy-section {
-        padding: 15px;
-      }
+.privacy-section a {
+  color: var(--accent-color-dark);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
 
-      .privacy-section h4 {
-        font-size: 1.2rem;
-      }
+.privacy-section a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
 
-      .privacy-section p {
-        font-size: 1rem;
-        padding-left: 15px;
-      }
-    }
-    
-    .visitor-counter {
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-    }
-    
-    .visitor-counter h4 {
-        color: var(--secondary-text-color);
-        margin-bottom: 15px;
-    }
+.privacy-section a:hover::after {
+  transform: scaleX(1);
+}
 
-    
-    .essential-contact {
-        margin: 20px 0;
-    }
-    
-    .essential-contact .contact-link {
-        color: var(--primary-text-color);
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: color 0.3s ease;
-    }
-    
-    .essential-contact .contact-link:hover {
-        color: var(--accent-color-dark);
-    }
-    
-    .essential-contact i {
-        font-size: 1.2rem;
-    }
-    
-    .copyright {
-        color: var(--secondary-text-color);
-        margin: 0;
-        font-size: 0.9rem;
-    }
+.privacy-section a:hover {
+  color: var(--main-color);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .privacy-container {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .privacy-header h1 {
+    font-size: 2rem;
+  }
+
+  .privacy-section {
+    padding: 15px;
+  }
+
+  .privacy-section h4 {
+    font-size: 1.2rem;
+  }
+
+  .privacy-section p {
+    font-size: 1rem;
+    padding-left: 15px;
+  }
+}
+
+/* ===== Visitor Counter ===== */
+.visitor-counter {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.visitor-counter h4 {
+  color: var(--secondary-text-color);
+  margin-bottom: 15px;
+}
+
+/* ===== Essential Contact ===== */
+.essential-contact {
+  margin: 20px 0;
+}
+
+.essential-contact .contact-link {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.essential-contact .contact-link:hover {
+  color: var(--accent-color-dark);
+}
+
+.essential-contact i {
+  font-size: 1.2rem;
+}
+
+/* ===== Footer ===== */
+copyright {
+  color: var(--secondary-text-color);
+  margin: 0;
+  font-size: 0.9rem;
+}

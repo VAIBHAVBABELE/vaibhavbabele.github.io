@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #fff8f0;
+    background-color: #f9f3ef; /* updated */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,12 +45,12 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 8px;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 4px 15px rgba(29, 60, 83, 0.3); /* updated shadow to match palette */
 }
 
 .org-label {
   font-size: 14px;
-  color: #6d4c41;
+  color: #1b3c53; /* updated */
   font-weight: 600;
   line-height: 1.2;
   margin: 2px 0;
@@ -61,10 +61,10 @@ body {
     width: 90vw;
     height: auto;
     padding: 40px 30px;
-    border: 10px solid #f7931e;
+    border: 10px solid #d2c1b6; /* updated */
     background: linear-gradient(white, white) padding-box,
-              linear-gradient(45deg, #ff6b35, #f7931e, #ffb347, #ff6b35) border-box;
-    box-shadow:  0 0 25px rgba(44, 62, 80, 0.25);
+              linear-gradient(45deg, #d6d3f0, #d2c1b6, #bfd7ea, #d6d3f0) border-box; /* updated */
+    box-shadow:  0 0 25px rgba(27, 60, 83, 0.25); /* updated */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,13 +76,13 @@ body {
 .certificate-body,
 .certificate-footer {
   text-align: center;
-  color: #4b3d2a;
+  color: #1b3c53; /* updated */
 }
 
 .main-title {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    color: #ff6b35;
+    color: #d2c1b6; /* updated */
     margin: 0;
     font-weight: 700;
 }
@@ -90,7 +90,7 @@ body {
 .subtitle {
     font-size: 24px;
     margin-top: 10px;
-    color: #6d4c41;
+    color: #1b3c53; /* updated */
 }
 
 .mentor-badge {
@@ -102,13 +102,13 @@ body {
 .badge-circle {
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  background: linear-gradient(135deg, #d2c1b6, #bfd7ea); /* updated */
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 15px rgba(229, 46, 113, 0.4);
+  box-shadow: 0 8px 15px rgba(27, 60, 83, 0.4); /* updated */
   border: 2px solid #fff;
   color: #fff;
   font-weight: 700;
@@ -135,7 +135,7 @@ body {
 .contributor-name {
     font-family: 'Playfair Display', serif;
     font-size: 52px;
-    color: #5d4037;
+    color: #1b3c53; /* updated */
     font-weight: 800;
     margin: 10px 0;
 }
@@ -143,17 +143,16 @@ body {
 .contribution-text {
     font-size: 18px;
     line-height: 1.6;
-    padding: 0 40px;
-    color: #5b4c3a;
-    background: rgba(255, 107, 53, 0.05);
-    border-left: 4px solid #f7931e;
+    padding: 20px 40px;
+    color: #1b3c53; /* updated */
+    background: rgba(210, 193, 182, 0.05); /* updated */
+    border-left: 4px solid #d2c1b6; /* updated */
     border-radius: 8px;
-    padding: 20px;
 }
 
 .rank-highlight {
   font-weight: bold;
-  color: #ff6b35;
+  color: #d2c1b6; /* updated */
   font-size: 1.2em;
 }
 
@@ -163,7 +162,7 @@ body {
     align-items: flex-end;
     margin-top: 30px;
     font-size: 14px;
-    color: #4e342e;
+    color: #1b3c53; /* updated */
 }
 
 .signature p, 
@@ -174,11 +173,11 @@ body {
 .signature-font {
     font-family: 'Great Vibes', cursive;
     font-size: 20px;
-    color: #ff6b35;
+    color: #d2c1b6; /* updated */
 }
 
 .sig-line {
-    border-top: 1px solid #ff6b35;
+    border-top: 1px solid #d2c1b6; /* updated */
     width: 150px;
     margin: 0 auto 5px auto;
 }
@@ -188,7 +187,7 @@ body {
     padding: 12px 25px;
     font-size: 16px;
     font-weight: 600;
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    background: linear-gradient(45deg, #d2c1b6, #bfd7ea); /* updated */
     color: #fff;
     border: none;
     border-radius: 30px;
@@ -198,12 +197,12 @@ body {
     gap: 10px;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 5px 15px rgba(27, 60, 83, 0.3); /* updated */
 }
 
 #download-btn:hover {
     background-color: #b68e47;
-    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    background: linear-gradient(45deg, #bfd7ea, #d2c1b6); /* updated */
     transform: translateY(-1px);
 }
 
@@ -220,6 +219,7 @@ body {
     z-index: 0;
     pointer-events: none;
 }
+
 /* Responsiveness Addition */
 @media (max-width: 1024px) {
     #certificate-wrapper {

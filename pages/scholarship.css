@@ -20,7 +20,7 @@
 
 .dark-mode {
   --nav-bgcolor: #a58b52;
-  --bg-color: #1c1a17;
+  --bg-color: #121212;
   --bg-shade: #2a2723;
   --img-bg-shade: rgba(80, 78, 78, 0.5);
   --primary-text-color: #fdf0d5;
@@ -42,7 +42,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 body.dark-mode {
   background: var(--bg-color);
 }
@@ -53,7 +52,7 @@ body.dark-mode {
   padding: 20px;
 }
 
-/* ===== Title ===== */
+/* ===== Header ===== */
 .container .heading {
   text-align: center;
   font-size: 32px;
@@ -61,32 +60,23 @@ body.dark-mode {
   margin: 50px auto 30px auto;
   color: #4E342E;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
-  display: block;
   padding: 15px 25px;
   border-radius: 12px;
   background: #CAB5AF;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s;
 }
-
 body.dark-mode .container .heading {
-  color: var(--primary-text-color);
   background: var(--card-bg-color);
+  color: var(--primary-text-color);
   border: 1px solid var(--accent-color);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
 }
-
 .container .heading:hover {
   background: #A1887F;
   color: #fff;
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-
-}
-
-.container .heading::after {
-  content: "";
-  display: none;
-
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 .header-desc {
@@ -98,9 +88,11 @@ body.dark-mode .container .heading {
   font-style: italic;
   text-align: center;
   letter-spacing: 0.5px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   transition: color 0.3s;
-
+}
+body.dark-mode .header-desc {
+  color: #cfcfcf;
 }
 
 /* ===== Search Input ===== */
@@ -112,401 +104,119 @@ body.dark-mode .container .heading {
   display: block;
   border-radius: 25px;
   border: 1px solid #bbb;
-  box-sizing: border-box;
+  background: #fafafa;
   outline: none;
   transition: all 0.3s ease;
-  background: #fafafa;
-
 }
-
 #search-input:focus {
   border: 1px solid #4E342E;
-  box-shadow: 0 0 10px rgba(78, 52, 46, 0.3);
+  box-shadow: 0 0 10px rgba(78,52,46,0.3);
   background: #fff;
-
+}
+body.dark-mode #search-input {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+body.dark-mode #search-input:focus {
+  border: 1px solid #bb86fc;
+  box-shadow: 0 0 10px rgba(187,134,252,0.4);
+  background: #2e2e2e;
 }
 
 /* ===== Cards Container ===== */
 .cards-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
   padding: 30px 15px;
   margin: 30px 0;
   background: #fdf5ec;
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s;
-
+}
+body.dark-mode .cards-container {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 
 /* ===== Individual Card ===== */
 .cards-container .card {
-  background-color: #fff;
+  background: #fff;
   border-radius: 12px;
   padding: 12px;
   width: 240px;
   flex: 1 1 calc(33.33% - 20px);
   max-width: calc(33.33% - 20px);
   min-height: 260px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
   border: 2px solid #4E342E;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: relative; 
-
-
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .cards-container .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+body.dark-mode .cards-container .card {
+  background: #1e1e1e;
+  border: 2px solid #444;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+body.dark-mode .cards-container .card:hover {
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
 }
 
-
-/* ===== Card Top (Logo + Badge) ===== */
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 4px;
-  padding-top: 6px;
-}
-
-
+/* ===== Card Top & Body ===== */
+.card-top {display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;padding-top:6px;}
 .card-top .logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: contain;
-
-  background: #fff;
-  margin-top: 4px;
-  border: 1px solid #ddd;
-  margin-bottom: 2px;
+  width: 60px;height:60px;border-radius:50%;object-fit:contain;
+  background:#fff;border:1px solid #ddd;margin-bottom:2px;
 }
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: 5px; 
-
+.card-body {display:flex;flex-direction:column;gap:4px;margin-top:5px;}
+.card-body .deadline, .card-body .award, .card-body .eligibility {
+  font-size:14px;margin:4px 0;line-height:1.4;word-break:break-word;
 }
-
-
-
-/* ===== Card Content ===== */
-.card-body .deadline,
-.card-body .award,
-.card-body .eligibility {
-  font-size: 14px;
-  margin: 4px 0;
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-  /* ===== Deadline Badge ===== */
-.card-top .deadline-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 4px 10px;
-    border-radius: 14px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #fff;
-    background: #6f42c1;
-    white-space: nowrap;
-  }
-
-  .deadline-badge.urgent {
-    background: #e63946;
-
-  }
-
-  .deadline-badge.closed {
-    background: #6c757d;
-
-  }
-
-  .card-body h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #3c1361;
-    margin: 8px 0 6px 0;
-    line-height: 1.3;
-    word-break: break-word;
-  }
-
-
-  /* ===== Award & Eligibility ===== */
-  .card-body .award {
-    color: #d4af37;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 6px;
-
-  }
-
-  .card-body .eligibility {
-    color: #2e7d32;
-    font-weight: 500;
-    font-size: 13px;
-    font-family: 'Poppins', sans-serif;
-    margin: 5px 0;
-    line-height: 1.4;
-    overflow: hidden;
-    text-overflow: unset;
-    word-wrap: break-word;
-
-
-  }
-
-  .card .eligibility strong {
-    color: #043606;
-
-  }
-
-  /* ===== Apply Button ===== */
-  .card-body .apply-btn {
-    display: block;
-    margin: 10px auto 0; 
-    padding: 8px 14px;
-    background: #CAB5AF;
-    color: #4E342E;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    text-align: center;
-    transition: background 0.2s;
-
-  }
-
-  .apply-btn:hover {
-    background: #4E342E;
-    color: #fff;
-
-  }
-
-  /* ===== FAQ Section ===== */
-  .faq-section {
-    margin-top: 45px;
-    padding: 25px;
-    background: linear-gradient(135deg, #f3f0fa, #e6e0f7);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 15px;
-
-  }
-
-  .faq-section h3 {
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #3c1361;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-
-  }
-
-  .faq-item {
-    margin-bottom: 16px;
-    padding: 16px 18px;
-    background: #fff;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    border-left: 5px solid #6f42c1;
-
-  }
-
-  .faq-item:hover {
-    background: #f5f1fb;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-
-  }
-
-  .faq-item h4 {
-    margin: 0;
-    font-size: 17px;
-    color: #6f42c1;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-  }
-
-  .faq-item h4::after {
-    content: '+';
-    font-size: 20px;
-    color: #6f42c1;
-    transition: transform 0.3s;
-
-  }
-
-
-  .faq-item p {
-    margin-top: 10px;
-    font-size: 15px;
-    color: #4a4a5a;
-    line-height: 1.7;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-    opacity: 0;
-
-  }
-
-  .faq-item.active p {
-    max-height: 500px;
-    opacity: 1;
-
-  }
-
-
-  .faq-item.active h4::after {
-    content: '-';
-    transform: rotate(180deg);
-  }
-
-  /* ===== Responsive Styling ===== */
-
-
-
-  @media (max-width: 600px) {
-    .cards-container .card {
-      flex: 1 1 100%;
-      max-width: 100%;
-      width: 100%;
-      height: auto;
-      overflow: visible;
-    }
-  }
-
-
-  @media (min-width: 601px) and (max-width: 900px) {
-    .cards-container .card {
-      flex: 1 1 calc(50% - 20px);
-      max-width: calc(50% - 20px);
-      width: auto;
-      height: auto;
-    }
-  }
-
-
-  @media (min-width: 901px) {
-    .cards-container .card {
-      flex: 1 1 calc(33.33% - 20px);
-      max-width: calc(33.33% - 20px);
-      width: auto;
-      height: auto;
-    }
-  }
-
-  /* ===== Dark Mode ===== */
-
-  body.dark-mode {
-    background: #121212;
-    color: #e0e0e0;
-  }
-
-  body.dark-mode .container .heading {
-    background: #2e2e2e;
-    color: #f0f0f0;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-  }
-
-  body.dark-mode .header-desc {
-    color: #cfcfcf;
-  }
-
-  body.dark-mode #search-input {
-    background: #1e1e1e;
-    color: #e0e0e0;
-    border: 1px solid #555;
-  }
-
-  body.dark-mode #search-input:focus {
-    border: 1px solid #bb86fc;
-    box-shadow: 0 0 10px rgba(187, 134, 252, 0.4);
-    background: #2e2e2e;
-  }
-
-  body.dark-mode .cards-container {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  }
-
-  body.dark-mode .cards-container .card {
-    background-color: #1e1e1e;
-    border: 2px solid #444;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  }
-
-  body.dark-mode .cards-container .card:hover {
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
-  }
-
-  body.dark-mode .card h4,
-  body.dark-mode .card p,
-  body.dark-mode .card .award,
-  body.dark-mode .card .eligibility {
-    color: #e0e0e0;
-  }
-
-  body.dark-mode .award {
-    color: #f0c419;
-  }
-
-  body.dark-mode .eligibility {
-    color: #81c784;
-  }
-
-  body.dark-mode .deadline-badge {
-    color: #fff;
-    background: #bb86fc;
-  }
-
-  body.dark-mode .deadline-badge.urgent {
-    background: #cf6679;
-  }
-
-  body.dark-mode .deadline-badge.closed {
-    background: #666;
-  }
-
-  body.dark-mode .apply-btn {
-    background: #333;
-    color: #fff;
-  }
-
-  body.dark-mode .apply-btn:hover {
-    background: #bb86fc;
-    color: #000;
-  }
-
-  body.dark-mode .faq-section {
-    background: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  body.dark-mode .faq-item {
-    background: #2c2c2c;
-    border-left: 5px solid #bb86fc;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-  }
-
-  body.dark-mode .faq-item h4 {
-    color: #bb86fc;
-  }
-
-  body.dark-mode .faq-item p {
-    color: #cfcfcf;
-  }
+.card-body h4 {font-size:16px;font-weight:700;color:#3c1361;margin:8px 0 6px;line-height:1.3;word-break:break-word;}
+.card-body .award {color:#d4af37;font-weight:600;font-size:14px;margin-bottom:6px;}
+.card-body .eligibility {color:#2e7d32;font-weight:500;font-size:13px;margin:5px 0;line-height:1.4;overflow:hidden;text-overflow:unset;word-wrap:break-word;font-family:'Poppins',sans-serif;}
+.card .eligibility strong {color:#043606;}
+.card-body .apply-btn {display:block;margin:10px auto 0;padding:8px 14px;background:#CAB5AF;color:#4E342E;text-decoration:none;border-radius:6px;font-weight:600;text-align:center;transition: background 0.2s;}
+.card-body .apply-btn:hover {background:#4E342E;color:#fff;}
+body.dark-mode .card h4, body.dark-mode .card p, body.dark-mode .card .award, body.dark-mode .card .eligibility {color:#e0e0e0;}
+body.dark-mode .award {color:#f0c419;}
+body.dark-mode .eligibility {color:#81c784;}
+body.dark-mode .apply-btn {background:#333;color:#fff;}
+body.dark-mode .apply-btn:hover {background:#bb86fc;color:#000;}
+
+/* ===== Deadline Badge ===== */
+.card-top .deadline-badge {position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:14px;font-size:12px;font-weight:600;color:#fff;background:#6f42c1;white-space:nowrap;}
+.deadline-badge.urgent {background:#e63946;}
+.deadline-badge.closed {background:#6c757d;}
+body.dark-mode .deadline-badge {background:#bb86fc;color:#fff;}
+body.dark-mode .deadline-badge.urgent {background:#cf6679;}
+body.dark-mode .deadline-badge.closed {background:#666;}
+
+/* ===== FAQ Section ===== */
+.faq-section {margin-top:45px;padding:25px;background:linear-gradient(135deg,#f3f0fa,#e6e0f7);box-shadow:0 8px 20px rgba(0,0,0,0.08);border-radius:15px;}
+body.dark-mode .faq-section {background:white;box-shadow:0 8px 20px rgba(0,0,0,0.4);}
+.faq-section h3 {margin-bottom:25px;font-size:24px;color:#3c1361;text-align:center;font-weight:700;letter-spacing:0.5px;}
+.faq-item {margin-bottom:16px;padding:16px 18px;background:#fff;border-radius:12px;cursor:pointer;box-shadow:0 6px 15px rgba(0,0,0,0.06);transition:background 0.3s, transform 0.3s, box-shadow 0.3s;border-left:5px solid #6f42c1;}
+.faq-item:hover {background:#f5f1fb;transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,0.08);}
+.faq-item h4 {margin:0;font-size:17px;color:#6f42c1;font-weight:600;display:flex;justify-content:space-between;align-items:center;}
+.faq-item h4::after {content:'+';font-size:20px;color:#6f42c1;transition:transform 0.3s;}
+.faq-item p {margin-top:10px;font-size:15px;color:#4a4a5a;line-height:1.7;max-height:0;opacity:0;overflow:hidden;transition:max-height 0.4s ease,opacity 0.4s ease;}
+.faq-item.active p {max-height:500px;opacity:1;}
+.faq-item.active h4::after {content:'-';transform:rotate(180deg);}
+body.dark-mode .faq-item {background:#2c2c2c;border-left:5px solid #bb86fc;box-shadow:0 6px 15px rgba(0,0,0,0.4);}
+body.dark-mode .faq-item h4 {color:#bb86fc;}
+body.dark-mode .faq-item p {color:#cfcfcf;}
+
+/* ===== Responsive ===== */
+@media (max-width:600px){.cards-container .card{flex:1 1 100%;max-width:100%;width:100%;height:auto;overflow:visible;}}
+@media (min-width:601px) and (max-width:900px){.cards-container .card{flex:1 1 calc(50% - 20px);max-width:calc(50% - 20px);width:auto;height:auto;}}
+@media (min-width:901px){.cards-container .card{flex:1 1 calc(33.33% - 20px);max-width:calc(33.33% - 20px);width:auto;height:auto;}}

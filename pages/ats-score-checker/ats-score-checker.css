@@ -1,16 +1,17 @@
-/* ats-score-checker/ats-score-checker.css */
+/* ats-score-checker/ats-score-checker.css - Updated Colors */
+
 :root {
-  --accent: #cda274;
-  --accent-dark: #856113;
-  --bg: #faebdd;
+  --accent: #d2c1b6;
+  --accent-dark: #d6d3f0;
+  --bg: #f9f3ef;
   --card: #fff;
-  --text: #4e342e;
+  --text: #1b3c53;
   --success: #28a745;
   --warning: #ffc107;
   --danger: #dc3545;
-  --dark-bg: #1a1a1a;
+  --dark-bg: #1b3c53;
   --dark-card: #2c2c2c;
-  --dark-text: #e0e0e0;
+  --dark-text: #f9f3ef;
 }
 
 body {
@@ -32,7 +33,7 @@ body.dark-mode .card {
 }
 
 body.dark-mode .navbar {
-  background: #4a3c1e !important;
+  background: #1b3c53 !important;
 }
 
 body.dark-mode .chip {
@@ -132,7 +133,7 @@ body.dark-mode .template-card {
   align-items: center;
   padding: 8px 12px;
   border-radius: 999px;
-  background: #fff6ea;
+  background: #f0efed;
   border: 1px solid rgba(0,0,0,0.06);
   margin: 6px 6px 6px 0;
   font-weight: 600;
