@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GSSoC '25 Contributors</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: #f8f9fa;
+    }
+    header {
+      background: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 0 0 15px 15px;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      margin: 0;
+    }
+    table, th, td {
+      border: 1px solid black;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><b> GSSoC '25 Contributors <img src="./gssoc25-logo.jpg" height="45" width="45" /></b></h1>
+  </header>
+
+  <main class="container">
+    <table class="table table-striped table-hover text-center align-middle">
+      <thead class="table-primary">
+        <tr>
+          <th>NAME</th>
+          <th>GITHUB ID</th>
+          <th>CERTIFICATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vanshika Negi</td>
+          <td><a href="https://github.com/VanshikaNegii" target="_blank">@VanshikaNegii</a></td>
+          <td><button class="btn btn-success btn-sm" onclick="downloadCertificate('Vanshika Negi')">Download</button></td>
+        </tr>
+        <tr>
+          <td>John Doe</td>
+          <td><a href="https://github.com/johndoe" target="_blank">@johndoe</a></td>
+          <td><button class="btn btn-success btn-sm" onclick="downloadCertificate('John Doe')">Download</button></td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td><a href="https://github.com/janesmith" target="_blank">@janesmith</a></td>
+          <td><button class="btn btn-success btn-sm" onclick="downloadCertificate('Jane Smith')">Download</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    // Preload logo for watermark
+    const logo = new Image();
+    logo.src = "D:\vaibhavbabele.github.io\pages\pr-contribution\gssoc25-logo.jpg";
+
+    function downloadCertificate(name) {
+      const doc = new jsPDF("landscape");
+
+      // Border
+      doc.setDrawColor(44, 62, 80);
+      doc.setLineWidth(4);
+      doc.rect(10, 10, 277, 190);
+
+      // Add watermark if loaded
+      if (logo.complete) {
+        doc.addImage(logo, "JPEG", 90, 40, 120, 120, "", "FAST");
+      }
+
+      // Title
+      doc.setFont("times", "bold");
+      doc.setFontSize(40);
+      doc.text("CERTIFICATE OF CONTRIBUTION", 148, 35, { align: "center" });
+
+      // Subtitle
+      doc.setFont("times", "italic");
+      doc.setFontSize(16);
+      doc.text("This certificate is proudly presented to", 148, 65, { align: "center" });
+
+
+      // Contributor Name
+      doc.setFont("times", "bolditalic");
+      doc.setFontSize(24);
+      doc.setTextColor(41, 128, 185);
+      doc.text(name, 148, 90, { align: "center" });
+
+      const textWidth = doc.getTextWidth(name);
+      doc.setDrawColor(41, 128, 185);
+      doc.setLineWidth(0.5); 
+      doc.line(148 - textWidth/2, 92, 148 + textWidth/2, 92);
+
+      // Reset color
+      doc.setTextColor(0, 0, 0);
+
+      // Project Line
+      doc.setFont("times", "italic");
+      doc.setFontSize(16);
+      doc.text("for their valuable contributions to the project", 148, 115, { align: "center" });
+
+      doc.setFont("times", "bolditalic");
+      doc.setFontSize(18);
+      doc.text("Nitra Mitra", 148, 132, { align: "center" });
+
+    
+
+      // Program
+      doc.setFont("times", "bolditalic");
+      doc.setFontSize(16);
+      doc.setTextColor("red");
+      doc.text("Under the program: GSSoC 2025", 148, 150, { align: "center" });
+
+      // Footer signatures
+      doc.setTextColor(0, 0, 0);
+      doc.line(70, 180, 130, 180); //prorgram head 
+      doc.text("Program Head", 100, 190, { align: "center" });
+
+      doc.line(220, 180, 280, 180); //organization lead
+      doc.text("Organization Lead", 250, 190, { align: "center" });
+
+      // Save PDF
+      doc.save(`${name}_GSSoC25_Certificate.pdf`);
+    }
+  </script>
+</body>
+</html>
