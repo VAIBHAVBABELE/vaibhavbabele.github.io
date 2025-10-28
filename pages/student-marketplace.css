@@ -62,15 +62,17 @@
   }
 
   header h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 45px;
+    margin-bottom: 15px;
     font-family: Playfair Display, Oswald, Abril Fatface;
+    font-weight: bolder;
   }
 
   header p {
-    font-size: 20px;
+    font-size: 30px;
     color: #6B4F1D;
     font-family: Merriweather, Nunito, DM Sans;
+    
   }
 
 
@@ -101,7 +103,7 @@
     background: #4E342E;
     color: #FAEBDD;
     border-radius: 5px;
-    text-decoration: underline;
+    
   }
 
   .nav-links a.active {
@@ -259,8 +261,11 @@
     text-align: center;
     margin: 20px 0;
     color: #6B4F1D;
-    font-size: 30px;
+    font-size: 40px;
     font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #d8b28b;
+
   }
 
 
@@ -326,32 +331,41 @@
   .marketplace {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width:100%;
     gap: 20px;
+    column-gap: 80px;
     padding: 20px;
     justify-content: center;
   }
 
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: #F9F6F0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
+    border-radius: 15px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border: 2px solid #4E342E;
-    width: 200px;
-    margin: 10px;
+    border: 2px solid #2d1008;
+    width:300px;
+    height: auto;
+    margin: 20px;
     box-sizing: border-box;
+    font-size: large;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+  .card .price{
+    font-weight:bold;
+  }
   .card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   .card img {
-    width: 100%;
+    width: 95%;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
@@ -360,18 +374,23 @@
   .card h3 {
     margin: 10px 0 5px;
     color: #6B4F1D;
+    font-weight: bold;
+    
   }
 
   .card p {
     margin: 5px 0;
-    color: #555;
-    font-size: 14px;
+    color: #2e2d2d;
+    font-size: 20px;
   }
 
 
   .Go-link {
     text-align: center;
-    margin: 20px 0 40px;
+    
+    margin: 25px 0 45px;
+    font-weight: bold;
+    transition: 1s ease-in-out;
   }
 
   .Go-link a {
@@ -386,15 +405,19 @@
 
   .Go-link a:hover {
     background: #4E342E;
+    transform: scale(1.07);
   }
 
   body.dark-mode header {
-    background: #F0E2C6;
-    color: #4E342E;
+    background: #444;
+    color: #fff;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
   }
 
+  body.dark-mode header p{
+    color: #ecc48c;
+  }
 
   body.dark-mode .nav-links {
     background: #444444;
@@ -513,15 +536,15 @@
   }
 
   body.dark-mode .marketplace {
-    background: #6b5e48;
+    background: #000;
     color: #f0e8d8;
   }
 
 
   body.dark-mode .card {
-    background: #1f1f1f;
-    border: 1px solid #555;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    background: #292828;
+    border: 1px solid #f2c9b5;
+    box-shadow: 0 4px 6px rgba(99, 98, 98, 0.4);
   }
 
   body.dark-mode .card h3,
