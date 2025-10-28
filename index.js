@@ -1,3 +1,4 @@
+
 // ===== Navbar & Scroll Handling =====
 const element = document.getElementById('scroll-hide');
 const load = document.getElementById("onload");
@@ -281,36 +282,37 @@ if (!document.querySelector('script[src*="translate.google.com"]')) {
     document.body.appendChild(translateScript);
 }
 
-function waitForTranslate(callback) {
-    const interval = setInterval(() => {
-        const select = document.querySelector(".goog-te-combo");
-        if (select) {
-            clearInterval(interval);
-            callback(select);
-        }
-    }, 500);
-}
-
 function initLanguageToggle() {
-    const langToggle = document.getElementById("lang-toggle");
-    if (!langToggle) return;
+  const langToggle = document.getElementById("lang-toggle");
+  if (!langToggle) return;
 
-    waitForTranslate((select) => {
-        // Apply saved language immediately
-        const savedLang = localStorage.getItem("lang") || "en";
-        select.value = savedLang;
+  waitForTranslate((select) => {
+    // Helper to apply a language and keep the button text in sync
+    const applyLang = (lang) => {
+      if (select.value !== lang) {
+        select.value = lang;
         select.dispatchEvent(new Event("change"));
-        langToggle.innerText = savedLang === "en" ? "हिंदी" : "English";
+      } else {
+        // Re-fire change in case GT reset internally
+        select.dispatchEvent(new Event("change"));
+      }
+      langToggle.innerText = lang === "en" ? "हिंदी" : "English";
+    };
 
-        // Toggle click
-        langToggle.addEventListener("click", function () {
-            const newLang = select.value === "en" ? "hi" : "en";
-            select.value = newLang;
-            select.dispatchEvent(new Event("change"));
-            langToggle.innerText = newLang === "en" ? "हिंदी" : "English";
-            localStorage.setItem("lang", newLang);
-        });
-    });
+    // Restore saved language after a short delay so GT finishes initializing
+    const savedLang = localStorage.getItem("lang") || "en";
+    setTimeout(() => applyLang(savedLang), 500);
+
+    // Guard to avoid attaching the click handler multiple times
+    if (!langToggle.dataset.bound) {
+      langToggle.addEventListener("click", () => {
+        const newLang = select.value === "en" ? "hi" : "en";
+        localStorage.setItem("lang", newLang);
+        applyLang(newLang);
+      });
+      langToggle.dataset.bound = "true";
+    }
+  });
 }
 
 // Run language toggle initialization
