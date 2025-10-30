@@ -1,7 +1,7 @@
 /* Performance Analytics Styles */
 
 .analytics-header {
-    background: linear-gradient(135deg, #3b2f2f 0%, #1e1b18 100%);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-color-dark));
     color: white;
     padding: 3rem 0;
     margin-bottom: 2rem;
